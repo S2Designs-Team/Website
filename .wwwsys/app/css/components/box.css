@@ -1,9 +1,0 @@
-.box {
-	margin:              1em auto;
-	padding:             1em;
-	flex-direction:      column;
-	background:          url(../../res/img/bg-transparent1.png) repeat;
-	border:              1px #ccc solid;
-	border-radius:       0.55rem;
-	/*filter:              blur(5px);*/
-}
