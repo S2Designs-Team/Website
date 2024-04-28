@@ -1,0 +1,10 @@
+ARTICLE {
+    min-width:          635px;
+    max-width:          1024px;
+    background:         #f0f0f0;
+    margin:             auto;
+    padding:            15px;
+    color:              #000000;
+    box-shadow:         15px 30px 35px black;
+    border-radius:      10px 10px 10px 10px;
+}

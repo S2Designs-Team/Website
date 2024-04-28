@@ -1,0 +1,65 @@
+@media screen and (max-width: 799px){
+	NAV.sidebar {
+		all: unset;
+	}
+
+	/* ========================================== */
+	/* == COMPONENT LAYOUT ====================== */
+	/* ========================================== */
+	NAV.sidebar {
+		position         : fixed;
+		top              : 0px;
+		bottom           : 0px;               /* Spazio per il footer */
+		width            : 200px;
+		height           : calc(100% - 40px); /* Sottrai l'altezza della navbar */
+	}
+	
+	/* ========================================== */
+	/* == COMPONENT STYLE ======================= */
+	/* ========================================== */
+	NAV.sidebar {
+		/*padding          : 1em;*/
+
+		text-align       : left;
+		background       : var(--background-color);
+
+		transform        : scale(1, 0);
+		transform-origin : top;
+		transition       : transform 350ms ease-in-out;
+	}
+	NAV.sidebar > UL {
+		margin           : 0em;
+		padding          : 0em;
+		list-style       : none;
+	}
+	NAV.sidebar > UL > LI {
+		height           : 3rem;
+		padding          : 0 1.25rem;
+		display          : flex;
+		justify-content  : center;
+		align-items      : center;
+		background-color : #262931;
+	}
+	NAV.sidebar > UL > LI > A {
+		position         : relative;
+		color            : white;
+		text-decoration  : none;
+		text-transform   : uppercase;
+		font-size        : clamp(8px, -0.875rem + 8.333333vw, 22px);
+		opacity          : 0;
+		transition       : opacity var(--timespan-opacity-off) ease-in-out;
+	}
+	NAV.sidebar > UL > LI > A::before {
+		position         : absolute;
+		top              : 0em;
+		content          : '';
+		display          : block;
+		width            : 100%;
+		height           : 5px;
+		background-color : transparent;
+		transition       : background-color var(--timespan-bacground) ease-in-out ; /*Effect on Mouse Leave event*/
+	}
+	NAV.sidebar > UL > LI > A:hover::before {
+		background-color : red;                                                     /*Effect on Mouse Enter event*/
+	}	
+}

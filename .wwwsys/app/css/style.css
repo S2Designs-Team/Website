@@ -1,0 +1,82 @@
+@import url("./components/area-header.css");
+@import url("./components/area-content.css");
+@import url("./components/area-footer.css");
+@import url("./components/box.css");
+@import url("./components/card.css");
+@import url("./components/shadows.css");
+@import url("./components/videoPlayer/main.css");
+@import url("./components/projectSelector/main.css");
+@import url("./components/scrollbars.css");
+@import url("./components/article.css");
+@import url("./components/sideBar.css");
+
+:ROOT{
+	--main-background              : url("./");
+	--background-color             : RGBA( 26, 28, 33, 0.75 );
+	--timespan-opacity-on          : 350ms;
+	--timespan-opacity-off         : 100ms;
+	--timespan-bacground           : 250ms;
+}
+*,
+*::BEFORE,
+*::AFTER {
+	box-sizing          : border-box;
+}
+
+
+BODY {
+    position:           absolute;
+    display:            grid;
+    top:                0px;
+    left:               0%;
+    right:              0%;
+    bottom:             0px;
+	background:         url("../res/img/bg-home2.jpg") scroll center top transparent;
+    background-color:   #000000;
+    padding:            0em;
+    margin:             0em;
+
+    font-family:        "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue" !important;
+    font-weight:        300;
+    font-size:          17px;
+    color:              white;
+
+    /* outline:            1px #ccc solid; */
+    grid-template-rows: auto 1fr auto;
+    z-index:            1;
+    /* [SNI] overflow-y:         scroll;*/
+    cursor:             url("../res/img/link_pointer.png"), auto;
+}
+
+
+.truncate {
+	white-space:        nowrap;
+	overflow:           hidden;
+	text-overflow:      ellipsis;
+}
+
+DIV.video-js {
+	display:            contents !important;
+}
+VIDEO.video-js {
+	position:           absolute;
+	width:              100%     !important;
+	height:             100%     !important;
+	align-items:        center;
+	padding:            0em;
+	margin:             0px auto 0px auto;
+}
+
+.logo {
+    width:              100%;
+    margin:             0 1em;
+    background:         url("../res/img/S2_Team_Logo_bello2.png") no-repeat;
+    background-size:    100% 100%;
+    min-width:          130px;
+    min-height:         50%;
+    max-width:          250px;
+    max-height:         85px;
+}
+iFrame > div.PoweredByLogo_poweredByText_exe7d {
+	visibility:         hiden;
+}
