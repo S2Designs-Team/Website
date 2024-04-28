@@ -1,0 +1,107 @@
+<!DOCTYPE HTML>
+
+<HTML LANG="it">
+	<HEAD>
+		<!-- 
+			ICON            = Nominates the URL of the icon to be used in the window title bar. This must be a 32 x 32 pixel icon in .ICO format. 
+							  n.b.: With <meta http-equiv="x-ua-compatible" content="IE=9,chrome=1"> icon apperas
+							        With <meta http-equiv="x-ua-compatible" content="IE=edge,chrome=1"> icon does not
+			APPLICATIONNAME = Sets the name of the application, which is used by the singleInstance attribute to determine whether other instances of the HTA are running.
+			SINGLEINSTANCE  = Indicates whether only one instance of the application can be run at one time. This can avoid multiple instances of the HTA being run. Options are yes and no.
+			NAVIGABLE       = Indicates whether links will open in the same window, or in the default browser window. Options are yes (same window) and no (browser window).
+			VERSION         = Sets the version number of the HTA application. This can later be retrieved by code within the HTA page.
+			CAPTION         = Indicates whether the HTML title (from the <head> section) should appear in the window title bar. Options are yes and no.
+			MAXIMIZEBUTTON  = Indicates whether the window will include a maximize button. Options are yes and no.
+			MINIMIZEBUTTON  = Indicates whether the window will include a minimize button. Options are yes and no.
+			WINDOWSTATE     = Describes how the window will initially display. Options are normal, minimize, and maximize.
+			SYSMENU         = Indicates whether a system menu is displayed when the icon in the title bar is clicked. Options are yes and no.
+			CONTEXTMENU     = Indicates whether a context menu is displayed when an object on the HTA is right-clicked. Options are yes and no. 
+			                  You can use this feature to effectively prevent your HTML code from being viewed, or the content being printed, 
+							  as these options are normally accessible within an HTA file from the context menu only.
+			SHOWINTASKBAR   = Indicates whether the window will appear in the Windows task bar. Options are yes and no.
+			BORDER          = Sets the window border format. Options are thin, dialog, none, and thick
+			BORDERSTYLE     = Sets the border style settings. Options are complex, normal, raised, static, and sunken.
+			INNERBORDER     = Indicates whether the window will include an inner border. Options are yes and no.
+			SCROLL          = Indicates whether the window will include a scroll bar. Options are yes and no.
+			SCROLLFLAT      = Indicates whether a scroll bar will be 3D or not. Options are yes and no.
+			SELECTION       = Indicates whether text within the HTA window can be selected with the mouse or keyboard. Options are yes and no.
+		-->
+		<HTA:APPLICATION
+			ID              = "oHta"
+			APPLICATION     = "yes" 
+			ICON            = "favicon.ico"
+			APPLICATIONNAME = "S2_PC_RECOVERY2"
+			SINGLEINSTANCE  = "yes"
+			NAVIGABLE       = "yes"
+			VERSION         = "1.0"
+			CAPTION         = "yes"
+			MAXIMIZEBUTTON  = "yes"
+			MINIMIZEBUTTON  = "yes"
+			WINDOWSTATE     = "normal"	
+			SYSMENU         = "no"
+			CONTEXTMENU     = "no"
+			SHOWINTASKBAR   = "yes" 
+			BORDER          = "thick"
+			BORDERSTYLE     = "complex"
+			INNERBORDER     = "no" 
+			RESIZE          = "yes" 
+			SCROLL          = "yes" 
+			SCROLLFLAT      = "yes"
+			SELECTION       = "yes" 
+			>	
+		</HTA:APPLICATION>
+		<META HTTP-EQUIV="x-ua-compatible"    CONTENT="IE=edge, chrome=1">
+		<!-- <meta HTTP-EQUIV="Pragma"             CONTENT="no-cache"> -->
+		
+		<META CHARSET="UTF-8">
+		<META NAME="viewport"                 CONTENT="width=device-width, initial-scale=1">
+		<META NAME="google-site-verification" CONTENT="QLarJVKRf7XdnCgkVimLakBq9ZmX5hAIzVWkHu_OZVo" />
+		<META NAME="Keywords"                 CONTENT="HTML, Python, CSS, SQL, JavaScript, How to, PHP,
+													   Java, C++, jQuery, Bootstrap, C#, Colors, W3.CSS, XML, MySQL, Icons, NodeJS, React, Graphics, Angular,
+													   R, AI, Git, Data Science, Code Game, Tutorials, Programming, Web Development, Training, Learning, Quiz,
+													   Courses, Lessons, References, Examples, Source code, Demos, Tips">
+		<META NAME="Description"			  CONTENT="Well organized and easy to understand Web building tutorials with lots of examples of how to use HTML, CSS,
+													   JavaScript, SQL, Python, PHP, Bootstrap, Java, XML and more.">
+		<TITLE> S2 Designs Team - PC Restore </TITLE>
+		
+		<SCRIPT TYPE="text/javascript" ASYNC SRC="file:///d:/.wwwSys/app/js/jQuery/jquery3.6.0.min.js"></SCRIPT>
+		<SCRIPT TYPE="text/javascript" ASYNC SRC="file:///d:/.wwwSys/app/js/S2.Framework/core.js"></SCRIPT>
+		<SCRIPT TYPE="text/javascript" ASYNC SRC="file:///d:/.wwwSys/app/js/S2.Framework/HtaConsole/htaconsole.js"></SCRIPT>		
+		
+		<LINK   TYPE="image/x-icon" REL="shortcut icon" HREF="file:///d:/.wwwSys/app/res/favicon.png">
+		<LINK   TYPE="text/css"     REL="stylesheet"    HREF="file:///d:/.wwwSys/app/css/style.css">
+	
+	</HEAD>
+	
+	<BODY>
+		<TITLE> S2 Designs Team - PC Restore </TITLE>
+		<HEADER>
+			<DIV CLASS= "logo"></DIV>
+			
+			<INPUT TYPE="checkbox" ID="nav-toggle-status" CLASS="nav-toggle-status" NAME="nav-toggle-status" TITLE="nav-toggle-title" PLACEHOLDER="">
+			<LABEL FOR="nav-toggle-status" CLASS="nav-toggle">
+				<SPAN></SPAN>
+			</LABEL>
+					
+			<NAV CLASS="nav-menu">
+				<UL>
+					<LI><A href=".wwwSys/pages/operatingSystems/index.html"            >Sistema Operativo   </A></LI>
+					<LI><A href=".wwwSys/pages/pcSystem/drivers/index.html"            >Drivers             </A></LI>
+					<LI><A href=".wwwSys/pages/applications/index.html"                >Applicazioni        </A></LI>
+					<LI><A href=".wwwSys/pages/applications/configurations/index.html" >Configurazioni      </A></LI>
+					<LI><A href=".wwwSys/pages/contact/index.html"                     >Credenziali         </A></LI>
+					<LI><A href=".wwwSys/pages/website/subscriptions/index.html"       >Servizi Web         </A></LI>
+					<LI><A href=".wwwSys/pages/audioRecorder/index.html"               >Registrazione Audio </A></LI>
+				</UL>
+			</NAV>
+		</HEADER>
+
+		<SECTION CLASS="content"></SECTION>
+		
+		<FOOTER>
+			<P>
+			Copyright © 2035 S2 Designs Team
+			</P>
+		</FOOTER>
+	</BODY>
+</HTML>
