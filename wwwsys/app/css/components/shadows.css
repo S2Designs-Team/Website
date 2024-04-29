@@ -1,0 +1,11 @@
+.border-light {
+    border-color: #d1d9e6 !important;
+}
+
+[class*=shadow] {
+    transition: all .2s ease;
+}
+
+.shadow-soft {
+    box-shadow: 6px 6px 12px #b8b9be,-6px -6px 12px #fff !important;
+}
