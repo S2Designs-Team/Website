@@ -8,7 +8,7 @@
 @import url("/Website/wwwsys/app/css/components/projectSelector/main.css");
 @import url("/Website/wwwsys/app/css/components/scrollbars.css");
 @import url("/Website/wwwsys/app/css/components/article.css");
-@import url("/Website/wwwsys/app/css/components/sideBar.css");
+@import url("/Website/wwwsys/app/css/components/sidebar.css");
 
 :ROOT{
 	--main-background              : url("./");
