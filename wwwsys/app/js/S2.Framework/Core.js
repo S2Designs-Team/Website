@@ -247,9 +247,9 @@ const System = {
 		var is_ie6         = (is_ie && (is_major == 4) && (agt.indexOf("msie 6.")!=-1) );
 		var is_ie6up       = (is_ie && !is_ie3 && !is_ie4 && !is_ie5 && !is_ie5_5);
 
-		// KNOWN BUG: On AOL4, returns false if IE3 is embedded browser
-		// or if this is the first browser window opened.  Thus the
-		// variables is_aol, is_aol3, and is_aol4 aren't 100% reliable.
+		/*👉️ KNOWN BUG: On AOL4, returns false if IE3 is embedded browser
+		or if this is the first browser window opened.  Thus the
+		variables is_aol, is_aol3, and is_aol4 aren't 100% reliable. */
 		var is_aol         = (agt.indexOf("aol") != -1);
 		var is_aol3        = (is_aol && is_ie3);
 		var is_aol4        = (is_aol && is_ie4);
