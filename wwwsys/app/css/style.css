@@ -1,14 +1,14 @@
-@import url("./components/area-header.css");
-@import url("./components/area-content.css");
-@import url("./components/area-footer.css");
-@import url("./components/box.css");
-@import url("./components/card.css");
-@import url("./components/shadows.css");
-@import url("./components/videoPlayer/main.css");
-@import url("./components/projectSelector/main.css");
-@import url("./components/scrollbars.css");
-@import url("./components/article.css");
-@import url("./components/sideBar.css");
+@import url("/Website/wwwsys/app/css/components/area-header.css");
+@import url("/Website/wwwsys/app/css/components/area-content.css");
+@import url("/Website/wwwsys/app/css/components/area-footer.css");
+@import url("/Website/wwwsys/app/css/components/box.css");
+@import url("/Website/wwwsys/app/css/components/card.css");
+@import url("/Website/wwwsys/app/css/components/shadows.css");
+@import url("/Website/wwwsys/app/css/components/videoPlayer/main.css");
+@import url("/Website/wwwsys/app/css/components/projectSelector/main.css");
+@import url("/Website/wwwsys/app/css/components/scrollbars.css");
+@import url("/Website/wwwsys/app/css/components/article.css");
+@import url("/Website/wwwsys/app/css/components/sideBar.css");
 
 :ROOT{
 	--main-background              : url("./");
