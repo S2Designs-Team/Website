@@ -10,8 +10,8 @@
 .content {
 	overflow-y:         auto;
     border:             0em;
-	background:         url("/.wwwSys/forSite/res/img/bg-home.jpg") no-repeat scroll center top transparent;
-	background:         url("/.wwwsys/forSite/res/img/bg-home2.jpg") scroll center top transparent;
+	background:         url("/Website/wwwsys/app/res/img/bg-home.jpg") no-repeat scroll center top transparent;
+	background:         url("/Website/wwwsys/app/res/img/bg-home2.jpg") scroll center top transparent;
     vertical-align:     baseline;
 	padding:            1em;
 	margin:             0em;
