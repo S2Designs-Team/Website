@@ -84,7 +84,8 @@ $(document).ready(function () {
 /*📎DOCUMENTATION
 Author:      ㊙️anonimo㊙️
 Description: The Application construct 
-ClassName:
+last modify: 2024-04-28
+ClassName:   Application
 Version:     0.0.001
 Parameters:  none
 */
