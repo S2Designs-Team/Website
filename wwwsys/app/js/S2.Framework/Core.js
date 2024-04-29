@@ -365,27 +365,24 @@ const AppHelper = {
 	*/
 	wrapContentRoutes : function() {	
 		$(".content a").click(function(event) {
-			var percorsoContenuto = $(this).attr("href");
+			var myContentPath = $(this).attr("href");
 			console.info("Content link '" + $(this).text() + "'has been clicked.");
-			console.info("Link url = '" + percorsoContenuto + "'.");
+			console.info("Link url = '" + myContentPath + "'.");
 			
-			if (percorsoContenuto.indexOf("http://") === 0 || percorsoContenuto.indexOf("https://") === 0){
+			if (myContentPath.indexOf("http://") === 0 || myContentPath.indexOf("https://") === 0){
 				//urlContent = AppHelper.loadRemoteUrl(Application.contentContainerDomName, percorsoContenuto);
 			} else {
 				event.preventDefault(); // Impedisce il comportamento predefinito del link
-				urlContent = AppHelper.loadLocalUrl(Application.contentContainerDomName, Application.getStartPath() + percorsoContenuto);	
+				urlContent = AppHelper.loadLocalUrl(Application.contentContainerDomName, Application.getStartPath() + myContentPath);	
 			}
-			
-			//👉️AppHelper.loadUrl(percorsoContenuto);
-			//AppHelper.loadUrl(percorsoContenuto);
 		});
 	},	
 	
 	/*📎DOCUMENTATION
 	Author:        ㊙️anonimo㊙️
-	Description:
+	Description:   
 	Function Name: loadUrl
-	Version: 0.0.001
+	Version:       0.0.001
 	Parameters: 
 	Returns:
 	*/
