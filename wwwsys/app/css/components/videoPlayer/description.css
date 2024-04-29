@@ -1,0 +1,32 @@
+#description {
+    position            : absolute;
+    top                 : 80%;
+    left                : 1em;
+    right               : 1em;
+    bottom              : 0%;
+    margin              : auto;
+    max-width           : 1500px;
+
+    /* 
+	[SNI] padding             : 1em 1em 0em 1em; 
+	*/
+    justify-content     : left;
+    box-shadow          : inset 0px 0px 1px 1px hsl(0deg 0% 100% / 32%);
+    background-image    : radial-gradient(circle at 50% 0,transparent,rgba(0,0,0,0.8));
+    background-color    : #252a2e;
+    border-radius       : 4px;
+    overflow-y          : auto;
+}
+
+#description > article {
+    position:             relative;
+    left:                 6.15%;
+    width:                81%;
+    height:               100%;
+    min-width:            635px;
+    max-width:            1024px;
+    color:                currentColor;
+    background:           transparent;
+    box-shadow:           0px 0px 5px transparent;
+    border-radius:        10px 10px 10px 10px;
+}
