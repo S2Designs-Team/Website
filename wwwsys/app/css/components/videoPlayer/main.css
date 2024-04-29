@@ -1,1 +1,67 @@
+@import url("./tv-channels_logos.css");
+@import url("./tv-channels_backgrounds.css");
+@import url("./description.css");
+
+
+.videoPlayerContainer{
+	display          : flex;	
+	width            : 100%;
+    height           : 100%;
+	max-width        : 1500px;
+    margin           : auto;
+    padding          : 0em;
+    
+	background       : rgba(0, 0, 0, 0.8);
+    background       : -webkit-linear-gradient(-90deg, rgba(0, 0, 0, 0.8), rgba(255, 255, 255, 0));
+    background       : linear-gradient(180deg, rgba(0, 0, 0, 0.8), rgba(255, 255, 255, 0));
+    overflow         : hidden;
+    box-sizing       : content-box;
+}
+
+.videoScreen {
+	position         : relative;
+    top              : 0%;
+    left             : 0%;
+    width            : 80%;
+    height           : 80%;
+}
+
+.channelList {
+    height           : 80%;
+	margin           : 0em 0em 0em auto;
+	padding          : clamp(0.25em, -0.875rem + 3.333333vw, 0.5em);
+	list-style       : none;
+	overflow-y       : scroll;
+}
+
+.channelList > LI {
+    height           : clamp(2.5em, -1rem + 6vw, 4.5em);
+    padding          : 0em 0em 0em 0em;
+    margin           : clamp(0.5em, -0.875rem + 3.333333vw, 1em) 0em 0em 0em;
+    display          : flex;
+    justify-content  : left;
+    box-shadow       : inset 0px 0px 2px 2px hsl(0deg 0% 100% / 10%);
+    background-image : radial-gradient(circle at 100% 0,transparent,rgba(0,0,0,.4));
+    background-color : #252a2e;
+    border-radius    : 5px;
+}
+
+.channelList > LI.selected {
+	background-image  : radial-gradient(circle at 100% 0px, rgb(44, 14, 0), rgb(141, 51, 5));
+}
+
+.channelList > LI > A {
+	position         : relative;
+	color            : white;
+	text-decoration  : none;
+	font-size        : clamp(8px, -0.875rem + 3.333333vw, 16px);
+	display          : flex;
+    align-items      : center;
+	padding          : clamp(0.5em, -0.875rem + 3.333333vw, 1em);
+	width            : 100%;
+}
+
+.channelList > LI > A > DIV{
+	max-width        : clamp(5em, -1rem + 13.333333vw, 20em);
+}
 
