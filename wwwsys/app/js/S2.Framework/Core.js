@@ -61,19 +61,19 @@ $(document).ready(function () {
                 "# See the License for the specific language governing permissions and      " + "</BR>" +
                 "# limitations under the License.                                           " + "</BR>" +
                 "#                                                                          " + "</BR>" +
-				"# Symbol legend:                                                           " + "</BR>" +
-				"# 🛠️ DEBUG PURPOSE ONLY                                                   " + "</BR>" +
-				"# ⚙️ SETUP                                                                " + "</BR>" +
-				"# 🧪 EXPERIMENTAL                                                         " + "</BR>" +
-				"# 💻 SYSTEM FUNCTION                                                      " + "</BR>" +
-				"# 🔍 TO INVESTIGATE                                                       " + "</BR>" +
-				"# 💡 BRILLIANT IDEA                                                       " + "</BR>" +
-				"# 📜 STEP EXPLANATION                                                     " + "</BR>" +
-				"# 📎 DOCUMENTATION COMMENT                                                " + "</BR>" +
-				"# ⏰ USED AS DELEGATE TRIGGERED ELSEWHERE                                 " + "</BR>" +
-				"# ⏱️ ASYNCHRONISM                                                         " + "</BR>" +
-				"# ⌚ TIMER LOOP                                                           " + "</BR>" +
-				"###########################################################################");
+                "# Symbol legend:                                                           " + "</BR>" +
+                "# 🛠️ DEBUG PURPOSE ONLY                                                   " + "</BR>" +
+                "# ⚙️ SETUP                                                                " + "</BR>" +
+                "# 🧪 EXPERIMENTAL                                                         " + "</BR>" +
+                "# 💻 SYSTEM FUNCTION                                                      " + "</BR>" +
+                "# 🔍 TO INVESTIGATE                                                       " + "</BR>" +
+                "# 💡 BRILLIANT IDEA                                                       " + "</BR>" +
+                "# 📜 STEP EXPLANATION                                                     " + "</BR>" +
+                "# 📎 DOCUMENTATION COMMENT                                                " + "</BR>" +
+                "# ⏰ USED AS DELEGATE TRIGGERED ELSEWHERE                                 " + "</BR>" +
+                "# ⏱️ ASYNCHRONISM                                                         " + "</BR>" +
+                "# ⌚ TIMER LOOP                                                           " + "</BR>" +
+                "###########################################################################");
 
 	console.info(System.getJavascriptVersion() + " | " + System.getJScriptVersion());
 	console.info("Document ready.");
