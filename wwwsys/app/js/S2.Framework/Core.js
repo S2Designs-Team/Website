@@ -23,7 +23,6 @@
 # 🔍 TO INVESTIGATE
 # 💡 BRILLIANT IDEA
 # 📜 STEP EXPLANATION
-
 # 📎 DOCUMENTATION COMMENT
 # ⏰ USED AS DELEGATE TRIGGERED ELSEWHERE
 # ⏱️ ASYNCHRONISM
@@ -104,8 +103,8 @@ const Application = {
 	start : function(){ 
 		console.info("Application Start.");
 		console.info(Application.isLocallyHosted(window.location.href) ? 
-					 "Web app running locally from " + Application.getStartPath() + "</BR>" : 
-		             "Web app running remotely at "  + window.location.href       + "</BR>");
+                             "Web app running locally from " + Application.getStartPath() + "</BR>" : 
+                             "Web app running remotely at "  + window.location.href       + "</BR>");
 		
 		AppHelper.wrapAllRoutes();
 		console.info("Redirecting to the landing page....");
@@ -147,17 +146,17 @@ const Application = {
 
 		if (url){
 
-			// Controlla se l'URL inizia con "file:///" (locale)
+			//  Checks if URL starts with "file:///" (for local urls)
 			if (url.indexOf("file:///") === 0) {
 				return true;
 			}
 
-			// Controlla se l'URL inizia con "http://" o "https://" (server remoto)
+			// Checks if URL starts with "http://" o "https://" (for remote urls)
 			if (url.indexOf("http://") === 0 || url.indexOf("https://") === 0) {
 				return false;
 			}
 
-			// Se non corrisponde a nessuno dei due, assume che sia locale
+			// If we reach this point we assume that it is a local url
 			return true;
 		}
 		
@@ -165,50 +164,51 @@ const Application = {
 		return false;
 	},
 	
-	isCurrentContentLocal: function(){
+	isCurrentContentLocal: function() {
 		return Application.isLocalContent;
 	},
 	
-	setCurrentContentAsLocal : function(){
+	setCurrentContentAsLocal : function() {
 		Application.isLocalContent = true;
 	},
 	
-	setCurrentContentAsRemote : function(){
+	setCurrentContentAsRemote : function() {
 		Application.isLocalContent = false;
 	},
 	
 	/*📎DOCUMENTATION
 	Author:        ㊙️anonimo㊙️
-	Description:   Funzione che verifica se la pagina corrente viene eseguita in un ambiente HTA (HTML Application)
+	Description:   Checks if the current page has been executed as HTA (HTML Application)
 	Function Name: isHTA
 	Version:       0.0.001
 	Returns:       TRUE  => indica che la pagina è eseguita in un ambiente HTA
-				   FALSE => indica che la pagina NON è in un ambiente HTA
+                       FALSE => indica che la pagina NON è in un ambiente HTA
 	*/	
 	isHTA : function () {
-		// Recupera la prima occorrenza dell'elemento <HTA:APPLICATION> dal documento (se è presente).
+		// Retrieves the 1st occurence of the element <HTA:APPLICATION> inside the current document (if it is present).
 		var htmlElement = document.getElementsByTagName('HTA:APPLICATION')[0];
 
-		// Controlla se l'elemento 'htmlElement' recuperato non è undefined e se ha l'attributo 'applicationname' definito.
+		// Checks idf the retrieved element 'htmlElement' is undefined (AKA not found) or not and if if contains an 'applicationname' property defined.
 		return (typeof htmlElement !== 'undefined' && htmlElement.getAttribute('applicationname') !== null);
 	},
 };
 
 /*📎DOCUMENTATION
 Author:      ㊙️anonimo㊙️
-Description: The Application construct 
+Description: 
 Version:     0.0.001
 Parameters:  none
 */
 const System = {
+	
 	/*📎DOCUMENTATION
 	Author:        ㊙️anonimo㊙️
-	Description:
+	Description:   Gets the Javascript Version used by the client browser
 	Function Name: getJavascriptVersion
 	Version:       0.0.001
 	Returns:
 	*/	
-	getJavascriptVersion : function(){
+	getJavascriptVersion : function() {
 		// STEP ONE: Convert all characters to lowercase to simplify testing
 		var agt=navigator.userAgent.toLowerCase();
 
@@ -219,52 +219,56 @@ const System = {
 
 		// Note: Opera and WebTV spoof Navigator.  We do strict client detection.
 		// If you want to allow spoofing, take out the tests for opera and webtv.
-		var is_nav  = ((agt.indexOf('mozilla')!=-1) && (agt.indexOf('spoofer')==-1)
-						&& (agt.indexOf('compatible') == -1) && (agt.indexOf('opera')==-1)
-						&& (agt.indexOf('webtv')==-1) && (agt.indexOf('hotjava')==-1));
-		var is_nav2 = (is_nav && (is_major == 2));
-		var is_nav3 = (is_nav && (is_major == 3));
-		var is_nav4 = (is_nav && (is_major == 4));
-		var is_nav4up = (is_nav && (is_major >= 4));
-		var is_navonly = (is_nav && ((agt.indexOf(";nav") != -1) || (agt.indexOf("; nav") != -1)) );
-		var is_nav6 = (is_nav && (is_major == 5));
-		var is_nav6up = (is_nav && (is_major >= 5));
-		var is_gecko = (agt.indexOf('gecko') != -1);
+		var is_nav         = ((agt.indexOf('mozilla')!=-1) 
+				   && (agt.indexOf('spoofer')==-1)
+				   && (agt.indexOf('compatible') == -1) 
+				   && (agt.indexOf('opera')==-1) 
+				   && (agt.indexOf('webtv')==-1) 
+				   && (agt.indexOf('hotjava')==-1));
+		
+		var is_nav2        = (is_nav && (is_major == 2));
+		var is_nav3        = (is_nav && (is_major == 3));
+		var is_nav4        = (is_nav && (is_major == 4));
+		var is_nav4up      = (is_nav && (is_major >= 4));
+		var is_navonly     = (is_nav && ((agt.indexOf(";nav") != -1) || (agt.indexOf("; nav") != -1)) );
+		var is_nav6        = (is_nav && (is_major == 5));
+		var is_nav6up      = (is_nav && (is_major >= 5));
+		var is_gecko       = (agt.indexOf('gecko') != -1);
 
-		var is_ie     = ((agt.indexOf("msie") != -1) && (agt.indexOf("opera") == -1));
-		var is_ie3    = (is_ie && (is_major < 4));
-		var is_ie4    = (is_ie && (is_major == 4) && (agt.indexOf("msie 4")!=-1) );
-		var is_ie4up  = (is_ie && (is_major >= 4));
-		var is_ie5    = (is_ie && (is_major == 4) && (agt.indexOf("msie 5.0")!=-1) );
-		var is_ie5_5  = (is_ie && (is_major == 4) && (agt.indexOf("msie 5.5") !=-1));
-		var is_ie5up  = (is_ie && !is_ie3 && !is_ie4);
-		var is_ie5_5up =(is_ie && !is_ie3 && !is_ie4 && !is_ie5);
-		var is_ie6    = (is_ie && (is_major == 4) && (agt.indexOf("msie 6.")!=-1) );
-		var is_ie6up  = (is_ie && !is_ie3 && !is_ie4 && !is_ie5 && !is_ie5_5);
+		var is_ie          = ((agt.indexOf("msie") != -1) && (agt.indexOf("opera") == -1));
+		var is_ie3         = (is_ie && (is_major < 4));
+		var is_ie4         = (is_ie && (is_major == 4) && (agt.indexOf("msie 4")!=-1) );
+		var is_ie4up       = (is_ie && (is_major >= 4));
+		var is_ie5         = (is_ie && (is_major == 4) && (agt.indexOf("msie 5.0")!=-1) );
+		var is_ie5_5       = (is_ie && (is_major == 4) && (agt.indexOf("msie 5.5") !=-1));
+		var is_ie5up       = (is_ie && !is_ie3 && !is_ie4);
+		var is_ie5_5up     = (is_ie && !is_ie3 && !is_ie4 && !is_ie5);
+		var is_ie6         = (is_ie && (is_major == 4) && (agt.indexOf("msie 6.")!=-1) );
+		var is_ie6up       = (is_ie && !is_ie3 && !is_ie4 && !is_ie5 && !is_ie5_5);
 
 		// KNOWN BUG: On AOL4, returns false if IE3 is embedded browser
 		// or if this is the first browser window opened.  Thus the
 		// variables is_aol, is_aol3, and is_aol4 aren't 100% reliable.
-		var is_aol   = (agt.indexOf("aol") != -1);
-		var is_aol3  = (is_aol && is_ie3);
-		var is_aol4  = (is_aol && is_ie4);
-		var is_aol5  = (agt.indexOf("aol 5") != -1);
-		var is_aol6  = (agt.indexOf("aol 6") != -1);
+		var is_aol         = (agt.indexOf("aol") != -1);
+		var is_aol3        = (is_aol && is_ie3);
+		var is_aol4        = (is_aol && is_ie4);
+		var is_aol5        = (agt.indexOf("aol 5") != -1);
+		var is_aol6        = (agt.indexOf("aol 6") != -1);
 
-		var is_opera = (agt.indexOf("opera") != -1);
-		var is_opera2 = (agt.indexOf("opera 2") != -1 || agt.indexOf("opera/2") != -1);
-		var is_opera3 = (agt.indexOf("opera 3") != -1 || agt.indexOf("opera/3") != -1);
-		var is_opera4 = (agt.indexOf("opera 4") != -1 || agt.indexOf("opera/4") != -1);
-		var is_opera5 = (agt.indexOf("opera 5") != -1 || agt.indexOf("opera/5") != -1);
-		var is_opera5up = (is_opera && !is_opera2 && !is_opera3 && !is_opera4);
+		var is_opera       = (agt.indexOf("opera") != -1);
+		var is_opera2      = (agt.indexOf("opera 2") != -1 || agt.indexOf("opera/2") != -1);
+		var is_opera3      = (agt.indexOf("opera 3") != -1 || agt.indexOf("opera/3") != -1);
+		var is_opera4      = (agt.indexOf("opera 4") != -1 || agt.indexOf("opera/4") != -1);
+		var is_opera5      = (agt.indexOf("opera 5") != -1 || agt.indexOf("opera/5") != -1);
+		var is_opera5up    = (is_opera && !is_opera2 && !is_opera3 && !is_opera4);
 
-		var is_webtv = (agt.indexOf("webtv") != -1); 
+		var is_webtv       = (agt.indexOf("webtv") != -1); 
 		var is_TVNavigator = ((agt.indexOf("navio") != -1) || (agt.indexOf("navio_aoltv") != -1)); 
-		var is_AOLTV = is_TVNavigator;
+		var is_AOLTV       = is_TVNavigator;
 
-		var is_hotjava = (agt.indexOf("hotjava") != -1);
-		var is_hotjava3 = (is_hotjava && (is_major == 3));
-		var is_hotjava3up = (is_hotjava && (is_major >= 3));
+		var is_hotjava     = (agt.indexOf("hotjava") != -1);
+		var is_hotjava3    = (is_hotjava && (is_major == 3));
+		var is_hotjava3up  = (is_hotjava && (is_major >= 3));
 
 		// STEP THREE: Associate Javascript Version with Browser
 		var is_js;
@@ -276,23 +280,31 @@ const System = {
 		else if ((is_nav4 && (is_minor > 4.05)) || is_ie5) is_js = 1.3;
 		else if (is_hotjava3up) is_js = 1.4;
 		else if (is_nav6 || is_gecko) is_js = 1.5;
-		// NOTE: In the future, update this code when newer versions of JS
-		// are released. For now, we try to provide some upward compatibility
-		// so that future versions of Nav and IE will show they are at
-		// *least* JS 1.x capable. Always check for JS version compatibility
-		// with > or >=.
+
+		/*👉️ AUTHOR COMMENT TO PAY ATTENTION: 
+                In the future, update this code when newer versions of JS
+		are released. For now, we try to provide some upward compatibility
+		so that future versions of Nav and IE will show they are at
+		*least* JS 1.x capable. Always check for JS version compatibility
+		with > or >=. 
+  		*/
 		else if (is_nav6up) is_js = 1.5;
-		// NOTE: ie5up on mac is 1.4
+		
+  		/*👉️ AUTHOR COMMENT TO PAY ATTENTION: 
+    		ie5up on mac is 1.4*/
 		else if (is_ie5up) is_js = 1.3
-		// HACK: no idea for other browsers; always check for JS version with > or >=
+  
+		/*👉️ AUTHOR COMMENT TO PAY ATTENTION: 
+  		no idea for other browsers; 
+                always check for JS version with > or >=*/
 		else is_js = 0.0;
 		return ("Javascript ver. " + is_js) ;
 	},
 	
 	/*📎DOCUMENTATION
 	Author:        ㊙️anonimo㊙️
-	Description:
-	Function Name: getJavascriptVersion
+	Description:   The same as getJavascriptVersion but for JScript (Jscript and Javascript are not the same thing!!!)
+	Function Name: getJScriptVersion
 	Version:       0.0.001
 	Returns:
 	*/	
@@ -303,12 +315,9 @@ const System = {
 
 /*📎DOCUMENTATION
 Author:      ㊙️anonimo㊙️
-Description:📎⏱️ Loads a local or a page using the path/url provided into the DOM Element
-				  defined by strDestinationDomName.
-Function Name: loadPage
-Version: 0.0.001
-Parameters: 
-Returns:
+Description: An helper class to manage the urls routes
+Version:     0.0.001
+Parameters:  none
 */
 const AppHelper = {
 	/*📎DOCUMENTATION
@@ -318,10 +327,10 @@ const AppHelper = {
 	Version:       0.0.001
 	Parameters:    none
 	*/
-    wrapAllRoutes : function() {
+    	wrapAllRoutes : function() {
 		AppHelper.wrapNavRoutes();
 		AppHelper.wrapContentRoutes();
-    },
+   	},
 	
 	/*📎DOCUMENTATION
 	Author:        ㊙️anonimo㊙️
@@ -347,7 +356,7 @@ const AppHelper = {
 	
 	/*📎DOCUMENTATION
 	Author:        ㊙️anonimo㊙️
-	Description:   Manages all the links composing all nav bars inside the document 
+	Description:   Manages all the links composing all contents in the document 
 	               wrapping each link click event and setting the right style class
 	Function Name: wrapNavRoutes
 	Version:       0.0.001
