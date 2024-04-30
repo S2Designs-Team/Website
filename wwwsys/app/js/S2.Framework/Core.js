@@ -73,8 +73,11 @@ $(document).ready(function () {
                 "# ⏱️ ASYNCHRONISM                                                         " + "</BR>" +
                 "# ⌚ TIMER LOOP                                                           " + "</BR>" +
                 "###########################################################################");
-
-	console.info(System.getJavascriptVersion() + " | " + System.getJScriptVersion());
+	if (Application.isHTA()) {
+		console.info(System.getJavascriptVersion() + " | " + System.getJScriptVersion() + "." );
+	} else {
+		console.info(System.getJavascriptVersion() + "." );
+	}
 	console.info("Document ready.");
 	console.info("Web Application type: " + (Application.isHTA() ? "HTA (Html Application)" : "Html standard"));
 	Application.start();
