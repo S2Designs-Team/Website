@@ -290,7 +290,7 @@
 			},
 			error: function(arg) {
 				htaConsole.log('<SPAN STYLE="color: red">☢️</SPAN> <SPAN STYLE="color: red">' + arg + '</SPAN>')	//prev glyph code: &#9888;
-				throw arg
+				//throw arg
 			}
 		}
     }
