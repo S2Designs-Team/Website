@@ -373,6 +373,7 @@ const AppHelper = {
 			console.info("Link url = '" + myContentPath + "'.");
 			
 			if (myContentPath.indexOf("http://") === 0 || myContentPath.indexOf("https://") === 0){
+				console.debug("Loading the web hosted page')]");
 				//urlContent = AppHelper.loadRemoteUrl(Application.contentContainerDomName, percorsoContenuto);
 			} else {
 				event.preventDefault(); // Impedisce il comportamento predefinito del link
