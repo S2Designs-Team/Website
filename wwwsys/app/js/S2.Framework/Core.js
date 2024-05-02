@@ -437,10 +437,8 @@ const AppHelper = {
 					var errorMessage = "Errore durante il caricamento della risorsa remota:" + url + "<BR>" +
 						           textStatus + "<BR>" +
 							   errorThrown;
-					console.error(errorMessage);
 					throw "" + errorMessage;
 				});
-				return remoteContent;
 			}
 		} catch (e) {
 			console.error(e.message + " <BR>" + e.stack);
