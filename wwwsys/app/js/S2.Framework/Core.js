@@ -399,10 +399,10 @@ const AppHelper = {
 				
 				if (url.indexOf("http://") === 0 || url.indexOf("https://") === 0){
 					// We are going to load from an absolute url
-					console.debug("We are going to load from an relative url " + url);
+					console.debug("We are going to load from an absolute url " + url);
 					urlContent = AppHelper.loadRemoteUrl(Application.contentContainerDomName, url);
 				} else {
-					// 
+					// We are going to load from a relative url
 					console.debug("We are going to load from an relative url " + window.location.href + url);
 					urlContent = AppHelper.loadRemoteUrl(Application.contentContainerDomName, window.location.href + url);					
 				}
@@ -415,37 +415,36 @@ const AppHelper = {
 	
 	/*📎DOCUMENTATION
 	Author:        ㊙️anonimo㊙️
-	Description:
+	Description:   
 	Function Name: loadRemoteUrl
-	Version: 0.0.001
-	Parameters: 
-	Returns:
+	Version:       0.0.001
+	Parameters:    <targetDomName> = the target dom object where the content has to be shown; <url> = the url from where the content has to be picked up;
+	Returns:       The content loaded from the remote url
 	*/
 	loadRemoteUrl : function (targetDomName, url) {
 		var file;
 		var fileContent="";
-	    try {
+		try {
 			if (!StringHelper.isEmpty(targetDomName)) {
 				remoteContent = $.get(url, function(data) {
 					$(targetDomName).html(data);
 				})
 				.done(function(data) {
 					$(Application.contentContainerDomName).html(data);
-					console.dataView(data);			
+					console.dataView(data);
 					return data;
 				})
 				.fail(function(jqXHR, textStatus, errorThrown) {
-					console.error("Errore durante il caricamento della risorsa remota:" + url + "<BR>" +
-						      textStatus + "<BR>" +
-						      errorThrown.stack);
-					return "";
+					var errorMessage = "Errore durante il caricamento della risorsa remota:" + url + "<BR>" +
+						           textStatus + "<BR>";
+					console.error(errorMessage);
+					throw "errorMessage";
 				});
 				//$(targetDomName).html(remoteContent);
 				return remoteContent;
 			}
 		} catch (e) {
-			console.error("Errore nel caricamento della risorsa locale: " + filePath + "<BR>" +
-						  e.stack);
+			console.error(e.message + " <BR>" + e.stack);
 			remoteContent = null;
 		} finally {
 			return remoteContent;
