@@ -426,7 +426,7 @@ const AppHelper = {
 		var fileContent="";
 		try {
 			if (!StringHelper.isEmpty(targetDomName)) {
-				var remoteContent = $.get(url, function(data))
+				var remoteContent = $.get(url, function(data){})
 				.done(function(data) {
 					$(targetDomName).html(data);
 					console.dataView(data);
