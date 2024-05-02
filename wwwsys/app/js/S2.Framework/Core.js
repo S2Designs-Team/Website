@@ -395,8 +395,17 @@ const AppHelper = {
 		
 		var urlContent = "";
 		
-			if (url.indexOf("http://") === 0 || url.indexOf("https://") === 0){
-				//urlContent = AppHelper.loadRemoteUrl(Application.contentContainerDomName, url);
+			if (!Application.isLocallyHosted(window.location.href)) {
+				
+				if (url.indexOf("http://") === 0 || url.indexOf("https://") === 0){
+					// We are going to load from an absolute url
+					console.debug("We are going to load from an relative url " + url);
+					urlContent = AppHelper.loadRemoteUrl(Application.contentContainerDomName, url);
+				} else {
+					// 
+					console.debug("We are going to load from an relative url " + window.location.href + url);
+					urlContent = AppHelper.loadRemoteUrl(Application.contentContainerDomName, window.location.href + url);					
+				}
 			} else {
 				urlContent = AppHelper.loadLocalUrl(Application.contentContainerDomName, Application.getStartPath() + url);	
 			}
