@@ -1,0 +1,56 @@
+<!-- /*
+# Copyright 2035 S2DesignsTeam (Salvatore Nillo).
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+*/ -->
+<!DOCTYPE html>
+
+<TITLE>Mediaset Radio 105 tv</TITLE>
+
+<!-- DASH-AVC/265 reference implementation https://www.cdnpkg.com/dashjs/file/dash.all.js/-->
+<LINK   HREF = "https://vjs.zencdn.net/7.10.2/video-js.min.css" REL="stylesheet">
+<SCRIPT SRC  = "/forSite/js/Dash.js/dash.all.js"></SCRIPT>
+
+<VIDEO ID               = "VideoPlayer" 
+	   CLASS            = "video-js vjs-default-skin sc-htpNat bxqYnG"
+	   PLAYSINLINE      = "" 
+	   CROSSORIGIN      = "anonymous" 
+	   AUTOPLAY         = "true"
+	   CONTROLS
+	   CONTROLS PRELOAD = "none" 
+	   POSTER           = "/forSite/res/img/S2_Team_Logo_WebTv.png"
+	   DATA-SETUP       = "{}">
+	<P CLASS="vjs-no-js">
+		Per poter vedere questo video stream occorre abilitare JavaScript, è comunque opportuno considerare un upgrade del
+		web browser che supporti <A HREF="https://videojs.com/html5-video-support/" TARGET="_blank"> HTML5 video</A>
+	</P>
+</VIDEO>	
+
+<SCRIPT>
+	// setup the video element and attach it to the Dash player
+	var url     = "https://live3.msr.cdn.mediaset.net/content/dash_d0_clr_vos/live/channel(ec)/manifest.mpd";
+	var context = new Dash.di.DashContext();
+	var player  = new MediaPlayer(context);
+		player.startup();
+		player.attachView(document.querySelector("#VideoPlayer"));
+		player.attachSource(url);
+	$("#description").html(
+		"<H2>" + 
+			epgDataMediaset.response.listings.EC.currentListing.mediasetlisting$epgTitle + 
+		"</H2>" +
+		"<P>" +
+			epgDataMediaset.response.listings.EC.currentListing.mediasetlisting$shortDescription + "</BR>" +
+			epgDataMediaset.response.listings.EC.currentListing.description +
+		"</P>"
+    );
+</SCRIPT>
