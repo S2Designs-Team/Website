@@ -435,12 +435,12 @@ const AppHelper = {
 				.fail(function(jqXHR, textStatus, errorThrown) {
 					$(targetDomName).html("");
 					var errorMessage = "Errore durante il caricamento della risorsa remota:" + url + "<BR>";
-					throw "" + errorMessage;
+					throw errorMessage;
 				});
 			}
 		} catch (e) {
 			console.error(e.message + " <BR>" + e.stack);
-			return "<null>";
+			return null;
 		}		
 	},
 	
