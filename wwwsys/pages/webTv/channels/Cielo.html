@@ -1,0 +1,27 @@
+
+<TITLE>Cielo</TITLE>
+
+<!-- Video.js base CSS -->
+<LINK   HREF = "https://cdn.jsdelivr.net/npm/video.js@6.6.2/dist/video-js.css" REL="stylesheet">
+<SCRIPT SRC  = "https://unpkg.com/video.js/dist/video.js"></SCRIPT>
+<script src  = "https://unpkg.com/videojs-contrib-hls/dist/videojs-contrib-hls.js"></script>
+ 
+<VIDEO ID         ="VideoPlayer"
+	   CLASS      ="video-js"
+	   PLAYSINLINE="" 
+	   CROSSORIGIN="anonymous" 
+	   AUTOPLAY   ="true"
+	   DATA-SETUP ='{}'
+	   AUTOPLAY
+	   CONTROLS>
+	<!--SRC   ="https://skyanywhere3-i.akamaihd.net/hls/live/510693/cielo/stream2/streamPlaylist.m3u8?hdntl=exp=1636207941~acl=/*~data=hdntl~hmac=3d3c69b3281d06b5b1a9723a4ba9e327bf195d9213d0a500e9ce123ac9a1c287" 
+			-->
+    <SOURCE SRC   ="https://hlslive-web-gcdn-skycdn-it.akamaized.net/TACT/11219/cieloweb/stream03/hdntl=exp=1667968935~acl=%2f*~data=hdntl~hmac=b54a03a605f3a9aeaef40b83112869ea0649f0679ed4cb80a7f25a5a10196a11/streamPlaylist.m3u8
+			TYPE  ="application/x-mpegURL">
+</VIDEO>
+
+<H1 id="description"></H1>	 
+  
+<SCRIPT>
+	$("#description").html("Descrizione della trasmissione");
+</SCRIPT>

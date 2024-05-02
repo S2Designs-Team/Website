@@ -1,0 +1,27 @@
+
+<TITLE>Nove</TITLE>
+
+<!-- Video.js base CSS -->
+<LINK   HREF = "https://cdn.jsdelivr.net/npm/video.js@6.6.2/dist/video-js.css" REL="stylesheet">
+<SCRIPT SRC  = "https://unpkg.com/video.js/dist/video.js"></SCRIPT>
+
+<VIDEO ID               = "VideoPlayer" 
+	   CLASS            = "video-js"
+	   PLAYSINLINE      = "" 
+	   CROSSORIGIN      = "anonymous" 
+	   AUTOPLAY         = "true"
+	   CONTROLS
+	   CONTROLS PRELOAD = "none" 
+	   POSTER           = "/forSite/res/img/S2_Team_Logo_WebTv.png"
+	   DATA-SETUP       = "{}">
+    <SOURCE SRC   ="https://sbshdlu5-lh.akamaihd.net/i/sbshdl_3@810997/master.m3u8"
+			TYPE  ="application/x-mpegURL">
+	<P CLASS="vjs-no-js">
+		Per poter vedere questo video stream occorre abilitare JavaScript, è comunque opportuno considerare un upgrade del
+		web browser che supporti <A HREF="https://videojs.com/html5-video-support/" TARGET="_blank"> HTML5 video</A>
+	</P>				
+</VIDEO> 
+  
+<SCRIPT>
+	$("#description").html("Descrizione della trasmissione: nessuna.");
+</SCRIPT>

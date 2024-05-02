@@ -1,0 +1,57 @@
+<!-- /*
+# Copyright 2035 S2DesignsTeam (Salvatore Nillo).
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+*/ -->
+<!DOCTYPE html>
+
+<TITLE>RAI 2 HD</TITLE>
+
+<!-- Video.js last version -->
+<LINK   HREF = "https://vjs.zencdn.net/7.10.2/video-js.min.css" REL="stylesheet">
+<SCRIPT SRC  = "https://vjs.zencdn.net/7.10.2/video.min.js"></SCRIPT>
+<SCRIPT>
+	$("#description").html(
+		"<SECTION CLASS='background rai_dueHd_bg'>" +
+		"</SECTION>" + 
+		"<ARTICLE>"  +
+		"    <H2>"   +
+		"    </H2>"  +
+		"    <P>"    +
+		"    </P>"   +
+		"</ARTICLE>"
+	);
+	$("#description ARTICLE H2").html(channelsEpg.infos()["Rai"].on_air[1].currentItem.name);
+	$("#description ARTICLE P").html(channelsEpg.infos()["Rai"].on_air[1].currentItem.description);
+	console.log(selectedChannelName + " La descrizione della trasmissione è stata aggiornata.");
+	var epoch = getTomorrowDateTimeAsEpoch();
+</SCRIPT>
+
+<VIDEO ID               = "VideoPlayer"
+	   CLASS            = "video-js"
+	   PLAYSINLINE      = "" 
+	   CROSSORIGIN      = "anonymous"
+	   AUTOPLAY         = "true"
+	   CONTROLS
+	   CONTROLS PRELOAD = "none" 
+	   POSTER           = "/forSite/res/img/S2_Team_Logo_WebTv.png"
+	   DATA-SETUP       = "{}">
+    <SOURCE SRC         = "https://streamcdnr10-8e7439fdb1694c8da3a0fd63e4dda518.msvdn.net/raidue1/hls/rai2_2400/chunklist.m3u8?baseuri=%2Fraidue1%2Fhls%2F&tstart=0&tend=1676064630&tk2=5188b8cec0163ee66af003a3f8fee2b5d89a70ec37aff4c02f098e3a04de594c"
+			TYPE        = "application/x-mpegURL"> 
+	<P CLASS="vjs-no-js">
+		Per poter vedere questo video stream occorre abilitare JavaScript, è comunque opportuno considerare un upgrade del
+		web browser che supporti <A HREF="https://videojs.com/html5-video-support/" TARGET="_blank"> HTML5 video</A>
+	</P>
+</VIDEO>	
+
+

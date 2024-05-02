@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<HTML LANG="it">
+<HEAD>
+  <META CHARSET="UTF-8">
+  <TITLE>Player MPEG-DASH</TITLE>
+  <!-- Gigya SDK -->
+  <SCRIPT TYPE="text/javascript" SRC="https://cdns.gigya.com/JS/socialize.js?apiKey=3_l-A-KKZVONJdGd272x41mezO6AUV4mUoxOdZCMfccvEXAJa6COVXyT_tUdQI03dh"></SCRIPT>
+  
+  <!-- Gigya Markup (included after Gigya SDK) 
+  <SCRIPT TYPE="text/javascript" SRC="//cdn.gigya-ext.com/gy.js" ></SCRIPT>-->
+  
+  <!--<SCRIPT TYPE="text/javascript" SRC="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.7.1/shaka-player.compiled.js"></SCRIPT>-->
+  <SCRIPT TYPE="text/javascript" SRC="https://reference.dashif.org/dash.js/nightly/dist/dash.all.debug.js"></SCRIPT>
+  
+</HEAD>
+<BODY>
+	<DIV class="gy-show-if-logged-out gy-ui-screen-set" data-screen-set="Default-RegistrationLogin"></DIV>
+
+	<DIV class="gy-show-if-logged-in">
+		<DIV>UID:        <SPAN class="gy-ui-account-info" data-field="UID">              </SPAN></DIV>
+		<DIV>Email:      <SPAN class="gy-ui-account-info" data-field="profile.email">    </SPAN></DIV>
+		<DIV>Nickname:   <SPAN class="gy-ui-account-info" data-field="profile.nickname"> </SPAN></DIV>
+		<DIV>First Name: <SPAN class="gy-ui-account-info" data-field="profile.firstName"></SPAN></DIV>
+		<DIV>Last Name:  <SPAN class="gy-ui-account-info" data-field="profile.lastName"> </SPAN></DIV>
+		<DIV>Birth Year: <SPAN class="gy-ui-account-info" data-field="profile.birthYear"></SPAN></DIV>
+		<DIV>Zip:        <SPAN class="gy-ui-account-info" data-field="profile.zip">      </SPAN></DIV>
+		
+		<DIV style="margin-top: 15px;"><a class="gy-click-logout" href="javascript: void(0);">Logout</a></DIV>
+	</DIV>
+
+	<VIDEO DATA-SHAKA-PLAYER= ""
+		   ID               = "VideoPlayer"
+		   CLASS            = "video-js"
+		   PLAYSINLINE      = "" 
+		   CROSSORIGIN      = "anonymous"
+		   WIDTH            = "100%" 
+		   HEIGHT           = "450"
+		   AUTOPLAY         = "true"
+		   PLAYSINLINE      = ""
+		   TABINDEX         = "1"
+		   CONTROLS>
+		<SOURCE SRC         = "live03p-col.msf.cdn.mediaset.net/live/ch-c5/c5-dash-widevine.isml/manifest_hr.mpd"
+				TYPE        = "application/dash+xml">
+		<P CLASS="vjs-no-js">
+			Per poter vedere questo video stream occorre abilitare JavaScript, è comunque opportuno considerare un upgrade del
+			web browser che supporti <A HREF="https://videojs.com/html5-video-support/" TARGET="_blank"> HTML5 video</A>
+		</P>
+	</VIDEO>
+	<!--
+	<VIDEO ID               = "VideoPlayer" 
+		   CLASS            = "video-js"
+		   PLAYSINLINE      = "" 
+		   CROSSORIGIN      = "anonymous" 
+		   AUTOPLAY         = "true"
+		   CONTROLS
+		   CONTROLS PRELOAD = "none" 
+		   DATA-SETUP       = "{}">	 
+		<!--<SOURCE SRC         = "https://live2-mediaset-it.akamaized.net/content/hls_h0_clr_vos/live/channel(c5)/index.m3u8";
+		<SOURCE SRC         = "https://live03p-col.msf.cdn.mediaset.net/live/ch-c5/c5-dash-widevine.isml/manifest_hr.mpd";
+				TYPE        = "application/x-mpegURL">
+		<P CLASS="vjs-no-js">
+			Per poter vedere questo video stream occorre abilitare JavaScript, è comunque opportuno considerare un upgrade del
+			web browser che supporti <A HREF="https://videojs.com/html5-video-support/" TARGET="_blank"> HTML5 video</A>
+		</P>
+	</VIDEO>
+	-->
+</BODY>
+</HTML>
+<SCRIPT>
+	var video = document.querySelector("video");
+	var player = dashjs.MediaPlayer().create();
+	player.initialize(video, "https://live03p-col.msf.cdn.mediaset.net/live/ch-c5/c5-dash-widevine.isml/manifest_hr.mpd", true);
+	</script>
+</SCRIPT>
