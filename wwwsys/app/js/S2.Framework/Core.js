@@ -434,9 +434,7 @@ const AppHelper = {
 				})
 				.fail(function(jqXHR, textStatus, errorThrown) {
 					$(targetDomName).html("");
-					var errorMessage = "Errore durante il caricamento della risorsa remota:" + url + "<BR>" +
-						           textStatus + "<BR>" +
-							   errorThrown;
+					var errorMessage = "Errore durante il caricamento della risorsa remota:" + url + "<BR>";
 					throw "" + errorMessage;
 				});
 			}
