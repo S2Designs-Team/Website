@@ -35,7 +35,8 @@
 
 <!-- Video.js last version -->
 <LINK   HREF = "https://vjs.zencdn.net/7.10.2/video-js.min.css" REL="stylesheet">
-<SCRIPT SRC  = "https://vjs.zencdn.net/7.10.2/video.min.js"></SCRIPT>
+<SCRIPT SRC  = "https://www.raiplay.it/assets/js/webcomponents/rai-player.js"></SCRIPT>
+<!--<SCRIPT SRC  = "https://vjs.zencdn.net/7.10.2/video.min.js"></SCRIPT>-->
 <SCRIPT>
 	$("#description").html(
 		"<SECTION CLASS='background rai_unoHd_bg'>" +
@@ -49,7 +50,7 @@
 	);
 	$("#description ARTICLE H2").html(channelsEpg.infos()["Rai"].on_air[0].currentItem.name);
 	$("#description ARTICLE P").html(channelsEpg.infos()["Rai"].on_air[0].currentItem.description);
-	console.log(selectedChannelName + " La descrizione della trasmissione è stata aggiornata.");
+	console.debug(selectedChannelName + " La descrizione della trasmissione è stata aggiornata.");
 	var epoch = getTomorrowDateTimeAsEpoch();	
 </SCRIPT>
 
