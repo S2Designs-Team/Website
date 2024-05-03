@@ -21,45 +21,7 @@
 <LINK   HREF = "https://vjs.zencdn.net/7.10.2/video-js.min.css" REL="stylesheet">
 <!--<SCRIPT SRC  = "https://vjs.zencdn.net/7.10.2/video.min.js"></SCRIPT>-->
 <SCRIPT SRC  = "wwwsys/app/js/S2.Framework/TvAndVideoPlayer/DashPlayer.min.js"></SCRIPT>
-<VIDEO ID               = "VideoPlayer" 
-	   CLASS            = "video-js"
-	   PLAYSINLINE      = "" 
-	   CROSSORIGIN      = "anonymous" 
-	   AUTOPLAY         = "true"
-	   CONTROLS
-	   CONTROLS PRELOAD = "none" 
-	   POSTER           = "/forSite/res/img/S2_Team_Logo_WebTv.png"
-	   DATA-SETUP       = "{}">	 
-	<!--<SOURCE SRC         = "https://live2-mediaset-it.akamaized.net/content/hls_h0_clr_vos/live/channel(c5)/index.m3u8";
-	<SOURCE SRC         = "https://live03p-col.msf.cdn.mediaset.net/live/ch-i1/i1-dash-widevine.isml/dash/i1-dash-widevine-audio_1=96000.dash";
-		TYPE        = "application/dash-xml">-->
-				
-	<P CLASS="vjs-no-js">
-		Per poter vedere questo video stream occorre abilitare JavaScript, è comunque opportuno considerare un upgrade del
-		web browser che supporti <A HREF="https://videojs.com/html5-video-support/" TARGET="_blank"> HTML5 video</A>
-	</P>
-</VIDEO>
 <SCRIPT>
-	function init() {
-		var protData = {
-		    "com.widevine.alpha": {
-			"serverURL": "https://drm-widevine-licensing.axtest.net/AcquireLicense",
-			"httpRequestHeaders": {
-			    "X-AxDRM-Message": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ2ZXJzaW9uIjoxLCJjb21fa2V5X2lkIjoiYjMzNjRlYjUtNTFmNi00YWUzLThjOTgtMzNjZWQ1ZTMxYzc4IiwibWVzc2FnZSI6eyJ0eXBlIjoiZW50aXRsZW1lbnRfbWVzc2FnZSIsImtleXMiOlt7ImlkIjoiOWViNDA1MGQtZTQ0Yi00ODAyLTkzMmUtMjdkNzUwODNlMjY2IiwiZW5jcnlwdGVkX2tleSI6ImxLM09qSExZVzI0Y3Iya3RSNzRmbnc9PSJ9XX19.4lWwW46k-oWcah8oN18LPj5OLS5ZU-_AQv7fe0JhNjA"
-			},
-			priority: 0
-		    }
-		};
-		var video,
-		    player,
-		    url = "https://live03p-col.msf.cdn.mediaset.net/live/ch-i1/i1-dash-widevine.isml/manifest_hr.mpd";
-		
-		video = document.querySelector("video");
-		player = dashjs.MediaPlayer().create();
-		player.initialize(video, url, true);
-		player.setProtectionData(protData);
-	}
-
 	$("#description").html(
 		"<SECTION CLASS='background canale5_bg'>" +
 		"</SECTION>" + 
@@ -75,3 +37,20 @@
 									 channelsEpg.infos()["Mediaset"].response.listings.C5.currentListing.description);
 	console.log(selectedChannelName + " La descrizione della trasmissione è stata aggiornata.");
 </SCRIPT>	
+<VIDEO 	   ID               = "VideoPlayer" 
+	   CLASS            = "video-js"
+	   PLAYSINLINE      = "" 
+	   CROSSORIGIN      = "anonymous" 
+	   AUTOPLAY         = "true"
+	   CONTROLS
+	   CONTROLS PRELOAD = "none" 
+	   POSTER           = "/forSite/res/img/S2_Team_Logo_WebTv.png"
+	   DATA-SETUP       = "{}">	 
+	<SOURCE SRC         = "https://live02-seg.msf.cdn.mediaset.net/live/ch-c5/c5-clr.isml/index.m3u8";
+		TYPE        = "application/dash-xml">-->
+				
+	<P CLASS="vjs-no-js">
+		Per poter vedere questo video stream occorre abilitare JavaScript, è comunque opportuno considerare un upgrade del
+		web browser che supporti <A HREF="https://videojs.com/html5-video-support/" TARGET="_blank"> HTML5 video</A>
+	</P>
+</VIDEO>
