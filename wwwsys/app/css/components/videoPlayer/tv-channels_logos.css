@@ -9,7 +9,7 @@
 	background-repeat-x : no-repeat !important;
 	background-repeat-Y : no-repeat !important;
 	margin-right        : clamp(0.25em, -0.875rem + 3.333333vw, 0.5em);
-}
+} 
 .testTv{
 	background-image    : url("https://phobetor1999.github.io/Website/wwwsys/app/res/img/tvChannelsLogos/[100x100] testTV.png")  !important;
 }
