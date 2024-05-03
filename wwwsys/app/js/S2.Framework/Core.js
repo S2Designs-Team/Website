@@ -418,7 +418,7 @@ const AppHelper = {
 	Description:   
 	Function Name: loadRemoteUrl
 	Version:       0.0.001
-	Parameters:    <url> = the url from where the content has to be picked up;
+	Parameters:    <targetDomName> = the target dom object where the content has to be shown; <url> = the url from where the content has to be picked up;
 	Returns:       The content loaded from the remote url
 	*/
 	loadRemoteUrl : function (targetDomName, url) {
@@ -426,23 +426,30 @@ const AppHelper = {
 		var fileContent="";
 		try {
 			if (!StringHelper.isEmpty(targetDomName)) {
-				var remoteContent = $.get(url, function(data){})
-				.done(function(data) {
+				remoteContent = $.get(url, function(data) {
 					$(targetDomName).html(data);
+				})
+				.done(function(data) {
+					$(Application.contentContainerDomName).html(data);
 					console.dataView(data);
 					return data;
 				})
 				.fail(function(jqXHR, textStatus, errorThrown) {
-					$(targetDomName).html("");
-					var errorMessage = "Errore durante il caricamento della risorsa remota:" + url + "<BR>";
-					throw errorMessage;
+					var errorMessage = "Errore durante il caricamento della risorsa remota:" + url + "<BR>" +
+						           textStatus + "<BR>";
+					console.error(errorMessage);
+					throw "errorMessage";
 				});
+				//$(targetDomName).html(remoteContent);
+				return remoteContent;
 			}
 		} catch (e) {
 			console.error(e.message + " <BR>" + e.stack);
-			return null;
-		}		
-	},
+			remoteContent = null;
+		} finally {
+			return remoteContent;
+		}			
+    },
 	
 	/*📎DOCUMENTATION
 	Author:        ㊙️anonimo㊙️
