@@ -94,7 +94,7 @@ Parameters:  none
 */
 const Application = {
 	name                    : "My application",
-	landingPageUrl          : "/Website/wwwsys/pages/index.html",
+	landingPageUrl          : "wwwsys/pages/index.html",
 	contentContainerDomName : ".content",
 	isLocalContent          : true,
 	
