@@ -10,14 +10,21 @@ This website is also intended to serve tutorials and guides (not just resources)
 This website section offers an aggregation of the most popular Italian tv channels' streams plus some Italian Radio's streams. 
 To implement this kind of feature inside the website pages 
 
+## Video.js HELPFULL LINKS:
+https://videojs.com/getting-started
+
+### USED VERSION:
+ver 8.10.0
+
+### Example: use Dash.js with widevine drm protection
+<to do>
+____________________________________________________________________________________________________________________________________________
 ## Dash.js HELPFULL LINKS:
 > https://groups.google.com/g/dashjs
+
 ### USED VERSION
 > https://github.com/Dash-Industry-Forum/dash.js/releases/tag/v4.7.4
 
 ### Example: use Dash.js with widevine drm protection
 > https://reference.dashif.org/dash.js/latest/samples/drm/widevine.html
 
-Mediaset channels: 
-- Player Javascript
-> https://static3.mediasetplay.mediaset.it/assets/vendor.9f7c7a7.js
