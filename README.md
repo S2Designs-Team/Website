@@ -16,7 +16,7 @@ https://videojs.com/getting-started
 ### USED VERSION:
 ver 8.10.0
 
-### Example: use Dash.js with widevine drm protection
+### Example: use Video.js
 <to do>
 ____________________________________________________________________________________________________________________________________________
   
