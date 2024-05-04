@@ -18,8 +18,9 @@
 <TITLE>Mediaset Focus</TITLE>
 
 <!-- Video.js last versioin -->
-<LINK   HREF = "https://vjs.zencdn.net/7.10.2/video-js.min.css" REL="stylesheet">
-<SCRIPT SRC  = "https://vjs.zencdn.net/7.10.2/video.min.js"></SCRIPT>
+<LINK   HREF = "https://vjs.zencdn.net/8.10.0/video-js.min.css" REL="stylesheet">
+<SCRIPT SRC  = "https://vjs.zencdn.net/8.10.0/video.min.js"></SCRIPT>
+	
 <SCRIPT>
 	$("#description").html(
 		"<SECTION CLASS='background focus_bg'>" +
@@ -33,11 +34,11 @@
 	);
 	$("#description ARTICLE H2").html(channelsEpg.infos()["Mediaset"].response.listings.FU.currentListing.mediasetlisting$epgTitle);
 	$("#description ARTICLE P").html(channelsEpg.infos()["Mediaset"].response.listings.FU.currentListing.mediasetlisting$shortDescription + "</BR>" +
-									 channelsEpg.infos()["Mediaset"].response.listings.FU.currentListing.description);
+					 channelsEpg.infos()["Mediaset"].response.listings.FU.currentListing.description);
 	console.log(selectedChannelName + " La descrizione della trasmissione è stata aggiornata.");
 </SCRIPT>
 
-<VIDEO ID               = "VideoPlayer"
+<VIDEO 	   ID               = "VideoPlayer"
 	   CLASS            = "video-js"
 	   PLAYSINLINE      = "" 
 	   CROSSORIGIN      = "anonymous" 
@@ -45,9 +46,9 @@
 	   CONTROLS
 	   CONTROLS PRELOAD = "none" 
 	   POSTER           = "/forSite/res/img/S2_Team_Logo_WebTv.png"
-       DATA-SETUP       = "{ 'aspectRatio':'640:267', 'playbackRates': [1, 1.5, 2] }"> 
-	<SOURCE SRC         = "https://live2-mediaset-it.akamaized.net/content/hls_h0_clr_vos/live/channel(fu)/index.m3u8";
-			TYPE        = "application/x-mpegURL">
+       	   DATA-SETUP       = "{ 'aspectRatio':'640:267', 'playbackRates': [1, 1.5, 2] }"> 
+	<SOURCE SRC         = "https://live02-seg.msf.cdn.mediaset.net/live/ch-fu/fu-clr.isml/index.m3u8"
+		TYPE        = "application/x-mpegURL">
 	<P CLASS="vjs-no-js">
 		Per poter vedere questo video stream occorre abilitare JavaScript, è comunque opportuno considerare un upgrade del
 		web browser che supporti <A HREF="https://videojs.com/html5-video-support/" TARGET="_blank"> HTML5 video</A>
