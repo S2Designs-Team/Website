@@ -18,8 +18,9 @@
 <TITLE>TV 8</TITLE>
 
 <!-- Video.js last version -->
-<LINK   HREF = "https://vjs.zencdn.net/7.10.2/video-js.min.css" REL="stylesheet">
-<SCRIPT SRC  = "https://vjs.zencdn.net/7.10.2/video.min.js"></SCRIPT>
+<LINK   HREF = "https://vjs.zencdn.net/8.10.0/video-js.min.css" REL="stylesheet">
+<SCRIPT SRC  = "https://vjs.zencdn.net/8.10.0/video.min.js"></SCRIPT>
+	
 <SCRIPT>
 	$("#description").html(
 		"<SECTION CLASS='background Tv8_bg'>" +
@@ -37,7 +38,7 @@
 	console.log(selectedChannelName + " La descrizione della trasmissione è stata aggiornata.");	
 </SCRIPT>
 
-<VIDEO ID               = "VideoPlayer" 
+<VIDEO     ID               = "VideoPlayer" 
 	   CLASS            = "video-js"
 	   PLAYSINLINE      = "" 
 	   CROSSORIGIN      = "anonymous" 
@@ -45,9 +46,9 @@
 	   CONTROLS
 	   CONTROLS PRELOAD = "none" 
 	   POSTER           = "/forSite/res/img/S2_Team_Logo_WebTv.png"
-	   DATA-SETUP       = "{}">	   
-    <SOURCE SRC         = "https://hlslive-web-gcdn-skycdn-it.akamaized.net/TACT/11223/tv8web/master.m3u8?hdnea=st=1639498341~exp=1702463400~acl=/*~hmac=c3c4c2de19ff0df4b4bb20587ce59af5232eadab2995f445b7506525413805dd"
-			TYPE        = "application/x-mpegURL">
+	   DATA-SETUP       = "{}">
+	<SOURCE SRC         = "https://hlslive-web-gcdn-skycdn-it.akamaized.net/TACT/11223/tv8web/master.m3u8?hdnea=st=1701861650~exp=1765449000~acl=/*~hmac=84c9f3f71e57b13c3a67afa8b29a8591ea9ed84bf786524399545d94be1ec04d"
+		TYPE        = "application/x-mpegURL">
 	<P CLASS="vjs-no-js">
 		Per poter vedere questo video stream occorre abilitare JavaScript, è comunque opportuno considerare un upgrade del
 		web browser che supporti <A HREF="https://videojs.com/html5-video-support/" TARGET="_blank"> HTML5 video</A>
