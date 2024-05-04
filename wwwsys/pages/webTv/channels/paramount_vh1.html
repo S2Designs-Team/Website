@@ -21,7 +21,7 @@
 <LINK   HREF = "https://cdn.jsdelivr.net/npm/video.js@6.6.2/dist/video-js.css" REL="stylesheet">
 <SCRIPT SRC  = "https://unpkg.com/video.js/dist/video.js"></SCRIPT>
   
-<VIDEO ID               = "VideoPlayer" 
+<VIDEO     ID               = "VideoPlayer" 
 	   CLASS            = "video-js"
 	   PLAYSINLINE      = "" 
 	   CROSSORIGIN      = "anonymous" 
@@ -29,9 +29,9 @@
 	   CONTROLS
 	   CONTROLS PRELOAD = "none" 
 	   POSTER           = "/forSite/res/img/S2_Team_Logo_WebTv.png"
-	   DATA-SETUP       = "{}">
-    <SOURCE SRC         = "https://content-aeuf1.uplynk.com/channel/36953f5b6546464590d2fcd954bc89cf/d.m3u8?ct=c&ad.cust_params=_fw_ae%3D37a6259cc0c1dae299a7866489dff0bd%26_vmn_ar%3Dtrue&expand=simulcast_standard&ad.kv=_fw_ae,37a6259cc0c1dae299a7866489dff0bd,_vmn_lat,true,_vmn_ar,true&exp=1676065466&rn=1964605984&cid=36953f5b6546464590d2fcd954bc89cf&tc=1&sig=405574f592f90fcabff392409a80ad3fa2b108f488a197be2763e52d7ee34e2f&pbs=d72ca0ea033c4512b72a57aeebc96361"
-			TYPE        = "application/x-mpegURL">
+	   DATA-SETUP       = "{}"> 
+	<SOURCE SRC         = "https://cfd-v4-service-channel-stitcher-use1-1.prd.pluto.tv/v2/stitch/hls/channel/62e8cc10ca869f00078efca8/3063648/playlist.m3u8?terminate=false&sid=1d2046b6-09b9-11ef-ba1f-520d2dc04f71&deviceDNT=0&deviceLat=45.470001220703125&deviceLon=9.1899995803833&deviceModel=web&deviceVersion=124.0.0&includeExtendedEvents=true&appName=web&DRMCapabilities=widevine&deviceId=4bcc5d1f-728f-4baa-be99-da03977feed5&appVersion=9.0.0-10480ac2fd66f309f2b6db9c91e66fb2e8ca587e&deviceType=web&deviceMake=chrome&jwt=eyJhbGciOiJIUzI1NiIsImtpZCI6ImJjZDBlZTY0LTNkNjktNDU4OC05ZTk3LTk2OTkxNDhiMmY3YSIsInR5cCI6IkpXVCJ9.eyJzZXNzaW9uSUQiOiIxZDIwNDZiNi0wOWI5LTExZWYtYmExZi01MjBkMmRjMDRmNzEiLCJjbGllbnRJUCI6IjJhMDE6ZTExOjEwMDE6YzlmMDoyNGM1OjViNGQ6MTg2NzplN2Q3IiwiY2l0eSI6Ik1pbGFuIiwicG9zdGFsQ29kZSI6IjIwMTIxIiwiY291bnRyeSI6IklUIiwiZG1hIjowLCJhY3RpdmVSZWdpb24iOiJJVCIsImRldmljZUxhdCI6NDUuNDcwMDAxMjIwNzAzMTI1LCJkZXZpY2VMb24iOjkuMTg5OTk5NTgwMzgzMywicHJlZmVycmVkTGFuZ3VhZ2UiOiJpdCIsImRldmljZVR5cGUiOiJ3ZWIiLCJkZXZpY2VWZXJzaW9uIjoiMTI0LjAuMCIsImRldmljZU1ha2UiOiJjaHJvbWUiLCJkZXZpY2VNb2RlbCI6IndlYiIsImFwcE5hbWUiOiJ3ZWIiLCJhcHBWZXJzaW9uIjoiOS4wLjAtMTA0ODBhYzJmZDY2ZjMwOWYyYjZkYjljOTFlNjZmYjJlOGNhNTg3ZSIsImNsaWVudElEIjoiNGJjYzVkMWYtNzI4Zi00YmFhLWJlOTktZGEwMzk3N2ZlZWQ1IiwiY21BdWRpZW5jZUlEIjoiIiwiaXNDbGllbnRETlQiOmZhbHNlLCJ1c2VySUQiOiIiLCJsb2dMZXZlbCI6IkRFRkFVTFQiLCJ0aW1lWm9uZSI6IkV1cm9wZS9Sb21lIiwic2VydmVyU2lkZUFkcyI6ZmFsc2UsImUyZUJlYWNvbnMiOmZhbHNlLCJmZWF0dXJlcyI6eyJpc1N0aXRjaGVyRWtzIjp0cnVlLCJtdWx0aVBvZEFkcyI6eyJlbmFibGVkIjp0cnVlfX0sImZtc1BhcmFtcyI6eyJmd1ZjSUQyIjoiNGJjYzVkMWYtNzI4Zi00YmFhLWJlOTktZGEwMzk3N2ZlZWQ1IiwiZndWY0lEMkNvcHBhIjoiNGJjYzVkMWYtNzI4Zi00YmFhLWJlOTktZGEwMzk3N2ZlZWQ1IiwiY3VzdG9tUGFyYW1zIjp7ImZtc19saXZlcmFtcF9pZGwiOiIiLCJmbXNfZW1haWxoYXNoIjoiIiwiZm1zX3N1YnNjcmliZXJpZCI6IiIsImZtc19pZmEiOiIiLCJmbXNfaWRmdiI6IiIsImZtc191c2VyaWQiOiI0YmNjNWQxZi03MjhmLTRiYWEtYmU5OS1kYTAzOTc3ZmVlZDUiLCJmbXNfdmNpZDJ0eXBlIjoidXNlcmlkIiwiZm1zX3JhbXBfaWQiOiIiLCJmbXNfaGhfcmFtcF9pZCI6IiIsImZtc19iaWRpZHR5cGUiOiIiLCJfZndfM1BfVUlEIjoiIiwiZm1zX3J1bGVpZCI6IjEwMDAwLDEwMDA5LDEwMDAzIn19LCJkcm0iOnsibmFtZSI6IndpZGV2aW5lIiwibGV2ZWwiOiJMMyJ9LCJpc3MiOiJib290LnBsdXRvLnR2Iiwic3ViIjoicHJpOnYxOnBsdXRvOmRldmljZXM6SVQ6TkdKall6VmtNV1l0TnpJNFppMDBZbUZoTFdKbE9Ua3RaR0V3TXprM04yWmxaV1ExIiwiYXVkIjoiKi5wbHV0by50diIsImV4cCI6MTcxNDg3NDAxMywiaWF0IjoxNzE0Nzg3NjEzLCJqdGkiOiJiMjc4YjBkMS03ZTE0LTQxZWUtYjZmMy05MGRmZTBjODEwZDYifQ.iz253vH-IdX010nzbTvMvzl54W3HzkUglBSMOWIATnQ&CMCD=mtp%3D126100%2Cot%3Dm%2Csf%3Dh%2Csid%3D%22cd729098-fb8a-424b-956a-08f698a9d5b2%22"
+		TYPE        = "application/x-mpegURL">
 	<P CLASS="vjs-no-js">
 		Per poter vedere questo video stream occorre abilitare JavaScript, è comunque opportuno considerare un upgrade del
 		web browser che supporti <A HREF="https://videojs.com/html5-video-support/" TARGET="_blank"> HTML5 video</A>
