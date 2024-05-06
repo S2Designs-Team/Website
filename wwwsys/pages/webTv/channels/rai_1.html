@@ -5,8 +5,8 @@
 
 <!-- Video.js last version -->
 <LINK   HREF = "https://vjs.zencdn.net/7.10.2/video-js.min.css" REL="stylesheet">
-<SCRIPT SRC  = "https://www.raiplay.it/assets/js/webcomponents/rai-player.js"></SCRIPT>
-<!--<SCRIPT SRC  = "https://vjs.zencdn.net/7.10.2/video.min.js"></SCRIPT>-->
+<SCRIPT SRC  = "https://vjs.zencdn.net/7.10.2/video.min.js"></SCRIPT>
+
 <SCRIPT>
 	$("#description").html(
 		"<SECTION CLASS='background rai_unoHd_bg'>" +
@@ -21,7 +21,6 @@
 	$("#description ARTICLE H2").html(channelsEpg.infos()["Rai"].on_air[0].currentItem.name);
 	$("#description ARTICLE P").html(channelsEpg.infos()["Rai"].on_air[0].currentItem.description);
 	console.debug(selectedChannelName + " La descrizione della trasmissione è stata aggiornata.");
-	//var epoch = getTomorrowDateTimeAsEpoch();	
 </SCRIPT>
 
 <VIDEO	   ID               = "VideoPlayer"
@@ -33,7 +32,7 @@
 	   CONTROLS PRELOAD = "none" 
 	   POSTER           = "wwwsys/app/res/img/S2_Team_Logo_WebTv.png"
 	   DATA-SETUP       = "{}">
-	<SOURCE SRC         = "http://mediapolis.rai.it/relinker/relinkerServlet.htm?cont=2606803&output=16"
+	<SOURCE SRC         = "http://mediapolis.rai.it/relinker/relinkerServlet.htm?cont=2606803&output=7&forceUserAgent=raiplayappletv"
 		TYPE        = "application/x-mpegURL">
 	<!--<SOURCE SRC         = "https://raiuno1-live.akamaized.net/hls/live/598308/raiuno1/raiuno1/rai1_2400/exp=1676075000~acl=%2fhls%2flive%2f598308%2fraiuno1%2f*!%2fhls%2flive%2f598308-b%2fraiuno1%2f*!%2f*.key~data=hdntl~hmac=db6851c4db1db6b87ad5d996f60bd467ca1e9de4c897e98985765b533dbbb58b/chunklist.m3u8?aka_me_session_id=AAAAAAAAAACQt+ZjAAAAAHVRv%2fIvky5Csd9vOQ3aN1D62UePILWv86+Mcfv2q+IH+WisNHIYB0A+jTf3UzqKr1NdvtRiYCsc&aka_media_format_type=hls";
 			TYPE        = "application/x-mpegURL">-->
