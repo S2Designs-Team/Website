@@ -17,40 +17,40 @@
 
 <TITLE>Mediaset Radio MonteCarlo tv</TITLE>
 
-<!-- DASH-AVC/265 reference implementation https://www.cdnpkg.com/dashjs/file/dash.all.js/-->
-<LINK   HREF = "https://vjs.zencdn.net/7.10.2/video-js.min.css" REL="stylesheet">
-<SCRIPT SRC  = "/forSite/js/Dash.js/dash.all.js"></SCRIPT>
+<!-- Video.js last version -->
+<LINK   HREF = "https://vjs.zencdn.net/8.10.0/video-js.min.css" REL="stylesheet">
+<SCRIPT SRC  = "https://vjs.zencdn.net/8.10.0/video.min.js"></SCRIPT>
+	
+<SCRIPT>
+	$("#description").html(
+		"<SECTION CLASS='background radioMontecarlo_bg'>" +
+		"</SECTION>" + 
+		"<ARTICLE>"  +
+		"    <H2>"   +
+		"    </H2>"  +
+		"    <P>"    +
+		"    </P>"   +
+		"</ARTICLE>"
+	);
+	$("#description ARTICLE H2").html(channelsEpg.infos()["Mediaset"].response.listings.BB.currentListing.mediasetlisting$epgTitle);
+	$("#description ARTICLE P").html(channelsEpg.infos()["Mediaset"].response.listings.BB.currentListing.mediasetlisting$shortDescription + "</BR>" +
+					 channelsEpg.infos()["Mediaset"].response.listings.BB.currentListing.description);
+	console.log(selectedChannelName + " La descrizione della trasmissione è stata aggiornata.");
+</SCRIPT>
 
-<VIDEO ID               = "VideoPlayer" 
-	   CLASS            = "video-js vjs-default-skin sc-htpNat bxqYnG"
+<VIDEO     ID               = "VideoPlayer" 
+	   CLASS            = "video-js"
 	   PLAYSINLINE      = "" 
 	   CROSSORIGIN      = "anonymous" 
 	   AUTOPLAY         = "true"
 	   CONTROLS
 	   CONTROLS PRELOAD = "none" 
 	   POSTER           = "/forSite/res/img/S2_Team_Logo_WebTv.png"
-	   DATA-SETUP       = "{}">
+	   DATA-SETUP       = "{}">	   
+	<SOURCE SRC         = "https://live02-seg.msr.cdn.mediaset.net/live/ch-bb/bb-clr.isml/index.m3u8"
+		TYPE        = "application/x-mpegURL">
 	<P CLASS="vjs-no-js">
 		Per poter vedere questo video stream occorre abilitare JavaScript, è comunque opportuno considerare un upgrade del
 		web browser che supporti <A HREF="https://videojs.com/html5-video-support/" TARGET="_blank"> HTML5 video</A>
-	</P>
+	</P>	
 </VIDEO>
-
-<SCRIPT>
-	// setup the video element and attach it to the Dash player
-	var url     = "https://live3.msr.cdn.mediaset.net/content/dash_d0_clr_vos/live/channel(bb)/manifest.mpd";
-	var context = new Dash.di.DashContext();
-	var player  = new MediaPlayer(context);
-		player.startup();
-		player.attachView(document.querySelector("#VideoPlayer"));
-		player.attachSource(url);
-	$("#description").html(
-		"<H2>" + 
-			epgDataMediaset.response.listings.BB.currentListing.mediasetlisting$epgTitle + 
-		"</H2>" +
-		"<P>" +
-			epgDataMediaset.response.listings.BB.currentListing.mediasetlisting$shortDescription + "</BR>" +
-			epgDataMediaset.response.listings.BB.currentListing.description +
-		"</P>"
-    );
-</SCRIPT>
