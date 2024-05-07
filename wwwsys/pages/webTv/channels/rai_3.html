@@ -18,8 +18,9 @@
 <TITLE>RAI 3 HD</TITLE>
 
 <!-- Video.js last version -->
-<LINK   HREF = "https://vjs.zencdn.net/7.10.2/video-js.min.css" REL="stylesheet">
-<SCRIPT SRC  = "https://vjs.zencdn.net/7.10.2/video.min.js"></SCRIPT>
+<LINK   HREF = "https://vjs.zencdn.net/8.10.0/video-js.min.css" REL="stylesheet">
+<SCRIPT SRC  = "https://vjs.zencdn.net/8.10.0/video.min.js"></SCRIPT>
+
 <SCRIPT>
 	$("#description").html(
 		"<SECTION CLASS='background rai_treHd_bg'>" +
@@ -37,7 +38,7 @@
 	var epoch = getTomorrowDateTimeAsEpoch();	
 </SCRIPT>
 
-<VIDEO ID               = "VideoPlayer"
+<VIDEO     ID               = "VideoPlayer"
 	   CLASS            = "video-js"
 	   PLAYSINLINE      = "" 
 	   CROSSORIGIN      = "anonymous"
@@ -46,8 +47,8 @@
 	   CONTROLS PRELOAD = "none" 
 	   POSTER           = "wwwsys/app/res/img/S2_Team_Logo_WebTv.png"
 	   DATA-SETUP       = "{}">
-    <SOURCE SRC         = "https://streamcdnr10-8e7439fdb1694c8da3a0fd63e4dda518.msvdn.net/rai3nodvr/hls/rai3nodvr_2400/chunklist.m3u8?baseuri=%2Frai3nodvr%2Fhls%2F&tstart=0&tend=1676064310&tk2=8c45923d6be4a08575ad02cb3f4eaf7000b359500fb80c3189776a1658de52d7"
-			TYPE        = "application/x-mpegURL">
+	<SOURCE SRC         = "https://streamcdnm7-8e7439fdb1694c8da3a0fd63e4dda518.msvdn.net/rai3nodvr/hls/rai3nodvr_2400/chunklist.m3u8?baseuri=%2Frai3nodvr%2Fhls%2F&tstart=0&tend=1715177733&tk2=8fc28f36d6bebe1012b608591b234b2722ba5890579abef549cf70665941a9fb"
+		TYPE        = "application/x-mpegURL">
 	<P CLASS="vjs-no-js">
 		Per poter vedere questo video stream occorre abilitare JavaScript, è comunque opportuno considerare un upgrade del
 		web browser che supporti <A HREF="https://videojs.com/html5-video-support/" TARGET="_blank"> HTML5 video</A>
