@@ -177,6 +177,11 @@
 	box-shadow          : inset 0px 0px 1px 1px hsl(0deg 0% 100% / 32%);
 	background-size     : 100% 100% !important;
 }
+.rai_quattroHd_bg{
+	background          : url("https://phobetor1999.github.io/Website/wwwsys/app/res/img/tvChannelsBackgrounds/Rai_quattroHd_bg.png") no-repeat no-repeat !important;
+	box-shadow          : inset 0px 0px 1px 1px hsl(0deg 0% 100% / 32%);
+	background-size     : 100% 100% !important;
+}
 .la5_bg{
 	background          : url("https://phobetor1999.github.io/Website/wwwsys/app/res/img/tvChannelsBackgrounds/Mediaset_la5_bg.png") no-repeat no-repeat !important;
 	box-shadow          : inset 0px 0px 1px 1px hsl(0deg 0% 100% / 32%);
