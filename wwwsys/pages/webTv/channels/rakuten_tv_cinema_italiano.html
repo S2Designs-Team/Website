@@ -18,8 +18,9 @@
 <TITLE>Rakuten TV - Cinema Italiano</TITLE>
 
 <!-- Video.js last version -->
-<LINK   HREF = "https://vjs.zencdn.net/7.10.2/video-js.min.css" REL="stylesheet">
-<SCRIPT SRC  = "https://vjs.zencdn.net/7.10.2/video.min.js"></SCRIPT>
+<LINK   HREF = "https://vjs.zencdn.net/8.10.0/video-js.min.css" REL="stylesheet">
+<SCRIPT SRC  = "https://vjs.zencdn.net/8.10.0/video.min.js"></SCRIPT>
+	
 <SCRIPT>
 	$("#description").html(
 		"<SECTION CLASS='background cinemaItaliano_bg'>" +
@@ -37,7 +38,7 @@
 	console.log(selectedChannelName + " La descrizione della trasmissione è stata aggiornata.");	
 </SCRIPT>
 
-<VIDEO ID               = "VideoPlayer" 
+<VIDEO     ID               = "VideoPlayer" 
 	   CLASS            = "video-js"
 	   PLAYSINLINE      = "" 
 	   CROSSORIGIN      = "anonymous" 
@@ -46,8 +47,8 @@
 	   CONTROLS PRELOAD = "none" 
 	   POSTER           = "/forSite/res/img/S2_Team_Logo_WebTv.png"
 	   DATA-SETUP       = "{}">
-	<SOURCE SRC         = "https://006280332e644bb9badb80cb614c00b6.mediatailor.us-east-1.amazonaws.com/v1/manifest/44f73ba4d03e9607dcd9bebdcb8494d86964f1d8/RakutenTV-it_Classics/d1fdf496-9cb1-40b7-bde5-27d20f63bf39/2.m3u8";
-			TYPE        = "application/x-mpegURL">
+	<SOURCE SRC         = "https://6e7b0ca5587e4580a2922d0853ee0498.mediatailor.us-east-1.amazonaws.com/v1/manifest/44f73ba4d03e9607dcd9bebdcb8494d86964f1d8/RakutenTV-it_CinemaSegreto/7d736821-a587-47f9-9eba-c6fa2adba561/2.m3u8";
+		TYPE        = "application/x-mpegURL">
 	<P CLASS="vjs-no-js">
 		Per poter vedere questo video stream occorre abilitare JavaScript, è comunque opportuno considerare un upgrade del
 		web browser che supporti <A HREF="https://videojs.com/html5-video-support/" TARGET="_blank"> HTML5 video</A>
