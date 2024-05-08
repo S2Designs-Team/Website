@@ -4,10 +4,10 @@
 .icon{
 	width               : clamp(2.5em, -1rem + 5vw, 5em);
 	height              : clamp(2.5em, -1rem + 5vw, 5em);
-	background          : center    !important;
-	background-size     : contain   !important;
-	background-repeat-x : no-repeat !important;
-	background-repeat-Y : no-repeat !important;
+	background          : center no-repeat !important;
+	background-size     : contain          !important;
+	background-repeat-x : no-repeat        !important;
+	background-repeat-Y : no-repeat        !important;
 	margin-right        : clamp(0.25em, -0.875rem + 3.333333vw, 0.5em);
 } 
 .testTv{
