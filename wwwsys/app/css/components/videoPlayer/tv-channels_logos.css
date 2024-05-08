@@ -152,8 +152,8 @@
 	background-image    : url("https://phobetor1999.github.io/Website/wwwsys/app/res/img/tvChannelsLogos/[100x100] rakuten_tv_cinemaItaliano.png")!important;
 	background-size     : clamp(2.5em, -2rem + 3vw, 3.5em) clamp(2.5em, -2rem + 3vw, 3.5em) !important;
 }
-.thriller{
-	background-image    : url("https://phobetor1999.github.io/Website/wwwsys/app/res/img/tvChannelsLogos/[100x100] rakuten_tv_thriller.png")!important;
+.family{
+	background-image    : url("https://phobetor1999.github.io/Website/wwwsys/app/res/img/tvChannelsLogos/[100x100] rakuten_tv_family.png")!important;
 	background-size     : clamp(2.5em, -2rem + 3vw, 3.5em) clamp(2.5em, -2rem + 3vw, 3.5em) !important;
 }
 .romance{
