@@ -33,8 +33,7 @@
 		"</ARTICLE>"
 	);
 	$("#description ARTICLE H2").html("Rakuten Tv - Azione");
-	$("#description ARTICLE P").html("Nessuna descrizione trasmissione disponibile.</BR>" +
-									 "");
+	$("#description ARTICLE P").html(channelsEpg.infos()["Rakuten"].response.data[0]);
 	console.log(selectedChannelName + " La descrizione della trasmissione è stata aggiornata.");	
 </SCRIPT>
 
