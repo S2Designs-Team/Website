@@ -38,6 +38,7 @@ class ChannelsEpg {
 					   "&epg_starts_at_timestamp=1715281200000" +
 					   "&locale=it&market_code=it" +
 					   "&per_page=120n";
+		console.log("so far so good...");
 		this.update();
 		this.startPolling();
 	}
