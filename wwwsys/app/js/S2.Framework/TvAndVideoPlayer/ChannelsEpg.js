@@ -55,15 +55,10 @@ class ChannelsEpg {
 					console.log(err);
 				});
 			console.log(" - RAI EPG: invio eseguito correttamente.");
-		} catch(error) {
-			
-		}
-		/*
 		} catch (error) {
 			console.log('Errors occurred executing the GET EPG DATA request to: ' + url, error);
 			return null;
 		}
-		*/
 		
 		try {			
 			fetch(this.#EPG_URL_MEDIASET).
@@ -76,8 +71,9 @@ class ChannelsEpg {
 					console.log(err);
 				});
 			console.log(" - MEDIASET EPG: invio eseguito correttamente.");
-		} catch(error) {
-			
+		} catch (error) {
+			console.log('Errors occurred executing the GET EPG DATA request to: ' + url, error);
+			return null;
 		}
 		try {			
 			fetch(this.#EPG_URL_RAKUTEN).
@@ -90,17 +86,12 @@ class ChannelsEpg {
 					console.log(err);
 				});
 			console.log(" - RAKUTEN EPG: invio eseguito correttamente.");
-		} catch(error) {
-			
-		}
-		/*
 		} catch (error) {
 			console.log('Errors occurred executing the GET EPG DATA request to: ' + url, error);
 			return null;
 		}
-		*/
 	}
-
+	debugger;
 	applyChannelsEPG = () => {
 		$("[id='Rai 1']").
 			find('#title').
