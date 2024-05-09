@@ -58,7 +58,7 @@ class ChannelsEpg {
 			console.log(" - RAI EPG: invio eseguito correttamente.");
 		} catch (error) {
 			console.log('Errors occurred executing the GET EPG DATA request to: ' + url, error);
-			return null;
+			//return null;
 		}
 		
 		try {			
@@ -74,7 +74,7 @@ class ChannelsEpg {
 			console.log(" - MEDIASET EPG: invio eseguito correttamente.");
 		} catch (error) {
 			console.log('Errors occurred executing the GET EPG DATA request to: ' + url, error);
-			return null;
+			//return null;
 		}
 		try {			
 			fetch(this.#EPG_URL_RAKUTEN).
@@ -89,7 +89,7 @@ class ChannelsEpg {
 			console.log(" - RAKUTEN EPG: invio eseguito correttamente.");
 		} catch (error) {
 			console.log('Errors occurred executing the GET EPG DATA request to: ' + url, error);
-			return null;
+			//return null;
 		}
 	}
 	
