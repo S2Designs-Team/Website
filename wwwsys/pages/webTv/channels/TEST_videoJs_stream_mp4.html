@@ -15,7 +15,7 @@
 */ -->
 <!DOCTYPE html>
 
-<TITLE>S2 Stream Test</TITLE>
+<TITLE>TEST video.js stream mp4</TITLE>
 
 <!-- Video.js base CSS -->
 <LINK   HREF = "https://vjs.zencdn.net/8.10.0/video-js.min.css" REL="stylesheet">
@@ -23,7 +23,7 @@
 	
 <SCRIPT>
 	$("#description").html(
-		"<SECTION CLASS='background romance_bg'>" +
+		"<SECTION CLASS='background test_bg'>" +
 		"</SECTION>" + 
 		"<ARTICLE>"  +
 		"    <H2>"   +
@@ -32,25 +32,23 @@
 		"    </P>"   +
 		"</ARTICLE>"
 	);
-	$("#description ARTICLE H2").html(" S2 Web Tv - Test");
+	$("#description ARTICLE H2").html(" Testing video.js player to stream mp4 files");
 	$("#description ARTICLE P").html("Nessuna descrizione trasmissione disponibile.</BR>");
 	console.log(selectedChannelName + " La descrizione della trasmissione è stata aggiornata.");	
 </SCRIPT>
 
-<VIDEO     ID         ="VideoPlayer"
-	   CLASS      ="video-js"
-	   PLAYSINLINE="" 
-	   AUTOPLAY   ="true"
-	   DATA-SETUP ='{}'
+<VIDEO     ID         = "VideoPlayer"
+	   CLASS      = "video-js"
+	   PLAYSINLINE= "" 
+	   AUTOPLAY   = "true"
+	   DATA-SETUP = '{}'
 	   AUTOPLAY
 	   CONTROLS>
-	<SOURCE SRC   ="https://prod-kami.wuaki.tv/v1/delivery/dash/avod/7d074626-19c1-46ae-a743-f0e5745d9369.mpd"
-		TYPE  ="video/mp4">
+	<SOURCE SRC   = "https://prod-kami.wuaki.tv/v1/delivery/dash/avod/7d074626-19c1-46ae-a743-f0e5745d9369.mpd"
+		TYPE  = "video/mp4">
 	<P CLASS="vjs-no-js">
 		Per poter vedere questo video stream occorre abilitare JavaScript, è comunque opportuno considerare un upgrade del
 		web browser che supporti <A HREF="https://videojs.com/html5-video-support/" TARGET="_blank"> HTML5 video</A>
 	</P>
 	<H1 id="description"></H1>
 </VIDEO>
-
-<!-- $("#description").html(egpData.response.listings.KI.currentListing.description);-->
