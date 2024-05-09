@@ -15,43 +15,41 @@
 */ -->
 <!DOCTYPE html>
 
-<TITLE>TEST</TITLE>
+<TITLE>TEST dash.js stream mp4</TITLE>
 
-<!-- Video.js last versioin -->
+<!-- Dash.js last versioin -->
 <LINK   HREF = "https://vjs.zencdn.net/7.10.2/video-js.min.css" REL="stylesheet">
-<SCRIPT SRC  = "https://vjs.zencdn.net/7.10.2/video.min.js"></SCRIPT>
- 
-<VIDEO ID               = "VideoPlayer" 
+<SCRIPT SRC  = "http://cdn.dashjs.org/latest/dash.all.min.js"></SCRIPT>
+
+<SCRIPT>
+	$("#description").html(
+		"<SECTION CLASS='background test_bg'>" +
+		"</SECTION>" + 
+		"<ARTICLE>"  +
+		"    <H2>"   +
+		"    </H2>"  +
+		"    <P>"    +
+		"    </P>"   +
+		"</ARTICLE>"
+	);
+	$("#description ARTICLE H2").html(" Testing dash.js player to stream mp4 files");
+	$("#description ARTICLE P").html("Nessuna descrizione trasmissione disponibile.</BR>");
+	console.log(selectedChannelName + " La descrizione della trasmissione è stata aggiornata.");	
+</SCRIPT>
+	
+<VIDEO     ID               = "VideoPlayer" 
 	   CLASS            = "video-js"
 	   PLAYSINLINE      = "" 
 	   CROSSORIGIN      = "anonymous" 
 	   AUTOPLAY         = "true"
 	   CONTROLS
 	   CONTROLS PRELOAD = "none" 
-	   POSTER           = "/forSite/res/img/S2_Team_Logo_WebTv.png"
-       DATA-SETUP       = "{}">
-	<SOURCE SRC="/forSite/res/video001.mp4" TYPE="video/mp4"></SOURCE>
-	<!-- 
-	<SOURCE SRC="https://vjs.zencdn.net/v/oceans.mp4"  TYPE="video/mp4"></SOURCE>
-	<SOURCE SRC="https://vjs.zencdn.net/v/oceans.webm" TYPE="video/webm"></SOURCE>
-	<SOURCE SRC="https://vjs.zencdn.net/v/oceans.ogv"  TYPE="video/ogg"></SOURCE> 
-	-->
+	   POSTER           = "wwwsys/app/res/img/S2_Team_Logo_WebTv.png"
+           DATA-SETUP       = "{}">
+	<SOURCE SRC         = "https://prod-kami.wuaki.tv/v1/delivery/dash/avod/7d074626-19c1-46ae-a743-f0e5745d9369.mpd"
+		TYPE        = "video/mp4">
 	<P CLASS="vjs-no-js">
 		Per poter vedere questo video stream occorre abilitare JavaScript, è comunque opportuno considerare un upgrade del
 		web browser che supporti <A HREF="https://videojs.com/html5-video-support/" TARGET="_blank"> HTML5 video</A>
 	</P>
 </VIDEO>
-
-<SCRIPT>
-	$("#description").html(
-		"<ARTICLE><H3>" + 
-			"Canale di test" +
-		"</ARTICLE></H3>" +
-		"<ARTICLE>"+ 
-			"S2 Designs Team" + 
-		"</ARTICLE>" +
-		"<P>" +
-			"" +
-		"</P>"
-    );	
-</SCRIPT>
