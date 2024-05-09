@@ -17,10 +17,6 @@
 
 <TITLE>TEST dash.js stream mp4</TITLE>
 
-<!-- Dash.js last versioin -->
-<LINK   HREF = "https://vjs.zencdn.net/7.10.2/video-js.min.css" REL="stylesheet">
-<SCRIPT SRC  = "https://cdn.dashjs.org/latest/dash.all.min.js"></SCRIPT>
-
 <SCRIPT>
 	$("#description").html(
 		"<SECTION CLASS='background test_bg'>" +
@@ -41,15 +37,14 @@
 	   CLASS            = "video-js"
 	   PLAYSINLINE      = "" 
 	   CROSSORIGIN      = "anonymous" 
-	   AUTOPLAY         = "true"
-	   CONTROLS
-	   CONTROLS PRELOAD = "none" 
-	   POSTER           = "wwwsys/app/res/img/S2_Team_Logo_WebTv.png"
-           DATA-SETUP       = "{}">
-	<SOURCE SRC         = "https://prod-kami.wuaki.tv/v1/delivery/dash/avod/7d074626-19c1-46ae-a743-f0e5745d9369.mpd"
-		TYPE        = "video/mp4">
+	   DATA-DASHJS-PLAYER 
+	   AUTOPLAY src     = "https://prod-kami.wuaki.tv/v1/delivery/dash/avod/7d074626-19c1-46ae-a743-f0e5745d9369.mpd">
 	<P CLASS="vjs-no-js">
 		Per poter vedere questo video stream occorre abilitare JavaScript, è comunque opportuno considerare un upgrade del
 		web browser che supporti <A HREF="https://videojs.com/html5-video-support/" TARGET="_blank"> HTML5 video</A>
 	</P>
 </VIDEO>
+
+<!-- Dash.js last versioin -->
+<LINK   HREF = "https://vjs.zencdn.net/7.10.2/video-js.min.css" REL="stylesheet">
+<SCRIPT SRC  = "https://cdn.dashjs.org/latest/dash.all.min.js"></SCRIPT>
