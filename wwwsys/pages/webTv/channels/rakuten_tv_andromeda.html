@@ -15,7 +15,7 @@
 */ -->
 <!DOCTYPE html>
 
-<TITLE>Rakuten TV - Azione</TITLE>
+<TITLE>Rakuten TV - FilmRise Andromeda</TITLE>
 
 <!-- Video.js last version -->
 <LINK   HREF = "https://vjs.zencdn.net/8.10.0/video-js.min.css" REL="stylesheet">
@@ -23,7 +23,7 @@
 	
 <SCRIPT>
 	$("#description").html(
-		"<SECTION CLASS='background azione_bg'>" +
+		"<SECTION CLASS='background andromeda_bg'>" +
 		"</SECTION>" + 
 		"<ARTICLE>"  +
 		"    <H2>"   +
@@ -32,9 +32,8 @@
 		"    </P>"   +
 		"</ARTICLE>"
 	);
-	$("#description ARTICLE H2").html("Rakuten Tv - Azione");
-	$("#description ARTICLE P").html("Nessuna descrizione trasmissione disponibile.</BR>" +
-									 "");
+	$("#description ARTICLE H2").html("Rakuten Tv - FilmRise Andromeda");
+	$("#description ARTICLE P").html("Nessuna descrizione trasmissione disponibile.</BR>");
 	console.log(selectedChannelName + " La descrizione della trasmissione è stata aggiornata.");	
 </SCRIPT>
 
@@ -47,13 +46,8 @@
 	   CONTROLS PRELOAD = "none" 
 	   POSTER           = "wwwsys/app/res/img/S2_Team_Logo_WebTv.png"
 	   DATA-SETUP       = "{}">
-	<!-- CHROME OK - EDGE KO -->
-	<SOURCE SRC         = "https://614060ea53ed43e0b861430de2935109.mediatailor.us-east-1.amazonaws.com/v1/manifest/44f73ba4d03e9607dcd9bebdcb8494d86964f1d8/RakutenTV-it_RakutenActionMovies/0b506e2d-3fc2-4f43-a271-edbd60cd758e/2.m3u8"
+	<SOURCE SRC         = "https://d39g1vxj2ef6in.cloudfront.net/v1/manifest/3fec3e5cac39a52b2132f9c66c83dae043dc17d4/prod-rakuten-stitched/e5d2251e-1e14-48bb-afca-91ca2b272a8a/5.m3u8"
 		TYPE        = "application/x-mpegURL">
-	<!-- CHROME KO - EDGE OK
-	<SOURCE SRC         = "https://614060ea53ed43e0b861430de2935109.mediatailor.us-east-1.amazonaws.com/v1/master/44f73ba4d03e9607dcd9bebdcb8494d86964f1d8/RakutenTV-it_RakutenActionMovies/playlist.m3u8?ads.amznbrmid=&ads.amznregion=&ads.amznslots=&ads.app_version=&ads.brand_name=&ads.content_classification=14&ads.device_lmt=0&ads.device_make=chrome&ads.device_model=GENERIC&ads.device_type=web&ads.device_year=1970&ads.env=prod&ads.gam_correlator=1033437583146205&ads.gdpr_consent=&ads.market=it&ads.os_language=&ads.player_height=1080&ads.player_width=1920&ads.pod_type=playerpage_midroll&ads.ppid=e72e033f-5a42-43da-b8d7-c5de3558d54c&ads.rtv_content_id=2504&ads.rtv_content_language=ita&ads.rtvid=271861&ads.streaming_id=2af1c2b2-d1a8-4dab-8b6e-6579818d58ab&ads.tivo_devcountry=&ads.tivo_devmakedate=&ads.tivo_mvpd=&ads.tivo_platform=&ads.tivo_usid=&ads.tivo_uxloc=&ads.user_type=visitor&ads.wurl_channel=443";
-		TYPE        = "application/x-mpegURL">
-	-->
 	<P CLASS="vjs-no-js">
 		Per poter vedere questo video stream occorre abilitare JavaScript, è comunque opportuno considerare un upgrade del
 		web browser che supporti <A HREF="https://videojs.com/html5-video-support/" TARGET="_blank"> HTML5 video</A>
