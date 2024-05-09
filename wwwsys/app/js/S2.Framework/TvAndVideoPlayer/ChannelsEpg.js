@@ -37,7 +37,6 @@ class ChannelsEpg {
 					   "&epg_starts_at_timestamp=1715281200000" +
 					   "&locale=it&market_code=it" +
 					   "&per_page=120n";
-		//this.#RakutenTvEpg_Url   = "";
 		this.update();
 		this.startPolling();
 	}
@@ -91,8 +90,9 @@ class ChannelsEpg {
 			return null;
 		}
 	}
-	debugger;
+	
 	applyChannelsEPG = () => {
+		debugger;
 		$("[id='Rai 1']").
 			find('#title').
 				html(this.#EpgData["Rai"].on_air[0].currentItem.name);
