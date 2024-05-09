@@ -18,6 +18,7 @@ class ChannelsEpg {
 	#EpgData;
 	#EPG_URL_RAI;
 	#EPG_URL_MEDIASET;
+	#EPG_URL_RAKUTEN;
 	#EPG_URL_VIACOM;
 	#PollingId;
 	
@@ -168,6 +169,7 @@ class ChannelsEpg {
 				     this.#EpgData["Mediaset"].response.listings.EW.currentListing.mediasetlisting$shortDescription);
 		//$("#radioMonteCarlo-title").html(epgDataMediaset.response.listings.BB.currentListing.mediasetlisting$epgTitle + "<BR />" + epgDataMediaset.response.listings.BB.currentListing.mediasetlisting$shortDescription);
 		//========================================================================================================================
+		/*
 		$("[id='Rakuten - Azione']").
 			find('#title').
 				html(this.#EpgData["Rakuten"].response.listings.EW.currentListing.mediasetlisting$epgTitle + "<BR />" + 
@@ -207,7 +209,8 @@ class ChannelsEpg {
 		$("[id='Rakuten - Sci Fi']").
 			find('#title').
 				html(this.#EpgData["Rakuten"].response.listings.EW.currentListing.mediasetlisting$epgTitle + "<BR />" + 
-				     this.#EpgData["Rakuten"].response.listings.EW.currentListing.mediasetlisting$shortDescription);		
+				     this.#EpgData["Rakuten"].response.listings.EW.currentListing.mediasetlisting$shortDescription);
+	 */
 	}
 
 	infos = () => {
