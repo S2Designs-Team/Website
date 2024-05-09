@@ -15,23 +15,34 @@
 */
 
 class ChannelsEpg {
-
-    #EpgData;
-    #EPG_URL_RAI;
+	#EpgData;
+	#EPG_URL_RAI;
 	#EPG_URL_MEDIASET;
-    #EPG_URL_VIACOM;
-    #PollingId;
+	#EPG_URL_VIACOM;
+	#PollingId;
 	
-    constructor(){
-		this.#EpgData            = ["Rai", "Mediaset", "Viacom"];
-        this.#EPG_URL_RAI        = "https://www.raiplay.it/palinsesto/onAir.json";
-        this.#EPG_URL_MEDIASET   = "https://static3.mediasetplay.mediaset.it/apigw/nownext/nownext.json";
-        //this.#RakutenTvEpg_Url   = "";
+	constructor(){
+		this.#EpgData            = ["Rai", "Mediaset", "Rakuten", "Viacom"];
+		this.#EPG_URL_RAI        = "https://www.raiplay.it/palinsesto/onAir.json";
+		this.#EPG_URL_MEDIASET   = "https://static3.mediasetplay.mediaset.it/apigw/nownext/nownext.json";
+		this.#EPG_URL_RAKUTEN    = "https://gizmo.rakuten.tv/v3/live_channels?classification_id=36" +
+					   "&device_identifier=web" +
+					   "&device_stream_audio_quality=2.0" +
+					   "&device_stream_hdr_type=NONE" + 
+					   "&device_stream_video_quality=FHD" + 
+					   "&epg_duration_minutes=240" + 
+					   "&epg_ends_at=2024-05-09T23%3A00%3A00.000Z" + 
+					   "&epg_ends_at_timestamp=1715295600000" +
+					   "&epg_starts_at=2024-05-09T19%3A00%3A00.000Z" + 
+					   "&epg_starts_at_timestamp=1715281200000" +
+					   "&locale=it&market_code=it" +
+					   "&per_page=120n";
+		//this.#RakutenTvEpg_Url   = "";
 		this.update();
 		this.startPolling();
-    }
+	}
     
-    update = async() =>{
+	update = async() =>{
 		console.log("Caricamento della Guida Elettronica di Programmazione (EPG)...");
 		try {
 			fetch(this.#EPG_URL_RAI).
@@ -68,6 +79,20 @@ class ChannelsEpg {
 		} catch(error) {
 			
 		}
+		try {			
+			fetch(this.#EPG_URL_RAKUTEN).
+				then(response => response.json()).
+				then(jsonizedData => {
+						this.#EpgData["Rakuten"] = jsonizedData;
+					}).
+				catch(err => {
+					//👉️"Something went wrong"
+					console.log(err);
+				});
+			console.log(" - RAKUTEN EPG: invio eseguito correttamente.");
+		} catch(error) {
+			
+		}
 		/*
 		} catch (error) {
 			console.log('Errors occurred executing the GET EPG DATA request to: ' + url, error);
@@ -89,7 +114,7 @@ class ChannelsEpg {
 		$("[id='Rai 4']").
 			find('#title').
 				html(this.#EpgData["Rai"].on_air[3].currentItem.name);
-		
+		//========================================================================================================================
 		$("[id='Mediaset - Rete 4']").
 			find('#title').
 				html(this.#EpgData["Mediaset"].response.listings.R4.currentListing.mediasetlisting$epgTitle);
@@ -145,17 +170,58 @@ class ChannelsEpg {
 		$("[id='Mediaset - Radio 105']").
 			find('#title').
 				html(this.#EpgData["Mediaset"].response.listings.EC.currentListing.mediasetlisting$epgTitle + "<BR />" + 
-					 this.#EpgData["Mediaset"].response.listings.EC.currentListing.mediasetlisting$shortDescription);
+				     this.#EpgData["Mediaset"].response.listings.EC.currentListing.mediasetlisting$shortDescription);
 		$("[id='Mediaset - Virgin Radio']").
 			find('#title').
 				html(this.#EpgData["Mediaset"].response.listings.EW.currentListing.mediasetlisting$epgTitle + "<BR />" + 
-					 this.#EpgData["Mediaset"].response.listings.EW.currentListing.mediasetlisting$shortDescription);
-		//$("#radioMonteCarlo-title").html(epgDataMediaset.response.listings.BB.currentListing.mediasetlisting$epgTitle + "<BR />" + epgDataMediaset.response.listings.BB.currentListing.mediasetlisting$shortDescription);		
+				     this.#EpgData["Mediaset"].response.listings.EW.currentListing.mediasetlisting$shortDescription);
+		//$("#radioMonteCarlo-title").html(epgDataMediaset.response.listings.BB.currentListing.mediasetlisting$epgTitle + "<BR />" + epgDataMediaset.response.listings.BB.currentListing.mediasetlisting$shortDescription);
+		//========================================================================================================================
+		$("[id='Rakuten - Azione']").
+			find('#title').
+				html(this.#EpgData["Rakuten"].response.listings.EW.currentListing.mediasetlisting$epgTitle + "<BR />" + 
+				     this.#EpgData["Rakuten"].response.listings.EW.currentListing.mediasetlisting$shortDescription);
+		$("[id='Rakuten - Cinema Italiano']").
+			find('#title').
+				html(this.#EpgData["Rakuten"].response.listings.EW.currentListing.mediasetlisting$epgTitle + "<BR />" + 
+				     this.#EpgData["Rakuten"].response.listings.EW.currentListing.mediasetlisting$shortDescription);
+		$("[id='Rakuten - Commedia']").
+			find('#title').
+				html(this.#EpgData["Rakuten"].response.listings.EW.currentListing.mediasetlisting$epgTitle + "<BR />" + 
+				     this.#EpgData["Rakuten"].response.listings.EW.currentListing.mediasetlisting$shortDescription);
+		$("[id='Rakuten - Dramma']").
+			find('#title').
+				html(this.#EpgData["Rakuten"].response.listings.EW.currentListing.mediasetlisting$epgTitle + "<BR />" + 
+				     this.#EpgData["Rakuten"].response.listings.EW.currentListing.mediasetlisting$shortDescription);
+		$("[id='Rakuten - Film Top']").
+			find('#title').
+				html(this.#EpgData["Rakuten"].response.listings.EW.currentListing.mediasetlisting$epgTitle + "<BR />" + 
+				     this.#EpgData["Rakuten"].response.listings.EW.currentListing.mediasetlisting$shortDescription);
+		$("[id='Rakuten - Romance']").
+			find('#title').
+				html(this.#EpgData["Rakuten"].response.listings.EW.currentListing.mediasetlisting$epgTitle + "<BR />" + 
+				     this.#EpgData["Rakuten"].response.listings.EW.currentListing.mediasetlisting$shortDescription);
+		$("[id='Rakuten - Family']").
+			find('#title').
+				html(this.#EpgData["Rakuten"].response.listings.EW.currentListing.mediasetlisting$epgTitle + "<BR />" + 
+				     this.#EpgData["Rakuten"].response.listings.EW.currentListing.mediasetlisting$shortDescription);
+		$("[id='Rakuten - Cine Western']").
+			find('#title').
+				html(this.#EpgData["Rakuten"].response.listings.EW.currentListing.mediasetlisting$epgTitle + "<BR />" + 
+				     this.#EpgData["Rakuten"].response.listings.EW.currentListing.mediasetlisting$shortDescription);
+		$("[id='Rakuten - Andromeda']").
+			find('#title').
+				html(this.#EpgData["Rakuten"].response.listings.EW.currentListing.mediasetlisting$epgTitle + "<BR />" + 
+				     this.#EpgData["Rakuten"].response.listings.EW.currentListing.mediasetlisting$shortDescription);
+		$("[id='Rakuten - Sci Fi']").
+			find('#title').
+				html(this.#EpgData["Rakuten"].response.listings.EW.currentListing.mediasetlisting$epgTitle + "<BR />" + 
+				     this.#EpgData["Rakuten"].response.listings.EW.currentListing.mediasetlisting$shortDescription);		
 	}
 
-    infos = () => {
-        return this.#EpgData;
-    }
+	infos = () => {
+		return this.#EpgData;
+	}
 	
 	startPolling = () =>{
 		this.#PollingId = window.setInterval(async()=>{
