@@ -625,7 +625,7 @@ const StringHelper = {
 	               false = the passed string (str) is not empty
 	*/
 	isEmpty : function (par_str) {
-		if (par_str.trim().length === 0) {
+		if ($.trim(par_str).length === 0) {
 			return true;
 		} else {
 			return false;
