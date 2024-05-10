@@ -206,12 +206,8 @@ class ChannelsEpg {
 	
 	startPolling = () =>{		
 		this.#PollingId = window.setInterval(async()=>{
-			try {
-				await this.update();
-				this.applyChannelsEPG();
-			} catch(err){
-				console.error(err.message);
-			}				
+			await this.update();
+			this.applyChannelsEPG();
 		}, 15000);
 	};
 		
