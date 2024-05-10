@@ -505,12 +505,20 @@ const AppHelper = {
 		var scriptContent = ""; 
 		var scripts       = (Application.contentContainerDomName + ' script'); // Seleziona tutti gli script nel contenuto
 		
+		scripts.forEach((script) => 
+			scriptContent = script.text();
+			console.log("Codice javascript, integrato nell'html, da eseguire: " + "<BR>" + 
+				    scriptContent);
+			eval(scriptContent); // Esegue lo script
+		);
+		/*
 		scripts.each(function() {
 			scriptContent = $(this).text();
 			console.log("Codice javascript, integrato nell'html, da eseguire: " + "<BR>" + 
 				    scriptContent);
 			eval(scriptContent); // Esegue lo script
 		});
+		*/
 		
 		scripts = $(htmlContent).find('script');
 	        scripts.each(function() {
@@ -528,6 +536,23 @@ const AppHelper = {
 			} 
 			eval(scriptContent);
 	        });
+		/*
+	        scripts.each(function() {
+		        var src = $(this).attr('src');
+			if (src) {
+				if (url.indexOf("file:///") === 0 || Application.isLocallyHosted(url)) {
+					scriptContent = AppHelper.loadLocalUrl("", Application.getStartPath() + url);	
+					console.log("Codice javascript locale, esterno all'html, da eseguire: " + "<BR>" + 
+						    scriptContent);
+				} else {
+					scriptContent = AppHelper.loadRemoteUrl("", url);
+					console.log("Codice javascript remoto, esterno all'html, da eseguire: " + "<BR>" + 
+						    scriptContent);
+				}
+			} 
+			eval(scriptContent);
+	        });
+	 	*/
 	},
 	
 	/*📎DOCUMENTATION
