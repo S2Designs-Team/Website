@@ -431,7 +431,7 @@ const AppHelper = {
 				})
 				.done(function(data) {
 					$(Application.contentContainerDomName).html(data);
-					console.dataView(data);
+					//console.dataView(data);
 					return data;
 				})
 				.fail(function(jqXHR, textStatus, errorThrown) {
@@ -474,7 +474,7 @@ const AppHelper = {
 					fileStream  = fso.OpenTextFile(filePath, modus)
 					fileContent = fileStream.ReadAll();
 					fileStream.Close();
-					console.dataView(fileContent);
+					//console.dataView(fileContent);
 
 					$(targetDomName).html(fileContent);
 					
