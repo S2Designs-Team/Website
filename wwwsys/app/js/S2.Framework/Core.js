@@ -504,13 +504,14 @@ const AppHelper = {
 		var scriptSrcList = [];
 		var scriptContent = ""; 
 		var scripts       = (Application.contentContainerDomName + ' script'); // Seleziona tutti gli script nel contenuto
+		/*
 		scripts.each(function() {
 			scriptContent = $(this).text();
 			console.log("Codice javascript, integrato nell'html, da eseguire: " + "<BR>" + 
 				    scriptContent);
 			eval(scriptContent); // Esegue lo script
 		});
-		
+		*/
 		scripts = $(htmlContent).find('script');
 	        scripts.each(function() {
 		        var src = $(this).attr('src');
