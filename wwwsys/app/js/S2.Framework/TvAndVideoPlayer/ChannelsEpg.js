@@ -40,11 +40,8 @@ class ChannelsEpg {
 		console.log("Loading the Electronic Programming Guide (EPG)...");
 		
 		// RAI EPG ================================================================================
-		fetch(this.#EPG_URL_RAI).
+		let this.#EpgData["Rai"] = fetch(this.#EPG_URL_RAI).
 			then(response => response.json()).
-			then(jsonizedData => { 
-				this.#EpgData["Rai"] = jsonizedData; 
-			}).
 			catch(err => {
 				//👉️"Something went wrong"
 				console.log("Errors occurred executing the GET EPG DATA request to: " + this.#EPG_URL_RAI);
@@ -53,11 +50,8 @@ class ChannelsEpg {
 		console.log(" - RAI EPG: request sent correctly.");
 		
 		// MEDIASET EPG ===========================================================================
-		fetch(this.#EPG_URL_MEDIASET).
+		let this.#EpgData["Mediaset"] = fetch(this.#EPG_URL_MEDIASET).
 			then(response => response.json()).
-			then(jsonizedData => { 
-				this.#EpgData["Mediaset"] = jsonizedData; 
-			}).
 			catch(err => {
 				//👉️"Something went wrong"
 				console.log("Errors occurred executing the GET EPG DATA request to: " + this.#EPG_URL_MEDIASET);
@@ -81,7 +75,6 @@ class ChannelsEpg {
 	}
 	
 	applyChannelsEPG = () => {
-		debugger;
 		$("[id='Rai 1']").
 			find('#title').
 				html(this.#EpgData["Rai"].on_air[0].currentItem.name);
