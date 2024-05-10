@@ -170,16 +170,15 @@ class ChannelsEpg {
 				     this.#EpgData["Mediaset"].response.listings.EW.currentListing.mediasetlisting$shortDescription);
 		//$("#radioMonteCarlo-title").html(epgDataMediaset.response.listings.BB.currentListing.mediasetlisting$epgTitle + "<BR />" + epgDataMediaset.response.listings.BB.currentListing.mediasetlisting$shortDescription);
 		//========================================================================================================================
-		/*
+		
 		$("[id='Rakuten - Azione']").
 			find('#title').
-				html(this.#EpgData["Rakuten"].response.listings.EW.currentListing.mediasetlisting$epgTitle + "<BR />" + 
-				     this.#EpgData["Rakuten"].response.listings.EW.currentListing.mediasetlisting$shortDescription);
+				html(this.#EpgData["Rakuten"].data + "<BR />" );
 		$("[id='Rakuten - Cinema Italiano']").
 			find('#title').
 				html(this.#EpgData["Rakuten"].response.listings.EW.currentListing.mediasetlisting$epgTitle + "<BR />" + 
 				     this.#EpgData["Rakuten"].response.listings.EW.currentListing.mediasetlisting$shortDescription);
-		$("[id='Rakuten - Commedia']").
+		/*$("[id='Rakuten - Commedia']").
 			find('#title').
 				html(this.#EpgData["Rakuten"].response.listings.EW.currentListing.mediasetlisting$epgTitle + "<BR />" + 
 				     this.#EpgData["Rakuten"].response.listings.EW.currentListing.mediasetlisting$shortDescription);
