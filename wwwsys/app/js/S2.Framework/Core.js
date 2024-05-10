@@ -502,31 +502,36 @@ const AppHelper = {
 	executeScripts : function (htmlContent){
 		var scriptSrcList = [];
 		var scriptContent = ""; 
-		var scripts       = $(Application.contentContainerDomName + ' script'); // Seleziona tutti gli script nel contenuto
+		var scripts       = "";
+		//$(Application.contentContainerDomName + ' script'); // Seleziona tutti gli script nel contenuto
 		
-		scripts.each(function() {
+		/*
+  		scripts.each(function() {
 			scriptContent = $(this).text();
 			console.log("Codice javascript, integrato nell'html, da eseguire: " + "<BR>" + 
-						scriptContent);
+				    scriptContent);
 			eval(scriptContent); // Esegue lo script
 		});
-		
-		console.log("placeholder to fix 'undefined' message");
-		
-		scripts = $(htmlContent).find('script[src]');
+		*/		
+		scripts = $(htmlContent).find('script');
 	        scripts.each(function() {
-	            var src = $(this).attr('src');
-				
+		        var src = $(this).attr('src');
+			if (src) {
 				if (url.indexOf("file:///") === 0 || Application.isLocallyHosted(url)) {
 					scriptContent = AppHelper.loadLocalUrl("", Application.getStartPath() + url);	
 					console.log("Codice javascript locale, esterno all'html, da eseguire: " + "<BR>" + 
-							    scriptContent);
+						    scriptContent);
 				} else {
 					scriptContent = AppHelper.loadRemoteUrl("", url);
 					console.log("Codice javascript remoto, esterno all'html, da eseguire: " + "<BR>" + 
-							    scriptContent);
-				}				
-				eval(scriptContent);
+						    scriptContent);
+				}
+			} else {
+				scriptContent = $(this).text();
+				console.log("Codice javascript, integrato nell'html, da eseguire: " + "<BR>" + 
+				             scriptContent);
+			}
+			eval(scriptContent);
 	        });
 	},
 	
