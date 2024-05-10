@@ -76,6 +76,8 @@ class ChannelsEpg {
 					throw(err);
 				});
 			console.log(" - RAKUTEN EPG: request sent correctly.");
+
+			this.applyChannelsEPG();
 		} catch (error) {
 			console.error(error);
 			//return null;
@@ -209,7 +211,6 @@ class ChannelsEpg {
 	startPolling = () =>{
 		this.#PollingId = window.setInterval(async()=>{
 			await this.update();
-			this.applyChannelsEPG();
 		}, 15000);
 	};
 		
