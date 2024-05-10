@@ -503,17 +503,15 @@ const AppHelper = {
 	executeScripts : function (htmlContent){
 		var scriptSrcList = [];
 		var scriptContent = ""; 
-		var scripts       = "";
-		//$(Application.contentContainerDomName + ' script'); // Seleziona tutti gli script nel contenuto
+		var scripts       = (Application.contentContainerDomName + ' script'); // Seleziona tutti gli script nel contenuto
 		
-		/*
-  		scripts.each(function() {
+		scripts.each(function() {
 			scriptContent = $(this).text();
 			console.log("Codice javascript, integrato nell'html, da eseguire: " + "<BR>" + 
 				    scriptContent);
 			eval(scriptContent); // Esegue lo script
 		});
-		*/		
+		
 		scripts = $(htmlContent).find('script');
 	        scripts.each(function() {
 		        var src = $(this).attr('src');
@@ -527,11 +525,7 @@ const AppHelper = {
 					console.log("Codice javascript remoto, esterno all'html, da eseguire: " + "<BR>" + 
 						    scriptContent);
 				}
-			} else {
-				scriptContent = $(this).text();
-				console.log("Codice javascript, integrato nell'html, da eseguire: " + "<BR>" + 
-				             scriptContent);
-			}
+			} 
 			eval(scriptContent);
 	        });
 	},
