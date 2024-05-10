@@ -23,49 +23,49 @@ class ChannelsEpg {
 	#PollingId;
 	
 	constructor(){
-		this.#EpgData            = ["Rai", "Mediaset", "Rakuten", "Viacom"];
-		this.#EPG_URL_RAI        = "https://www.raiplay.it/palinsesto/onAir.json";
-		this.#EPG_URL_MEDIASET   = "https://static3.mediasetplay.mediaset.it/apigw/nownext/nownext.json";
-		this.#EPG_URL_RAKUTEN    = "https://gizmo.rakuten.tv/v3/live_channels?classification_id=36&device_identifier=web&device_stream_audio_quality=2.0&device_stream_hdr_type=NONE&device_stream_video_quality=FHD&epg_duration_minutes=240&epg_ends_at=2024-05-09T23%3A00%3A00.000Z&epg_ends_at_timestamp=1715295600000&epg_starts_at=2024-05-09T19%3A00%3A00.000Z&epg_starts_at_timestamp=1715281200000&locale=it&market_code=it&per_page=120n";
-		console.log("so far so good...");
-		this.update();
-		this.startPolling();
+		console.debug("[+][ChannelsEpg::init][EPG rollup initialization] ...");
+		try {
+			this.#EpgData            = ["Rai", "Mediaset", "Rakuten", "Viacom"];
+			this.#EPG_URL_RAI        = "https://www.raiplay.it/palinsesto/onAir.json";
+			this.#EPG_URL_MEDIASET   = "https://static3.mediasetplay.mediaset.it/apigw/nownext/nownext.json";
+			this.#EPG_URL_RAKUTEN    = "https://gizmo.rakuten.tv/v3/live_channels?classification_id=36&device_identifier=web&device_stream_audio_quality=2.0&device_stream_hdr_type=NONE&device_stream_video_quality=FHD&epg_duration_minutes=240&epg_ends_at=2024-05-09T23%3A00%3A00.000Z&epg_ends_at_timestamp=1715295600000&epg_starts_at=2024-05-09T19%3A00%3A00.000Z&epg_starts_at_timestamp=1715281200000&locale=it&market_code=it&per_page=120n";
+			this.update();
+			this.startPolling();
+			console.debug(" RERULT => [OK]");
+		} catch (error){
+			console.error(" {0}" + error.message);
+		}
+		console.debug("[-][ChannelsEpg::init]);
 	}
     
 	update = async() =>{
-		console.log("Caricamento della Guida Elettronica di Programmazione (EPG)...");
+		console.log("Loading the Electronic Programming Guide (EPG)...");
 		try {
+			/// RAI EPG ================================================================================
 			fetch(this.#EPG_URL_RAI).
 				then(response => response.json()).
-				then(jsonizedData => {
-						this.#EpgData["Rai"] = jsonizedData;
-					}).
+				then(jsonizedData => { 
+					this.#EpgData["Rai"] = jsonizedData; 
+				}).
 				catch(err => {
 					//👉️"Something went wrong"
-					console.log(err);
+					console.log('Errors occurred executing the GET EPG DATA request to: ' + this.#EPG_URL_RAI);
+					throw(err);
 				});
-			console.log(" - RAI EPG: invio eseguito correttamente.");
-		} catch (error) {
-			console.log('Errors occurred executing the GET EPG DATA request to: ' + url, error);
-			//return null;
-		}
-		
-		try {			
+			console.log(" - RAI EPG: request sent correctly.");
+			/// MEDIASET EPG ===========================================================================
 			fetch(this.#EPG_URL_MEDIASET).
 				then(response => response.json()).
-				then(jsonizedData => {
-						this.#EpgData["Mediaset"] = jsonizedData;
-					}).
+				then(jsonizedData => { 
+					this.#EpgData["Mediaset"] = jsonizedData; 
+				}).
 				catch(err => {
 					//👉️"Something went wrong"
-					console.log(err);
+					console.log('Errors occurred executing the GET EPG DATA request to: ' + this.#EPG_URL_MEDIASET);
+					throw(err);
 				});
-			console.log(" - MEDIASET EPG: invio eseguito correttamente.");
-		} catch (error) {
-			console.log('Errors occurred executing the GET EPG DATA request to: ' + url, error);
-			//return null;
-		}
-		try {			
+			console.log(" - MEDIASET EPG: request sent correctly.");
+			/// RAKUTEN EPG ============================================================================
 			fetch(this.#EPG_URL_RAKUTEN).
 				then(response => response.json()).
 				then(jsonizedData => {
@@ -74,11 +74,12 @@ class ChannelsEpg {
 					}).
 				catch(err => {
 					//👉️"Something went wrong"
-					console.log(err);
+					console.log('Errors occurred executing the GET EPG DATA request to: ' + this.#EPG_URL_RAKUTEN));
+					throw(err);
 				});
-			console.log(" - RAKUTEN EPG: invio eseguito correttamente.");
+			console.log(" - RAKUTEN EPG: request sent correctly.");
 		} catch (error) {
-			console.log('Errors occurred executing the GET EPG DATA request to: ' + url, error);
+			console.error(error);
 			//return null;
 		}
 	}
