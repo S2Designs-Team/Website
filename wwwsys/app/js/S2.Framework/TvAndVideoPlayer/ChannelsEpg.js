@@ -73,7 +73,7 @@ class ChannelsEpg {
 				}).
 				catch(err => {
 					//👉️"Something went wrong"
-					console.log("Errors occurred executing the GET EPG DATA request to: " + this.#EPG_URL_RAKUTEN));
+					console.log("Errors occurred executing the GET EPG DATA request to: " + this.#EPG_URL_RAKUTEN);
 					throw(err);
 				});
 			console.log(" - RAKUTEN EPG: request sent correctly.");
