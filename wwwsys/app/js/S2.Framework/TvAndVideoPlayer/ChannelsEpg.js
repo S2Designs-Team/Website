@@ -41,7 +41,7 @@ class ChannelsEpg {
 	update = async() =>{
 		console.log("Loading the Electronic Programming Guide (EPG)...");
 		try {
-			/// RAI EPG ================================================================================
+			// RAI EPG ================================================================================
 			fetch(this.#EPG_URL_RAI).
 				then(response => response.json()).
 				then(jsonizedData => { 
@@ -53,7 +53,7 @@ class ChannelsEpg {
 					throw(err);
 				});
 			console.log(" - RAI EPG: request sent correctly.");
-			/// MEDIASET EPG ===========================================================================
+			// MEDIASET EPG ===========================================================================
 			fetch(this.#EPG_URL_MEDIASET).
 				then(response => response.json()).
 				then(jsonizedData => { 
@@ -65,7 +65,7 @@ class ChannelsEpg {
 					throw(err);
 				});
 			console.log(" - MEDIASET EPG: request sent correctly.");
-			/// RAKUTEN EPG ============================================================================
+			// RAKUTEN EPG ============================================================================
 			fetch(this.#EPG_URL_RAKUTEN).
 				then(response => response.json()).
 				then(jsonizedData => {
