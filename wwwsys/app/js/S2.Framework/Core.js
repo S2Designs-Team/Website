@@ -403,14 +403,13 @@ const AppHelper = {
 				urlContent = AppHelper.loadRemoteUrl(Application.contentContainerDomName, url);
 			} else {
 				// We are going to load from a relative url
-				console.debug("We are going to load from an relative transorming it into " + window.location.href + url);
+				console.debug("We are going to load from an relative url transforming it into " + window.location.href + url);
 				urlContent = AppHelper.loadRemoteUrl(Application.contentContainerDomName, window.location.href + url);					
 			}
 		} else {
 			urlContent = AppHelper.loadLocalUrl(Application.contentContainerDomName, Application.getStartPath() + url);	
 		}
-			
-		AppHelper.executeScripts(urlContent);
+		if (!StringHelper.isEmpty(urlContent)) { AppHelper.executeScripts(urlContent); }
 	},
 	
 	/*📎DOCUMENTATION
