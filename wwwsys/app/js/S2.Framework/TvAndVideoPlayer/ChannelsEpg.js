@@ -156,14 +156,14 @@ class ChannelsEpg {
 				     this.#EpgData["Mediaset"].response.listings.EW.currentListing.mediasetlisting$shortDescription);
 		//$("#radioMonteCarlo-title").html(epgDataMediaset.response.listings.BB.currentListing.mediasetlisting$epgTitle + "<BR />" + epgDataMediaset.response.listings.BB.currentListing.mediasetlisting$shortDescription);
 		//========================================================================================================================
-		
+		/*
 		$("[id='Rakuten Tv - Azione']").
 			find('#title').
 				html(this.#EpgData["Rakuten"].response + "<BR />" );
 		$("[id='Rakuten Tv - Cinema Italiano']").
 			find('#title').
 				html(this.#EpgData["Rakuten"].response + "<BR />" );
-		/*$("[id='Rakuten Tv - Commedia']").
+		$("[id='Rakuten Tv - Commedia']").
 			find('#title').
 				html(this.#EpgData["Rakuten"].response.listings.EW.currentListing.mediasetlisting$epgTitle + "<BR />" + 
 				     this.#EpgData["Rakuten"].response.listings.EW.currentListing.mediasetlisting$shortDescription);
