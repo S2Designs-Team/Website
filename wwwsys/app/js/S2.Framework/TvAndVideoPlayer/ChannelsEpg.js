@@ -28,7 +28,7 @@ class ChannelsEpg {
 			this.#EpgData            = ["Rai", "Mediaset", "Rakuten", "Viacom"];
 			this.#EPG_URL_RAI        = "https://www.raiplay.it/palinsesto/onAir.json";
 			this.#EPG_URL_MEDIASET   = "https://static3.mediasetplay.mediaset.it/apigw/nownext/nownext.json";
-			this.#EPG_URL_RAKUTEN    = "https://gizmo.rakuten.tv/v3/live_channels?classification_id=36&device_identifier=web&device_stream_audio_quality=2.0&device_stream_hdr_type=NONE&device_stream_video_quality=FHD&epg_duration_minutes=240&epg_ends_at=2024-05-09T23%3A00%3A00.000Z&epg_ends_at_timestamp=1715295600000&epg_starts_at=2024-05-09T19%3A00%3A00.000Z&epg_starts_at_timestamp=1715281200000&locale=it&market_code=it&per_page=120n";
+			this.#EPG_URL_RAKUTEN    = "https://gizmo.rakuten.tv/v3/live_channels?classification_id=36&device_identifier=web&device_stream_audio_quality=2.0&device_stream_hdr_type=NONE&device_stream_video_quality=FHD&epg_duration_minutes=240&epg_ends_at=2024-05-09T23%3A00%3A00.000Z&epg_ends_at_timestamp=1715295600000&epg_starts_at=2024-05-09T19%3A00%3A00.000Z&epg_starts_at_timestamp=1715281200000&locale=it&market_code=it&per_page=120";
 			this.startPolling();
 		} catch (error){
 			console.error(" {0}" + error.message);
