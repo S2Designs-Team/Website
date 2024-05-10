@@ -171,42 +171,42 @@ class ChannelsEpg {
 		//$("#radioMonteCarlo-title").html(epgDataMediaset.response.listings.BB.currentListing.mediasetlisting$epgTitle + "<BR />" + epgDataMediaset.response.listings.BB.currentListing.mediasetlisting$shortDescription);
 		//========================================================================================================================
 		
-		$("[id='Rakuten - Azione']").
+		$("[id='Rakuten Tv - Azione']").
 			find('#title').
 				html(this.#EpgData["Rakuten"].data + "<BR />" );
-		$("[id='Rakuten - Cinema Italiano']").
+		$("[id='Rakuten Tv - Cinema Italiano']").
 			find('#title').
 				html(this.#EpgData["Rakuten"].response.listings.EW.currentListing.mediasetlisting$epgTitle + "<BR />" + 
 				     this.#EpgData["Rakuten"].response.listings.EW.currentListing.mediasetlisting$shortDescription);
-		/*$("[id='Rakuten - Commedia']").
+		/*$("[id='Rakuten Tv - Commedia']").
 			find('#title').
 				html(this.#EpgData["Rakuten"].response.listings.EW.currentListing.mediasetlisting$epgTitle + "<BR />" + 
 				     this.#EpgData["Rakuten"].response.listings.EW.currentListing.mediasetlisting$shortDescription);
-		$("[id='Rakuten - Dramma']").
+		$("[id='Rakuten Tv - Dramma']").
 			find('#title').
 				html(this.#EpgData["Rakuten"].response.listings.EW.currentListing.mediasetlisting$epgTitle + "<BR />" + 
 				     this.#EpgData["Rakuten"].response.listings.EW.currentListing.mediasetlisting$shortDescription);
-		$("[id='Rakuten - Film Top']").
+		$("[id='Rakuten Tv - Film Top']").
 			find('#title').
 				html(this.#EpgData["Rakuten"].response.listings.EW.currentListing.mediasetlisting$epgTitle + "<BR />" + 
 				     this.#EpgData["Rakuten"].response.listings.EW.currentListing.mediasetlisting$shortDescription);
-		$("[id='Rakuten - Romance']").
+		$("[id='Rakuten Tv - Romance']").
 			find('#title').
 				html(this.#EpgData["Rakuten"].response.listings.EW.currentListing.mediasetlisting$epgTitle + "<BR />" + 
 				     this.#EpgData["Rakuten"].response.listings.EW.currentListing.mediasetlisting$shortDescription);
-		$("[id='Rakuten - Family']").
+		$("[id='Rakuten Tv - Family']").
 			find('#title').
 				html(this.#EpgData["Rakuten"].response.listings.EW.currentListing.mediasetlisting$epgTitle + "<BR />" + 
 				     this.#EpgData["Rakuten"].response.listings.EW.currentListing.mediasetlisting$shortDescription);
-		$("[id='Rakuten - Cine Western']").
+		$("[id='Rakuten Tv - Cine Western']").
 			find('#title').
 				html(this.#EpgData["Rakuten"].response.listings.EW.currentListing.mediasetlisting$epgTitle + "<BR />" + 
 				     this.#EpgData["Rakuten"].response.listings.EW.currentListing.mediasetlisting$shortDescription);
-		$("[id='Rakuten - Andromeda']").
+		$("[id='Rakuten Tv - Andromeda']").
 			find('#title').
 				html(this.#EpgData["Rakuten"].response.listings.EW.currentListing.mediasetlisting$epgTitle + "<BR />" + 
 				     this.#EpgData["Rakuten"].response.listings.EW.currentListing.mediasetlisting$shortDescription);
-		$("[id='Rakuten - Sci Fi']").
+		$("[id='Rakuten Tv - Sci Fi']").
 			find('#title').
 				html(this.#EpgData["Rakuten"].response.listings.EW.currentListing.mediasetlisting$epgTitle + "<BR />" + 
 				     this.#EpgData["Rakuten"].response.listings.EW.currentListing.mediasetlisting$shortDescription);
