@@ -48,7 +48,7 @@ class ChannelsEpg {
 			catch(err => {
 				//👉️"Something went wrong"
 				console.log("Errors occurred executing the GET EPG DATA request to: " + this.#EPG_URL_RAI);
-				throw(err.message);
+				//throw(err.message);
 			});
 		console.log(" - RAI EPG: request sent correctly.");
 		
@@ -61,7 +61,7 @@ class ChannelsEpg {
 			catch(err => {
 				//👉️"Something went wrong"
 				console.log("Errors occurred executing the GET EPG DATA request to: " + this.#EPG_URL_MEDIASET);
-				throw(err.message);
+				//throw(err.message);
 			});
 		console.log(" - MEDIASET EPG: request sent correctly.");
 		
