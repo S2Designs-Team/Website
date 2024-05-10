@@ -199,7 +199,9 @@ const Application = {
 
 /*📎DOCUMENTATION
 Author:      ㊙️anonimo㊙️
-Description: 
+Description: Retrieves the system informations
+last modify: 2024-04-28
+ClassName:   System
 Version:     0.0.001
 Parameters:  none
 */
@@ -210,7 +212,7 @@ const System = {
 	Description:   Gets the Javascript Version used by the client browser
 	Function Name: getJavascriptVersion
 	Version:       0.0.001
-	Returns:
+	Returns:       The Javascript Version used by the client browser.
 	*/	
 	getJavascriptVersion : function() {
 		// STEP ONE: Convert all characters to lowercase to simplify testing
@@ -310,7 +312,7 @@ const System = {
 	Description:   The same as getJavascriptVersion but for JScript (Jscript and Javascript are not the same thing!!!)
 	Function Name: getJScriptVersion
 	Version:       0.0.001
-	Returns:
+	Returns:       the JScript Version used by the client browser
 	*/	
 	getJScriptVersion : function(){
 		return  (ScriptEngine() + " ver. " + ScriptEngineMajorVersion() + "." + ScriptEngineMinorVersion() + "." + ScriptEngineBuildVersion());
@@ -448,7 +450,7 @@ const AppHelper = {
 		} finally {
 			return remoteContent;
 		}			
-    },
+	},
 	
 	/*📎DOCUMENTATION
 	Author:        ㊙️anonimo㊙️
@@ -603,26 +605,25 @@ const SpeechRecognition = {
 	},
 };
 
-/*📎DOCUMENTATION
-Author:      ㊙️anonimo㊙️
-Description:📎⏱️ Loads a local or a page using the path/url provided into the DOM Element
-				  defined by strDestinationDomName.
-Function Name: loadPage
-Version: 0.0.001
-Parameters: 
-Returns:
+/*📎[DOCUMENTATION]
+Class Name:    StringHelper
+last modify:   2024-05-10
+Version:       0.0.001
+ECMASrcipt v:  5.1
+Description:   Helper class that manages the strings
+Author:        ㊙️anonimo㊙️
 */
 const StringHelper = {
 	/*📎[DOCUMENTATION]
 	Description:   Checks if a string is empty or not
 	Author:        ㊙️anonimo㊙️
-	last modify:   2024-03-18
+	last modify:   2024-05-10
 	Function Name: isEmpty
 	Version:       0.0.001
 	ECMASrcipt v:  5.1
-	Parameters:    1. str:string => The string to be evaluate.
-	Returns:       true  = the passed string (str) is empty
-	               false = the passed string (str) is not empty
+	Parameters:    1. par_str:string => The string to be evaluate.
+	Returns:       true  = the passed string (par_str) is empty
+	               false = the passed string (par_str) is not empty
 	*/
 	isEmpty : function (par_str) {
 		if ($.trim(par_str).length === 0) {
@@ -644,13 +645,11 @@ Author:        ㊙️anonimo㊙️
 const GuiHelper = {
 	
 	/*📎DOCUMENTATION
-	Author:      ㊙️anonimo㊙️
-	Description:📎⏱️ Loads a local or a page using the path/url provided into the DOM Element
-					  defined by strDestinationDomName.
-	Function Name: loadPage
-	Version: 0.0.001
-	Parameters: 
-	Returns:
+	Author:       ㊙️anonimo㊙️
+	Description:  📎⏱️ Loads a local or a page using the path/url provided into the DOM Element
+		            defined by strDestinationDomName.
+	Function Name: toggleFullScreen
+	Version:       0.0.001
 	*/
 	toggleFullScreen : function(){
 		console.log("toggleFullScreen");
@@ -683,12 +682,11 @@ const GuiHelper = {
 	},
 	
 	/*📎DOCUMENTATION
-	Author:      ㊙️anonimo㊙️
-	Description:📎⏱️ Loads a local or a page using the path/url provided into the DOM Element
-					  defined by strDestinationDomName.
-	Function Name: loadPage
-	Version: 0.0.001
-	Parameters: 
+	Author:        ㊙️anonimo㊙️
+	Description: 
+	Function Name: fullscreen
+	Version:       0.0.001
+	Parameters:    mode, el
 	Returns:
 	*/
 	fullscreen : function (mode, el) {
