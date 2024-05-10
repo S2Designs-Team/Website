@@ -49,7 +49,7 @@ class ChannelsEpg {
 				}).
 				catch(err => {
 					//👉️"Something went wrong"
-					console.log('Errors occurred executing the GET EPG DATA request to: ' + this.#EPG_URL_RAI);
+					console.log("Errors occurred executing the GET EPG DATA request to: " + this.#EPG_URL_RAI);
 					throw(err);
 				});
 			console.log(" - RAI EPG: request sent correctly.");
@@ -61,7 +61,7 @@ class ChannelsEpg {
 				}).
 				catch(err => {
 					//👉️"Something went wrong"
-					console.log('Errors occurred executing the GET EPG DATA request to: ' + this.#EPG_URL_MEDIASET);
+					console.log("Errors occurred executing the GET EPG DATA request to: " + this.#EPG_URL_MEDIASET);
 					throw(err);
 				});
 			console.log(" - MEDIASET EPG: request sent correctly.");
@@ -73,7 +73,7 @@ class ChannelsEpg {
 				}).
 				catch(err => {
 					//👉️"Something went wrong"
-					console.log('Errors occurred executing the GET EPG DATA request to: ' + this.#EPG_URL_RAKUTEN));
+					console.log("Errors occurred executing the GET EPG DATA request to: " + this.#EPG_URL_RAKUTEN));
 					throw(err);
 				});
 			console.log(" - RAKUTEN EPG: request sent correctly.");
