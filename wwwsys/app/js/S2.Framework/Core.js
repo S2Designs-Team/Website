@@ -395,20 +395,20 @@ const AppHelper = {
 		
 		var urlContent = "";
 		
-			if (!Application.isLocallyHosted(window.location.href)) {
-				
-				if (url.indexOf("http://") === 0 || url.indexOf("https://") === 0){
-					// We are going to load from an absolute url
-					console.debug("We are going to load from an absolute url " + url);
-					urlContent = AppHelper.loadRemoteUrl(Application.contentContainerDomName, url);
-				} else {
-					// We are going to load from a relative url
-					console.debug("We are going to load from an relative url " + window.location.href + url);
-					urlContent = AppHelper.loadRemoteUrl(Application.contentContainerDomName, window.location.href + url);					
-				}
+		if (!Application.isLocallyHosted(window.location.href)) {
+			
+			if (url.indexOf("http://") === 0 || url.indexOf("https://") === 0){
+				// We are going to load from an absolute url
+				console.debug("We are going to load from an absolute url " + url);
+				urlContent = AppHelper.loadRemoteUrl(Application.contentContainerDomName, url);
 			} else {
-				urlContent = AppHelper.loadLocalUrl(Application.contentContainerDomName, Application.getStartPath() + url);	
+				// We are going to load from a relative url
+				console.debug("We are going to load from an relative transorming it into " + window.location.href + url);
+				urlContent = AppHelper.loadRemoteUrl(Application.contentContainerDomName, window.location.href + url);					
 			}
+		} else {
+			urlContent = AppHelper.loadLocalUrl(Application.contentContainerDomName, Application.getStartPath() + url);	
+		}
 			
 		AppHelper.executeScripts(urlContent);
 	},
@@ -500,32 +500,34 @@ const AppHelper = {
 	Returns:
 	*/
 	executeScripts : function (htmlContent){
-        var scriptSrcList = [];
+		var scriptSrcList = [];
 		var scriptContent = ""; 
-		var scripts = $(Application.contentContainerDomName + ' script'); // Seleziona tutti gli script nel contenuto
+		var scripts       = $(Application.contentContainerDomName + ' script'); // Seleziona tutti gli script nel contenuto
 		
 		scripts.each(function() {
 			scriptContent = $(this).text();
 			console.log("Codice javascript, integrato nell'html, da eseguire: " + "<BR>" + 
 						scriptContent);
 			eval(scriptContent); // Esegue lo script
-		});	
+		});
+		
+		console.log("placeholder to fix 'undefined' message");
 		
 		scripts = $(htmlContent).find('script[src]');
-        scripts.each(function() {
-            var src = $(this).attr('src');
-			
-			if (url.indexOf("file:///") === 0 || Application.isLocallyHosted(url)) {
-				scriptContent = AppHelper.loadLocalUrl("", Application.getStartPath() + url);	
-				console.log("Codice javascript locale, esterno all'html, da eseguire: " + "<BR>" + 
-						    scriptContent);
-			} else {
-				scriptContent = AppHelper.loadRemoteUrl("", url);
-				console.log("Codice javascript remoto, esterno all'html, da eseguire: " + "<BR>" + 
-						    scriptContent);
-			}				
-			eval(scriptContent);
-        });
+	        scripts.each(function() {
+	            var src = $(this).attr('src');
+				
+				if (url.indexOf("file:///") === 0 || Application.isLocallyHosted(url)) {
+					scriptContent = AppHelper.loadLocalUrl("", Application.getStartPath() + url);	
+					console.log("Codice javascript locale, esterno all'html, da eseguire: " + "<BR>" + 
+							    scriptContent);
+				} else {
+					scriptContent = AppHelper.loadRemoteUrl("", url);
+					console.log("Codice javascript remoto, esterno all'html, da eseguire: " + "<BR>" + 
+							    scriptContent);
+				}				
+				eval(scriptContent);
+	        });
 	},
 	
 	/*📎DOCUMENTATION
