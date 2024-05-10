@@ -222,7 +222,7 @@ class ChannelsEpg {
 		this.#PollingId = window.setInterval(async()=>{
 			await this.update();
 			this.applyChannelsEPG();
-		}, 10000);
+		}, 15000);
 	};
 		
 	removePolling = () =>{
