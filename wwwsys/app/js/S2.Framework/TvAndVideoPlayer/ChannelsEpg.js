@@ -66,6 +66,7 @@ class ChannelsEpg {
 		console.log(" - MEDIASET EPG: request sent correctly.");
 		
 		// RAKUTEN EPG ============================================================================
+		/*
 		fetch(this.#EPG_URL_RAKUTEN).
 			then(response => response.json()).
 			then(jsonizedData => {
@@ -78,6 +79,7 @@ class ChannelsEpg {
 			});
 		
 		console.log(" - RAKUTEN EPG: request sent correctly.");
+		*/
 	}
 	
 	applyChannelsEPG = () => {
