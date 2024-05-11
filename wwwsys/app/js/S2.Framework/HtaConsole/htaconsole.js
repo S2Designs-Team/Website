@@ -3,6 +3,9 @@
 	var layout ="<DIV ID='panel-box'>" +
 				"	<DIV ID='panel-dragbar'></DIV>" +
 				"	<DIV ID='panel-header'>" +
+				"		<SPAN ID='panel-menu-clear'       STYLE='cursor: pointer' ONCLICK='htaConsole.clear()'>&#10680;</SPAN>" +
+				"		<SPAN ID='panel-menu-transparent' STYLE='cursor: pointer' ONCLICK='htaConsole.transparent()'>&#9680;</SPAN>" +
+				"		<SPAN ID='panel-menu-reload'      STYLE='cursor: pointer' ONCLICK='htaConsole.reload()'>&#10227;</SPAN>" +
 				"		<SPAN STYLE='padding-left: 5px; font-weight: 700; color: #555;'>Console</SPAN>" +
 				"		<SPAN ID='panel-menu-close' STYLE='float: right; margin-right: 8px; cursor: pointer; color: grey;' ONCLICK='htaConsole.toggle();'>&#10006;</SPAN>" +
 				"		<SPAN ID='panel-menu-minimize' STYLE='float: right; margin-top:1px;margin-right: 10px; cursor: pointer; color: grey;' ONCLICK='htaConsole.minimize()'>&#9660;</SPAN>" +
@@ -12,9 +15,6 @@
 				"		<SPAN STYLE='border-top:1px solid grey; min-height: 1.5em; padding-left:4px; font-weight:700; font-size:16px; color:#62adea'>&#62;</I><INPUT ID='commandline'></SPAN>" +
 				"	</DIV>" +
 				"	<DIV ID='panel-navigation'>" +
-				"		<SPAN ID='panel-menu-clear'       STYLE='cursor: pointer' ONCLICK='htaConsole.clear()'>&#10680;</SPAN>" +
-				"		<SPAN ID='panel-menu-transparent' STYLE='cursor: pointer' ONCLICK='htaConsole.transparent()'>&#9680;</SPAN>" +
-				"		<SPAN ID='panel-menu-reload'      STYLE='cursor: pointer' ONCLICK='htaConsole.reload()'>&#10227;</SPAN>" +
 				"	</DIV>" +
 				"</DIV>"
 
@@ -103,15 +103,7 @@
 	}
 
 	var htaConsole = {}
-	htaConsole.init = function() {
-		/*
-		* Tooltips Definition
-		* ===================
-        */
-		htaConsole.createTooltip("panel-menu-reload", "Reload the page avoiding cached data.");
-		// ===========================================================================================
-		//panelReload.setAttribute("data-tooltip", "");
-		
+	htaConsole.init = function() {		
 		var container = document.createElement("div")
 		container.innerHTML = layout
 		document.body.appendChild(container)
@@ -138,6 +130,13 @@
 			if (evt.keyCode === 123) htaConsole.toggle()
 		}, true)
 
+		/*
+		* Tooltips Definition
+		* ===================
+        */
+		htaConsole.createTooltip("panel-menu-reload", "Reload the page avoiding cached data.");
+		// ===========================================================================================
+		
 		// Focus
 		document.getElementById("panel-console").addEventListener("click", function(evt) {
 			document.getElementById("commandline").focus()
@@ -370,7 +369,6 @@
 	
 	htaConsole.createTooltip =  function (elementId, tooltipText) {
 		const element = document.getElementById(elementId);
-		debugger;
 		if (element) {
 			element.title = tooltipText;
 			element.setAttribute("data-tooltip", tooltipText);
