@@ -323,11 +323,12 @@
 		}
     }
 	
+	// SNI
     htaConsole.reload = function() {
 		var panelBox = document.getElementById('panel-box')
 		var panelReload = document.getElementById('panel-menu-reload')
-		panelReload.innerHTML = '&#10227;'
-		// SNI
+		panelReload.setAttribute("data-tooltip", "Reload the page avoiding cached data.")
+		panelReload.innerHTML = '&#10227
 		location.reload(true);
 	}
 	
