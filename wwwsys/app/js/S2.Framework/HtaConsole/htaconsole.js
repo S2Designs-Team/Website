@@ -371,6 +371,15 @@
 		const element = document.getElementById(elementId);
 		if (element) {
 			element.setAttribute("data-tooltip", tooltipText);
+			element.addEventListener('mouseover', function(evt) {
+				evt.preventDefault();
+			    x = evt.x - this.offsetLeft;
+			    y = evt.y - this.offsetTop;
+
+    			// Make it hang below the cursor a bit.
+   				y += 10;
+				style.innerHTML = '*[data-tooltip]::after { left: ' + x + 'px; top: ' + y + 'px  }'
+			});
 		}
 	};
 
