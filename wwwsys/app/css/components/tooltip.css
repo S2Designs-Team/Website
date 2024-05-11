@@ -12,8 +12,9 @@
     /*
     top:                -20px;
     right:              -20px;
-    width:              150px;
     */
+    width              : max-content;
+    
 
     pointer-events:     none;
     opacity:            0;
