@@ -114,7 +114,7 @@ const Application = {
 		console.info("Redirecting to the landing page....");
 		
 		AppHelper.loadUrl(Application.landingPageUrl);
-		console.log(PCSystemHelper.getCPUName[0]);
+		//console.log(PCSystemHelper.getCPUName[0]);
 		
 		/*
 		console.info("Staring speech recognition......");
