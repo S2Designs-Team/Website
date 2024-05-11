@@ -76,20 +76,20 @@
 			'background':      'rgba(19,19,19,0)',
 		}
 	}
-
-	var cmdHistory = []
+	var isDebugEnvEnabled  = true;
+	var cmdHistory         = [];
 	var cmdHistoryPosition = 0
 
 	var camelCase = function(input) { 
 		return input.toLowerCase().replace(/-(.)/g, function(match, group1) {
 			return group1.toUpperCase()
 		})
-	}
+	};
 	var hyphen = function(input) {
 		return input.replace(/([a-z][A-Z])/g, function (group) {
-		  return group[0] + '-' + group[1].toLowerCase()
+			return group[0] + '-' + group[1].toLowerCase()
 		})
-	}
+	};
 
 	var censor = function(censor) {
 		var i = 0
@@ -101,7 +101,7 @@
 			;++i
 			return value
 		}
-	}
+	};
 
 	var htaConsole = {}
 	htaConsole.init = function() {
@@ -327,6 +327,8 @@
 		var panelBox = document.getElementById('panel-box')
 		var panelReload = document.getElementById('panel-menu-reload')
 		panelReload.innerHTML = '&#10227;'
+		// SNI
+		location.reload(true);
 	}
 	
     htaConsole.minimize = function() {
