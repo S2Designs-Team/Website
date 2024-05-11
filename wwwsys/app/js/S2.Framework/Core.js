@@ -515,17 +515,15 @@ const AppHelper = {
 		scripts = $(htmlContent).find('script');
 	        scripts.each(function() {
 		        var src = $(this).attr('src');
-			if (src) {
-				if (url.indexOf("file:///") === 0 || Application.isLocallyHosted(url)) {
-					scriptContent = AppHelper.loadLocalUrl("", Application.getStartPath() + url);	
-					console.log("Codice javascript locale, esterno all'html, da eseguire: " + "<BR>" + 
-						    scriptContent);
-				} else {
-					scriptContent = AppHelper.loadRemoteUrl("", url);
-					console.log("Codice javascript remoto, esterno all'html, da eseguire: " + "<BR>" + 
-						    scriptContent);
-				}
-			} 
+			if (url.indexOf("file:///") === 0 || Application.isLocallyHosted(url)) {
+				scriptContent = AppHelper.loadLocalUrl("", Application.getStartPath() + url);	
+				console.log("Codice javascript locale, esterno all'html, da eseguire: " + "<BR>" + 
+					    scriptContent);
+			} else {
+				scriptContent = AppHelper.loadRemoteUrl("", url);
+				console.log("Codice javascript remoto, esterno all'html, da eseguire: " + "<BR>" + 
+					    scriptContent);
+			}
 			eval(scriptContent);
 	        });
 	},
