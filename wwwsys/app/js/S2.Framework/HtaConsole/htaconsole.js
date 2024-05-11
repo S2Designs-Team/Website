@@ -104,6 +104,9 @@
 
 	var htaConsole = {}
 	htaConsole.init = function() {
+		var panelReload = document.getElementById("panel-menu-reload");
+		panelReload.setAttribute("data-tooltip", "Reload the page avoiding cached data.");
+		
 		var container = document.createElement('div')
 		container.innerHTML = layout
 		document.body.appendChild(container)
@@ -326,7 +329,6 @@
     htaConsole.reload = function() {
 		var panelBox = document.getElementById("panel-box");
 		var panelReload = document.getElementById("panel-menu-reload");
-		panelReload.setAttribute("data-tooltip", "Reload the page avoiding cached data.");
 		panelReload.innerHTML = "&#10227;";
 		location.reload(true);
 	};
