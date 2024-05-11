@@ -108,9 +108,9 @@
 		* Tooltips Definition
 		* ===================
         */
-		createTooltip("panel-menu-reload", 'Clicca per ulteriori dettagli');
+		htaConsole.createTooltip("panel-menu-reload", "Reload the page avoiding cached data.");
 		// ===========================================================================================
-		//panelReload.setAttribute("data-tooltip", "Reload the page avoiding cached data.");
+		//panelReload.setAttribute("data-tooltip", "");
 		
 		var container = document.createElement("div")
 		container.innerHTML = layout
