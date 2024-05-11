@@ -173,91 +173,91 @@
 			}
 		})
 
-		document.getElementById('commandline').addEventListener('keydown', function(evt) {
+		document.getElementById("commandline").addEventListener("keydown", function(evt) {
 			if (evt.keyCode === 38) {
-				cmdHistoryPosition--
+				cmdHistoryPosition--;
 				
-				if (cmdHistoryPosition < 0) cmdHistoryPosition = 0
+				if (cmdHistoryPosition < 0) cmdHistoryPosition = 0;
 				
-				if (cmdHistory[cmdHistoryPosition] !== undefined && cmdHistory[cmdHistoryPosition] !== '') {
-					this.value = cmdHistory[cmdHistoryPosition]
-					return false
+				if (cmdHistory[cmdHistoryPosition] !== undefined && cmdHistory[cmdHistoryPosition] !== "") {
+					this.value = cmdHistory[cmdHistoryPosition];
+					return false;
 				} else if (cmdHistoryPosition === cmdHistory.length) {
-					this.value = ''
-					return false
+					this.value = "";
+					return false;
 				}
 			}
 
 			if (evt.keyCode === 40) {
-				cmdHistoryPosition++
-				if (cmdHistoryPosition >= cmdHistory.length) cmdHistoryPosition = cmdHistory.length
+				cmdHistoryPosition++;
+				if (cmdHistoryPosition >= cmdHistory.length) cmdHistoryPosition = cmdHistory.length;
 				
-				if (cmdHistory[cmdHistoryPosition] !== undefined && cmdHistory[cmdHistoryPosition] !== '') {
-					this.value = cmdHistory[cmdHistoryPosition]
-					return false
+				if (cmdHistory[cmdHistoryPosition] !== undefined && cmdHistory[cmdHistoryPosition] !== "") {
+					this.value = cmdHistory[cmdHistoryPosition];
+					return false;
 				} else if (cmdHistoryPosition === cmdHistory.length) {
-					this.value = ''
-					return false
+					this.value = "";
+					return false;
 				}
 			}
-		})
+		});
 
 		console = window || window.console
 		var method = [
 			"log", "info", "warn", "onerror", "debug", "trace", "dir", "group",
 			"groupCollapsed", "groupEnd", "time", "timeEnd", "profile", "profileEnd",
 			"dirxml", "assert", "count", "markTimeline", "timeStamp", "clear", "cmd"
-		]
+		];
 		
 		// define undefined methods as noops to prevent errors
 		for (var i = 0; i < method.length; i++) {
 			if (!window.console[method[i]]) {
-				if (method[i] === 'onerror') {
+				if (method[i] === "nerror") {
 					console[method[i]] = function() {
-						var scriptURL = arguments[1]
-						var scriptName = scriptURL.split('/')[scriptURL.split('/').length - 1]
+						var scriptURL = arguments[1];
+						var scriptName = scriptURL.split("/")[scriptURL.split("/").length - 1];
 						htaConsole.log(
-							'<span style="color:red">&otimes;' +
-							'  <span>' + arguments[0] + '</span>' +
-							'  <span class="pull-right" style="cursor:pointer; color:blue" onclick="htaConsole.showModal(\''+ scriptURL +'\')">' + scriptName + ":" + arguments[2] + '</span>' +
-							'</span>'
-						)
-						return true
-					}
+							"<span style='color:red'>&otimes;" +
+							"  <span>" + arguments[0] + "</span>" +
+							"  <span class='pull-right' style='cursor:pointer; color:blue' onclick='htaConsole.showModal('" + scriptURL + "')'>" + scriptName + ":" + arguments[2] + "</span>" +
+							"</span>"
+						);
+						return true;
+					};
 				} else {
-					console[method[i]] = function() { return true }
+					console[method[i]] = function() { return true; };
 				}
 			}
 		}
 
 		console = {
 			clear: function() {
-				htaConsole.clear()
+				htaConsole.clear();
 			},
 			cmd: function(arg) {
-				htaConsole.log('<SPAN STYLE="color:#777"; font-weight:700">&#62;</SPAN> <SPAN>' + arg + "</SPAN>")
+				htaConsole.log("<SPAN STYLE='color:#777; font-weight:700'>&#62;</SPAN> <SPAN>" + arg + "</SPAN>");
 			},
 			info: function(arg) {
-				htaConsole.log('<SPAN STYLE="padding-left: 6px; color: RoyalBlue">ℹ️</SPAN> <SPAN>' + arg + "</SPAN>") //prev glyph code: &#9432;
+				htaConsole.log("<SPAN STYLE='padding-left: 6px; color: RoyalBlue'>ℹ️</SPAN> <SPAN>" + arg + "</SPAN>"); //prev glyph code: &#9432;
 			},
 			log: function(arg) {
-				htaConsole.log('<SPAN STYLE="padding-left: 2px;">' + arg + '</SPAN>')
+				htaConsole.log("<SPAN STYLE='padding-left: 2px;'>" + arg + "</SPAN>");
 			},
 			debug: function(arg){
-				htaConsole.log('<SPAN STYLE="color: white">🛠️</SPAN> <SPAN STYLE="color: white">' + arg + '</SPAN>')
+				htaConsole.log("<SPAN STYLE="color: white">🛠️</SPAN> <SPAN STYLE='color: white'>" + arg + "</SPAN>");
 			},
 			dataView: function(arg) {
 				if (arg) {
-					var formattedHTML = arg.replace(/&/g, '&amp;')
-										   .replace(/</g, '&lt;')
-										   .replace(/>/g, '&gt;')
-										   .replace(/"/g, '&quot;')
-										   .replace(/'/g, '&#39;');
+					var formattedHTML = arg.replace(/&/g, "&amp;")
+										   .replace(/</g, "&lt;")
+										   .replace(/>/g, "&gt;")
+										   .replace(/"/g, "&quot;")
+										   .replace(/'/g, "&#39;");
 
 					// Replaces all 'crlf' (caret return + line forward) chars with '<br>'
-					formattedHTML = formattedHTML.replace(/[\r\n]+/g, '<br>');
+					formattedHTML = formattedHTML.replace(/[\r\n]+/g, "<br>");
 					
-					formattedHTML = formattedHTML.replace(/\t/g, '    ');
+					formattedHTML = formattedHTML.replace(/\t/g, "    ");
 					
 					// Replaces all 'tab' chars with 4 blank spaces
 					var preStyle = "word-wrap: normal; " + 
@@ -281,86 +281,86 @@
 									"border-radius: 0.375rem;" +
 									"overflow: auto;" + 
 									"margin-left: -1px;";			
-					htaConsole.log("<div style='" + divStyle + "'>" + formattedHTML + "</div>")
+					htaConsole.log("<div style='" + divStyle + "'>" + formattedHTML + "</div>");
 				}
 			},
 			warn: function(arg) {
-				htaConsole.log('<SPAN STYLE="color: orange">⚠️</SPAN> <SPAN>' + arg + '</SPAN>')                    //prev glyph code: &#9888;
+				htaConsole.log("<SPAN STYLE='color: orange'>⚠️</SPAN> <SPAN>" + arg + "</SPAN>");                   //prev glyph code: &#9888;
 			},
 			error: function(arg) {
-				htaConsole.log('<SPAN STYLE="color: red">☢️</SPAN> <SPAN STYLE="color: red">' + arg + '</SPAN>')	//prev glyph code: &#9888;
+				htaConsole.log("<SPAN STYLE='color: red'>☢️</SPAN> <SPAN STYLE='color: red'>" + arg + "</SPAN>");	//prev glyph code: &#9888;
 				//throw arg
 			}
 		}
-    }
+    };
 
     htaConsole.log = function(msg) {
-		var logContainer = document.createElement('div')
-		logContainer.innerHTML = msg + "<br>"
-		document.getElementById('panel-console').appendChild(logContainer)
-		this.consoleresize()
-    }
+		var logContainer = document.createElement("div");
+		logContainer.innerHTML = msg + "<br>";
+		document.getElementById("panel-console").appendChild(logContainer);
+		this.consoleresize();
+    };
 
     htaConsole.consoleresize = function() {
-		var panelConsole = document.getElementById('panel-console')
-		panelConsole.scrollTop = panelConsole.scrollHeight
-    }
+		var panelConsole = document.getElementById("panel-console");
+		panelConsole.scrollTop = panelConsole.scrollHeight;
+    };
 
     htaConsole.clear = function() {
-		document.getElementById('panel-console').innerHTML = ''
-    }
+		document.getElementById("panel-console").innerHTML = "";
+    };
 
     htaConsole.transparent = function() {
-		var panelBox = document.getElementById('panel-box')
-		var panelTransparent = document.getElementById('panel-menu-transparent')
+		var panelBox = document.getElementById("panel-box");
+		var panelTransparent = document.getElementById("panel-menu-transparent");
 		if (panelBox.style.opacity === "0.5") {
-			panelBox.style.opacity = "1.0"
-			panelTransparent.innerHTML = "&#9680;"
+			panelBox.style.opacity = "1.0";
+			panelTransparent.innerHTML = "&#9680;";
 		} else {
-			panelBox.style.opacity = "0.5"
-			panelTransparent.innerHTML = "&#9899;"
+			panelBox.style.opacity = "0.5";
+			panelTransparent.innerHTML = "&#9899;";
 		}
-    }
+    };
 	
 	// SNI
     htaConsole.reload = function() {
-		var panelBox = document.getElementById('panel-box')
-		var panelReload = document.getElementById('panel-menu-reload')
-		panelReload.setAttribute("data-tooltip", "Reload the page avoiding cached data.")
-		panelReload.innerHTML = "&#10227;"
+		var panelBox = document.getElementById("panel-box");
+		var panelReload = document.getElementById("panel-menu-reload");
+		panelReload.setAttribute("data-tooltip", "Reload the page avoiding cached data.");
+		panelReload.innerHTML = "&#10227;";
 		location.reload(true);
-	}
+	};
 	
     htaConsole.minimize = function() {
-		var panelConsole = document.getElementById('panel-console')
-		var panelMinimize = document.getElementById('panel-menu-minimize')
+		var panelConsole = document.getElementById("panel-console");
+		var panelMinimize = document.getElementById("panel-menu-minimize");
 		if (panelConsole.style.display === "block") {
-			this.panelConsoleHeight = panelConsole.style.height
-			panelConsole.style.height = "0px"
-			panelConsole.style.display = "none"
-			panelMinimize.innerHTML = '&#9650;'
+			this.panelConsoleHeight = panelConsole.style.height;
+			panelConsole.style.height = "0px";
+			panelConsole.style.display = "none";
+			panelMinimize.innerHTML = "&#9650;";
 		} else {
-			panelConsole.style.height = this.panelConsoleHeight
-			panelConsole.style.display = "block"
+			panelConsole.style.height = this.panelConsoleHeight;
+			panelConsole.style.display = "block";
 			panelMinimize.innerHTML = '&#9660;'
-			this.consoleresize()
+			this.consoleresize();
 		}
-    }
+    };
 
     htaConsole.toggle = function() {
-		var panelBox = document.getElementById('panel-box')
-			if (panelBox.style.display === "block") {
-			panelBox.style.display = "none"
+		var panelBox = document.getElementById("panel-box");
+		if (panelBox.style.display === "block") {
+			panelBox.style.display = "none";
 		} else {
-			panelBox.style.display = "block"
-			this.consoleresize()
+			panelBox.style.display = "block";
+			this.consoleresize();
 		}
-    }
+    };
 
     htaConsole.showModal = function(url){
-		window.open(url)
-    }
+		window.open(url);
+    };
 
-	return context.htaConsole = htaConsole
+	return context.htaConsole = htaConsole;
 
 })(window).init()
