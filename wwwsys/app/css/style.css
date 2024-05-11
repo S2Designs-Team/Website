@@ -32,8 +32,14 @@ BODY {
     left:               0%;
     right:              0%;
     bottom:             0px;
-	background:         url("../res/img/bg-home2.png") scroll center top transparent;
-    background-color:   #000000;
+
+	/* Center and scale the image nicely */
+	background            : url("../res/img/bg-home2.png") scroll center top transparent;
+	background-position   : center;
+	background-repeat     : no-repeat;
+	background-size       : cover;
+	background-color      : #000000;
+	
     padding:            0em;
     margin:             0em;
 
