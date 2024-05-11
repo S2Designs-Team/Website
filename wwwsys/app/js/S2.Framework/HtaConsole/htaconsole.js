@@ -104,7 +104,12 @@
 
 	var htaConsole = {}
 	htaConsole.init = function() {
-		var panelReload = document.getElementById("panel-menu-reload");
+		/*
+		* Tooltips Definition
+		* ===================
+        */
+		createTooltip("panel-menu-reload", 'Clicca per ulteriori dettagli');
+		// ===========================================================================================
 		//panelReload.setAttribute("data-tooltip", "Reload the page avoiding cached data.");
 		
 		var container = document.createElement("div")
@@ -362,6 +367,29 @@
     htaConsole.showModal = function(url){
 		window.open(url);
     };
+	
+	htaConsole.createTooltip =  function (elementId, tooltipText) {
+		const element = document.getElementById(elementId);
+		if (element) {
+			element.addEventListener("mouseover", () => {
+				// Creates an element used for the tooltip
+				const tooltip = document.createElement("div");
+				tooltip.className   = "tooltip";
+				tooltip.textContent = tooltipText;
+
+				// Aggiungi il tooltip al DOM
+				element.appendChild(tooltip);
+			});
+
+			element.addEventListener('mouseout', () => {
+				// Rimuovi il tooltip quando il mouse esce dall'elemento
+				const tooltip = document.querySelector(".tooltip");
+				if (tooltip) {
+					tooltip.remove();
+				}
+			});
+		}
+	};
 
 	return context.htaConsole = htaConsole;
 
