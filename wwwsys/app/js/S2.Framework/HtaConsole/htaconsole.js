@@ -314,11 +314,11 @@
 		var panelBox = document.getElementById('panel-box')
 		var panelTransparent = document.getElementById('panel-menu-transparent')
 		if (panelBox.style.opacity === "0.5") {
-			panelBox.style.opacity = '1.0'
-			panelTransparent.innerHTML = '&#9680;'
+			panelBox.style.opacity = "1.0"
+			panelTransparent.innerHTML = "&#9680;"
 		} else {
-			panelBox.style.opacity = '0.5'
-			panelTransparent.innerHTML = '&#9899;'
+			panelBox.style.opacity = "0.5"
+			panelTransparent.innerHTML = "&#9899;"
 		}
     }
 	
@@ -327,7 +327,7 @@
 		var panelBox = document.getElementById('panel-box')
 		var panelReload = document.getElementById('panel-menu-reload')
 		panelReload.setAttribute("data-tooltip", "Reload the page avoiding cached data.")
-		panelReload.innerHTML = '&#10227
+		panelReload.innerHTML = "&#10227;"
 		location.reload(true);
 	}
 	
