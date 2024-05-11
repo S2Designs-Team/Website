@@ -1,31 +1,38 @@
+
+
+/* ========================================== */
+/* == COMPONENT LAYOUT ====================== */
+/* ========================================== */
 .content {
-    position         : absolute;
-    top              : clamp(1em, -1rem + 7.5vw, 5em);
-    right            : 0px;
-    left             : 0px;
-	width            : 100%;
-    bottom           : clamp(1em, -1rem + 6.5vw, 2.5em);
+    position              : absolute;
+    top                   : clamp(1em, -1rem + 7.5vw, 5em);
+    right                 : 0px;
+    left                  : 0px;
+	width                 : 100%;
+    bottom                : clamp(1em, -1rem + 6.5vw, 2.5em);
 }
 
+/* ========================================== */
+/* == COMPONENT STYLE ======================= */
+/* ========================================== */
 .blur8 {
-	filter           : blur(8px);
-  	-webkit-filter   : blur(8px);
+	filter                : blur(8px);
+  	-webkit-filter        : blur(8px);
 }
 
 .content {
-	overflow-y:         auto;
-    border:             0em;
-	/*background:         url("/Website/wwwsys/app/res/img/bg-home.jpg") no-repeat scroll center top transparent;*/
-	background:         url("/Website/wwwsys/app/res/img/bg-home2.png") scroll center top transparent;
+	overflow-y            : auto;
+    border                : 0em;
+	background            : url("/Website/wwwsys/app/res/img/bg-home2.png") scroll center top transparent;
 
 	/* Center and scale the image nicely */
-	background-position: center;
-	background-repeat:   no-repeat;
-	background-size:     cover;
+	background-position   : center;
+	background-repeat     : no-repeat;
+	background-size       : cover;
 	
-    vertical-align   :  baseline;
-	padding          :  1em;
-	margin           :  0em;
+    vertical-align        : baseline;
+	padding               : 1em;
+	margin                : 0em;
 }
 
 
