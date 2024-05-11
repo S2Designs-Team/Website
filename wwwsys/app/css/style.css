@@ -25,28 +25,38 @@
 }
 
 
+/* ========================================== */
+/* == LAYOUT ================================ */
+/* ========================================== */
 BODY {
-    position:           absolute;
-    display:            grid;
-    top:                0px;
-    left:               0%;
-    right:              0%;
-    bottom:             0px;
+    position                  : absolute;
+    display                   : grid;
+    top                       : 0px;
+    left                      : 0px;
+    right                     : 0px;
+    bottom                    : 0px;
+}
 
+/* ========================================== */
+/* == STYLE ================================= */
+/* ========================================== */
+BODY {
+	/* BACKGROUND STYLE DEFINITION */
 	/* Center and scale the image nicely */
-	background            : url("../res/img/bg-home2.png") scroll center top transparent;
-	background-position   : center;
-	background-repeat     : no-repeat;
-	background-size       : cover;
-	background-color      : #000000;
+	background                : url("../res/img/bg-home2.png") scroll center top transparent;
+	background-position       : center;
+	background-repeat         : no-repeat;
+	background-size           : cover;
+	background-color          : #000000;
 	
-    padding:            0em;
-    margin:             0em;
+    padding                   : 0em;
+    margin                    : 0em;
 
-    font-family:        "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue" !important;
-    font-weight:        300;
-    font-size:          17px;
-    color:              white;
+	/* FONT STYLE DEFINITION */
+    font-family               : "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue" !important;
+    font-weight               : 300;
+    font-size                 : 17px;
+    color                     : white;
 
     /* outline:            1px #ccc solid; */
     grid-template-rows: auto 1fr auto;
