@@ -9,9 +9,11 @@
     content:            attr(data-tooltip);
 
     position: absolute;
+    /*
     top:                -20px;
     right:              -20px;
     width:              150px;
+    */
 
     pointer-events:     none;
     opacity:            0;
