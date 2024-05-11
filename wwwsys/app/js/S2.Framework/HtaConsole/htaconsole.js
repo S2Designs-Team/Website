@@ -1,22 +1,22 @@
 ;(function(context) {
 
-	var layout ='<DIV ID="panel-box">' +
-				'	<DIV ID="panel-dragbar"></DIV>' +
-				'	<DIV ID="panel-header">' +
-				'		<SPAN STYLE="padding-left: 5px; font-weight: 700; color: #555;">Console</SPAN>' +
-				'		<SPAN ID="panel-menu-close" STYLE="float: right; margin-right: 8px; cursor: pointer; color: grey;" ONCLICK="htaConsole.toggle();">&#10006;</SPAN>' +
-				'		<SPAN ID="panel-menu-minimize" STYLE="float: right; margin-top:1px;margin-right: 10px; cursor: pointer; color: grey;" ONCLICK="htaConsole.minimize()">&#9660;</SPAN>' +
-				'	</DIV>' +
-				'	<DIV STYLE="background: rgba(19,19,19,1);">' +
-				'		<DIV ID="panel-console"></DIV>' +
-				'		<SPAN STYLE="border-top:1px solid grey; min-height: 1.5em; padding-left:4px; font-weight:700; font-size:16px; color:#62adea">&#62;</I><INPUT ID="commandline"></SPAN>' +
-				'	</DIV>' +
-				'	<DIV ID="panel-navigation">' +
-				'		<SPAN ID="panel-menu-clear"       STYLE="cursor: pointer" ONCLICK="htaConsole.clear()">&#10680;</SPAN>' +
-				'		<SPAN ID="panel-menu-transparent" STYLE="cursor: pointer" ONCLICK="htaConsole.transparent()">&#9680;</SPAN>' +
-				'		<SPAN ID="panel-menu-reload"      STYLE="cursor: pointer" ONCLICK="htaConsole.reload()">&#10227;</SPAN>' +
-				'	</DIV>' +
-				'</DIV>'
+	var layout ="<DIV ID='panel-box'>" +
+				"	<DIV ID='panel-dragbar'></DIV>" +
+				"	<DIV ID='panel-header'>" +
+				"		<SPAN STYLE='padding-left: 5px; font-weight: 700; color: #555;'>Console</SPAN>" +
+				"		<SPAN ID='panel-menu-close' STYLE='float: right; margin-right: 8px; cursor: pointer; color: grey;' ONCLICK='htaConsole.toggle();'>&#10006;</SPAN>" +
+				"		<SPAN ID='panel-menu-minimize' STYLE='float: right; margin-top:1px;margin-right: 10px; cursor: pointer; color: grey;' ONCLICK='htaConsole.minimize()'>&#9660;</SPAN>" +
+				"	</DIV>" +
+				"	<DIV STYLE='background: rgba(19,19,19,1);'>" +
+				"		<DIV ID='panel-console'></DIV>" +
+				"		<SPAN STYLE='border-top:1px solid grey; min-height: 1.5em; padding-left:4px; font-weight:700; font-size:16px; color:#62adea'>&#62;</I><INPUT ID='commandline'></SPAN>" +
+				"	</DIV>" +
+				"	<DIV ID='panel-navigation'>" +
+				"		<SPAN ID='panel-menu-clear'       STYLE='cursor: pointer' ONCLICK='htaConsole.clear()'>&#10680;</SPAN>" +
+				"		<SPAN ID='panel-menu-transparent' STYLE='cursor: pointer' ONCLICK='htaConsole.transparent()'>&#9680;</SPAN>" +
+				"		<SPAN ID='panel-menu-reload'      STYLE='cursor: pointer' ONCLICK='htaConsole.reload()'>&#10227;</SPAN>" +
+				"	</DIV>" +
+				"</DIV>"
 
 	var css = {
 		panelBox: {
@@ -87,16 +87,16 @@
 	}
 	var hyphen = function(input) {
 		return input.replace(/([a-z][A-Z])/g, function (group) {
-			return group[0] + '-' + group[1].toLowerCase()
+			return group[0] + "-" + group[1].toLowerCase()
 		})
 	}
 	var censor = function(censor) {
 		var i = 0
 		return function(key, value) {
-			if (i !== 0 && typeof(censor) === 'object' && typeof(value) == 'object' && censor == value)
-				return '[Circular]'
+			if (i !== 0 && typeof(censor) === "object" && typeof(value) == "object" && censor == value)
+				return "[Circular]"
 			if (i >= 29)
-				return '[Unknown]'
+				return "[Unknown]"
 			;++i
 			return value
 		}
@@ -105,9 +105,9 @@
 	var htaConsole = {}
 	htaConsole.init = function() {
 		var panelReload = document.getElementById("panel-menu-reload");
-		panelReload.setAttribute("data-tooltip", "Reload the page avoiding cached data.");
+		//panelReload.setAttribute("data-tooltip", "Reload the page avoiding cached data.");
 		
-		var container = document.createElement('div')
+		var container = document.createElement("div")
 		container.innerHTML = layout
 		document.body.appendChild(container)
 		for (var cssClass in css) {
@@ -119,23 +119,23 @@
 		// Dragbar
 		var dragHandler = function(evt) {
 			var height = "innerHeight" in window ? window.innerHeight : document.documentElement.offsetHeight
-			document.getElementById('panel-console').style.height = (height - 86 - evt.clientY) + 'px'
+			document.getElementById("panel-console").style.height = (height - 86 - evt.clientY) + "px"
 		}
-		document.getElementById('panel-dragbar').addEventListener('mousedown', function(evt) {
+		document.getElementById("panel-dragbar").addEventListener("mousedown", function(evt) {
 			evt.preventDefault()
-			document.addEventListener('mousemove', dragHandler)
+			document.addEventListener("mousemove", dragHandler)
 		})
-		document.addEventListener('mouseup', function(evt) {
-			document.removeEventListener('mousemove', dragHandler)
+		document.addEventListener("mouseup", function(evt) {
+			document.removeEventListener("mousemove", dragHandler)
 		})
 
-		document.addEventListener('keydown', function(evt) {
+		document.addEventListener("keydown", function(evt) {
 			if (evt.keyCode === 123) htaConsole.toggle()
 		}, true)
 
 		// Focus
-		document.getElementById('panel-console').addEventListener('click', function(evt) {
-			document.getElementById('commandline').focus()
+		document.getElementById("panel-console").addEventListener("click", function(evt) {
+			document.getElementById("commandline").focus()
 		})
 
 		// keypress
@@ -144,12 +144,12 @@
 				var sCmd = this.value
 				if (sCmd === "clear") {
 					htaConsole.clear()
-					this.value = ''
+					this.value = ""
 				} else if (sCmd === "history") {
 					for (var x = 0; x < cmdHistory.length; x++) console.log(cmdHistory[x])
-					this.value = ''
+					this.value = ""
 				} else if (sCmd) {
-					htaConsole.log('<span style="color:#777"; font-weight:700">&#62;</span> <span>' + sCmd + '</span>')
+					htaConsole.log("<span style='color:#777; font-weight:700'>&#62;</span> <span>" + sCmd + "</span>")
 					cmdHistory.push(sCmd)
 					try {
 						var evalCmd = eval(sCmd)
@@ -166,9 +166,9 @@
 						} else {
 							console.log(evalCmd)
 						}
-						this.value = ''
+						this.value = ""
 					} catch (e) {
-						this.value = ''
+						this.value = ""
 						throw e
 					}
 				}
