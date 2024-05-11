@@ -9,6 +9,7 @@
 @import url("/Website/wwwsys/app/css/components/scrollbars.css");
 @import url("/Website/wwwsys/app/css/components/article.css");
 @import url("/Website/wwwsys/app/css/components/sidebar.css");
+@import url("/Website/wwwsys/app/css/components/tooltip.css");
 
 :ROOT{
 	--main-background              : url("./");
