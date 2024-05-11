@@ -370,24 +370,10 @@
 	
 	htaConsole.createTooltip =  function (elementId, tooltipText) {
 		const element = document.getElementById(elementId);
+		
 		if (element) {
-			element.addEventListener("mouseover", () => {
-				// Creates an element used for the tooltip
-				const tooltip = document.createElement("div");
-				tooltip.className   = "tooltip";
-				tooltip.textContent = tooltipText;
-
-				// Aggiungi il tooltip al DOM
-				element.appendChild(tooltip);
-			});
-
-			element.addEventListener('mouseout', () => {
-				// Rimuovi il tooltip quando il mouse esce dall'elemento
-				const tooltip = document.querySelector(".tooltip");
-				if (tooltip) {
-					tooltip.remove();
-				}
-			});
+			element.title = tooltipText;
+			element.setAttribute("data-tooltip", tooltipText);
 		}
 	};
 
