@@ -84,13 +84,12 @@
 		return input.toLowerCase().replace(/-(.)/g, function(match, group1) {
 			return group1.toUpperCase()
 		})
-	};
+	}
 	var hyphen = function(input) {
 		return input.replace(/([a-z][A-Z])/g, function (group) {
 			return group[0] + '-' + group[1].toLowerCase()
 		})
-	};
-
+	}
 	var censor = function(censor) {
 		var i = 0
 		return function(key, value) {
@@ -101,7 +100,7 @@
 			;++i
 			return value
 		}
-	};
+	}
 
 	var htaConsole = {}
 	htaConsole.init = function() {
