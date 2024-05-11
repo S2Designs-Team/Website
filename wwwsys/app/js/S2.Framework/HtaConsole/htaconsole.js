@@ -370,7 +370,7 @@
 	
 	htaConsole.createTooltip =  function (elementId, tooltipText) {
 		const element = document.getElementById(elementId);
-		
+		debugger;
 		if (element) {
 			element.title = tooltipText;
 			element.setAttribute("data-tooltip", tooltipText);
