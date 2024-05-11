@@ -247,7 +247,7 @@
 				htaConsole.log("<SPAN STYLE='padding-left: 2px;'>" + arg + "</SPAN>");
 			},
 			debug: function(arg){
-				htaConsole.log("<SPAN STYLE="color: white">🛠️</SPAN> <SPAN STYLE='color: white'>" + arg + "</SPAN>");
+				htaConsole.log("<SPAN STYLE='color: white'>🛠️</SPAN> <SPAN STYLE='color: white'>" + arg + "</SPAN>");
 			},
 			dataView: function(arg) {
 				if (arg) {
