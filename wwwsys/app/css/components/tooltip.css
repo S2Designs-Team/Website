@@ -9,8 +9,8 @@
     content            : attr(data-tooltip);
 
     position           : absolute;
-    top                : attr(data-tooltip-x);
-    right              : attr(data-tooltip-y);
+    top                : attr(data-tooltipX);
+    right              : attr(data-tooltipY);
     width              : max-content;
     
 
