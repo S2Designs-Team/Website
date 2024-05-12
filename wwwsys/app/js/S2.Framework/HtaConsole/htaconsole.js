@@ -373,8 +373,8 @@
 			element.setAttribute("data-tooltip", tooltipText);
 			element.addEventListener('mouseover', function(evt) {
 				evt.preventDefault();
-				x = evt.x - this.offsetLeft;
-				y = evt.y - this.offsetTop;
+				x = 0 + evt.x - this.offsetLeft;
+				y = 0 + evt.y - this.offsetTop;
 
     			// Make it hang below the cursor a bit.
    				y += 10;
