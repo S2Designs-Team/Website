@@ -378,8 +378,8 @@
 
     			// Make it hang below the cursor a bit.
    				y += 10;
-				element.setAttribute("data-tooltip-x", x + "px");
-				element.setAttribute("data-tooltip-y", y + "px");		
+				element.setAttribute("data-tooltipX", x + "px");
+				element.setAttribute("data-tooltipY", y + "px");		
 			});
 		}
 	};
