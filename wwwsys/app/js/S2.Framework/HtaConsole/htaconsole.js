@@ -382,7 +382,7 @@
 				console.debug("mouse position => x:" + x + " y:" + y );
 				element.setAttribute("data-tooltipX", x + "px");
 				element.setAttribute("data-tooltipY", y + "px");		
-			});
+			};
 		}
 	};
 
