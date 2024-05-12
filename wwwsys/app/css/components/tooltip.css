@@ -9,6 +9,8 @@
     content            : attr(data-tooltip);
 
     position           : absolute;
+    top                : attr(data-tooltipX);
+    left               : attr(data-tooltipY);    
     width              : max-content;
     
 
@@ -31,6 +33,4 @@
 
 *[data-tooltip]:hover::after {
     opacity:            1;
-    top                : attr(data-tooltipX);
-    left               : attr(data-tooltipY);
 }
