@@ -17,6 +17,8 @@
 	--timespan-opacity-on          : 350ms;
 	--timespan-opacity-off         : 100ms;
 	--timespan-bacground           : 250ms;
+	--tooltip-top                  : 0px;
+	--tooltip-left                 : 0px;
 }
 *,
 *::BEFORE,
