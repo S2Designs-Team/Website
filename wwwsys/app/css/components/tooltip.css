@@ -6,11 +6,11 @@
 }
 
 *[data-tooltip]::after {
-    content:            attr(data-tooltip);
+    content            : attr(data-tooltip);
 
-    position: absolute;
-    top                : var(--tooltip.top)px;
-    right              : var(--tooltip.left)px;
+    position           : absolute;
+    top                : attr(data-tooltip-x);
+    right              : attr(data-tooltip-y);
     width              : max-content;
     
 
