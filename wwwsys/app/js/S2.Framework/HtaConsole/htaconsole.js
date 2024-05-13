@@ -379,8 +379,8 @@
 
     			// Make it hang below the cursor a bit.
    				y += 10;
+				/*				
 				console.debug("mouse position => x:" + x + " y:" + y );
-				/*
     			element.setAttribute("data-tooltipX", x + "px");
 				element.setAttribute("data-tooltipY", y + "px");
 				*/
