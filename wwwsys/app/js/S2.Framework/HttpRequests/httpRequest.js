@@ -1,4 +1,4 @@
-class HTTP_REQUEST {
+class HttpRequest {
     /* 
     =============================================================
     = FIELDS/MEMBERS ============================================
@@ -91,3 +91,5 @@ class HTTP_REQUEST {
         }
     }
 }
+
+export default HttpRequest;
