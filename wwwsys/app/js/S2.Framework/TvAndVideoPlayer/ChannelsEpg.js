@@ -13,8 +13,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 */
-import HttpRequest from '../HttpRequests/httpRequests.js';
-
 class ChannelsEpg {
 	#EpgData;
 	#EPG_URL_RAI;
