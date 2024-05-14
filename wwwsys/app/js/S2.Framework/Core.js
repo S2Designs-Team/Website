@@ -226,11 +226,11 @@ const System = {
 		// Note: Opera and WebTV spoof Navigator.  We do strict client detection.
 		// If you want to allow spoofing, take out the tests for opera and webtv.
 		var is_nav         = ((agt.indexOf('mozilla')!=-1) 
-				   && (agt.indexOf('spoofer')==-1)
-				   && (agt.indexOf('compatible') == -1) 
-				   && (agt.indexOf('opera')==-1) 
-				   && (agt.indexOf('webtv')==-1) 
-				   && (agt.indexOf('hotjava')==-1));
+						   && (agt.indexOf('spoofer')==-1)
+						   && (agt.indexOf('compatible') == -1) 
+						   && (agt.indexOf('opera')==-1) 
+						   && (agt.indexOf('webtv')==-1) 
+						   && (agt.indexOf('hotjava')==-1));
 		
 		var is_nav2        = (is_nav && (is_major == 2));
 		var is_nav3        = (is_nav && (is_major == 3));
@@ -333,7 +333,7 @@ const AppHelper = {
 	Version:       0.0.001
 	Parameters:    none
 	*/
-    	wrapAllRoutes : function() {
+    wrapAllRoutes : function() {
 		AppHelper.wrapNavRoutes();
 		AppHelper.wrapContentRoutes();
    	},
