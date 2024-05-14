@@ -29,6 +29,8 @@
 # ⌚ TIMER LOOP
 */
 
+import './HttpRequests/httpRequest.js';
+
 /*👉️ AUTHOR COMMENT TO PAY ATTENTION: The entry point to start the application (do not modify) */
 $(document).ready(function () {	
 	/* 🛠️ DEBUG PURPOSE ONLY
