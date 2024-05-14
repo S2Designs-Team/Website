@@ -37,7 +37,7 @@ class ChannelsEpg {
 		console.debug("[-][ChannelsEpg::init]");
 	}
 	
-	update = async() =>{
+	update2 = async() =>{
 		console.log("Caricamento della Guida Elettronica di Programmazione (EPG)...");
 		
 		// RAI EPG ================================================================================
@@ -95,22 +95,52 @@ class ChannelsEpg {
 			*/
 		} catch (error) { }
 	}
-	
-	/*
- 		//fetch(this.#EPG_URL_RAKUTEN).
-		//	then(response => response.json()).
-		//	then(jsonizedData => {
-		//		this.#EpgData["Rakuten"] = jsonizedData;
-		//	}).
-		//	catch(err => {
-		//		//👉️"Something went wrong"
-		//		console.log("Errors occurred executing the GET EPG DATA request to: " + this.#EPG_URL_RAKUTEN);
-		//		throw(err.message);
-		//	});
-		//
-		//console.log(" - RAKUTEN EPG: request sent correctly.");
+    
+    	update = async() =>{
+		console.log("Caricamento della Guida Elettronica di Programmazione (EPG)...");
+		try {
+			fetch(this.#EPG_URL_RAI).
+				then(response => response.json()).
+				then(jsonizedData => {
+						this.#EpgData["Rai"] = jsonizedData;
+					}).
+				catch(err => {
+					//👉️"Something went wrong"
+					console.log(err);
+				});
+			console.log(" - RAI EPG: invio eseguito correttamente.");
+		} catch(error) {
+			
+		}
+		/*
+		} catch (error) {
+			console.log('Errors occurred executing the GET EPG DATA request to: ' + url, error);
+			return null;
+		}
+		*/
 		
-	}*/
+		try {			
+			fetch(this.#EPG_URL_MEDIASET).
+				then(response => response.json()).
+				then(jsonizedData => {
+						this.#EpgData["Mediaset"] = jsonizedData;
+					}).
+				catch(err => {
+					//👉️"Something went wrong"
+					console.log(err);
+				});
+			console.log(" - MEDIASET EPG: invio eseguito correttamente.");
+		} catch(error) {
+			
+		}
+		/*
+		} catch (error) {
+			console.log('Errors occurred executing the GET EPG DATA request to: ' + url, error);
+			return null;
+		}
+		*/
+	}
+
 	
 	applyChannelsEPG = () => {
 		$("[id='Rai 1']").
