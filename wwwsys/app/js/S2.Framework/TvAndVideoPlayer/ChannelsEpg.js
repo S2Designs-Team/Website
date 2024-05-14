@@ -36,8 +36,37 @@ class ChannelsEpg {
 		}
 		console.debug("[-][ChannelsEpg::init]");
 	}
-    
-	update = async() =>{
+	
+    update = async() =>{
+		console.log("Caricamento della Guida Elettronica di Programmazione (EPG)...");
+		try {
+			fetch(this.#EPG_URL_RAI).
+				then(response => response.json()).
+				then(jsonizedData => {
+						this.#EpgData["Rai"] = jsonizedData;
+					}).
+				catch(err => {
+					//👉️"Something went wrong"
+					console.log("Errors occurred executing the GET EPG DATA request to: " + this.#EPG_URL_RAI + "</BR>" + err);
+				});
+			console.log(" - RAI EPG: invio eseguito correttamente.");
+		} catch (error) { }
+
+		try {			
+			fetch(this.#EPG_URL_MEDIASET).
+				then(response => response.json()).
+				then(jsonizedData => {
+						this.#EpgData["Mediaset"] = jsonizedData;
+					}).
+				catch(err => {
+					//👉️"Something went wrong"
+					console.log("Errors occurred executing the GET EPG DATA request to: " + this.#EPG_URL_RAI + "</BR>" + err);
+				});
+			console.log(" - MEDIASET EPG: invio eseguito correttamente.");
+		} catch (error) { }
+	}
+	
+	/*update = async() =>{
 		console.log("Loading the Electronic Programming Guide (EPG)...");
 		
 		// RAI EPG ================================================================================
@@ -67,21 +96,21 @@ class ChannelsEpg {
 		console.log(" - MEDIASET EPG: request sent correctly.");
 		
 		// RAKUTEN EPG ============================================================================
-		/*
-		fetch(this.#EPG_URL_RAKUTEN).
-			then(response => response.json()).
-			then(jsonizedData => {
-				this.#EpgData["Rakuten"] = jsonizedData;
-			}).
-			catch(err => {
-				//👉️"Something went wrong"
-				console.log("Errors occurred executing the GET EPG DATA request to: " + this.#EPG_URL_RAKUTEN);
-				throw(err.message);
-			});
+
+		//fetch(this.#EPG_URL_RAKUTEN).
+		//	then(response => response.json()).
+		//	then(jsonizedData => {
+		//		this.#EpgData["Rakuten"] = jsonizedData;
+		//	}).
+		//	catch(err => {
+		//		//👉️"Something went wrong"
+		//		console.log("Errors occurred executing the GET EPG DATA request to: " + this.#EPG_URL_RAKUTEN);
+		//		throw(err.message);
+		//	});
+		//
+		//console.log(" - RAKUTEN EPG: request sent correctly.");
 		
-		console.log(" - RAKUTEN EPG: request sent correctly.");
-		*/
-	}
+	}*/
 	
 	applyChannelsEPG = () => {
 		$("[id='Rai 1']").
