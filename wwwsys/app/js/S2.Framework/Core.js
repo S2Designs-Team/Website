@@ -503,7 +503,7 @@ const AppHelper = {
 	executeScripts : function (htmlContent){
 		var scriptSrcList = [];
 		var scriptContent = ""; 
-		var scripts       = (Application.contentContainerDomName + ' script'); // Seleziona tutti gli script nel contenuto
+		var scripts       = $(Application.contentContainerDomName + ' script'); // Seleziona tutti gli script nel contenuto
 		
 		scripts.each(function() {
 			scriptContent = $(this).text();
