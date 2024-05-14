@@ -511,7 +511,7 @@ const AppHelper = {
 				    scriptContent);
 			eval(scriptContent); // Esegue lo script
 		});
-		/* 
+		
 		scripts = $(htmlContent).find('script');
 	        scripts.each(function() {
 		        var src = $(this).attr('src');
@@ -526,7 +526,7 @@ const AppHelper = {
 			}
 			eval(scriptContent);
 	        });
-	 	*/
+	 	
 	},
 	
 	/*📎DOCUMENTATION
