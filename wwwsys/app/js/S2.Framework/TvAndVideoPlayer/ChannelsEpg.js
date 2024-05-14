@@ -13,6 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 */
+import HttpRequest from '../HttpRequests/httpRequests.js';
 
 class ChannelsEpg {
 	#EpgData;
@@ -21,6 +22,7 @@ class ChannelsEpg {
 	#EPG_URL_RAKUTEN;
 	#EPG_URL_VIACOM;
 	#PollingId;
+	const _httpRequest = new HttpRequest();
 	
 	constructor(){
 		console.debug("[+][ChannelsEpg::init][EPG rollup initialization] ...");
@@ -39,7 +41,22 @@ class ChannelsEpg {
 	
 	update = async() =>{
 		console.log("Caricamento della Guida Elettronica di Programmazione (EPG)...");
+		
+		// RAI EPG ================================================================================
 		try {
+			// Esempio di utilizzo di una richiesta GET con dati di filtro
+			_httpRequest.Url = this.#EPG_URL_RAI;
+			_httpRequest.RequestOptions = {
+   				method: 'GET',
+    				headers: {
+        				'Access-Control-Allow-Origin': '*', // Definizione CORS
+    				}
+			};
+			_httpRequest.get().then(data => {
+				console.log('Risposta GET:', data);
+				this.#EpgData["Rai"] = data;
+			});
+			/*
 			fetch(this.#EPG_URL_RAI).
 				then(response => response.json()).
 				then(jsonizedData => {
@@ -50,9 +67,23 @@ class ChannelsEpg {
 					console.log("Errors occurred executing the GET EPG DATA request to: " + this.#EPG_URL_RAI + "</BR>" + err);
 				});
 			console.log(" - RAI EPG: invio eseguito correttamente.");
+   			*/
 		} catch (error) { }
 		
-		try {			
+		// MEDIASET EPG ===========================================================================
+		try {	
+			_httpRequest.Url = this.#EPG_URL_MEDIASET;
+			_httpRequest.RequestOptions = {
+   				method: 'GET',
+    				headers: {
+        				'Access-Control-Allow-Origin': '*', // Definizione CORS
+    				}
+			};
+			_httpRequest.get().then(data => {
+				console.log('Risposta GET:', data);
+				this.#EpgData["Mediaset"] = data;
+			});
+			/*
 			fetch(this.#EPG_URL_MEDIASET).
 				then(response => response.json()).
 				then(jsonizedData => {
@@ -63,41 +94,12 @@ class ChannelsEpg {
 					console.log("Errors occurred executing the GET EPG DATA request to: " + this.#EPG_URL_RAI + "</BR>" + err);
 				});
 			console.log(" - MEDIASET EPG: invio eseguito correttamente.");
+			*/
 		} catch (error) { }
 	}
 	
-	/*update = async() =>{
-		console.log("Loading the Electronic Programming Guide (EPG)...");
-		
-		// RAI EPG ================================================================================
-		fetch(this.#EPG_URL_RAI).
-			then(response => response.json()).
-			then(jsonizedData => {
-				this.#EpgData["Rakuten"] = jsonizedData;
-			}).
-			catch(err => {
-				//👉️"Something went wrong"
-				console.log("Errors occurred executing the GET EPG DATA request to: " + this.#EPG_URL_RAI);
-				//throw(err.message);
-			});
-		console.log(" - RAI EPG: request sent correctly.");
-		
-		// MEDIASET EPG ===========================================================================
-		fetch(this.#EPG_URL_MEDIASET).
-			then(response => response.json()).
-			then(jsonizedData => {
-				this.#EpgData["Rakuten"] = jsonizedData;
-			}).
-			catch(err => {
-				//👉️"Something went wrong"
-				console.log("Errors occurred executing the GET EPG DATA request to: " + this.#EPG_URL_MEDIASET);
-				//throw(err.message);
-			});
-		console.log(" - MEDIASET EPG: request sent correctly.");
-		
-		// RAKUTEN EPG ============================================================================
-
-		//fetch(this.#EPG_URL_RAKUTEN).
+	/*
+ 		//fetch(this.#EPG_URL_RAKUTEN).
 		//	then(response => response.json()).
 		//	then(jsonizedData => {
 		//		this.#EpgData["Rakuten"] = jsonizedData;
