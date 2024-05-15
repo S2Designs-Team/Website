@@ -392,7 +392,7 @@ const AppHelper = {
 	Parameters: 
 	Returns:
 	*/
-	loadUrl : function (url){
+	loadUrl : async function (url){
 		console.debug("[AppHelper::loadUrl('" + url + "')]");
 		
 		var urlContent = "";
@@ -402,11 +402,11 @@ const AppHelper = {
 			if (url.indexOf("http://") === 0 || url.indexOf("https://") === 0){
 				// We are going to load from an absolute url
 				console.debug("We are going to load from an absolute url " + url);
-				urlContent = AppHelper.loadRemoteUrl(Application.contentContainerDomName, url);
+				urlContent = await AppHelper.loadRemoteUrl(Application.contentContainerDomName, url);
 			} else {
 				// We are going to load from a relative url
 				console.debug("We are going to load from an relative url transforming it into " + window.location.href + url);
-				urlContent = AppHelper.loadRemoteUrl(Application.contentContainerDomName, window.location.href + url);					
+				urlContent = await AppHelper.loadRemoteUrl(Application.contentContainerDomName, window.location.href + url);					
 			}
 		} else {
 			urlContent = await AppHelper.loadLocalUrl(Application.contentContainerDomName, Application.getStartPath() + url);	
@@ -442,7 +442,7 @@ const AppHelper = {
 					throw "errorMessage";
 				});
 				//$(targetDomName).html(remoteContent);
-				return remoteContent;
+				//return remoteContent;
 			}
 		} catch (e) {
 			console.error(e.message + " <BR>" + e.stack);
@@ -460,7 +460,7 @@ const AppHelper = {
 	Parameters: 
 	Returns:
 	*/
-	loadLocalUrl : function (targetDomName, filePath) {
+	loadLocalUrl : async function (targetDomName, filePath) {
 		var file;
 		var fileContent="";
 	    try {
@@ -501,6 +501,7 @@ const AppHelper = {
 	Returns:
 	*/
 	executeScripts : function (htmlContent){
+		debugger;
 		var scriptSrcList = [];
 		var scriptContent = ""; 
 		var scripts       = $(htmlContent).find('script'); // Seleziona tutti gli script nel contenuto
