@@ -409,7 +409,7 @@ const AppHelper = {
 				urlContent = AppHelper.loadRemoteUrl(Application.contentContainerDomName, window.location.href + url);					
 			}
 		} else {
-			urlContent = AppHelper.loadLocalUrl(Application.contentContainerDomName, Application.getStartPath() + url);	
+			urlContent = await AppHelper.loadLocalUrl(Application.contentContainerDomName, Application.getStartPath() + url);	
 		}
 		if (!StringHelper.isEmpty(urlContent)) { AppHelper.executeScripts(urlContent); }
 	},
@@ -422,7 +422,7 @@ const AppHelper = {
 	Parameters:    <targetDomName> = the target dom object where the content has to be shown; <url> = the url from where the content has to be picked up;
 	Returns:       The content loaded from the remote url
 	*/
-	loadRemoteUrl : function (targetDomName, url) {
+	loadRemoteUrl : async function (targetDomName, url) {
 		var file;
 		var fileContent="";
 		try {
@@ -432,7 +432,7 @@ const AppHelper = {
 				})
 				.done(function(data) {
 					$(Application.contentContainerDomName).html(data);
-					//console.dataView(data);
+					console.dataView(data);
 					return data;
 				})
 				.fail(function(jqXHR, textStatus, errorThrown) {
