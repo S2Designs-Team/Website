@@ -37,6 +37,7 @@ class BaseComponent {
         this.cssStyles   = "";
         this.cssFilePath = cssFilePath;
         this.container   = null;
+        this.scriptUrls  = [];
         
         // Creates a container element for this GUI Component
         this.container = document.createElement("SPAN");
@@ -60,14 +61,34 @@ class BaseComponent {
     * MethodName:  loadCssFile
     * Parameters:  [required] filePath => The file path defined to be applied to this component.
     */   
-    loadCssFile(filePath) {
+    loadCssFile(url) {
         return new Promise((resolve, reject) => {
             const link = document.createElement('link');
+            link.setAttribute('data-component', this.constructor.name);
             link.rel     = 'stylesheet';
-            link.href    = filePath;
+            link.href    = url;
             link.onload  = () => resolve();
-            link.onerror = () => reject('Could not load CSS file: ${filePath}');
+            link.onerror = () => reject('Could not load CSS file: ${url}');
             document.head.appendChild(link);
+        });
+    }
+
+    /*📎DOCUMENTATION
+    * Author:      ㊙️anonimo㊙️
+    * Description: Method to add a script to the component.
+    * last modify: 2024-05-19
+    * MethodName:  addScript
+    * Parameters:  [required] url => URL of the script to be added.
+    */
+    addScript(url) {
+        this.scriptUrls.push(url);
+        return new Promise((resolve, reject) => {
+            const script = document.createElement('script');
+            script.setAttribute('data-component', this.constructor.name);
+            script.src     = url;
+            script.onload  = () => resolve();
+            script.onerror = () => reject('Could not load script: ${url}');
+            document.body.appendChild(script);
         });
     }
 
@@ -143,14 +164,64 @@ class BaseComponent {
 
     /*📎DOCUMENTATION
     * Author:      ㊙️anonimo㊙️
-    * Description: This method is intended to be used to remove this GUI component from the html code.
+    * Description: This method is intended to be used to remove this GUI component from the HTML code.
     * last modify: 2024-05-19
-    * MethodName:  remove
+    * MethodName:  dispose
     */
-    remove() {
+    dispose() {
         if (this.container) {
             this.container.remove();
             this.container = null;
+
+            /*
+            * Removes inline styles
+            */
+            const internalStyle = document.querySelector(`style[data-component="${this.constructor.name}"]`);
+            if (internalStyle) {
+                internalStyle.remove();
+            }
+
+            /*
+            * Removes external stylesheet link
+            */
+            const externalStyle = document.querySelector(`link[href="${this.cssFilePath}"]`);
+            if (externalStyle) {
+                externalStyle.remove();
+            }
+
+            /*
+            * Removes added scripts
+            */
+            this.scriptUrls.forEach(url => {
+                const script = document.querySelector(`script[src="${url}"]`);
+                if (script) {
+                    script.remove();
+                }
+            });
+            
+            /*
+            * Removes added external scripts
+            */
+            this.scriptUrls.forEach(url => {
+                const script = document.querySelector(`script[src="${url}"]`);
+                if (script) {
+                    script.remove();
+                }
+            });
+
+            /*
+            * Removes added script inline
+            */
+            const inlineScripts = this.container.querySelectorAll('script');
+            inlineScripts.forEach(inlineScript => {
+                /*
+                * Checks if the inline script is related to this component
+                */
+                if (inlineScript.getAttribute('data-component') === this.constructor.name) {
+                    inlineScript.remove();
+                }
+            });
+            
         }
-    }
+    }   
 }
