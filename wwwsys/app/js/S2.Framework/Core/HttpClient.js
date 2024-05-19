@@ -123,7 +123,7 @@ class HttpClient {
     * Author:      ㊙️anonimo㊙️
     * Description: A generic method to send an HTTP request.
     * last modify: 2024-05-19
-    * MethodName:  request
+    * MethodName:  send
     * Parameters:  [required] endpoint => the endpoint for the request
     *              [required] options  => additional fetch options
     */ 
