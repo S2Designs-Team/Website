@@ -22,7 +22,7 @@
 * ClassName:   BaseComponent
 * Version:     0.0.001
 */
-class BaseComponent {
+export class BaseComponent {
 
     /*📎DOCUMENTATION
     * Author:      ㊙️anonimo㊙️
