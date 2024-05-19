@@ -23,7 +23,7 @@
 * Version:     0.0.001
 * Parameters:  none
 */
-class HttpClient {
+export class HttpClient {
 
     /*📎DOCUMENTATION
     * Author:      ㊙️anonimo㊙️
