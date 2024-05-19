@@ -28,16 +28,19 @@ class BaseComponent {
     * Author:      ㊙️anonimo㊙️
     * Description: The class constructor.
     * last modify: 2024-05-19
-    * Parameters:  [optional] properties  => properties of the component
-    *              [optional] cssFilePath => the css style of the component
+    * Parameters:  [optional] properties => properties of the component
+    *              [optional] cssFileUrl => the css style url of the component
     */   
-    constructor(properties = {}, cssFilePath = null) {
-        this.properties  = properties;
-        this.htmlSegment = "";
-        this.cssStyles   = "";
-        this.cssFilePath = cssFilePath;
-        this.container   = null;
-        this.scriptUrls  = [];
+    constructor(properties = {}, cssFileUrl = null) {
+        this.container                 = null;
+        this.properties                = properties;
+        this.htmlSegment               = "";
+        
+        this.cssStyles                 = "";
+        this.cssFileUrl                = cssFileUrl;
+        
+        this.scriptUrls                = [];
+        this.childComponentsCollection = [];
         
         // Creates a container element for this GUI Component
         this.container = document.createElement("SPAN");
@@ -56,12 +59,22 @@ class BaseComponent {
 
     /*📎DOCUMENTATION
     * Author:      ㊙️anonimo㊙️
+    * Description: A 'placeholder' method to be used to add event listeners to the GUI Component.
+    *              This method has to be overrided inside upper level component class implementing this Base Component class.
+    * last modify: 2024-05-19
+    * MethodName:  addEventListeners
+    * Parameters:  [required] container => the component's container to which add the events listeners
+    */
+    addEventListeners(container) {}
+
+    /*📎DOCUMENTATION
+    * Author:      ㊙️anonimo㊙️
     * Description: This method loads the css style defined inside the file passed with 'filePath' parameter.
     * last modify: 2024-05-19
-    * MethodName:  loadCssFile
-    * Parameters:  [required] filePath => The file path defined to be applied to this component.
+    * MethodName:  loadCss
+    * Parameters:  [required] url =>  URL of the css to be applied to this component.
     */   
-    loadCssFile(url) {
+    loadCss(url) {
         return new Promise((resolve, reject) => {
             const link = document.createElement('link');
             link.setAttribute('data-component', this.constructor.name);
@@ -77,10 +90,10 @@ class BaseComponent {
     * Author:      ㊙️anonimo㊙️
     * Description: Method to add a script to the component.
     * last modify: 2024-05-19
-    * MethodName:  addScript
+    * MethodName:  loadScript
     * Parameters:  [required] url => URL of the script to be added.
     */
-    addScript(url) {
+    loadScript(url) {
         this.scriptUrls.push(url);
         return new Promise((resolve, reject) => {
             const script = document.createElement('script');
@@ -91,7 +104,30 @@ class BaseComponent {
             document.body.appendChild(script);
         });
     }
-
+    
+    /*📎DOCUMENTATION
+    * Author:      ㊙️anonimo㊙️
+    * Description: Method to add a child component.
+    * last modify: 2024-05-19
+    * MethodName:  addChildComponent
+    * Parameters:  [required] child => child component to be added.
+    */
+    addChildComponent(childComponent) {
+        this.childComponentsCollection.push(childComponent);
+    }
+    
+    /*📎DOCUMENTATION
+    * Author:      ㊙️anonimo㊙️
+    * Description: Method to add a child component.
+    * last modify: 2024-05-19
+    * MethodName:  addChildComponent
+    * Parameters:  [required] child => child component to be added.
+    */
+    removeChildComponent(childComponent) {
+        childComponent.dispose();
+        this.childComponentsCollection = this.childComponentsCollection.filter(comp => comp !== childComponent);
+    }
+    
     /*📎DOCUMENTATION
     * Author:      ㊙️anonimo㊙️
     * Description: This async method shows up the GUI Component inside the parent one.
@@ -122,9 +158,9 @@ class BaseComponent {
         * If has been defined a css file path related to this GUI Component 
         * proceeds to load it.
         */
-        if (this.cssFilePath) {
+        if (this.cssFileUrl) {
             try {
-                await this.loadCssFile(this.cssFilePath);
+                await this.loadCss(this.cssFileUrl);
             } catch (error) {
                 console.warn(error);
             }
@@ -137,31 +173,31 @@ class BaseComponent {
         */
         if (this.cssStyles) {
             const style = document.createElement('style');
+            style.setAttribute('data-component', this.constructor.name);
             style.textContent = this.cssStyles;
             document.head.appendChild(style);
         }
 
         /* 
-        * Adds the component in the parent GUI object
+        * Adds the component in the parent GUI object.
         */
         parent.appendChild(this.container);
 
         /* 
-        * Adds the component in the parent GUI object
+        * Calls the 'placeholder' method to add the event liteners to this GUI Component.
+        * if it is overrided by the implementing class then runs the code defined in there
+        * otherwise it runs the placeholder that is empty (so it does nothing).
         */
         this.addEventListeners(this.container);
+
+        /*
+        * Renders all child components.
+        */
+        for (const myChildComponentIterator of this.childComponentsCollection) {
+            await myChildComponentIterator.render(this.container.id);
+        }
     }
     
-    /*📎DOCUMENTATION
-    * Author:      ㊙️anonimo㊙️
-    * Description: A 'placeholder' method to be used to add event listeners to the GUI Component.
-    *              This method has to be overrided inside upper level component class implementing this Base Component class.
-    * last modify: 2024-05-19
-    * MethodName:  addEventListeners
-    * Parameters:  [required] container => the component's container to which add the events listeners
-    */
-    addEventListeners(container) {}
-
     /*📎DOCUMENTATION
     * Author:      ㊙️anonimo㊙️
     * Description: This method is intended to be used to remove this GUI component from the HTML code.
@@ -173,55 +209,48 @@ class BaseComponent {
             this.container.remove();
             this.container = null;
 
+            // CSS STYLES ===============================================================
+            
             /*
-            * Removes inline styles
+            * Removes the external stylesheet link associated to this component
             */
-            const internalStyle = document.querySelector(`style[data-component="${this.constructor.name}"]`);
-            if (internalStyle) {
-                internalStyle.remove();
-            }
-
-            /*
-            * Removes external stylesheet link
-            */
-            const externalStyle = document.querySelector(`link[href="${this.cssFilePath}"]`);
+            const externalStyle = document.querySelector("link[href='${this.cssFilePath}']");
             if (externalStyle) {
                 externalStyle.remove();
             }
-
             /*
-            * Removes added scripts
+            * Removes all internal styles associated to this component
             */
-            this.scriptUrls.forEach(url => {
-                const script = document.querySelector(`script[src="${url}"]`);
-                if (script) {
-                    script.remove();
-                }
-            });
+            const internalStyle = document.querySelector("style[data-component='${this.constructor.name}']");
+            internalStyle.remove();
+
+            // SCRIPTS ==================================================================
             
             /*
-            * Removes added external scripts
+            * Removes all the added external scripts associated to this component
             */
             this.scriptUrls.forEach(url => {
-                const script = document.querySelector(`script[src="${url}"]`);
-                if (script) {
-                    script.remove();
+                const externalScript = document.querySelector(`script[src="${url}"]`);
+                if (externalScript) {
+                    externalScript.remove();
                 }
+            });
+            /*
+            * Removes added internal scripts associated to this component
+            */
+            const internalScripts = document.querySelectorAll("script[data-component='${this.constructor.name}']");
+            internalScripts.forEach(internaScriptIterator => {
+                internaScriptIterator.remove();
             });
 
-            /*
-            * Removes added script inline
-            */
-            const inlineScripts = this.container.querySelectorAll('script');
-            inlineScripts.forEach(inlineScript => {
-                /*
-                * Checks if the inline script is related to this component
-                */
-                if (inlineScript.getAttribute('data-component') === this.constructor.name) {
-                    inlineScript.remove();
-                }
-            });
+            // CHILD COMPONENTS =========================================================
             
+            /*
+            * Removes all child components (IT IS PROPAGATED TO ALL THE CHILD COMPONENTS EVEN IF THEY ARE NESTED INSIDE ANOTHER CHILD COMPONENT).
+            */
+            for (const myChildComponentIterator of this.childComponentsCollection) {
+                await myChildComponentIterator.dispose();
+            }
         }
     }   
 }
