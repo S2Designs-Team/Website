@@ -19,11 +19,11 @@
 * Author:      ㊙️anonimo㊙️
 * Description: The Application HttpRequest manager class.
 * last modify: 2024-05-19
-* ClassName:   HttpRequest
+* ClassName:   HttpClient
 * Version:     0.0.001
 * Parameters:  none
 */
-class HttpRequest {
+class HttpClient {
 
     /*📎DOCUMENTATION
     * Author:      ㊙️anonimo㊙️
@@ -43,9 +43,9 @@ class HttpRequest {
     * Parameters:  [required] endpoint ==============> the endpoint for the request
     *              [optional][default = {}] options => additional fetch options
     * USAGE: ======================================================================
-    * const httpRequest = new HttpRequest('https://api.example.com');
+    * const httpClient = new HttpClient('https://api.example.com');
     * try {
-    *     const data = await httpRequest.get('/data');
+    *     const data = await httpClient.get('/data');
     *     console.log('GET request data:', data);
     * } catch (error) {
     *     console.error('Error during GET request:', error);
@@ -64,10 +64,10 @@ class HttpRequest {
     *              [required] body ==================> the body of the request
     *              [optional][default = {}] options => additional fetch options
     * USAGE: ======================================================================
-    * const httpRequest = new HttpRequest('https://api.example.com');
+    * const httpClient = new HttpClient('https://api.example.com');
     * const postData = { name: 'John Doe', age: 30 };
     * try {
-    *     const response = await httpRequest.post('/data', postData);
+    *     const response = await httpClient.post('/data', postData);
     *     console.log('POST request response:', response);
     * } catch (error) {
     *     console.error('Error during POST request:', error);
@@ -86,10 +86,10 @@ class HttpRequest {
     *              [required] body ==================> the body of the request
     *              [optional][default = {}] options => additional fetch options
     * USAGE: ======================================================================
-    * const httpRequest = new HttpRequest('https://api.example.com');
+    * const httpClient = new HttpClient('https://api.example.com');
     * const updateData = { name: 'John Doe', age: 31 };
     * try {
-    *     const response = await httpRequest.put('/data/1', updateData);
+    *     const response = await httpClient.put('/data/1', updateData);
     *     console.log('PUT request response:', response);
     * } catch (error) {
     *     console.error('Error during PUT request:', error);
@@ -107,9 +107,9 @@ class HttpRequest {
     * Parameters:  [required] endpoint ==============> the endpoint for the request
     *              [optional][default = {}] options => additional fetch options
     * USAGE: ====================================================================== 
-    * const httpRequest = new HttpRequest('https://api.example.com');
+    * const httpClient = new HttpClient('https://api.example.com');
     * try {
-    *     const response = await httpRequest.delete('/data/1');
+    *     const response = await httpClient.delete('/data/1');
     *     console.log('DELETE request response:', response);
     * } catch (error) {
     *     console.error('Error during DELETE request:', error);
@@ -125,7 +125,7 @@ class HttpRequest {
     * last modify: 2024-05-19
     * MethodName:  request
     * Parameters:  [required] endpoint => the endpoint for the request
-    *              [optional] options  => additional fetch options
+    *              [required] options  => additional fetch options
     */ 
     async send(endpoint, options) {
         const url = '${this.baseUrl}${endpoint}';
