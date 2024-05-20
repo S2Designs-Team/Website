@@ -153,7 +153,7 @@ export class BaseComponent {
         * extits the render procedure.
         */
         if (!parent) {
-            console.error("Parent element with id '${parentId}' not found.");
+            console.error("Parent element with id " + this.parentId + " not found.");
             return;
         }
         
