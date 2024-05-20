@@ -26,45 +26,77 @@
 * Version:     0.0.001
 */
 export class TypeOfCheck {
-    // Static method that returns the most specific type of a value
+
+    /*📎DOCUMENTATION
+    * Author:      ㊙️anonimo㊙️
+    * Description: Static method that returns the most specific type of a value.
+    * last modify: 2024-05-19
+    * MethodName:  type
+    * Parameters:  [required] value ==============> the value to check.
+    */ 
     static type(value) {
-        // If the value is null, return "null"
+        
+        /*
+        * If the value is null, return "null"
+        */
         if (value === null) {
             return "null";
         }
-        // Get the base type of the value
+        
+        /*
+        * Get the base type of the value
+        */
         const baseType = typeof value;
         
-        // If the base type is not "object" or "function", return the base type
+        /* 
+        * If the base type is not "object" or "function", return the base type
+        */
         if (!["object", "function"].includes(baseType)) {
             return baseType;
         }
         
-        // If the base type is a function
+        /*
+        * If the base type is a function
+        */
         if (baseType === "function") {
-            // Check if it's a class
+            /*
+            * Check if it's a class
+            */
             if (value.toString().startsWith("class")) {
                 return "class";
             }
-            // Otherwise, return "function"
+            /*
+            * Otherwise, return "function"
+            */
             return "function";
         }
         
-        // Get the string representation of the object's type using Symbol.toStringTag
+        /*
+        * Get the string representation of the object's type using Symbol.toStringTag
+        */
         const tag = Object.prototype.toString.call(value);
-        // If the object is a plain object, return "object"
+        /*
+        * If the object is a plain object, return "object"
+        */
         if (tag === "[object Object]") {
             return "object";
         }
         
-        // Get the constructor name of the object
+        /*
+        * Get the constructor name of the object
+        */
         const className = value.constructor ? value.constructor.name : "";
-        // If the constructor name is defined, return the constructor name
+        
+        /*
+        * If the constructor name is defined, return the constructor name
+        */
         if (className) {
             return className;
         }
         
-        // If it fails to determine the type, return the base type
+        /*
+        * If it fails to determine the type, return the base type
+        */
         return baseType;
     }
 }
