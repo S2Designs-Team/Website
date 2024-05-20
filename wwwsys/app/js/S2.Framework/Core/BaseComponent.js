@@ -204,7 +204,7 @@ export class BaseComponent {
     * last modify: 2024-05-19
     * MethodName:  dispose
     */
-    dispose() {
+    async dispose() {
         if (this.container) {
             this.container.remove();
             this.container = null;
