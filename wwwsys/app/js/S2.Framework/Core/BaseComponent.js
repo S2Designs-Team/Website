@@ -197,8 +197,7 @@ export class BaseComponent {
         * Renders all child components.
         */
         for (const myChildComponentIterator of this.childComponentsCollection) {
-            await myComponent.render.bind(myComponent)("parentId");
-            //await myChildComponentIterator.render(this.container.id);
+            await myChildComponentIterator.render(this.container.id);
         }
     }
     
