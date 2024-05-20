@@ -1,3 +1,5 @@
+import { BaseComponent } from '../Core/BaseComponent.js';
+
 export class Component1 extends BaseComponent {
     constructor(properties = {}, cssFileUrl = null) {
         super(properties, cssFileUrl);
