@@ -179,7 +179,7 @@ export class BaseComponent {
         }
 
         /* 
-        * Adds the component in the parent GUI object.
+        * Adds the component to the parent GUI object.
         */
         parent.appendChild(this.container);
 
