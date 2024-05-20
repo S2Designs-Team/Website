@@ -181,7 +181,7 @@ export class BaseComponent {
             document.head.appendChild(style);
         }
 
-        this.container.innerHtml = this.htmlSegment;
+        this.container.innerHTML = this.htmlSegment;
         /* 
         * Adds the component to the parent GUI object.
         */
