@@ -20,7 +20,8 @@ function onPageLoad() {
     const baseUrl = getBaseUrl();
     // Load program.js after page load
     const script = document.createElement('script');
-    script.src = baseUrl + 'program.js';
+    script.type  = 'module';
+    script.src   = baseUrl + 'program.js';
     document.body.appendChild(script);
 }
 
