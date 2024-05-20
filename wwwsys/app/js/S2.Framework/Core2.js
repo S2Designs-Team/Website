@@ -9,11 +9,9 @@ import { BaseComponent } from './Core/BaseComponent.js';
 
 // Function to get the base URL of the current page
 function getBaseUrl() {
-    const scripts = document.getElementsByTagName('script');
-    const currentScript = scripts[scripts.length - 1];
-    const scriptSrc = currentScript.src;
-    const lastSlashIndex = scriptSrc.lastIndexOf('/');
-    return scriptSrc.substring(0, lastSlashIndex + 1);
+    const url = window.location.href;
+    const lastSlashIndex = url.lastIndexOf('/');
+    return url.substring(0, lastSlashIndex + 1);
 }
 
 // Function to be executed after the page has fully loaded
