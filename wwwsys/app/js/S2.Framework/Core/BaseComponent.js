@@ -32,6 +32,7 @@ export class BaseComponent {
     *              [optional] cssFileUrl => the css style url of the component
     */   
     constructor(properties = {}, cssFileUrl = null) {
+        this.parentId                  = null; // Dichiarazione della variabile di classe
         this.container                 = null;
         this.properties                = properties;
         this.htmlSegment               = "";
@@ -137,6 +138,7 @@ export class BaseComponent {
     */    
     async render(parentId) {
         debugger;
+        this.parentId = parentId;
         /*
         * Calls the 'placeholder' method to initialize this GUI Component.
         * if it is overrided by the implementing class then runs the code defined in there
@@ -144,7 +146,7 @@ export class BaseComponent {
         */
         this.initialize();
         
-        const parent = document.getElementById(parentId);
+        const parent = document.getElementById(this.parentId);
         
         /*
         * If no parentId has been found then shows up a console error message and
@@ -195,7 +197,8 @@ export class BaseComponent {
         * Renders all child components.
         */
         for (const myChildComponentIterator of this.childComponentsCollection) {
-            await myChildComponentIterator.render(this.container.id);
+            await myComponent.render.bind(myComponent)("parentId");
+            //await myChildComponentIterator.render(this.container.id);
         }
     }
     
