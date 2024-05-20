@@ -1,9 +1,8 @@
-// Definizione del componente grafico che estende BaseComponent
-class Component1 extends BaseComponent {
-    constructor() {
-        super();
-        this.htmlSegment = `
-            <table border="1">
+export class Component1 extends BaseComponent {
+    constructor(properties = {}, cssFileUrl = null) {
+        super(properties, cssFileUrl);
+        this.htmlSegment = "
+            <table>
                 <thead>
                     <tr>
                         <th>Nome</th>
@@ -27,20 +26,10 @@ class Component1 extends BaseComponent {
                     </tr>
                 </tbody>
             </table>
-        `;
-        this.container.innerHTML = this.htmlSegment;
+        ";
     }
 
-    // Sovrascrivere il metodo initialize per ulteriori inizializzazioni se necessario
     initialize() {
-        // Inizializzazioni specifiche di Componente1, se necessarie
-    }
-
-    // Sovrascrivere il metodo addEventListeners per aggiungere eventi se necessario
-    addEventListeners(container) {
-        // Aggiungere eventi specifici di Componente1, se necessari
+        console.log('Component1 initialized');
     }
 }
-
-// Rendi la classe accessibile globalmente
-window.Componente1 = Componente1;
