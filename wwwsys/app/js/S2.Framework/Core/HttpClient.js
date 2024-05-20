@@ -21,7 +21,6 @@
 * last modify: 2024-05-19
 * ClassName:   HttpClient
 * Version:     0.0.001
-* Parameters:  none
 */
 export class HttpClient {
 
