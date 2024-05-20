@@ -136,6 +136,7 @@ export class BaseComponent {
     * Parameters:  [required] parentId => is the id of parent component containing this GUI Component
     */    
     async render(parentId) {
+        debugger;
         /*
         * Calls the 'placeholder' method to initialize this GUI Component.
         * if it is overrided by the implementing class then runs the code defined in there
