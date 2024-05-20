@@ -1,7 +1,7 @@
 export class Component1 extends BaseComponent {
     constructor(properties = {}, cssFileUrl = null) {
         super(properties, cssFileUrl);
-        this.htmlSegment = "
+        this.htmlSegment = '
             <table>
                 <thead>
                     <tr>
@@ -16,17 +16,17 @@ export class Component1 extends BaseComponent {
                         <td>Pippo</td>
                         <td>Scaiola</td>
                         <td>Spese condominiali</td>
-                        <td>1'000 euro</td>
+                        <td>1000 euro</td>
                     </tr>
                     <tr>
                         <td>Stefania</td>
                         <td>Abruzzese</td>
                         <td>Rifacimento tettoia</td>
-                        <td>2'700 euro</td>
+                        <td>2700 euro</td>
                     </tr>
                 </tbody>
             </table>
-        ";
+        ';
     }
 
     initialize() {
