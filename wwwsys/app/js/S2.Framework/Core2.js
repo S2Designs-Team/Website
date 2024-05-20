@@ -5,7 +5,7 @@ import { TypeOfCheck } from './Core/TypeOfCheck.js';
 import { HttpClient } from './Core/HttpClient.js';
 
 // Import BaseComponent  class from BaseComponent.js
-import { BaseComponent } from './Core/BaseComponent .js';
+import { BaseComponent } from './Core/BaseComponent.js';
 
 // Function to get the base URL of the current page
 function getBaseUrl() {
