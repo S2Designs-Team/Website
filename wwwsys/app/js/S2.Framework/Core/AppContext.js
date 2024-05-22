@@ -124,11 +124,11 @@ class AppContext {
     * last modify:  2024-05-24
     * FunctionName: getStartPath
     */	
-	getStartPath = () => {
-		var pathWithOutResourceName = document.location.pathname.substring(0, document.location.pathname.lastIndexOf("/"));
+    getStartPath = () => {
+    	var pathWithOutResourceName = document.location.pathname.substring(0, document.location.pathname.lastIndexOf("/"));
 		var protocolWithDomain      = document.location.href.substr(0, document.location.href.indexOf("/", 8));
 		return (protocolWithDomain + pathWithOutResourceName + "/").substr(8).toLowerCase();
-	}
+	};
     /*📎DOCUMENTATION
     * Author:       ㊙️anonimo㊙️
     * Description:  Function to get if the supplied url is locally or remotely located
@@ -137,7 +137,7 @@ class AppContext {
 	* Returns:      true  => the url is locally hosted
     *               false => the url is remotely hosted
     */		
-	isLocallyHosted : function(url) {
+	isLocallyHosted = (url) => {
 		if (url){
 
 			//  Checks if URL starts with "file:///" (for local urls)
@@ -152,7 +152,7 @@ class AppContext {
 		
 		console.error("[AppContext::isLocallyHosted] No url has been supplied.");
 		return false;
-	},	
+	};
 };
 
 // Export the singleton instance
