@@ -6,7 +6,7 @@ import { BaseComponent } from './Core/BaseComponent.js';  // Import BaseComponen
 */
 
 // Add BaseComponent to AppContext
-window.BaseComponent = BaseComponent;
+/*window.BaseComponent = BaseComponent;*/
 // Export AppContext to be accessible globally
 window.AppContext = new AppContext();
 export { AppContext };
