@@ -15,7 +15,7 @@
 #
 */
 
-export class Component1 extends AppContext.BaseComponent {
+export class Component1 extends BaseComponent {
     constructor(properties = {}, cssFileUrl = null) {
         super(properties, cssFileUrl);
         this.htmlSegment = `
