@@ -14,6 +14,8 @@
 # limitations under the License.
 #
 */
+import { BaseComponent } from './BaseComponent.js';
+import { HttpClient }    from './HttpClient.js';
 
 /*📎DOCUMENTATION
 * Author:      ㊙️anonimo㊙️
@@ -31,8 +33,8 @@ class AppContext {
         this.appProperties  = [];
         this.appNeedRefresh = false;
         this.appStatus      = null;
-        this.BaseComponent  = null;
-        this.HttpClient     = null;
+        this.BaseComponent  = BaseComponent;
+        this.HttpClient     = new HttpClient();
 
         AppContext.instance = this;    
     }
