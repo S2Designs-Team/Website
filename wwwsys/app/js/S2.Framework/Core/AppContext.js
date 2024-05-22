@@ -14,9 +14,11 @@
 # limitations under the License.
 #
 */
-import { BaseComponent } from './BaseComponent.js';
-import { HttpClient }    from './HttpClient.js';
-import json              from './Json.js'
+/* 
+* import { BaseComponent } from './BaseComponent.js';
+* import { HttpClient }    from './HttpClient.js';
+* import json              from './Json.js'
+*/
 
 /*📎DOCUMENTATION
 * Author:      ㊙️anonimo㊙️
@@ -34,10 +36,11 @@ class AppContext {
         this.props          = [];
         this.appNeedRefresh = false;
         this.appStatus      = null;
-        this.BaseComponent  = BaseComponent;
-        this.HttpClient     = new HttpClient();
-        this.Json           = json;
-
+        /*
+        * this.BaseComponent  = BaseComponent;
+        * this.HttpClient     = new HttpClient();
+        * this.Json           = json;
+        */
         AppContext.instance = this;    
     }
     
