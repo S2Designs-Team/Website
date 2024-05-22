@@ -30,7 +30,7 @@ class AppContext {
             return AppContext.instance;
         } 
         this.appServices    = [];
-        this.appProperties  = [];
+        this.props          = [];
         this.appNeedRefresh = false;
         this.appStatus      = null;
         this.BaseComponent  = BaseComponent;
@@ -68,7 +68,7 @@ class AppContext {
                 /*
                 * if the 1st parameter is a string uses directly the name and the value parameters.
                 */
-                this.appProperties[nameOrObject] = value;
+                this.props[nameOrObject] = value;
                 break;
                 
             case "object":
@@ -77,7 +77,7 @@ class AppContext {
                     * if the 1st parameter is an object, extracts its name and its value.
                     */
                     Object.keys(nameOrObject).forEach(key => {
-                        this.appProperties[key] = nameOrObject[key];
+                        this.props[key] = nameOrObject[key];
                     });
                 } else {
                     throw new Error('Invalid parameter: nameOrObject must not be null');
@@ -101,7 +101,7 @@ class AppContext {
     * last modify:  2024-05-22
     * FunctionName: getProperty
     */
-    getProperty = (propertyName) => { return this.appProperties.find(property => property.name === propertyName); };
+    getProperty = (propertyName) => { return this.props[propertyName]; };
     /*📎DOCUMENTATION
     * Author:       ㊙️anonimo㊙️
     * Description:  Function to get the base URL of the current page
