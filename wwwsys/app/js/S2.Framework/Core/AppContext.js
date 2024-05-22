@@ -16,6 +16,7 @@
 */
 import { BaseComponent } from './BaseComponent.js';
 import { HttpClient }    from './HttpClient.js';
+import json              from './Json.js'
 
 /*📎DOCUMENTATION
 * Author:      ㊙️anonimo㊙️
@@ -35,6 +36,7 @@ class AppContext {
         this.appStatus      = null;
         this.BaseComponent  = BaseComponent;
         this.HttpClient     = new HttpClient();
+        this.Json           = json;
 
         AppContext.instance = this;    
     }
