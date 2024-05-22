@@ -1,7 +1,9 @@
 import { AppContext }    from './Core/AppContext.js';     // Import AppContext instance from AppContext.js
+/* 
 import { TypeOfCheck }   from './Core/TypeOfCheck.js';    // Import TypeCheck class from TypeOfCheck.js
 import { HttpClient }    from './Core/HttpClient.js';     // Import HttpClient class from HttpClientk.js
 import { BaseComponent } from './Core/BaseComponent.js';  // Import BaseComponent class from BaseComponent.js
+*/
 
 // Add BaseComponent to AppContext
 window.BaseComponent = BaseComponent;
