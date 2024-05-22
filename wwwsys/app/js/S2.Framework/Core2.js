@@ -7,7 +7,7 @@ import { AppContext }    from './Core/AppContext.js';     // Import AppContext i
 * Export BaseComponent, System, HttpClient, AppContext to be accessible globally
 */
 window.BaseComponent = BaseComponent;
-window.System        = AppContext;
+window.System        = System;
 window.HttpClient    = HttpClient;
 window.AppContext    = AppContext;
 
