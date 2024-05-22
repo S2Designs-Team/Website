@@ -1,6 +1,6 @@
 import { BaseComponent } from '../Core/BaseComponent.js';
 
-export class Component1 extends BaseComponent {
+export class Component1 extends AppContext.BaseComponent {
     constructor(properties = {}, cssFileUrl = null) {
         super(properties, cssFileUrl);
         this.htmlSegment = `
