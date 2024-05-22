@@ -52,12 +52,13 @@ console.log("# Created by S2DesignsTeam © 2035 (Salvatore Nillo AKA ㊙️anoni
             "# ⏱️ ASYNCHRONISM                                                         " + "</BR>" +
             "# ⌚ TIMER LOOP                                                           " + "</BR>" +
             "###########################################################################");
-
+/*
 if (Application.isHTA()) {
     console.info(System.getJavascriptVersion() + " | " + System.getJScriptVersion() + "." );
 } else {
     console.info(System.getJavascriptVersion() + "." );
 }
+*/
 
 console.info("Application Start.");
 console.info(AppContext.isLocallyHosted(window.location.href) ? "Web app running locally from " + AppContext.getStartPath() + "</BR>" : 
