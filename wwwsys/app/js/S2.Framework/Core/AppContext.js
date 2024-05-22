@@ -114,16 +114,45 @@ class AppContext {
     * FunctionName: getBaseUrl
     */
     getBaseUrl = () => {
-		// document.location.pathname === window.location.pathname === top.location.pathname
-		var pathWithOutResourceName = document.location.pathname.substring(0, document.location.pathname.lastIndexOf("/"));
-		var protocolWithDomain      = document.location.href.substr(0, document.location.href.indexOf("/", 8));
-		return (protocolWithDomain + pathWithOutResourceName + "/").substr(8).toLowerCase();
-        /* prev code
         const url = window.location.href;
         const lastSlashIndex = url.lastIndexOf('/');
         return url.substring(0, lastSlashIndex + 1);
-        */
     };
+    /*📎DOCUMENTATION
+    * Author:       ㊙️anonimo㊙️
+    * Description:  Function to get the local application start path
+    * last modify:  2024-05-24
+    * FunctionName: getStartPath
+    */	
+	getStartPath = () => {
+		var pathWithOutResourceName = document.location.pathname.substring(0, document.location.pathname.lastIndexOf("/"));
+		var protocolWithDomain      = document.location.href.substr(0, document.location.href.indexOf("/", 8));
+		return (protocolWithDomain + pathWithOutResourceName + "/").substr(8).toLowerCase();
+	}
+    /*📎DOCUMENTATION
+    * Author:       ㊙️anonimo㊙️
+    * Description:  Function to get if the supplied url is locally or remotely located
+    * last modify:  2024-05-24
+    * FunctionName: isLocallyHosted
+	* Returns:      true  => the url is locally hosted
+    *               false => the url is remotely hosted
+    */		
+	isLocallyHosted : function(url) {
+		if (url){
+
+			//  Checks if URL starts with "file:///" (for local urls)
+			if (url.indexOf("file:///") === 0) { return true; }
+
+			// Checks if URL starts with "http://" o "https://" (for remote urls)
+			if (url.indexOf("http://") === 0 || url.indexOf("https://") === 0) { return false; }
+
+			// If we reach this point we assume that it is a local url
+			return true;
+		}
+		
+		console.error("[AppContext::isLocallyHosted] No url has been supplied.");
+		return false;
+	},	
 };
 
 // Export the singleton instance
