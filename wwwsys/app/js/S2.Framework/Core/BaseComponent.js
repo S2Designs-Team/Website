@@ -137,7 +137,6 @@ export class BaseComponent {
     * Parameters:  [required] parentId => is the id of parent component containing this GUI Component
     */    
     async render(parentId) {
-        debugger;
         this.parentId = parentId;
         /*
         * Calls the 'placeholder' method to initialize this GUI Component.
