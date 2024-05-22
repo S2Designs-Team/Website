@@ -3,13 +3,15 @@ import { TypeOfCheck }   from './Core/TypeOfCheck.js';    // Import TypeCheck cl
 import { HttpClient }    from './Core/HttpClient.js';     // Import HttpClient class from HttpClientk.js
 import { BaseComponent } from './Core/BaseComponent.js';  // Import BaseComponent class from BaseComponent.js
 
+// Add BaseComponent to AppContext
+window.BaseComponent = BaseComponent;
 // Export AppContext to be accessible globally
 window.AppContext = new AppContext();
-
-// Add BaseComponent to AppContext
-AppContext.addService(BaseComponent);
+export { AppContext };
 // Add HttpClient to AppContext
 AppContext.addService(new HttpClient());
+
+
 
 // Function to be executed after the page has fully loaded
 function loadMainScript() {
