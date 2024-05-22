@@ -14,11 +14,6 @@
 # limitations under the License.
 #
 */
-/* 
-* import { BaseComponent } from './BaseComponent.js';
-* import { HttpClient }    from './HttpClient.js';
-* import json              from './Json.js'
-*/
 
 /*📎DOCUMENTATION
 * Author:      ㊙️anonimo㊙️
@@ -36,12 +31,8 @@ class AppContext {
         this.props          = [];
         this.appNeedRefresh = false;
         this.appStatus      = null;
-        /*
-        * this.BaseComponent  = BaseComponent;
-        * this.HttpClient     = new HttpClient();
-        * this.Json           = json;
-        */
-        AppContext.instance = this;    
+
+	AppContext.instance = this;    
     }
     
     /*📎DOCUMENTATION
@@ -161,7 +152,7 @@ class AppContext {
     * Returns:      true  => indica che la pagina è eseguita in un ambiente HTA
     *               false => indica che la pagina NON è in un ambiente HTA
     */	
-    isHTA : function () {
+    isHTA = () => {
         // Retrieves the 1st occurence of the element <HTA:APPLICATION> inside the current document (if it is present).
         var htmlElement = document.getElementsByTagName('HTA:APPLICATION')[0];
 
