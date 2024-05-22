@@ -17,4 +17,4 @@ const Json = {
     }
 };
 
-export default json;
+export default Json;
