@@ -1,28 +1,24 @@
 import { AppContext }    from './Core/AppContext.js';     // Import AppContext instance from AppContext.js
-/* 
-import { TypeOfCheck }   from './Core/TypeOfCheck.js';    // Import TypeCheck class from TypeOfCheck.js
 import { HttpClient }    from './Core/HttpClient.js';     // Import HttpClient class from HttpClientk.js
 import { BaseComponent } from './Core/BaseComponent.js';  // Import BaseComponent class from BaseComponent.js
+
+/*
+* Export BaseComponent, AppContext, HttpClient to be accessible globally
 */
+window.BaseComponent = BaseComponent;
+window.AppContext    = AppContext;
+window.HttpClient    = HttpClient;
 
-// Add BaseComponent to AppContext
-/*window.BaseComponent = BaseComponent;*/
-// Add HttpClient to AppContext
-/*AppContext.addService(new HttpClient());*/
-// Export AppContext to be accessible globally
-window.AppContext = AppContext;
-export { AppContext };
-
-
+export { BaseComponent, AppContext, HttpClient };
 
 // Function to be executed after the page has fully loaded
 function loadMainScript() {
     // Get the base URL of the current page
     const baseUrl = AppContext.getBaseUrl();
     // Load program.js after page load
-    const script = document.createElement('script');
-    script.type  = 'module';
-    script.src = `${baseUrl}program.js`;
+    const script  = document.createElement('script');
+    script.type   = 'module';
+    script.src    = `${baseUrl}program.js`;
     document.body.appendChild(script);
 }
 
