@@ -10,6 +10,16 @@ AppContext.setProperty("isLocalContent"          , "true");
 const config = { apiUrl: 'https://api.example.com', timeout: 5000 };
 AppContext.setProperty(config);
 
+console.info("Application Start.");
+/*
+*AppHelper.wrapAllRoutes();
+*/
+console.info("Redirecting to the landing page....");
+
+/*
+* AppHelper.loadUrl(AppContext.getProperty["landingPageUrl"]);
+*/
+
 // Istanze dei componenti grafici
 const component1 = new Component1();
 component1.render("content");
