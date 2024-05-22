@@ -8,7 +8,7 @@ import { BaseComponent } from './Core/BaseComponent.js';  // Import BaseComponen
 // Add BaseComponent to AppContext
 /*window.BaseComponent = BaseComponent;*/
 // Export AppContext to be accessible globally
-window.AppContext = new AppContext();
+window.AppContext = AppContext;
 export { AppContext };
 // Add HttpClient to AppContext
 AppContext.addService(new HttpClient());
