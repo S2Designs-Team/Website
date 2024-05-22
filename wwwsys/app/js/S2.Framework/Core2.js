@@ -6,9 +6,10 @@ import { BaseComponent } from './Core/BaseComponent.js';  // Import BaseComponen
 // Export AppContext to be accessible globally
 window.AppContext = AppContext;
 
-// Assign BaseComponent and HttpClient to AppContext
-AppContext.BaseComponent = BaseComponent;
-AppContext.HttpClient = new HttpClient();
+// Add BaseComponent to AppContext
+AppContext.addService(BaseComponent);
+// Add HttpClient to AppContext
+AppContext.addService(new HttpClient());
 
 // Function to be executed after the page has fully loaded
 function loadMainScript() {
