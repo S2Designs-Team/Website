@@ -140,33 +140,33 @@ class AppContext {
     isLocallyHosted = (url) => {
         if (url){
 
-		        //  Checks if URL starts with "file:///" (for local urls)
-		        if (url.indexOf("file:///") === 0) { return true; }
+            // Checks if URL starts with "file:///" (for local urls)
+            if (url.indexOf("file:///") === 0) { return true; }
 
-		        // Checks if URL starts with "http://" o "https://" (for remote urls)
-		        if (url.indexOf("http://") === 0 || url.indexOf("https://") === 0) { return false; }
+            // Checks if URL starts with "http://" o "https://" (for remote urls)
+            if (url.indexOf("http://") === 0 || url.indexOf("https://") === 0) { return false; }
 
-		        // If we reach this point we assume that it is a local url
-		        return true;
+            // If we reach this point we assume that it is a local url
+           return true;
         }
 	
         console.error("[AppContext::isLocallyHosted] No url has been supplied.");
         return false;
     };
     /*📎DOCUMENTATION
-    * Author:        ㊙️anonimo㊙️
-    * Description:   Checks if the current page has been executed as HTA (HTML Application)
+    * Author:       ㊙️anonimo㊙️
+    * Description:  Checks if the current page has been executed as HTA (HTML Application)
+    * last modify:  2024-05-24	
     * FunctionName: isHTA
-		* Version:       0.0.001
-	  * Returns:       true  => indica che la pagina è eseguita in un ambiente HTA
-    *                false => indica che la pagina NON è in un ambiente HTA
-		*/	
+    * Returns:      true  => indica che la pagina è eseguita in un ambiente HTA
+    *               false => indica che la pagina NON è in un ambiente HTA
+    */	
     isHTA : function () {
         // Retrieves the 1st occurence of the element <HTA:APPLICATION> inside the current document (if it is present).
         var htmlElement = document.getElementsByTagName('HTA:APPLICATION')[0];
 
         // Checks idf the retrieved element 'htmlElement' is undefined (AKA not found) or not and if if contains an 'applicationname' property defined.
-		    return (typeof htmlElement !== 'undefined' && htmlElement.getAttribute('applicationname') !== null);
+        return (typeof htmlElement !== 'undefined' && htmlElement.getAttribute('applicationname') !== null);
     },	
 };
 
