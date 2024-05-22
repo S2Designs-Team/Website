@@ -44,8 +44,8 @@ export class BaseComponent {
         this.childComponentsCollection = [];
         
         // Creates a container element for this GUI Component
-        this.container = document.createElement("SPAN");
-        this.container.innerHTML = this.htmlSegment;
+        this.container                 = document.createElement("SPAN");
+        this.container.innerHTML       = this.htmlSegment;
     }
 
     /*📎DOCUMENTATION
