@@ -1,21 +1,16 @@
-// Import TypeCheck class from TypeOfCheck.js
-import { TypeOfCheck } from './Core/TypeOfCheck.js';
+import { AppContext }    from './Core/AppContext.js';     // Import AppContext instance from AppContext.js
+import { TypeOfCheck }   from './Core/TypeOfCheck.js';    // Import TypeCheck class from TypeOfCheck.js
+import { HttpClient }    from './Core/HttpClient.js';     // Import HttpClient class from HttpClientk.js
+import { BaseComponent } from './Core/BaseComponent.js';  // Import BaseComponent class from BaseComponent.js
 
-// Import HttpClient  class from HttpClientk.js
-import { HttpClient } from './Core/HttpClient.js';
-
-// Import BaseComponent  class from BaseComponent.js
-import { BaseComponent } from './Core/BaseComponent.js';
-
-// Function to get the base URL of the current page
-function getBaseUrl() {
-    const url = window.location.href;
-    const lastSlashIndex = url.lastIndexOf('/');
-    return url.substring(0, lastSlashIndex + 1);
-}
+// Assign BaseComponent and HttpClient to AppContext
+AppContext.BaseComponent = BaseComponent;
+AppContext.HttpClient = new HttpClient();
+// Export AppContext to be accessible globally
+window.AppContext = AppContext;
 
 // Function to be executed after the page has fully loaded
-function onPageLoad() {
+function loadMainScript() {
     // Get the base URL of the current page
     const baseUrl = getBaseUrl();
     // Load program.js after page load
@@ -27,7 +22,7 @@ function onPageLoad() {
 
 // Check if the document has fully loaded
 if (document.readyState === 'complete' || (document.readyState !== 'loading' && !document.documentElement.doScroll)) {
-    onPageLoad();
+    loadMainScript();
 } else {
-    document.addEventListener('DOMContentLoaded', onPageLoad);
+    document.addEventListener('DOMContentLoaded', loadMainScript);
 }
