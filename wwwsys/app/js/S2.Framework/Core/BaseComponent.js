@@ -70,7 +70,7 @@ export class BaseComponent {
 
     /*📎DOCUMENTATION
     * Author:      ㊙️anonimo㊙️
-    * Description: This method loads the css style defined inside the file passed with 'filePath' parameter.
+    * Description: This method loads the css style defined inside the file passed with the 'url' parameter.
     * last modify: 2024-05-19
     * MethodName:  loadCss
     * Parameters:  [required] url =>  URL of the css to be applied to this component.
@@ -89,7 +89,7 @@ export class BaseComponent {
 
     /*📎DOCUMENTATION
     * Author:      ㊙️anonimo㊙️
-    * Description: Method to add a script to the component.
+    * Description: This method adds the script defined inside the file passed with the 'url' parameter.
     * last modify: 2024-05-19
     * MethodName:  loadScript
     * Parameters:  [required] url => URL of the script to be added.
