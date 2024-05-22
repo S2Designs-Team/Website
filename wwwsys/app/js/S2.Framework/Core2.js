@@ -12,11 +12,11 @@ window.AppContext = AppContext;
 // Function to be executed after the page has fully loaded
 function loadMainScript() {
     // Get the base URL of the current page
-    const baseUrl = getBaseUrl();
+    const baseUrl = AppContext.getBaseUrl();
     // Load program.js after page load
     const script = document.createElement('script');
     script.type  = 'module';
-    script.src   = baseUrl + 'program.js';
+    script.src = `${baseUrl}program.js`;
     document.body.appendChild(script);
 }
 
