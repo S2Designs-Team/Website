@@ -54,7 +54,6 @@ export class BaseComponent {
     *              This method has to be overrided inside upper level component class implementing this Base Component class.
     * last modify: 2024-05-19
     * MethodName:  initialize
-    * Parameters:  [required] parentId => is the id of parent component containing this GUI Component
     */        
     initialize() {}
 
@@ -111,7 +110,7 @@ export class BaseComponent {
     * Description: Method to add a child component.
     * last modify: 2024-05-19
     * MethodName:  addChildComponent
-    * Parameters:  [required] child => child component to be added.
+    * Parameters:  [required] childComponent => child component to be added.
     */
     addChildComponent(childComponent) {
         this.childComponentsCollection.push(childComponent);
@@ -122,7 +121,7 @@ export class BaseComponent {
     * Description: Method to add a child component.
     * last modify: 2024-05-19
     * MethodName:  addChildComponent
-    * Parameters:  [required] child => child component to be added.
+    * Parameters:  [required] childComponent => child component to be added.
     */
     removeChildComponent(childComponent) {
         childComponent.dispose();
