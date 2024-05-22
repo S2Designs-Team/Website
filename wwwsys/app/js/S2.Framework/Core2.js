@@ -1,15 +1,17 @@
-import { AppContext }    from './Core/AppContext.js';     // Import AppContext instance from AppContext.js
-import { HttpClient }    from './Core/HttpClient.js';     // Import HttpClient class from HttpClientk.js
 import { BaseComponent } from './Core/BaseComponent.js';  // Import BaseComponent class from BaseComponent.js
+import { System }        from './Core/System.js';         // Import System class from System.js
+import { HttpClient }    from './Core/HttpClient.js';     // Import HttpClient class from HttpClientk.js
+import { AppContext }    from './Core/AppContext.js';     // Import AppContext instance from AppContext.js
 
 /*
-* Export BaseComponent, AppContext, HttpClient to be accessible globally
+* Export BaseComponent, System, HttpClient, AppContext to be accessible globally
 */
 window.BaseComponent = BaseComponent;
-window.AppContext    = AppContext;
+window.System        = AppContext;
 window.HttpClient    = HttpClient;
+window.AppContext    = AppContext;
 
-export { BaseComponent, AppContext, HttpClient };
+export { BaseComponent, System, HttpClient, AppContext};
 
 // Function to be executed after the page has fully loaded
 function loadMainScript() {
