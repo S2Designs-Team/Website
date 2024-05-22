@@ -43,28 +43,39 @@ class AppContext {
     * last modify:  2024-05-22
     * MethodName:   addService
     */
-    addService(service)       { this.appServices.push(service); }
+    addService = (service)=> { this.appServices.push(service); };
     /*📎DOCUMENTATION
     * Author:       ㊙️anonimo㊙️
     * Description: 
     * last modify:  2024-05-22
     * MethodName:   addProperty
     */
-    addProperty(property)     { this.appProperties.push(property); }
+    addProperty = (property) => { this.appProperties.push(property); };
     /*📎DOCUMENTATION
     * Author:       ㊙️anonimo㊙️
     * Description:  
     * last modify:  2024-05-22
     * FunctionName: getService
     */
-    getService(serviceName)   { return this.appServices.find(service => service.name === serviceName); }
+    getService = (serviceName) => { return this.appServices.find(service => service.name === serviceName); };
     /*📎DOCUMENTATION
     * Author:       ㊙️anonimo㊙️
     * Description: 
     * last modify:  2024-05-22
     * FunctionName: getProperty
     */
-    getProperty(propertyName) { return this.appProperties.find(property => property.name === propertyName); }
+    getProperty = (propertyName) => { return this.appProperties.find(property => property.name === propertyName); };
+    /*📎DOCUMENTATION
+    * Author:       ㊙️anonimo㊙️
+    * Description:  Function to get the base URL of the current page
+    * last modify:  2024-05-22
+    * FunctionName: getBaseUrl
+    */
+    getBaseUrl = () => {
+        const url = window.location.href;
+        const lastSlashIndex = url.lastIndexOf('/');
+        return url.substring(0, lastSlashIndex + 1);
+    };
 };
 
 // Export the singleton instance
