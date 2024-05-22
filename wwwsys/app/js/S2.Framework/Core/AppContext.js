@@ -15,16 +15,60 @@
 #
 */
 
-// Define the global AppContext
-const AppContext = {
-    appServices: [],
-    appProperties: [],
-    appNeedRefresh: false,
-    appStatus: null,
-    addService(service)       { this.appServices.push(service); },
-    addProperty(property)     { this.appProperties.push(property); },
-    getService(serviceName)   { return this.appServices.find(service => service.name === serviceName); },
+/*📎DOCUMENTATION
+* Author:      ㊙️anonimo㊙️
+* Description: (Singleton) The global App Context.
+* last modify: 2024-05-22
+* ClassName:   AppContext
+* Version:     0.0.001
+*/
+class AppContext {
+    constructor() {
+        if (AppContext.instance) {
+            return AppContext.instance;
+        } 
+        this.appServices    = [];
+        this.appProperties  = [];
+        this.appNeedRefresh = false;
+        this.appStatus      = null;
+        this.BaseComponent  = null;
+        this.HttpClient     = null;
+
+        AppContext.instance = this;    
+    }
+    
+    /*📎DOCUMENTATION
+    * Author:      ㊙️anonimo㊙️
+    * Description: 
+    * last modify: 2024-05-22
+    * MethodName:  addService
+    */
+    addService(service)       { this.appServices.push(service); }
+    /*📎DOCUMENTATION
+    * Author:      ㊙️anonimo㊙️
+    * Description: 
+    * last modify: 2024-05-22
+    * MethodName:  addProperty
+    */
+    addProperty(property)     { this.appProperties.push(property); }
+    /*📎DOCUMENTATION
+    * Author:      ㊙️anonimo㊙️
+    * Description: 
+    * last modify: 2024-05-22
+    * MethodName:  getService
+    */
+    getService(serviceName)   { return this.appServices.find(service => service.name === serviceName); }
+    /*📎DOCUMENTATION
+    * Author:      ㊙️anonimo㊙️
+    * Description: 
+    * last modify: 2024-05-22
+    * MethodName:  getProperty
+    */
     getProperty(propertyName) { return this.appProperties.find(property => property.name === propertyName); }
 };
 
-export { AppContext };
+// Export the singleton instance
+const appContextInstance = new AppContext();
+Object.freeze(appContextInstance);
+
+export { appContextInstance as AppContext };
