@@ -38,31 +38,31 @@ class AppContext {
     }
     
     /*📎DOCUMENTATION
-    * Author:      ㊙️anonimo㊙️
+    * Author:       ㊙️anonimo㊙️
     * Description: 
-    * last modify: 2024-05-22
-    * MethodName:  addService
+    * last modify:  2024-05-22
+    * MethodName:   addService
     */
     addService(service)       { this.appServices.push(service); }
     /*📎DOCUMENTATION
-    * Author:      ㊙️anonimo㊙️
+    * Author:       ㊙️anonimo㊙️
     * Description: 
-    * last modify: 2024-05-22
-    * MethodName:  addProperty
+    * last modify:  2024-05-22
+    * MethodName:   addProperty
     */
     addProperty(property)     { this.appProperties.push(property); }
     /*📎DOCUMENTATION
-    * Author:      ㊙️anonimo㊙️
-    * Description: 
-    * last modify: 2024-05-22
-    * MethodName:  getService
+    * Author:       ㊙️anonimo㊙️
+    * Description:  
+    * last modify:  2024-05-22
+    * FunctionName: getService
     */
     getService(serviceName)   { return this.appServices.find(service => service.name === serviceName); }
     /*📎DOCUMENTATION
-    * Author:      ㊙️anonimo㊙️
+    * Author:       ㊙️anonimo㊙️
     * Description: 
-    * last modify: 2024-05-22
-    * MethodName:  getProperty
+    * last modify:  2024-05-22
+    * FunctionName: getProperty
     */
     getProperty(propertyName) { return this.appProperties.find(property => property.name === propertyName); }
 };
