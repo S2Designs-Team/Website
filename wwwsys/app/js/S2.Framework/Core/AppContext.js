@@ -114,9 +114,15 @@ class AppContext {
     * FunctionName: getBaseUrl
     */
     getBaseUrl = () => {
+		// document.location.pathname === window.location.pathname === top.location.pathname
+		var pathWithOutResourceName = document.location.pathname.substring(0, document.location.pathname.lastIndexOf("/"));
+		var protocolWithDomain      = document.location.href.substr(0, document.location.href.indexOf("/", 8));
+		return (protocolWithDomain + pathWithOutResourceName + "/").substr(8).toLowerCase();
+        /* prev code
         const url = window.location.href;
         const lastSlashIndex = url.lastIndexOf('/');
         return url.substring(0, lastSlashIndex + 1);
+        */
     };
 };
 
