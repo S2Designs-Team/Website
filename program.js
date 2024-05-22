@@ -1,10 +1,14 @@
 // Import of needed graphic components
 import { Component1 } from './wwwsys/app/js/S2.Framework/Components/Component1.js';
 
-AppContext.addProperty({ name: "landingPageUrl"          , value: "wwwsys/pages/index.html" });
-AppContext.addProperty({ name: "name"                    , value: "My application"} );
-AppContext.addProperty({ name: "contentContainerDomName" , value: ".content"} );
-AppContext.addProperty({ name: "isLocalContent"          , value: "true"} );
+AppContext.setProperty("landingPageUrl"          , "wwwsys/pages/index.html");
+AppContext.setProperty("name"                    , "My application");
+AppContext.setProperty("contentContainerDomName" , "content");
+AppContext.setProperty("isLocalContent"          , "true");
+
+// Sets a proprerty using an object 
+const config = { apiUrl: 'https://api.example.com', timeout: 5000 };
+AppContext.setProperty(config);
 
 // Istanze dei componenti grafici
 const component1 = new Component1();
