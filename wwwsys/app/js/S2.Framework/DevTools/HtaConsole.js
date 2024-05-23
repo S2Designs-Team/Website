@@ -381,4 +381,4 @@ class HtaConsole {
 
 const htaConsoleInstance = new HtaConsole();
 Object.freeze(htaConsoleInstance);
-export default htaConsoleInstance;
+export default { htaConsoleInstance as HtaConsole };
