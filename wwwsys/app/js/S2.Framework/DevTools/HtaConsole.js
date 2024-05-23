@@ -173,6 +173,7 @@ class HtaConsole extends BaseComponent {
     toggle = (evt) => {
         const el = document.getElementById("HtaConsole");
         el.style.display = (el.style.display !== "none") ? "none" : "block";
+        event.preventDefault();
     }
     dragHandler = (evt) => {
         const height = window.innerHeight || document.documentElement.offsetHeight;
