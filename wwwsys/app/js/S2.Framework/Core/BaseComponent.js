@@ -131,9 +131,12 @@ export class BaseComponent {
     /*📎DOCUMENTATION
     * Author:      ㊙️anonimo㊙️
     * Description: This async method shows up the GUI Component inside the parent one.
+    *              If the id of the parent has been passed then uses it to retrieve the parent tag
+    *              otherwise it assumes that the Gui Component has to be rendered directly into the 
+    *              body. If the body has its own id uses it.. if not it assign "main" to thr body id.    
     * last modify: 2024-05-19
     * MethodName:  render
-    * Parameters:  [required] parentId => is the id of parent component containing this GUI Component
+    * Parameters:  [optional][default = null] parentId => is the id of parent component containing this GUI Component
     */    
     async render(parentId = null) {
         var parent = null;
