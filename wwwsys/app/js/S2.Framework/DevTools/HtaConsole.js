@@ -164,7 +164,7 @@ class HtaConsole extends BaseComponent {
         document.getElementById('console-titleBar-btnClose')
             .addEventListener('click', this.toggle);
         /* */
-        document.getElementById('panel-menu-minimize')
+        document.getElementById('console-titleBar-btnMinimize')
             .addEventListener('click', this.minimize);
     }
     /* 
