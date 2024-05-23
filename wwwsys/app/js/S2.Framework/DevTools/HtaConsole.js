@@ -237,7 +237,11 @@ class HtaConsole {
                 }
             }
         }
-
+        
+        /*
+        * Overrides some of the default console methods and adds some custom methods to it.
+        * So when we call console.log(message) it will call HtaConsole.log(message).. and so on.
+        */
         console = {
             clear: function() {
                 HtaConsole.instance.clear();
@@ -379,6 +383,8 @@ class HtaConsole {
     };
 }
 
+// Export the singleton instance
 const htaConsoleInstance = new HtaConsole();
 Object.freeze(htaConsoleInstance);
-export default { htaConsoleInstance as HtaConsole };
+
+export { htaConsoleInstance as HtaConsole };
