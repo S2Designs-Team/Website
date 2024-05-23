@@ -5,7 +5,7 @@ import { AppContext }    from './Core/AppContext.js';     // Import AppContext i
 import { HtaConsole }    from './DevTools/HtaConsole.js'; // Import HtaConsole instance from HtaConsole.js
 
 /*
-* Export BaseComponent, System, HttpClient, AppContext to be accessible globally
+* Exports BaseComponent, System, HttpClient, AppContext, HtaConsole to be accessible globally
 */
 window.BaseComponent = BaseComponent;
 window.System        = System;
@@ -13,7 +13,7 @@ window.HttpClient    = HttpClient;
 window.AppContext    = AppContext;
 window.Console       = HtaConsole;
 
-export { BaseComponent, System, HttpClient, AppContext, Console };
+export { BaseComponent, System, HttpClient, AppContext, HtaConsole };
 
 // Function to be executed after the page has fully loaded
 function loadMainScript() {
