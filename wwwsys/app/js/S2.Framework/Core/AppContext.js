@@ -158,7 +158,7 @@ class AppContext {
 
         // Checks idf the retrieved element 'htmlElement' is undefined (AKA not found) or not and if if contains an 'applicationname' property defined.
         return (typeof htmlElement !== 'undefined' && htmlElement.getAttribute('applicationname') !== null);
-    },	
+    };
 };
 
 // Export the singleton instance
