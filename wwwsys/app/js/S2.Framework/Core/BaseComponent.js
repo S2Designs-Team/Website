@@ -23,7 +23,8 @@
 * Version:     0.0.001
 */
 export class BaseComponent {
-
+    var parentId;
+    
     /*📎DOCUMENTATION
     * Author:      ㊙️anonimo㊙️
     * Description: The class constructor.
@@ -32,7 +33,7 @@ export class BaseComponent {
     *              [optional] cssFileUrl => the css style url of the component
     */   
     constructor(properties = {}, cssFileUrl = null) {
-        //this.parentId                  = null; // Dichiarazione della variabile di classe
+        this.parentId                  = ""; // Dichiarazione della variabile di classe
         this.container                 = null;
         this.properties                = properties;
         this.htmlSegment               = "";
