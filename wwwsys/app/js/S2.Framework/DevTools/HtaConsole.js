@@ -94,22 +94,35 @@ class HtaConsole extends BaseComponent {
     initialize() {
         this.createTooltip("panel-menu-reload", "Reload the page avoiding cached data.");
 
-        document.getElementById("panel-dragbar").addEventListener("mousedown", this.dragHandler);
-        document.addEventListener("mouseup", () => {
-            document.removeEventListener("mousemove", this.dragHandler);
+        /*
+        var element = document.getElementById("panel-dragbar");
+        element.addEventListener("mousedown", this.dragHandler);
+        element.addEventListener("mouseup", () => {
+            element.removeEventListener("mousemove", this.dragHandler);
         });
-
+        */
+        /*
+        * Manages if the keyboard F12 button has been pressed Showing/hiding the console
+        */
+        /*
         document.addEventListener("keydown", (evt) => {
             if (evt.keyCode === 123) this.toggle();
         }, true);
-
-        document.getElementById("panel-console").addEventListener("click", () => {
+        */
+        /*
+        * Manages the click on the console area placing the focus to the 'command line' 
+        */
+        /*document.getElementById("panel-console").addEventListener("click", () => {
             document.getElementById("commandline").focus();
         });
-
-        document.getElementById('commandline').addEventListener('keypress', this.commandLineHandler);
-        document.getElementById('commandline').addEventListener('keydown', this.commandLineKeyHandler);
-
+        */
+        /*
+        * 
+        */
+        /*
+        document.getElementById('commandline').addEventListener('keypress', this.commandLineKeyPressHandler);
+        document.getElementById('commandline').addEventListener('keydown', this.commandLineKeyDownHandler);
+        */
         console = window.console;
         const method = [
             "log", "info", "warn", "onerror", "debug", "trace", "dir", "group",
@@ -149,19 +162,64 @@ class HtaConsole extends BaseComponent {
     }
 
     addEventListeners(container) {
-        document.getElementById('panel-menu-clear').addEventListener('click', () => this.clear());
-        document.getElementById('panel-menu-transparent').addEventListener('click', () => this.transparent());
-        document.getElementById('panel-menu-reload').addEventListener('click', () => this.reload());
-        document.getElementById('panel-menu-close').addEventListener('click', () => this.toggle());
-        document.getElementById('panel-menu-minimize').addEventListener('click', () => this.minimize());
+        /*
+        *
+        */
+        document.addEventListener("keydown", this.toggle, true); //The handler is executed in the capturing phase.
+        /*
+        *
+        */
+        document.getElementById("panel-dragbar")
+            .addEventListener("mousedown", this.dragHandler);
+        /*
+        *
+        */
+        document.getElementById("panel-dragbar")
+            .addEventListener("mouseup",   this.releaseDragHandler);
+        /*
+        * Manages the click on the console area placing the focus to the 'command line' 
+        */
+        document.getElementById("panel-console")
+            .addEventListener("click", this.setFocus);
+        /*
+        *
+        */
+        document.getElementById('commandline')
+            .addEventListener('keypress', this.commandLineKeyPressHandler);
+        /*
+        *
+        */
+        document.getElementById('commandline')
+            .addEventListener('keydown', this.commandLineKeyDownHandler);
+        
+        document.getElementById('panel-menu-clear')
+            .addEventListener('click', this.clear);
+        
+        document.getElementById('panel-menu-transparent')
+            .addEventListener('click', this.transparent);
+        
+        document.getElementById('panel-menu-reload')
+            .addEventListener('click', this.reload);
+        
+        document.getElementById('panel-menu-close')
+            .addEventListener('click', this.toggle);
+        
+        document.getElementById('panel-menu-minimize')
+            .addEventListener('click', this.minimize);
     }
 
-    dragHandler(evt) {
+    dragHandler = (evt) => {
         const height = window.innerHeight || document.documentElement.offsetHeight;
         document.getElementById("panel-console").style.height = `${height - 86 - evt.clientY}px`;
     }
+    releaseDragHandler = () => {
+        document.getElementById("panel-dragbar").removeEventListener("mousemove", this.dragHandler); 
+    }
+    setFocus = () =>{
+        document.getElementById("commandline").focus();
+    }
 
-    commandLineHandler(evt) {
+    commandLineKeyPressHandler(evt) {
         if (evt.keyCode === 13) {
             const sCmd = evt.target.value;
             if (sCmd === "clear") {
@@ -192,19 +250,19 @@ class HtaConsole extends BaseComponent {
                     console.error(e.message);
                 }
                 evt.target.value = "";
-                HtaConsole.instance.cmdHistoryPosition = HtaConsole.instance.cmdHistory.length;
+                HtaConsole.instance.cmdHistoryPosition = this.cmdHistory.length;
             }
         }
     }
 
-    commandLineKeyHandler(evt) {
+    commandLineKeyDownHandler(evt) {
         if (evt.keyCode === 38) {
-            if (HtaConsole.instance.cmdHistoryPosition > 0) {
-                evt.target.value = HtaConsole.instance.cmdHistory[--HtaConsole.instance.cmdHistoryPosition];
+            if (this.cmdHistoryPosition > 0) {
+                evt.target.value = this.cmdHistory[--this.cmdHistoryPosition];
             }
         } else if (evt.keyCode === 40) {
-            if (HtaConsole.instance.cmdHistoryPosition < HtaConsole.instance.cmdHistory.length - 1) {
-                evt.target.value = HtaConsole.instance.cmdHistory[++HtaConsole.instance.cmdHistoryPosition];
+            if (this.cmdHistoryPosition < this.cmdHistory.length - 1) {
+                evt.target.value = this.cmdHistory[++this.cmdHistoryPosition];
             }
         }
     }
@@ -234,8 +292,10 @@ class HtaConsole extends BaseComponent {
     }
 
     toggle() {
-        const el = document.getElementById("panel-box");
-        el.style.display = (el.style.display !== "none") ? "none" : "block";
+        if (evt.keyCode === 123) {
+            const el = document.getElementById("panel-box");
+            el.style.display = (el.style.display !== "none") ? "none" : "block";
+        }
     }
     
     showModal(scriptURL) {
