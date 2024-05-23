@@ -41,10 +41,9 @@ export class BaseComponent {
         
         this.scriptUrls                = [];
         this.childComponentsCollection = [];
-        debugger;
-        // Creates an in memory container element for this GUI Component 
-	// this container will disappear when the component will render.
-        this.container                 = document.createDocumentFragment();
+	
+        // Creates a container element for this GUI Component
+        this.container                 = document.createElement("SPAN");
         this.container.innerHTML       = this.htmlSegment;
     }
 
@@ -129,25 +128,23 @@ export class BaseComponent {
     }
 
     createTooltip = (elementId, tooltipText) =>{
-		const element = document.getElementById(elementId);
-		if (element) {
-			element.setAttribute("data-tooltip", tooltipText);
-			
-			element.onmousemove = (evt) => {
-				evt.preventDefault();
-				x = 0 + evt.clientX;
-				y = 0 + evt.clientY;
-
-    			// Make it hang below the cursor a bit.
-   				y += 10;
-				/*				
-				console.debug("mouse position => x:" + x + " y:" + y );
-    			element.setAttribute("data-tooltipX", x + "px");
-				element.setAttribute("data-tooltipY", y + "px");
-				*/
-			};
-		}
-	};
+        const element = document.getElementById(elementId);
+            if (element) {
+                element.setAttribute("data-tooltip", tooltipText);
+                element.onmousemove = (evt) => {
+                    evt.preventDefault();
+                    x = 0 + evt.clientX;
+                    y = 0 + evt.clientY;
+                    // Make it hang below the cursor a bit.
+                    y += 10;
+                    /*
+                    console.debug("mouse position => x:" + x + " y:" + y );
+                    element.setAttribute("data-tooltipX", x + "px");
+                    element.setAttribute("data-tooltipY", y + "px");
+                    */
+                };
+            }
+    };
     
     /*📎DOCUMENTATION
     * Author:      ㊙️anonimo㊙️
@@ -166,14 +163,13 @@ export class BaseComponent {
         * otherwise it assumes that the Gui Component has to be rendered directly into the 
         * body.
         */
-        debugger;
         if (parentId) {
             this.parentId = parentId;
             parent = document.getElementById(this.parentId);
         } else {
             parent = document.body;
             if (!parent.id) { parent.id = "main"; }
-            //this.parentId = parent.id;
+            this.parentId = parent.id;
         }    
         /*
         * Calls the 'placeholder' method to initialize this GUI Component.
@@ -290,5 +286,5 @@ export class BaseComponent {
                 await myChildComponentIterator.dispose();
             }
         }
-    }   
+    }
 }
