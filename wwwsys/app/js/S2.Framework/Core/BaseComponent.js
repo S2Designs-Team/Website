@@ -42,8 +42,9 @@ export class BaseComponent {
         this.scriptUrls                = [];
         this.childComponentsCollection = [];
         
-        // Creates a container element for this GUI Component
-        this.container                 = document.createElement("SPAN");
+        // Creates an in memory container element for this GUI Component 
+	// this container will disappear when the component will render.
+        this.container                 = document.createDocumentFragment();
         this.container.innerHTML       = this.htmlSegment;
     }
 
