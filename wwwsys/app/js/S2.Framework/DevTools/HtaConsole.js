@@ -177,7 +177,7 @@ class HtaConsole extends BaseComponent {
     }
     dragHandler = (evt) => {
         const height = window.innerHeight || document.documentElement.offsetHeight;
-        document.getElementById("panel-console").style.height = `${height - evt.clientY}px`;
+        document.getElementById("HtaConsole").style.height = `${height - evt.clientY}px`;
     }
     releaseDragHandler = () => {
         document.getElementById("console-dragBorder").removeEventListener("mousemove", this.dragHandler); 
