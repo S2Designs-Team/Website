@@ -31,7 +31,7 @@ export class BaseComponent {
     *              [optional] cssFileUrl => the css style url of the component
     */   
     constructor(properties = {}, cssFileUrl = null) {
-	this.className                 = this.constructor.name;
+        this.className                 = this.constructor.name;
         this.parentId                  = ""; // Dichiarazione della variabile di classe
         this.container                 = null;
         this.properties                = properties;
@@ -42,11 +42,11 @@ export class BaseComponent {
         
         this.scriptUrls                = [];
         this.childComponentsCollection = [];
-	debugger;
+
         // Creates a container element for this GUI Component
         this.container                 = document.createElement("SPAN");
-	this.container.setAttribute("id", this.className);
         this.container.innerHTML       = this.htmlSegment;
+        this.container.setAttribute("id", this.className);	    
     }
 
     /*📎DOCUMENTATION
