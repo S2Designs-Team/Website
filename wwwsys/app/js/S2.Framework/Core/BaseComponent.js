@@ -136,7 +136,7 @@ export class BaseComponent {
     * Parameters:  [required] parentId => is the id of parent component containing this GUI Component
     */    
     async render(parentId = null) {
-        const parent;
+        var parent = null;
         /*
         * If the id of the parent has been passed then uses it to retrieve the parent tag
         * otherwise it assumes that the Gui Component has to be rendered directly into the 
