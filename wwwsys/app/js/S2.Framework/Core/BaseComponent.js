@@ -23,8 +23,6 @@
 * Version:     0.0.001
 */
 export class BaseComponent {
-    var parentId;
-    
     /*📎DOCUMENTATION
     * Author:      ㊙️anonimo㊙️
     * Description: The class constructor.
@@ -153,7 +151,7 @@ export class BaseComponent {
         } else {
             parent = document.body;
             if (!parent.id) { parent.id = "main"; }
-            this.parentId = parent.id;
+            //this.parentId = parent.id;
         }    
         /*
         * Calls the 'placeholder' method to initialize this GUI Component.
