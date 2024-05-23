@@ -7,28 +7,26 @@ class HtaConsole extends BaseComponent {
         }
 
         this.htmlSegment = `
-            <DIV ID='console-panel'>
-                <DIV ID='console-dragBorder'></DIV>
-                <DIV ID='console-titleBar'>
-                    <SPAN ID='console-titleBar-btnClear'    STYLE='cursor: pointer'>&#10680;</SPAN>
-                    <SPAN ID='console-titleBar-btnOpacity'  STYLE='cursor: pointer'>&#9680;</SPAN>
-                    <SPAN ID='console-titleBar-btnReload'   STYLE='cursor: pointer'>&#10227;</SPAN>
-                    <SPAN ID='console-titleBar-caption'     STYLE='padding-left: 5px; font-weight: 700; color: #555;'>Console</SPAN>
-                    <SPAN ID='console-titleBar-btnClose'    STYLE='float: right; margin-right: 8px; cursor: pointer; color: grey;'>&#10006;</SPAN>
-                    <SPAN ID='console-titleBar-btnMinimize' STYLE='float: right; margin-top:1px;margin-right: 10px; cursor: pointer; color: grey;'>&#9660;</SPAN>
-                </DIV>
-                <DIV ID='console-history-panel' STYLE='background: rgba(19,19,19,1);'>
-                    <DIV ID='panel-console'></DIV>
-                    <SPAN STYLE='border-top:1px solid grey; min-height: 1.5em; padding-left:4px; font-weight:700; font-size:16px; color:#62adea'>&#62;
-                        </I><INPUT ID='commandline'>
-                    </SPAN>
-                </DIV>
-                <DIV ID='panel-navigation'></DIV>
+            <DIV ID='console-dragBorder'></DIV>
+            <DIV ID='console-titleBar'>
+                <SPAN ID='console-titleBar-btnClear'    STYLE='cursor: pointer'>&#10680;</SPAN>
+                <SPAN ID='console-titleBar-btnOpacity'  STYLE='cursor: pointer'>&#9680;</SPAN>
+                <SPAN ID='console-titleBar-btnReload'   STYLE='cursor: pointer'>&#10227;</SPAN>
+                <SPAN ID='console-titleBar-caption'     STYLE='padding-left: 5px; font-weight: 700; color: #555;'>Console</SPAN>
+                <SPAN ID='console-titleBar-btnClose'    STYLE='float: right; margin-right: 8px; cursor: pointer; color: grey;'>&#10006;</SPAN>
+                <SPAN ID='console-titleBar-btnMinimize' STYLE='float: right; margin-top:1px;margin-right: 10px; cursor: pointer; color: grey;'>&#9660;</SPAN>
             </DIV>
+            <DIV ID='console-history-panel' STYLE='background: rgba(19,19,19,1);'>
+                <DIV ID='panel-console'></DIV>
+                <SPAN STYLE='border-top:1px solid grey; min-height: 1.5em; padding-left:4px; font-weight:700; font-size:16px; color:#62adea'>&#62;
+                    </I><INPUT ID='commandline'>
+                </SPAN>
+            </DIV>
+            <DIV ID='panel-navigation'></DIV>
         `;
 
         this.cssStyles = `
-            #console-panel {
+            #HtaConsole {
                 width:         100%;
                 color:         #000000;
                 font-family:   Consolas, Courier;
@@ -174,7 +172,7 @@ class HtaConsole extends BaseComponent {
     */ 
     toggle = (evt) => {
         if (evt.keyCode === 123) {
-            const el = document.getElementById("console-panel");
+            const el = document.getElementById("HtaConsole");
             el.style.display = (el.style.display !== "none") ? "none" : "block";
         }
     }
@@ -252,12 +250,12 @@ class HtaConsole extends BaseComponent {
     }
 
     minimize = () => {
-        const el = document.getElementById("console-panel");
+        const el = document.getElementById("HtaConsole");
         el.style.height = (el.style.height !== "20px") ? "20px" : "220px";
     }
 
     transparent = () => {
-        const el = document.getElementById("console-panel");
+        const el = document.getElementById("HtaConsole");
         el.style.opacity = (el.style.opacity !== "0.5") ? "0.5" : "1.0";
     }
     
