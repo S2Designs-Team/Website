@@ -48,7 +48,7 @@ class AppContext {
     * last modify:  2024-05-22
     * MethodName:   addProperty
     */
-    addProperty = (property) => { this.appProperties.push(property); };
+    addProperty = (property) => { this.props.push(property); };
     /*📎DOCUMENTATION
     * Author:       ㊙️anonimo㊙️
     * Description:  This method adds or updates a global property
