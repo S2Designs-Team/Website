@@ -41,7 +41,7 @@ export class BaseComponent {
         
         this.scriptUrls                = [];
         this.childComponentsCollection = [];
-        
+        debugger;
         // Creates an in memory container element for this GUI Component 
 	// this container will disappear when the component will render.
         this.container                 = document.createDocumentFragment();
