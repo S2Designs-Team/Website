@@ -32,7 +32,7 @@ export class BaseComponent {
     *              [optional] cssFileUrl => the css style url of the component
     */   
     constructor(properties = {}, cssFileUrl = null) {
-        this.parentId                  = null; // Dichiarazione della variabile di classe
+        //this.parentId                  = null; // Dichiarazione della variabile di classe
         this.container                 = null;
         this.properties                = properties;
         this.htmlSegment               = "";
@@ -133,7 +133,7 @@ export class BaseComponent {
     * Description: This async method shows up the GUI Component inside the parent one.
     *              If the id of the parent has been passed then uses it to retrieve the parent tag
     *              otherwise it assumes that the Gui Component has to be rendered directly into the 
-    *              body. If the body has its own id uses it.. if not it assign "main" to thr body id.    
+    *              body.
     * last modify: 2024-05-19
     * MethodName:  render
     * Parameters:  [optional][default = null] parentId => is the id of parent component containing this GUI Component
@@ -143,7 +143,7 @@ export class BaseComponent {
         /*
         * If the id of the parent has been passed then uses it to retrieve the parent tag
         * otherwise it assumes that the Gui Component has to be rendered directly into the 
-        * body. If the body has its own id uses it.. if not it assign "main" to thr body id.
+        * body.
         */
         debugger;
         if (parentId) {
