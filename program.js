@@ -1,6 +1,9 @@
 // Import of needed graphic components
 import { Component1 } from './wwwsys/app/js/S2.Framework/Components/Component1.js';
 
+// Inizializzazione della console
+console.init();
+
 // Sets a proprerty using an object 
 const config = { apiUrl: 'https://api.example.com', timeout: 5000 };
 
