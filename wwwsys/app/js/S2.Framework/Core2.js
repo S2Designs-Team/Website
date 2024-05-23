@@ -11,7 +11,7 @@ window.BaseComponent = BaseComponent;
 window.System        = System;
 window.HttpClient    = HttpClient;
 window.AppContext    = AppContext;
-window.Console       = HtaConsole;
+window.HtaConsole    = HtaConsole;
 
 export { BaseComponent, System, HttpClient, AppContext, HtaConsole };
 
