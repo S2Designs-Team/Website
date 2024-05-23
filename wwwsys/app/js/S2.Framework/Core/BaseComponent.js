@@ -135,16 +135,27 @@ export class BaseComponent {
     * MethodName:  render
     * Parameters:  [required] parentId => is the id of parent component containing this GUI Component
     */    
-    async render(parentId) {
-        this.parentId = parentId;
+    async render(parentId = null) {
+        const parent;
+        /*
+        * If the id of the parent has been passed then uses it to retrieve the parent tag
+        * otherwise it assumes that the Gui Component has to be rendered directly into the 
+        * body. If the body has its own id uses it.. if not it assign "main" to thr body id.
+        */
+        if (parentId)
+            this.parentId = parentId;
+            parent = document.getElementById(this.parentId);
+        } else {
+            parent = document.body;
+            if (!parent.id) { parent.id = "main"; }
+            this.parentId = parent.id;
+        }    
         /*
         * Calls the 'placeholder' method to initialize this GUI Component.
         * if it is overrided by the implementing class then runs the code defined in there
         * otherwise it runs the placeholder that is empty (so it does nothing).
         */
         this.initialize();
-        
-        const parent = document.getElementById(this.parentId);
         
         /*
         * If no parentId has been found then shows up a console error message and
