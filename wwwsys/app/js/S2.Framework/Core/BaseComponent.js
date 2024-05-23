@@ -126,6 +126,27 @@ export class BaseComponent {
         childComponent.dispose();
         this.childComponentsCollection = this.childComponentsCollection.filter(comp => comp !== childComponent);
     }
+
+    createTooltip = (elementId, tooltipText) =>{
+		const element = document.getElementById(elementId);
+		if (element) {
+			element.setAttribute("data-tooltip", tooltipText);
+			
+			element.onmousemove = (evt) => {
+				evt.preventDefault();
+				x = 0 + evt.clientX;
+				y = 0 + evt.clientY;
+
+    			// Make it hang below the cursor a bit.
+   				y += 10;
+				/*				
+				console.debug("mouse position => x:" + x + " y:" + y );
+    			element.setAttribute("data-tooltipX", x + "px");
+				element.setAttribute("data-tooltipY", y + "px");
+				*/
+			};
+		}
+	};
     
     /*📎DOCUMENTATION
     * Author:      ㊙️anonimo㊙️
