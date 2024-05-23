@@ -151,66 +151,64 @@ class HtaConsole extends BaseComponent {
         }
         
         console = {
-            clear: () => this.clear(),
-            cmd: (arg) => this.log(`<SPAN STYLE='color:#777; font-weight:700'>&#62;</SPAN> <SPAN>${arg}</SPAN>`),
-            info: (arg) => this.log(`<SPAN STYLE='padding-left: 6px; color: RoyalBlue'>ℹ️</SPAN> <SPAN>${arg}</SPAN>`),
-            log: (arg) => this.log(`<SPAN STYLE='padding-left: 2px;'>${arg}</SPAN>`),
+            clear: ()    => this.clear(),
+            cmd:   (arg) => this.log(`<SPAN STYLE='color:#777; font-weight:700'>&#62;</SPAN> <SPAN>${arg}</SPAN>`),
+            info:  (arg) => this.log(`<SPAN STYLE='padding-left: 6px; color: RoyalBlue'>ℹ️</SPAN> <SPAN>${arg}</SPAN>`),
+            log:   (arg) => this.log(`<SPAN STYLE='padding-left: 2px;'>${arg}</SPAN>`),
             debug: (arg) => this.log(`<SPAN STYLE='color: white'>🛠️</SPAN> <SPAN STYLE='color: white'>${arg}</SPAN>`),
-            warn: (arg) => this.log(`<SPAN STYLE='color: orange'>⚠️</SPAN> <SPAN>${arg}</SPAN>`),
+            warn:  (arg) => this.log(`<SPAN STYLE='color: orange'>⚠️</SPAN> <SPAN>${arg}</SPAN>`),
             error: (arg) => this.log(`<SPAN STYLE='color: red'>☢️</SPAN> <SPAN STYLE='color: red'>${arg}</SPAN>`)
         };
     }
 
     addEventListeners(container) {
-        /*
-        *
-        */
+        /* */
         document.addEventListener("keydown", this.toggle, true); //The handler is executed in the capturing phase.
-        /*
-        *
-        */
+        /* */
         document.getElementById("panel-dragbar")
             .addEventListener("mousedown", this.dragHandler);
-        /*
-        *
-        */
+        /* */
         document.getElementById("panel-dragbar")
             .addEventListener("mouseup",   this.releaseDragHandler);
-        /*
-        * Manages the click on the console area placing the focus to the 'command line' 
-        */
+        /* Manages the click on the console area placing the focus to the 'command line'  */
         document.getElementById("panel-console")
             .addEventListener("click", this.setFocus);
-        /*
-        *
-        */
+        /* */
         document.getElementById('commandline')
             .addEventListener('keypress', this.commandLineKeyPressHandler);
-        /*
-        *
-        */
+        /* */
         document.getElementById('commandline')
             .addEventListener('keydown', this.commandLineKeyDownHandler);
-        
+        /* */
         document.getElementById('panel-menu-clear')
             .addEventListener('click', this.clear);
-        
+        /* */
         document.getElementById('panel-menu-transparent')
             .addEventListener('click', this.transparent);
-        
+        /* */
         document.getElementById('panel-menu-reload')
             .addEventListener('click', this.reload);
-        
+        /* */
         document.getElementById('panel-menu-close')
             .addEventListener('click', this.toggle);
-        
+        /* */
         document.getElementById('panel-menu-minimize')
             .addEventListener('click', this.minimize);
     }
-
+    /* 
+    * ===========================================================
+    * = EVENT HANDLERS ==========================================
+    * ===========================================================
+    */ 
+    toggle = (evt) => {
+        if (evt.keyCode === 123) {
+            const el = document.getElementById("panel-box");
+            el.style.display = (el.style.display !== "none") ? "none" : "block";
+        }
+    }
     dragHandler = (evt) => {
         const height = window.innerHeight || document.documentElement.offsetHeight;
-        document.getElementById("panel-console").style.height = `${height - 86 - evt.clientY}px`;
+        document.getElementById("panel-console").style.height = `${height - evt.clientY}px`;
     }
     releaseDragHandler = () => {
         document.getElementById("panel-dragbar").removeEventListener("mousemove", this.dragHandler); 
@@ -219,7 +217,7 @@ class HtaConsole extends BaseComponent {
         document.getElementById("commandline").focus();
     }
 
-    commandLineKeyPressHandler(evt) {
+    commandLineKeyPressHandler = (evt) => {
         if (evt.keyCode === 13) {
             const sCmd = evt.target.value;
             if (sCmd === "clear") {
@@ -255,7 +253,7 @@ class HtaConsole extends BaseComponent {
         }
     }
 
-    commandLineKeyDownHandler(evt) {
+    commandLineKeyDownHandler = (evt) => {
         if (evt.keyCode === 38) {
             if (this.cmdHistoryPosition > 0) {
                 evt.target.value = this.cmdHistory[--this.cmdHistoryPosition];
@@ -267,42 +265,35 @@ class HtaConsole extends BaseComponent {
         }
     }
 
-    log(arg) {
+    log = (arg) => {
         const divConsole = document.getElementById("panel-console");
         divConsole.innerHTML += `<SPAN>${arg}</SPAN><BR>`;
         divConsole.scrollTop = divConsole.scrollHeight;
     }
 
-    clear() {
+    clear = () => {
         document.getElementById("panel-console").innerHTML = "";
     }
 
-    reload() {
+    reload = () => {
         location.reload(true);
     }
 
-    minimize() {
+    minimize = () => {
         const el = document.getElementById("panel-box");
         el.style.height = (el.style.height !== "20px") ? "20px" : "220px";
     }
 
-    transparent() {
+    transparent = () => {
         const el = document.getElementById("panel-box");
         el.style.opacity = (el.style.opacity !== "0.5") ? "0.5" : "1.0";
     }
-
-    toggle() {
-        if (evt.keyCode === 123) {
-            const el = document.getElementById("panel-box");
-            el.style.display = (el.style.display !== "none") ? "none" : "block";
-        }
-    }
     
-    showModal(scriptURL) {
+    showModal = (scriptURL) => {
         window.open(scriptURL, "_blank");
     }
 
-    censor(censor) {
+    censor = (censor) => {
         const i = 0;
         return (key, value) => {
             if (i !== 0 && typeof censor === "object" && typeof value === "object" && censor === value) {
