@@ -22,7 +22,7 @@ class HtaConsole extends BaseComponent {
                     </I><INPUT ID='commandline'>
                 </SPAN>
             </DIV>
-            <DIV ID='panel-navigation'></DIV>
+            <DIV ID='console-statusBar'></DIV>
         `;
 
         this.cssStyles = `
@@ -62,7 +62,7 @@ class HtaConsole extends BaseComponent {
                 padding:       0 5px 0 5px;
                 background:    rgba(19,19,19,1);
             }
-            #panel-navigation {
+            #console-statusBar {
                 height:        21px;
                 width:         100%;
                 padding-left:  4px;
@@ -133,7 +133,7 @@ class HtaConsole extends BaseComponent {
 
     addEventListeners(container) {
         /* */
-        document.addEventListener("keydown", this.toggle, true); //The handler is executed in the capturing phase.
+        document.addEventListener("keydown", (evt) => { if (evt.keyCode === 123) { this.toggle(); } } , true); //The handler is executed in the capturing phase.
         /* */
         document.getElementById("console-dragBorder")
             .addEventListener("mousedown", this.dragHandler);
@@ -160,7 +160,7 @@ class HtaConsole extends BaseComponent {
             .addEventListener('click', this.reload);
         /* */
         document.getElementById('console-titleBar-btnClose')
-            .addEventListener('click', this.toggle);
+            .addEventListener('click', () => { this.toggle);
         /* */
         document.getElementById('console-titleBar-btnMinimize')
             .addEventListener('click', this.minimize);
@@ -171,10 +171,8 @@ class HtaConsole extends BaseComponent {
     * ===========================================================
     */ 
     toggle = (evt) => {
-        if (evt.keyCode === 123) {
-            const el = document.getElementById("HtaConsole");
-            el.style.display = (el.style.display !== "none") ? "none" : "block";
-        }
+        const el = document.getElementById("HtaConsole");
+        el.style.display = (el.style.display !== "none") ? "none" : "block";
     }
     dragHandler = (evt) => {
         const height = window.innerHeight || document.documentElement.offsetHeight;
