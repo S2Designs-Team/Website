@@ -142,7 +142,7 @@ export class BaseComponent {
         * otherwise it assumes that the Gui Component has to be rendered directly into the 
         * body. If the body has its own id uses it.. if not it assign "main" to thr body id.
         */
-        if (parentId)
+        if (parentId) {
             this.parentId = parentId;
             parent = document.getElementById(this.parentId);
         } else {
