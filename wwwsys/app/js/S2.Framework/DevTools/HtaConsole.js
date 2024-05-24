@@ -54,18 +54,17 @@ class HtaConsole extends BaseComponent {
                 font-family:   Arial;
             }
             #console-titleBar-btnClear {
-	    	cursor:        pointer;
-      		content:       "&#10680;";
-	    }
-	    #console-titleBar-btnOpacity {
-	    	cursor:        pointer;
+                cursor:        pointer;
+                content:       "&#10680;";
+            }
+            #console-titleBar-btnOpacity {
+                cursor:        pointer;
                 content:       "&#9680;";
-	    }
+            }
             #console-titleBar-btnReload {
                 cursor:        pointer;
                 content:       "&#10227;";
             }
-	    content:
             #panel-console {
                 display:       block;
                 overflow:      auto;
