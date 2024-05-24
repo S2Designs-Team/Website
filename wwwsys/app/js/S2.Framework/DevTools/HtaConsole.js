@@ -254,22 +254,22 @@ class HtaConsole extends BaseComponent {
     }
     minimize = () => {
         var myConsole = document.getElementById("HtaConsole");
-		var myBtnMinimize = document.getElementById("console-titleBar-btnMinimize");
-		if (myConsole.style.display === "block") {
-			this.panelConsoleHeight = myConsole.style.height;
-			myConsole.style.height  = "0px";
-			myConsole.style.display = "none";
-			myBtnMinimize.innerHTML = "&#9650;";
-		} else {
-			myConsole.style.height  = this.panelConsoleHeight;
-			myConsole.style.display = "block";
-			myBtnMinimize.innerHTML = '&#9660;'
-			this.consoleresize();
-		}        
+        var myBtnMinimize = document.getElementById("console-titleBar-btnMinimize");
+        if (myConsole.style.display === "block") {
+            this.panelConsoleHeight = myConsole.style.height;
+            myConsole.style.height  = "0px";
+            myConsole.style.display = "none";
+            myBtnMinimize.innerHTML = "&#9650;";
+        } else {
+            myConsole.style.height  = this.panelConsoleHeight;
+            myConsole.style.display = "block";
+            myBtnMinimize.innerHTML = '&#9660;'
+            this.resize();
+        }        
     }
     resize = () => {
         var myConsole = document.getElementById("panel-console");
-        myConsole.scrollTop = panelConsole.scrollHeight;
+        myConsole.scrollTop = myConsole.scrollHeight;
     };
     transparent = () => {
         const el = document.getElementById("HtaConsole");
