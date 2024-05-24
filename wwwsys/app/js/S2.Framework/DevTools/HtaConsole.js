@@ -9,12 +9,12 @@ class HtaConsole extends BaseComponent {
         this.htmlSegment = `
             <DIV ID='console-dragBorder'></DIV>
             <DIV ID='console-titleBar'>
-                <SPAN ID='console-titleBar-btnClear'></SPAN>
-                <SPAN ID='console-titleBar-btnOpacity'></SPAN>
-                <SPAN ID='console-titleBar-btnReload'></SPAN>
+                <SPAN ID='console-titleBar-btnClear'>&#10680;</SPAN>
+                <SPAN ID='console-titleBar-btnOpacity'>&#9680;</SPAN>
+                <SPAN ID='console-titleBar-btnReload'>&#10227;</SPAN>
                 <SPAN ID='console-titleBar-caption'     STYLE='padding-left: 5px; font-weight: 700; color: #555;'>Console</SPAN>
-                <SPAN ID='console-titleBar-btnClose'    STYLE='float: right; margin-right: 8px; cursor: pointer; color: grey;'>&#10006;</SPAN>
-                <SPAN ID='console-titleBar-btnMinimize' STYLE='float: right; margin-top:1px;margin-right: 10px; cursor: pointer; color: grey;'>&#9660;</SPAN>
+                <SPAN ID='console-titleBar-btnClose'    STYLE='float: right; margin-right: 8px; color: grey;'>&#10006;</SPAN>
+                <SPAN ID='console-titleBar-btnMinimize' STYLE='float: right; margin-top:1px;margin-right: 10px; color: grey;'>&#9660;</SPAN>
             </DIV>
             <DIV ID='console-history-panel' STYLE='background: rgba(19,19,19,1);'>
                 <DIV ID='panel-console'></DIV>
@@ -53,22 +53,11 @@ class HtaConsole extends BaseComponent {
                 text-align:    left;
                 font-family:   Arial;
             }
-            #console-titleBar-btnClear::before {
-                content:       "&#10680;";
-            }
-            #console-titleBar-btnClear {
-                cursor:        pointer;
-            }
-            #console-titleBar-btnOpacity::before {
-                content:       "&#9680;";
-            }
-            #console-titleBar-btnOpacity {
-                cursor:        pointer;
-            }	    
-            #console-titleBar-btnReload::before {
-                content:       "&#10227;";
-            }
-            #console-titleBar-btnReload {
+            #console-titleBar-btnClear,
+            #console-titleBar-btnOpacity,
+            #console-titleBar-btnReload,
+	          #console-titleBar-btnClose,
+            #console-titleBar-btnMinimize{
                 cursor:        pointer;
             }	    
             #panel-console {
