@@ -1,3 +1,5 @@
+import { BaseComponent } from '../Core/BaseComponent.js';  // Import BaseComponent class from BaseComponent.js
+
 class HtaConsole extends BaseComponent {
     constructor(properties = {}, cssFileUrl = null) {
         super(properties, cssFileUrl); // Chiamata al costruttore della classe base
