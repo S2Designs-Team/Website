@@ -138,8 +138,8 @@ class HtaConsole extends BaseComponent {
         document.getElementById("console-dragBorder")
             .addEventListener("mousedown", (evt) => { evt.preventDefault(); document.addEventListener("mousemove", this.dragHandler); });
         /* */
-        document.getElementById("console-dragBorder")
-            .addEventListener("mouseup",   this.releaseDragHandler);
+        document.addEventListener("mouseup",   this.releaseDragHandler);
+	    
         /* Manages the click on the console area placing the focus to the 'command line'  */
         document.getElementById("panel-console")
             .addEventListener("click", this.setFocus);
@@ -183,7 +183,7 @@ class HtaConsole extends BaseComponent {
     dragHandler = (evt) => {
         evt.preventDefault();
         const height = window.innerHeight || document.documentElement.offsetHeight;
-        document.getElementById("panel-console").style.height = `${height - evt.clientY}px`;
+        document.getElementById("panel-console").style.height = `${height - 100 - evt.clientY}px`;
     }
     releaseDragHandler = () => {
         document.removeEventListener("mousemove", this.dragHandler); 
