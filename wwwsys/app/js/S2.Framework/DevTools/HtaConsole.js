@@ -253,6 +253,7 @@ class HtaConsole extends BaseComponent {
         location.reload(true);
     }
     minimize = () => {
+	debugger;
         var myConsole = document.getElementById("HtaConsole");
         var myBtnMinimize = document.getElementById("console-titleBar-btnMinimize");
         if (myConsole.style.display === "block") {
