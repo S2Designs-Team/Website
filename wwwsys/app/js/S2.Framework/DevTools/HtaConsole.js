@@ -83,7 +83,7 @@ class HtaConsole extends BaseComponent {
                 background:    rgba(19,19,19,0);
             }
         `;
-
+        this.panelConsoleHeight;
         this.isDebugEnvEnabled = true;
         this.cmdHistory = [];
         this.cmdHistoryPosition = 0;
@@ -183,7 +183,7 @@ class HtaConsole extends BaseComponent {
     dragHandler = (evt) => {
         evt.preventDefault();
         const height = window.innerHeight || document.documentElement.offsetHeight;
-        document.getElementById("panel-console").style.height = `${height - 70 - evt.clientY}px`;
+        document.getElementById("panel-console").style.height = `${height - 67 - evt.clientY}px`;
     }
     releaseDragHandler = () => {
         document.removeEventListener("mousemove", this.dragHandler); 
