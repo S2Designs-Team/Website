@@ -32,6 +32,7 @@ export class BaseComponent {
     */   
     constructor(properties = {}, cssFileUrl = null) {
         this.className                 = this.constructor.name;
+        this.props                     = [];
         this.parentId                  = ""; // Dichiarazione della variabile di classe
         this.container                 = null;
         this.properties                = properties;
@@ -67,7 +68,51 @@ export class BaseComponent {
     * Parameters:  [required] container => the component's container to which add the events listeners
     */
     addEventListeners(container) {}
-
+    
+    /*📎DOCUMENTATION
+    * Author:       ㊙️anonimo㊙️
+    * Description:  This method adds or updates a global property
+    * last modify:  2024-05-24
+    * MethodName:   setProperty
+    * Parameters:   [required] nameOrObject ==========> It could ne a string (the property name) or an object.
+    *               [optional][default = null] value => The property value.
+    */
+    setProperty = (nameOrObject, value = null) => {
+        switch (typeof nameOrObject) {
+                
+            case "string":
+                /*
+                * if the 1st parameter is a string uses directly the name and the value parameters.
+                */
+                this.props[nameOrObject] = value;
+                break;
+                
+            case "object":
+                if (nameOrObject !== null) {
+                    /*
+                    * if the 1st parameter is an object, extracts its name and its value.
+                    */
+                    Object.keys(nameOrObject).forEach(key => {
+                        this.props[key] = nameOrObject[key];
+                    });
+                } else {
+                    throw new Error('Invalid parameter: nameOrObject must not be null');
+                }
+                break;
+                
+            default:
+                throw new Error('Invalid parameter: nameOrObject must be either a string or an object');
+        }
+    };  
+    
+    /*📎DOCUMENTATION
+    * Author:       ㊙️anonimo㊙️
+    * Description: 
+    * last modify:  2024-05-24
+    * FunctionName: getProperty
+    */
+    getProperty = (propertyName) => { return this.props[propertyName]; };
+    
     /*📎DOCUMENTATION
     * Author:      ㊙️anonimo㊙️
     * Description: This method loads the css style defined inside the file passed with the 'url' parameter.
