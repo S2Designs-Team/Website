@@ -133,7 +133,7 @@ class HtaConsole extends BaseComponent {
 
     addEventListeners(container) {
         /* */
-        document.addEventListener("keydown", (evt) => { if (evt.keyCode === 123) { this.toggle(); } } , true); //The handler is executed in the capturing phase.
+        document.addEventListener("keydown", (evt) => { if (evt.keyCode === 123) { this.toggle(evt); } } , true); //The handler is executed in the capturing phase.
         /* */
         document.getElementById("console-dragBorder")
             .addEventListener("mousedown", (evt) => { evt.preventDefault(); document.addEventListener("mousemove", this.dragHandler); });
@@ -160,7 +160,7 @@ class HtaConsole extends BaseComponent {
             .addEventListener('click', this.reload);
         /* */
         document.getElementById('console-titleBar-btnClose')
-            .addEventListener('click', this.toggle);
+            .addEventListener('click',  (evt) => { this.toggle(evt); } );
         /* */
         document.getElementById('console-titleBar-btnMinimize')
             .addEventListener('click', this.minimize);
