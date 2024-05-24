@@ -9,14 +9,12 @@ import { HtaConsole }    from './DevTools/HtaConsole.js'; // Import HtaConsole i
 */
 export { BaseComponent, System, HttpClient, AppContext, HtaConsole };
 
-window.BaseComponent = BaseComponent;
-window.System        = System;
-window.HttpClient    = HttpClient;
-window.AppContext    = AppContext;
-
-
 // Function to be executed after the page has fully loaded
 function loadMainScript() {
+    window.BaseComponent = BaseComponent;
+    window.System        = System;
+    window.HttpClient    = HttpClient;
+    window.AppContext    = AppContext;    
     window.HtaConsole    = HtaConsole;
     
     // Get the base URL of the current page
