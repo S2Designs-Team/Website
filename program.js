@@ -1,4 +1,4 @@
-// import { HtaConsole } from './wwwsys/app/js/S2.Framework/DevTools/HtaConsole.js'; // Import HtaConsole instance from HtaConsole.js
+import { HtaConsole } from './wwwsys/app/js/S2.Framework/DevTools/HtaConsole.js'; // Import HtaConsole instance from HtaConsole.js
 // Import of needed graphic components
 import { Component1 } from './wwwsys/app/js/S2.Framework/Components/Component1.js';
 
