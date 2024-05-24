@@ -136,7 +136,7 @@ class HtaConsole extends BaseComponent {
         document.addEventListener("keydown", (evt) => { if (evt.keyCode === 123) { this.toggle(); } } , true); //The handler is executed in the capturing phase.
         /* */
         document.getElementById("console-dragBorder")
-            .addEventListener("mousedown", (evt) => { evt.preventDefault(); document.addEventListener("mousemove", dragHandler); });
+            .addEventListener("mousedown", (evt) => { evt.preventDefault(); document.addEventListener("mousemove", this.dragHandler); });
         /* */
         document.getElementById("console-dragBorder")
             .addEventListener("mouseup",   this.releaseDragHandler);
@@ -172,13 +172,13 @@ class HtaConsole extends BaseComponent {
     */ 
     toggle = (evt) => {
         const myConsole = document.getElementById("HtaConsole");
-		if (myConsole.style.display === "block") {
-			myConsole.style.display = "none";
-		} else {
-			myConsole.style.display = "block";
-			this.consoleresize();
-		}
-        event.preventDefault();
+        if (myConsole.style.display === "block") {
+            myConsole.style.display = "none";
+        } else {
+            myConsole.style.display = "block";
+            this.resize();
+        }
+        evt.preventDefault();
     }
     dragHandler = (evt) => {
         evt.preventDefault();
@@ -268,18 +268,16 @@ class HtaConsole extends BaseComponent {
 		}        
     }
     resize = () => {
-		var panelConsole = document.getElementById("panel-console");
-		panelConsole.scrollTop = panelConsole.scrollHeight;
+        var myConsole = document.getElementById("panel-console");
+        myConsole.scrollTop = panelConsole.scrollHeight;
     };
     transparent = () => {
         const el = document.getElementById("HtaConsole");
         el.style.opacity = (el.style.opacity !== "0.5") ? "0.5" : "1.0";
     }
-    
     showModal = (scriptURL) => {
         window.open(scriptURL, "_blank");
     }
-    
     censor = (censor) => {
         const i = 0;
         return (key, value) => {
