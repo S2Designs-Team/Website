@@ -17,7 +17,7 @@ function loadMainScript() {
     window.System        = System;
     window.HttpClient    = HttpClient;
     window.AppContext    = AppContext;
-    //window.HtaConsole    = HtaConsole;
+    window.HtaConsole    = HtaConsole;
     
     // Get the base URL of the current page
     const baseUrl = AppContext.getBaseUrl();
