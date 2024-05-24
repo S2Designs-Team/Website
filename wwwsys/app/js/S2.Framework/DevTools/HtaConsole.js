@@ -9,10 +9,10 @@ class HtaConsole extends BaseComponent {
         this.htmlSegment = `
             <DIV ID='console-dragBorder'></DIV>
             <DIV ID='console-titleBar'>
+                <SPAN ID='console-titleBar-caption'>Console</SPAN>	    
                 <SPAN ID='console-titleBar-btnClear'>&#10680;</SPAN>
                 <SPAN ID='console-titleBar-btnOpacity'>&#9680;</SPAN>
                 <SPAN ID='console-titleBar-btnReload'>&#10227;</SPAN>
-                <SPAN ID='console-titleBar-caption'     STYLE='padding-left: 5px; font-weight: 700; color: #555;'>Console</SPAN>
                 <SPAN ID='console-titleBar-btnClose'    STYLE='float: right; margin-right: 8px; color: grey;'>&#10006;</SPAN>
                 <SPAN ID='console-titleBar-btnMinimize' STYLE='float: right; margin-top:1px;margin-right: 10px; color: grey;'>&#9660;</SPAN>
             </DIV>
@@ -53,13 +53,20 @@ class HtaConsole extends BaseComponent {
                 text-align:    left;
                 font-family:   Arial;
             }
+            #console-titleBar-caption {
+               padding-left:       5px;
+	       font-weight:        700; 
+	       color:              #555;	    
+               border-right-style: solid;
+               padding-inline-end: 0.2em;
+            }
             #console-titleBar-btnClear,
             #console-titleBar-btnOpacity,
             #console-titleBar-btnReload,
             #console-titleBar-btnClose,
             #console-titleBar-btnMinimize{
                 cursor:        pointer;
-            }	    
+            }
             #panel-console {
                 display:       block;
                 overflow:      auto;
