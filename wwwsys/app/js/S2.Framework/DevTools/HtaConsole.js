@@ -56,7 +56,7 @@ class HtaConsole extends BaseComponent {
             #console-titleBar-btnClear,
             #console-titleBar-btnOpacity,
             #console-titleBar-btnReload,
-	          #console-titleBar-btnClose,
+            #console-titleBar-btnClose,
             #console-titleBar-btnMinimize{
                 cursor:        pointer;
             }	    
