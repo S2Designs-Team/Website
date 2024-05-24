@@ -53,18 +53,24 @@ class HtaConsole extends BaseComponent {
                 text-align:    left;
                 font-family:   Arial;
             }
+            #console-titleBar-btnClear::before {
+                content:       "&#10680;";
+            }
             #console-titleBar-btnClear {
                 cursor:        pointer;
-                content:       "&#10680;";
+            }
+            #console-titleBar-btnOpacity::before {
+                content:       "&#9680;";
             }
             #console-titleBar-btnOpacity {
                 cursor:        pointer;
-                content:       "&#9680;";
+            }	    
+            #console-titleBar-btnReload::before {
+                content:       "&#10227;";
             }
             #console-titleBar-btnReload {
                 cursor:        pointer;
-                content:       "&#10227;";
-            }
+            }	    
             #panel-console {
                 display:       block;
                 overflow:      auto;
