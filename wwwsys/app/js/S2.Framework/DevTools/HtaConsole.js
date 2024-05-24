@@ -136,7 +136,7 @@ class HtaConsole extends BaseComponent {
         document.addEventListener("keydown", (evt) => { if (evt.keyCode === 123) { this.toggle(); } } , true); //The handler is executed in the capturing phase.
         /* */
         document.getElementById("console-dragBorder")
-            .addEventListener("mousedown", this.dragHandler);
+            .addEventListener("mousedown", (evt) => { evt.preventDefault(); document.addEventListener("mousemove", dragHandler); });
         /* */
         document.getElementById("console-dragBorder")
             .addEventListener("mouseup",   this.releaseDragHandler);
@@ -171,16 +171,22 @@ class HtaConsole extends BaseComponent {
     * ===========================================================
     */ 
     toggle = (evt) => {
-        const el = document.getElementById("HtaConsole");
-        el.style.display = (el.style.display !== "none") ? "none" : "block";
+        const myConsole = document.getElementById("HtaConsole");
+		if (myConsole.style.display === "block") {
+			myConsole.style.display = "none";
+		} else {
+			myConsole.style.display = "block";
+			this.consoleresize();
+		}
         event.preventDefault();
     }
     dragHandler = (evt) => {
+        evt.preventDefault();
         const height = window.innerHeight || document.documentElement.offsetHeight;
         document.getElementById("HtaConsole").style.height = `${height - evt.clientY}px`;
     }
     releaseDragHandler = () => {
-        document.getElementById("console-dragBorder").removeEventListener("mousemove", this.dragHandler); 
+        document.removeEventListener("mousemove", this.dragHandler); 
     }
     setFocus = () =>{
         document.getElementById("commandline").focus();
@@ -243,16 +249,28 @@ class HtaConsole extends BaseComponent {
     clear = () => {
         document.getElementById("panel-console").innerHTML = "";
     }
-
     reload = () => {
         location.reload(true);
     }
-
     minimize = () => {
-        const el = document.getElementById("HtaConsole");
-        el.style.height = (el.style.height !== "20px") ? "20px" : "220px";
+        var myConsole = document.getElementById("HtaConsole");
+		var myBtnMinimize = document.getElementById("console-titleBar-btnMinimize");
+		if (myConsole.style.display === "block") {
+			this.panelConsoleHeight = myConsole.style.height;
+			myConsole.style.height  = "0px";
+			myConsole.style.display = "none";
+			myBtnMinimize.innerHTML = "&#9650;";
+		} else {
+			myConsole.style.height  = this.panelConsoleHeight;
+			myConsole.style.display = "block";
+			myBtnMinimize.innerHTML = '&#9660;'
+			this.consoleresize();
+		}        
     }
-
+    resize = () => {
+		var panelConsole = document.getElementById("panel-console");
+		panelConsole.scrollTop = panelConsole.scrollHeight;
+    };
     transparent = () => {
         const el = document.getElementById("HtaConsole");
         el.style.opacity = (el.style.opacity !== "0.5") ? "0.5" : "1.0";
@@ -261,7 +279,7 @@ class HtaConsole extends BaseComponent {
     showModal = (scriptURL) => {
         window.open(scriptURL, "_blank");
     }
-
+    
     censor = (censor) => {
         const i = 0;
         return (key, value) => {
