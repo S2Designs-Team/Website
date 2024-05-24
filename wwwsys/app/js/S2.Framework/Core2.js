@@ -13,10 +13,12 @@ window.BaseComponent = BaseComponent;
 window.System        = System;
 window.HttpClient    = HttpClient;
 window.AppContext    = AppContext;
-window.HtaConsole    = HtaConsole;
+
 
 // Function to be executed after the page has fully loaded
 function loadMainScript() {
+    window.HtaConsole    = HtaConsole;
+    
     // Get the base URL of the current page
     const baseUrl = AppContext.getBaseUrl();
     // Load program.js after page load
