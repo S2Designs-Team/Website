@@ -9,9 +9,9 @@ class HtaConsole extends BaseComponent {
         this.htmlSegment = `
             <DIV ID='console-dragBorder'></DIV>
             <DIV ID='console-titleBar'>
-                <SPAN ID='console-titleBar-btnClear'    STYLE='cursor: pointer'>&#10680;</SPAN>
-                <SPAN ID='console-titleBar-btnOpacity'  STYLE='cursor: pointer'>&#9680;</SPAN>
-                <SPAN ID='console-titleBar-btnReload'   STYLE='cursor: pointer'>&#10227;</SPAN>
+                <SPAN ID='console-titleBar-btnClear'></SPAN>
+                <SPAN ID='console-titleBar-btnOpacity'></SPAN>
+                <SPAN ID='console-titleBar-btnReload'></SPAN>
                 <SPAN ID='console-titleBar-caption'     STYLE='padding-left: 5px; font-weight: 700; color: #555;'>Console</SPAN>
                 <SPAN ID='console-titleBar-btnClose'    STYLE='float: right; margin-right: 8px; cursor: pointer; color: grey;'>&#10006;</SPAN>
                 <SPAN ID='console-titleBar-btnMinimize' STYLE='float: right; margin-top:1px;margin-right: 10px; cursor: pointer; color: grey;'>&#9660;</SPAN>
@@ -45,7 +45,7 @@ class HtaConsole extends BaseComponent {
                 width:         100%;
                 cursor:        row-resize;
             }
-            #console-titleBar{
+            #console-titleBar {
                 height:        24px;
                 background:    #ededed;
                 border-top:    1px solid #fff;
@@ -53,6 +53,19 @@ class HtaConsole extends BaseComponent {
                 text-align:    left;
                 font-family:   Arial;
             }
+            #console-titleBar-btnClear {
+	    	cursor:        pointer;
+      		content:       "&#10680;";
+	    }
+	    #console-titleBar-btnOpacity {
+	    	cursor:        pointer;
+                content:       "&#9680;";
+	    }
+            #console-titleBar-btnReload {
+                cursor:        pointer;
+                content:       "&#10227;";
+            }
+	    content:
             #panel-console {
                 display:       block;
                 overflow:      auto;
