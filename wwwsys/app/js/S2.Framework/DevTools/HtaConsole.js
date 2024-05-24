@@ -254,7 +254,7 @@ class HtaConsole extends BaseComponent {
     }
     minimize = () => {
 	debugger;
-        var myConsole = document.getElementById("HtaConsole");
+        var myConsole = document.getElementById("panel-console");
         var myBtnMinimize = document.getElementById("console-titleBar-btnMinimize");
         if (myConsole.style.display === "block") {
             this.setProperty("panelConsoleHeight", myConsole.style.height);
