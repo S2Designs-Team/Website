@@ -55,8 +55,8 @@ class HtaConsole extends BaseComponent {
             }
             #console-titleBar-caption {
                padding-left:       5px;
-	       font-weight:        700; 
-	       color:              #555;	    
+               font-weight:        700; 
+               color:              #555;	    
                border-right-style: solid;
                padding-inline-end: 0.2em;
             }
