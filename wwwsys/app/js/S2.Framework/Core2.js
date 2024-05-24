@@ -2,7 +2,7 @@ import { BaseComponent } from './Core/BaseComponent.js';  // Import BaseComponen
 import { System }        from './Core/System.js';         // Import System class from System.js
 import { HttpClient }    from './Core/HttpClient.js';     // Import HttpClient class from HttpClientk.js
 import { AppContext }    from './Core/AppContext.js';     // Import AppContext instance from AppContext.js
-//import { HtaConsole }    from './DevTools/HtaConsole.js'; // Import HtaConsole instance from HtaConsole.js
+import { HtaConsole }    from './DevTools/HtaConsole.js'; // Import HtaConsole instance from HtaConsole.js
 
 /*
 * Exports BaseComponent, System, HttpClient, AppContext, HtaConsole to be accessible globally
@@ -11,9 +11,9 @@ window.BaseComponent = BaseComponent;
 window.System        = System;
 window.HttpClient    = HttpClient;
 window.AppContext    = AppContext;
-//window.HtaConsole    = HtaConsole;
+window.HtaConsole    = HtaConsole;
 
-export { BaseComponent, System, HttpClient, AppContext };
+export { BaseComponent, System, HttpClient, AppContext, HtaConsole };
 
 // Function to be executed after the page has fully loaded
 function loadMainScript() {
