@@ -293,7 +293,7 @@ const clamp = (value, min = 0, max = 100 ) => { return Math.min(Math.max(value, 
 * Description:  Returns a value that has been re-mapped according to the from/to
 *               - for example, adjust(10, 0, 100, 100, 0) = 90
 * last modify:  2024-05-25
-* FunctionName: remap
+* FunctionName: adjust
 * Version:      0.0.001
 * Parameters:   [required] value ===> The value to re-map (or adjust).
 *               [required] fromMin => Min value to re-map from.
@@ -302,6 +302,6 @@ const clamp = (value, min = 0, max = 100 ) => { return Math.min(Math.max(value, 
 *               [required] toMax ===> Max value to re-map to.
 * Return:       {Number}
 */   
-const remap = (value, fromMin, fromMax, toMin, toMax) => { return round(toMin + (toMax - toMin) * (value - fromMin) / (fromMax - fromMin)); };
+const adjust = (value, fromMin, fromMax, toMin, toMax) => { return round(toMin + (toMax - toMin) * (value - fromMin) / (fromMax - fromMin)); };
 
-export { SpaHelper, round, clamp, remap }
+export { SpaHelper, round, clamp, adjust }
