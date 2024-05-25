@@ -29,7 +29,7 @@ console.log("applicationName  = " + oHta.applicationName + "<br>" +
               "version          = " + oHta.version         + "<br>" + 
               "windowState      = " + oHta.windowState     + "<br>" );
 */
-console.log("# Created by S2DesignsTeam © 2035 (Salvatore Nillo AKA ㊙️anonimo㊙️).      " + "</BR>" +
+console.log("# Created by S2DesignsTeam © 2035 (Phobetor1999 AKA ㊙️anonimo㊙️).         " + "</BR>" +
             "#                                                                          " + "</BR>" +
             "# Licensed under the Apache License, Version 2.0 (the 'License');          " + "</BR>" +
             "# you may not use this file except in compliance with the License.         " + "</BR>" +
