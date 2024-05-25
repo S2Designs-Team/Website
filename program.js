@@ -59,9 +59,7 @@ console.log("# Created by S2DesignsTeam © 2035 (Phobetor1999 AKA ㊙️anonimo�
 
 console.info(AppContext.isHTA() ? System.getJavascriptVersion() + " | " + System.getJScriptVersion() + "." :
                                   System.getJavascriptVersion() + "." );
-
 console.info("Application Start.");
-
 console.info(AppContext.isLocallyHosted(window.location.href) ? "Web app running locally from " + AppContext.getStartPath() + "</BR>" : 
                                                                 "Web app running remotely at "  + AppContext.getBaseUrl()   + "</BR>");
 
