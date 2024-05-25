@@ -2,7 +2,9 @@ import { BaseComponent } from './Core/BaseComponent.js';  // Import BaseComponen
 import { System }        from './Core/System.js';         // Import System class from System.js
 import { HttpClient }    from './Core/HttpClient.js';     // Import HttpClient class from HttpClientk.js
 import { AppContext }    from './Core/AppContext.js';     // Import AppContext instance from AppContext.js
+import { SpaHelper }     from './Core/SpaHelper.js';      // Import SpaHelper instance from SpaHelper.js
 import { HtaConsole }    from './DevTools/HtaConsole.js'; // Import HtaConsole instance from HtaConsole.js
+
 
 // Check if the document has fully loaded
 if (document.readyState === 'complete' || (document.readyState !== 'loading' && !document.documentElement.doScroll)) {
