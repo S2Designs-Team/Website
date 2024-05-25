@@ -149,14 +149,14 @@ class AppContext {
     * Description:  Checks if the current page has been executed as HTA (HTML Application)
     * last modify:  2024-05-24	
     * FunctionName: isHTA
-    * Returns:      true  => indica che la pagina è eseguita in un ambiente HTA
-    *               false => indica che la pagina NON è in un ambiente HTA
+    * Returns:      true  => The page is executed as HTA (HTML APPLICATION)
+    *               false => The page is NOT executed as standard HTML
     */	
     isHTA = () => {
         // Retrieves the 1st occurence of the element <HTA:APPLICATION> inside the current document (if it is present).
         var htmlElement = document.getElementsByTagName('HTA:APPLICATION')[0];
 
-        // Checks idf the retrieved element 'htmlElement' is undefined (AKA not found) or not and if if contains an 'applicationname' property defined.
+        // Checks if the retrieved element 'htmlElement' is undefined (AKA not found) or not and if it contains an 'applicationname' property defined.
         return (typeof htmlElement !== 'undefined' && htmlElement.getAttribute('applicationname') !== null);
     };
 };
