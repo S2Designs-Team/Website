@@ -23,7 +23,7 @@
 * Version:     0.0.001
 */
 class System {
-	  /*📎DOCUMENTATION
+    /*📎DOCUMENTATION
     * Author:       ㊙️anonimo㊙️
     * Description:  The class constructor.
     * Last modify:  2024-05-25
@@ -40,7 +40,7 @@ class System {
     * Description:  Gets the Javascript Version used by the client browser
     * Last modify:  2024-05-25
     * FunctionName: getJavascriptVersion
-		* Returns:      {string} The Javascript Version used by the client browser.
+    * Returns:      {string} The Javascript Version used by the client browser.
     */
     getJavascriptVersion = () =>{
         // STEP ONE: Convert all characters to lowercase to simplify testing
@@ -140,7 +140,7 @@ class System {
     * Description:  The same as getJavascriptVersion but for JScript (Jscript and Javascript are not the same thing!!!)
     * Last modify:  2024-05-25
     * FunctionName: getJScriptVersion
-		* Returns:      {string} the JScript Version used by the client browser
+    * Returns:      {string} the JScript Version used by the client browser
     */
     getJScriptVersion = ()=> {
         return  (ScriptEngine() + " ver. " + ScriptEngineMajorVersion() + "." + ScriptEngineMinorVersion() + "." + ScriptEngineBuildVersion());
