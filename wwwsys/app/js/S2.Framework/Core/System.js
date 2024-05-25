@@ -16,11 +16,11 @@
 */
 
 /*📎DOCUMENTATION
-Author:      ㊙️anonimo㊙️
-Description: (Singleton) Retrieves some system informations
-last modify: 2024-05-24
-ClassName:   System
-Version:     0.0.001
+* Author:      ㊙️anonimo㊙️
+* Description: (Singleton) Retrieves some system informations
+* last modify: 2024-05-24
+* ClassName:   System
+* Version:     0.0.001
 */
 class System {
     constructor() {
