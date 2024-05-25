@@ -254,14 +254,14 @@ class SpaHelper {
     };
 };
 
-this.getAppUrl      = () => { return window.location.href; };     // "https://phobetor1999.github.io/Website/"
-this.getAppHost     = () => { return window.location.host; };     // "phobetor1999.github.io"
-this.getAppHostname = () => { return window.location.hostname; }; // "phobetor1999.github.io"
-this.getAppOrigin   = () => { return window.location.origin; };   // "https://phobetor1999.github.io"
-this.getAppPathName = () => { return window.location.pathname; }; // "/Website/""
-this.getAppPort     = () => { return window.location.port; };     // ""
-this.getAppProtocol = () => { return window.location.protocol; }; // "https:"
-this.getAppSearch   = () => { return window.location.search; };   // ""
+const getAppUrl      = () => { return window.location.href; };     // "https://phobetor1999.github.io/Website/"
+const getAppHost     = () => { return window.location.host; };     // "phobetor1999.github.io"
+const getAppHostname = () => { return window.location.hostname; }; // "phobetor1999.github.io"
+const getAppOrigin   = () => { return window.location.origin; };   // "https://phobetor1999.github.io"
+const getAppPathName = () => { return window.location.pathname; }; // "/Website/""
+const getAppPort     = () => { return window.location.port; };     // ""
+const getAppProtocol = () => { return window.location.protocol; }; // "https:"
+const getAppSearch   = () => { return window.location.search; };   // ""
 
 /*📎DOCUMENTATION
 * Author:       ㊙️anonimo㊙️
