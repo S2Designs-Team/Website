@@ -23,6 +23,11 @@
 * Version:     0.0.001
 */
 class AppContext {
+    /*📎DOCUMENTATION
+    * Author:      ㊙️anonimo㊙️
+    * Description: The class constructor.
+    * Last modify: 2024-05-22
+    */   
     constructor() {
         if (AppContext.instance) {
             return AppContext.instance;
