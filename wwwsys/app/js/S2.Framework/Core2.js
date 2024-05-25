@@ -5,22 +5,21 @@ import { AppContext }    from './Core/AppContext.js';     // Import AppContext i
 import { SpaHelper }     from './Core/SpaHelper.js';      // Import SpaHelper instance from SpaHelper.js
 import { HtaConsole }    from './DevTools/HtaConsole.js'; // Import HtaConsole instance from HtaConsole.js
 
-
-// Check if the document has fully loaded
-if (document.readyState === 'complete' || (document.readyState !== 'loading' && !document.documentElement.doScroll)) {
-    loadMainScript();
-} else {
-    document.addEventListener('DOMContentLoaded', loadMainScript);
-}
-
 // Function to be executed after the page has fully loaded
-function loadMainScript() {
+// =======================================================
+function startApplication() {
+    loadCoreServices();
+    loadMainScript();
+}
+function loadCoreServices() {
     window.BaseComponent = BaseComponent;
     window.System        = System;
     window.HttpClient    = HttpClient;
     window.AppContext    = AppContext;
     window.HtaConsole    = HtaConsole;
-    
+    window.SpaHelper     = new SpaHelper();
+}
+function loadMainScript() {
     // Get the base URL of the current page
     const baseUrl = AppContext.getBaseUrl();
     // Load program.js after page load
@@ -32,9 +31,9 @@ function loadMainScript() {
 
 // Check if the document has fully loaded
 if (document.readyState === 'complete' || (document.readyState !== 'loading' && !document.documentElement.doScroll)) {
-    loadMainScript();
+    startApplication();
 } else {
-    document.addEventListener('DOMContentLoaded', loadMainScript);
+    document.addEventListener('DOMContentLoaded', startApplication);
 }
 
 /*
