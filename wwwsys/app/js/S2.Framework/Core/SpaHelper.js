@@ -266,19 +266,19 @@ this.getAppSearch   = () => { return window.location.search; };   // ""
 /*📎DOCUMENTATION
 * Author:       ㊙️anonimo㊙️
 * Description:  Returns a value that has been rounded to a set precision
-* last modify:  2024-05-21
+* last modify:  2024-05-25
 * FunctionName: round
 * Version:      0.0.001
 * Parameters:   [required] value ==================> The value to round
 *               [optional][default = 3] precision => Precision the precision (decimal places)
 * Return:       {Number}
 */   
-round = (value, precision = 3) => parseFloat(value.toFixed(precision));
+const round = (value, precision = 3) => parseFloat(value.toFixed(precision));
 
 /*📎DOCUMENTATION
 * Author:       ㊙️anonimo㊙️
 * Description:  Returns a value that has been limited between min & max.
-* last modify:  2024-05-21
+* last modify:  2024-05-25
 * FunctionName: clamp
 * Version:      0.0.001
 * Parameters:   [required] value ==============> The value to clamp.
@@ -286,14 +286,14 @@ round = (value, precision = 3) => parseFloat(value.toFixed(precision));
 *               [optional][default = 100] max => Maximum value to allow.
 * Return:       {Number}
 */ 
-clamp = (value, min = 0, max = 100 ) => { return Math.min(Math.max(value, min), max); };
+const clamp = (value, min = 0, max = 100 ) => { return Math.min(Math.max(value, min), max); };
 
 /*📎DOCUMENTATION
 * Author:       ㊙️anonimo㊙️
 * Description:  Returns a value that has been re-mapped according to the from/to
 *               - for example, adjust(10, 0, 100, 100, 0) = 90
-* last modify:  2024-05-21
-* FunctionName: adjust
+* last modify:  2024-05-25
+* FunctionName: remap
 * Version:      0.0.001
 * Parameters:   [required] value ===> The value to re-map (or adjust).
 *               [required] fromMin => Min value to re-map from.
@@ -302,6 +302,6 @@ clamp = (value, min = 0, max = 100 ) => { return Math.min(Math.max(value, min), 
 *               [required] toMax ===> Max value to re-map to.
 * Return:       {Number}
 */   
-adjust = (value, fromMin, fromMax, toMin, toMax) => {	return round(toMin + (toMax - toMin) * (value - fromMin) / (fromMax - fromMin)); };
+const remap = (value, fromMin, fromMax, toMin, toMax) => { return round(toMin + (toMax - toMin) * (value - fromMin) / (fromMax - fromMin)); };
 
-export { SpaHelper, round, clamp, adjust }
+export { SpaHelper, round, clamp, remap }
