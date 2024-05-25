@@ -70,7 +70,7 @@ class SpaHelper {
     * Last modify:  2024-05-25
     * MethodName:   wrapContentRoutes
     */
-    wrapContentRoutes : function() {	
+    wrapContentRoutes = () =>{	
         $(".content a").click(function(event) {
             var myContentPath = $(this).attr("href");
             console.info("Content link '" + $(this).text() + "'has been clicked.");
@@ -93,7 +93,7 @@ class SpaHelper {
     * MethodName:   loadUrl
     * Parameters:   [required] url => The url from where the content has to be picked up.    
     */
-    loadUrl : async function (url){
+    loadUrl = async (url) => {
         console.debug("[AppHelper::loadUrl('" + url + "')]");
 		
         var urlContent = "";
