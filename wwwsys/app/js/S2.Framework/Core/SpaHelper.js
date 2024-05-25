@@ -273,7 +273,7 @@ this.getAppSearch   = () => { return window.location.search; };   // ""
 *               [optional][default = 3] precision => Precision the precision (decimal places)
 * Return:       {Number}
 */   
-this.round = (value, precision = 3) => parseFloat(value.toFixed(precision));
+round = (value, precision = 3) => parseFloat(value.toFixed(precision));
 
 /*📎DOCUMENTATION
 * Author:       ㊙️anonimo㊙️
@@ -286,7 +286,7 @@ this.round = (value, precision = 3) => parseFloat(value.toFixed(precision));
 *               [optional][default = 100] max => Maximum value to allow.
 * Return:       {Number}
 */ 
-this.clamp = (value, min = 0, max = 100 ) => { return Math.min(Math.max(value, min), max); };
+clamp = (value, min = 0, max = 100 ) => { return Math.min(Math.max(value, min), max); };
 
 /*📎DOCUMENTATION
 * Author:       ㊙️anonimo㊙️
@@ -302,6 +302,6 @@ this.clamp = (value, min = 0, max = 100 ) => { return Math.min(Math.max(value, m
 *               [required] toMax ===> Max value to re-map to.
 * Return:       {Number}
 */   
-this.adjust = (value, fromMin, fromMax, toMin, toMax) => {	return round(toMin + (toMax - toMin) * (value - fromMin) / (fromMax - fromMin)); };
+adjust = (value, fromMin, fromMax, toMin, toMax) => {	return round(toMin + (toMax - toMin) * (value - fromMin) / (fromMax - fromMin)); };
 
 export { SpaHelper, round, clamp, adjust }
