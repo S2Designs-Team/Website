@@ -2,6 +2,7 @@
 // Import of needed graphic components
 import { Component1 } from './wwwsys/app/js/S2.Framework/Components/Component1.js';
 
+spaHelper = new SpaHelper();
 // Inizializzazione della console
 HtaConsole.render();
 
