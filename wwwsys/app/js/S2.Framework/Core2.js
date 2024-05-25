@@ -40,4 +40,4 @@ if (document.readyState === 'complete' || (document.readyState !== 'loading' && 
 /*
 * Exports BaseComponent, System, HttpClient, AppContext, HtaConsole to be accessible globally
 */
-export { BaseComponent, System, HttpClient, AppContext, HtaConsole };
+export { BaseComponent, System, HttpClient, AppContext, HtaConsole, SpaHelper };
