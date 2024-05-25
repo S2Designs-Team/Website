@@ -163,7 +163,6 @@ class AppContext {
     * FunctionName: getBaseUrl
     */
     getBaseUrl = (url = window.location.href) => {
-        const url = url;
         const lastSlashIndex = url.lastIndexOf('/');
         return url.substring(0, lastSlashIndex + 1);
     };
