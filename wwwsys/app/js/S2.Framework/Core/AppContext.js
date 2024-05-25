@@ -18,7 +18,7 @@
 /*📎DOCUMENTATION
 * Author:      ㊙️anonimo㊙️
 * Description: (Singleton) The global App Context.
-* last modify: 2024-05-22
+* Last modify: 2024-05-22
 * ClassName:   AppContext
 * Version:     0.0.001
 */
@@ -38,21 +38,21 @@ class AppContext {
     /*📎DOCUMENTATION
     * Author:       ㊙️anonimo㊙️
     * Description: 
-    * last modify:  2024-05-22
+    * Last modify:  2024-05-22
     * MethodName:   addService
     */
     addService = (service)=> { this.appServices.push(service); };
     /*📎DOCUMENTATION
     * Author:       ㊙️anonimo㊙️
     * Description: 
-    * last modify:  2024-05-22
+    * Last modify:  2024-05-22
     * MethodName:   addProperty
     */
     addProperty = (property) => { this.props.push(property); };
     /*📎DOCUMENTATION
     * Author:       ㊙️anonimo㊙️
     * Description:  This method adds or updates a global property
-    * last modify:  2024-05-22
+    * Last modify:  2024-05-22
     * MethodName:   setProperty
     * Parameters:   [required] nameOrObject ==========> It could ne a string (the property name) or an object.
     *               [optional][default = null] value => The property value.
@@ -87,32 +87,90 @@ class AppContext {
     /*📎DOCUMENTATION
     * Author:       ㊙️anonimo㊙️
     * Description:  
-    * last modify:  2024-05-22
+    * Last modify:  2024-05-22
     * FunctionName: getService
     */
     getService = (serviceName) => { return this.appServices.find(service => service.name === serviceName); };
     /*📎DOCUMENTATION
     * Author:       ㊙️anonimo㊙️
     * Description: 
-    * last modify:  2024-05-22
+    * Last modify:  2024-05-22
     * FunctionName: getProperty
     */
     getProperty = (propertyName) => { return this.props[propertyName]; };
+
     /*📎DOCUMENTATION
     * Author:       ㊙️anonimo㊙️
-    * Description:  Function to get the base URL of the current page
-    * last modify:  2024-05-22
+    * Description: 
+    * Last modify:  2024-05-25
+    * FunctionName: getAppUrl
+    */	
+    getAppUrl      = () => { return window.location.href; };     // "https://www.example.com/Website/"
+    /*📎DOCUMENTATION
+    * Author:       ㊙️anonimo㊙️
+    * Description: 
+    * Last modify:  2024-05-25
+    * FunctionName: getAppHost
+    */	
+    getAppHost     = () => { return window.location.host; };     // "www.example.com"
+    /*📎DOCUMENTATION
+    * Author:       ㊙️anonimo㊙️
+    * Description: 
+    * Last modify:  2024-05-25
+    * FunctionName: getAppHostName
+    */
+    getAppHostName = () => { return window.location.hostname; }; // "example.com"
+    /*📎DOCUMENTATION
+    * Author:       ㊙️anonimo㊙️
+    * Description:  
+    * Last modify:  2024-05-25
+    * FunctionName: getAppOrigin
+    */
+    getAppOrigin   = () => { return window.location.origin; };   // "https://www.example.com"
+    /*📎DOCUMENTATION
+    * Author:       ㊙️anonimo㊙️
+    * Description:  
+    * Last modify:  2024-05-25
+    * FunctionName: getAppPathName
+    */
+    getAppPathName = () => { return window.location.pathname; }; // "/Website/""
+    /*📎DOCUMENTATION
+    * Author:       ㊙️anonimo㊙️
+    * Description:  The port used to serve the http/https response
+    * Last modify:  2024-05-25
+    * FunctionName: getAppPort
+    */
+    getAppPort     = () => { return window.location.port; };     // ""
+    /*📎DOCUMENTATION
+    * Author:       ㊙️anonimo㊙️
+    * Description:  
+    * Last modify:  2024-05-25
+    * FunctionName: getAppProtocol
+    */
+    getAppProtocol = () => { return window.location.protocol; }; // "https:"
+    /*📎DOCUMENTATION
+    * Author:       ㊙️anonimo㊙️
+    * Description:  
+    * Last modify:  2024-05-25
+    * FunctionName: getAppProtocol
+    */
+    getAppSearch   = () => { return window.location.search; };   // ""
+	
+    /*📎DOCUMENTATION
+    * Author:       ㊙️anonimo㊙️
+    * Description:  Function to get the base URL of the passed url
+    * Last modify:  2024-05-22
     * FunctionName: getBaseUrl
     */
-    getBaseUrl = () => {
-        const url = window.location.href;
+    getBaseUrl = (url = window.location.href) => {
+        const url = url;
         const lastSlashIndex = url.lastIndexOf('/');
         return url.substring(0, lastSlashIndex + 1);
     };
     /*📎DOCUMENTATION
     * Author:       ㊙️anonimo㊙️
     * Description:  Function to get the local application start path
-    * last modify:  2024-05-24
+    * Last modify:  2024-05-24
     * FunctionName: getStartPath
     */	
     getStartPath = () => {
@@ -123,7 +181,7 @@ class AppContext {
     /*📎DOCUMENTATION
     * Author:       ㊙️anonimo㊙️
     * Description:  Function to get if the supplied url is locally or remotely located
-    * last modify:  2024-05-24
+    * Last modify:  2024-05-24
     * FunctionName: isLocallyHosted
     * Returns:      true  => the url is locally hosted
     *               false => the url is remotely hosted
@@ -147,7 +205,7 @@ class AppContext {
     /*📎DOCUMENTATION
     * Author:       ㊙️anonimo㊙️
     * Description:  Checks if the current page has been executed as HTA (HTML Application)
-    * last modify:  2024-05-24	
+    * Last modify:  2024-05-24	
     * FunctionName: isHTA
     * Returns:      true  => The page is executed as HTA (HTML APPLICATION)
     *               false => The page is NOT executed as standard HTML
