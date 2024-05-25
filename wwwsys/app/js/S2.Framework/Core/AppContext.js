@@ -32,7 +32,7 @@ class AppContext {
         this.appNeedRefresh = false;
         this.appStatus      = null;
 
-	AppContext.instance = this;    
+        AppContext.instance = this;    
     }
     
     /*📎DOCUMENTATION
