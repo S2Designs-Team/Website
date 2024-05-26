@@ -127,7 +127,9 @@ export class HttpClient {
     *              [required] options  => additional fetch options
     */ 
     async send(endpoint, options) {
-        const url = `${this.baseUrl}${endpoint}`;
+        var url = "";
+        if (this.baseUrl) { url += this.baseUrl; }
+        if (endpoint) { url += endpoint; }
         const response = await fetch(url, {
             headers: { 'Content-Type': 'application/json', ...(options.headers || {}) },
             ...options
