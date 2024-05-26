@@ -65,8 +65,11 @@ console.info(AppContext.isLocallyHosted(window.location.href) ? "Web app running
 
 // Export the singleton instance
 const appHttpClient = new HttpClient();
+SpaHelper.wrapAllRoutes();
+console.info("Redirecting to the landing page....");
+		
+SpaHelper.loadUrl(Application.landingPageUrl);
 
 // Istanze dei componenti grafici
-const component1 = new Component1();
-component1.render("content");
-console.info("Redirecting to the landing page....");
+//const component1 = new Component1();
+//component1.render("content");
