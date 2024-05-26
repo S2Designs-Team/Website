@@ -14,7 +14,7 @@ function startApplication() {
     loadMainScript();
 }
 function loadCoreServices() {
-    window.$             = JQuery;
+    window.$             = $;
     window.String        = StringHelper;    
     window.BaseComponent = BaseComponent;
     window.System        = System;
@@ -43,4 +43,4 @@ if (document.readyState === 'complete' || (document.readyState !== 'loading' && 
 /*
 * Exports BaseComponent, System, HttpClient, AppContext, HtaConsole to be accessible globally
 */
-export { BaseComponent, System, HttpClient, AppContext, HtaConsole, SpaHelper, StringHelper as String, window.jQuery.noConflict(true) as $ };
+export { BaseComponent, System, HttpClient, AppContext, HtaConsole, SpaHelper, StringHelper as String, window.jQuery.noConflict(true) as jQuery, $};
