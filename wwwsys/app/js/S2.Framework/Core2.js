@@ -43,4 +43,4 @@ if (document.readyState === 'complete' || (document.readyState !== 'loading' && 
 /*
 * Exports BaseComponent, System, HttpClient, AppContext, HtaConsole to be accessible globally
 */
-export { BaseComponent, System, HttpClient, AppContext, HtaConsole, SpaHelper, StringHelper as String, jQuery.noConflict(true) as jQuery, $};
+export { BaseComponent, System, HttpClient, AppContext, HtaConsole, SpaHelper, StringHelper as String, jQuery, $};
