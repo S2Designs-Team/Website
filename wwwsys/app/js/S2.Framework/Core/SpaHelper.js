@@ -180,7 +180,7 @@ class SpaHelper {
                 // You can now even select part of that html as you would in the regular DOM 
                 // Example:
                 // var docArticle = doc.querySelector('article').innerHTML;
-                console.dataView(doc);
+                console.debug(doc);
                 remoteContent =  myHtml;
 
 /*
