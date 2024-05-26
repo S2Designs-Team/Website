@@ -76,6 +76,24 @@ class SpaHelper {
     * MethodName:   wrapContentRoutes
     */
     wrapContentRoutes = () =>{	
+	var myFoundLinks = document.getElementById("content").getElementsByTag("a");
+        for (var i = 0; i < myFoundLinks.length; i++) {
+            myFoundLinks[i].addEventListener("click", function(event) {
+                var myContentPath = this.getAttribute("href");
+                console.info("Content link '" + this.textContent + "' has been clicked.");
+                console.info("Link url = '" + myContentPath + "'.");
+
+                if (myContentPath.indexOf("http://") === 0 || myContentPath.indexOf("https://") === 0) {
+                    console.debug("Loading the web hosted page");
+                    // urlContent = this.loadRemoteUrl(Application.contentContainerDomName, myContentPath);
+                } else {
+                    event.preventDefault(); // Impedisce il comportamento predefinito del link
+                    urlContent = this.loadLocalUrl(Application.contentContainerDomName, Application.getStartPath() + myContentPath);
+                }
+	    });
+        }
+    };
+/*	    
         $(".content a").click(function(event) {
             var myContentPath = $(this).attr("href");
             console.info("Content link '" + $(this).text() + "'has been clicked.");
@@ -90,7 +108,7 @@ class SpaHelper {
             }
         });
     };
-  
+*/  
     /*📎DOCUMENTATION
     * Author:       ㊙️anonimo㊙️
     * Description: 
