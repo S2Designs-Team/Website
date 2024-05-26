@@ -303,4 +303,4 @@ const adjust = (value, fromMin, fromMax, toMin, toMax) => { return round(toMin +
 const spaHelperInstance = new SpaHelper();
 Object.freeze(spaHelperInstance);
 
-export { spaHelperInstance as SpaHelperInstance, round, clamp, adjust }
+export { spaHelperInstance as SpaHelper, round, clamp, adjust }
