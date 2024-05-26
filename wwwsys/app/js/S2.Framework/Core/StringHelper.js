@@ -22,7 +22,7 @@
 * ClassName:   StringHelper
 * Version:     0.0.001
 */
-export class StringHelper {
+class StringHelper {
     
     /*📎DOCUMENTATION
     * Author:      ㊙️anonimo㊙️
