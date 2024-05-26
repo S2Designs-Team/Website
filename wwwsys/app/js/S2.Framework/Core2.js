@@ -17,7 +17,7 @@ function loadCoreServices() {
     window.HttpClient    = HttpClient;
     window.AppContext    = AppContext;
     window.HtaConsole    = HtaConsole;
-    window.SpaHelper     = new SpaHelper();
+    window.SpaHelper     = SpaHelper;
 }
 function loadMainScript() {
     // Get the base URL of the current page
