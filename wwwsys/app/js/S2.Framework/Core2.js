@@ -13,13 +13,13 @@ function startApplication() {
     loadMainScript();
 }
 function loadCoreServices() {
+    window.String        = StringHelper;    
     window.BaseComponent = BaseComponent;
     window.System        = System;
     window.HttpClient    = HttpClient;
     window.AppContext    = AppContext;
     window.HtaConsole    = HtaConsole;
     window.SpaHelper     = SpaHelper;
-    window.String        = StringHelper;
 }
 function loadMainScript() {
     // Get the base URL of the current page
