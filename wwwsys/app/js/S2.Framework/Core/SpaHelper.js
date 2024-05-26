@@ -17,7 +17,7 @@
 
 /*📎DOCUMENTATION
 * Author:       ㊙️anonimo㊙️
-* Description:  An helper class to manage the urls routes
+* Description:  (Singleton) An helper class to manage the urls routes
 * Last modify:  2024-05-25
 * ClassName:    SpaHelper
 * Version:      0.0.001
@@ -28,7 +28,12 @@ class SpaHelper {
     * Description:  The class constructor.
     * Last modify:  2024-05-25
     */   
-    constructor () { }
+    constructor () {
+        if (SpaHelper.instance) {
+            return SpaHelper.instance;
+        }
+        SpaHelper.instance = this; 
+    }
     
     /*📎DOCUMENTATION
     * Author:       ㊙️anonimo㊙️
