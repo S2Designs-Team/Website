@@ -170,12 +170,18 @@ class SpaHelper {
             if (!String.isNullOrEmpty(targetDomName)) {
 
                 const httpClient = new HttpClient(url);
-                try {
-                    var myHtml = httpClient.loadHtmlPage(url);
-		    console.dataView ( myHtml ) ;
-                } catch (error) {
-                    console.error('Error during GET request:', error);
-                }
+                let myHtml = httpClient.loadHtmlPage(url);
+                // Initialize the DOM parser
+                var parser = new DOMParser();
+		
+                // Parse the text
+                var doc = parser.parseFromString(myHtml, "text/html");
+		
+                // You can now even select part of that html as you would in the regular DOM 
+                // Example:
+                // var docArticle = doc.querySelector('article').innerHTML;
+                console.dataView(doc);
+                remoteContent =  myHtml;
 
 /*
 		    
