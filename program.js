@@ -68,7 +68,7 @@ const appHttpClient = new HttpClient();
 SpaHelper.wrapAllRoutes();
 console.info("Redirecting to the landing page....");
 		
-SpaHelper.loadUrl(Application.landingPageUrl);
+SpaHelper.loadUrl(AppContext.props["landingPageUrl"];
 
 // Istanze dei componenti grafici
 //const component1 = new Component1();
