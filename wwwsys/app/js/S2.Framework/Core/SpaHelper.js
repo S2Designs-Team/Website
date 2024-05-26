@@ -43,8 +43,8 @@ class SpaHelper {
     * MethodName:   wrapAllRoutes
     */
     wrapAllRoutes = () => {
-        AppHelper.wrapNavRoutes();
-        AppHelper.wrapContentRoutes();
+        this.wrapNavRoutes();
+        this.wrapContentRoutes();
     };
 
     /*📎DOCUMENTATION
@@ -61,10 +61,10 @@ class SpaHelper {
             var percorsoContenuto = $(this).attr("href");
             console.info("Navigation item '" + $(this).text() + "'has been clicked.");
 			
-            //👉️AppHelper.loadUrl(percorsoContenuto);
-            AppHelper.loadUrl(percorsoContenuto);
+            //👉️SpaHelper.loadUrl(percorsoContenuto);
+            this.loadUrl(percorsoContenuto);
 			
-            AppHelper.wrapContentRoutes();
+            this.wrapContentRoutes();
         });
     };
   
@@ -83,10 +83,10 @@ class SpaHelper {
 			
             if (myContentPath.indexOf("http://") === 0 || myContentPath.indexOf("https://") === 0){
                 console.debug("Loading the web hosted page')]");
-                //urlContent = AppHelper.loadRemoteUrl(Application.contentContainerDomName, percorsoContenuto);
+                //urlContent = this.loadRemoteUrl(Application.contentContainerDomName, percorsoContenuto);
             } else {
                 event.preventDefault(); // Impedisce il comportamento predefinito del link
-                urlContent = AppHelper.loadLocalUrl(Application.contentContainerDomName, Application.getStartPath() + myContentPath);	
+                urlContent = this.loadLocalUrl(Application.contentContainerDomName, Application.getStartPath() + myContentPath);	
             }
         });
     };
@@ -99,7 +99,7 @@ class SpaHelper {
     * Parameters:   [required] url => The url from where the content has to be picked up.    
     */
     loadUrl = async (url) => {
-        console.debug("[AppHelper::loadUrl('" + url + "')]");
+        console.debug("[SpaHelper::loadUrl('" + url + "')]");
 		
         var urlContent = "";
 		
@@ -108,16 +108,16 @@ class SpaHelper {
             if (url.indexOf("http://") === 0 || url.indexOf("https://") === 0){
                 // We are going to load from an absolute url
                 console.debug("We are going to load from an absolute url " + url);
-                urlContent = await AppHelper.loadRemoteUrl(Application.contentContainerDomName, url);
+                urlContent = await this.loadRemoteUrl(Application.contentContainerDomName, url);
             } else {
                 // We are going to load from a relative url
                 console.debug("We are going to load from an relative url transforming it into " + window.location.href + url);
-                urlContent = await AppHelper.loadRemoteUrl(Application.contentContainerDomName, window.location.href + url);					
+                urlContent = await this.loadRemoteUrl(Application.contentContainerDomName, window.location.href + url);					
             }
         } else {
-            urlContent = await AppHelper.loadLocalUrl(Application.contentContainerDomName, Application.getStartPath() + url);	
+            urlContent = await this.loadLocalUrl(Application.contentContainerDomName, Application.getStartPath() + url);	
         }
-        if (!StringHelper.isEmpty(urlContent)) { AppHelper.executeScripts(urlContent); }
+        if (!StringHelper.isEmpty(urlContent)) { this.executeScripts(urlContent); }
     };
   
     /*📎DOCUMENTATION
@@ -226,11 +226,11 @@ class SpaHelper {
         scripts.each(function() {
             var src = $(this).attr('src');
             if (url.indexOf("file:///") === 0 || Application.isLocallyHosted(url)) {
-                scriptContent = AppHelper.loadLocalUrl("", Application.getStartPath() + url);	
+                scriptContent = this.loadLocalUrl("", Application.getStartPath() + url);	
                 console.log("Codice javascript locale, esterno all'html, da eseguire: " + "<BR>" + 
                             scriptContent);
             } else {
-                scriptContent = AppHelper.loadRemoteUrl("", url);
+                scriptContent = this.loadRemoteUrl("", url);
                 console.log("Codice javascript remoto, esterno all'html, da eseguire: " + "<BR>" + 
                             scriptContent);
             }
