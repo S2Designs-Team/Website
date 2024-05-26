@@ -54,7 +54,23 @@ class SpaHelper {
     * Last modify:  2024-05-25
     * MethodName:   wrapNavRoutes
     */
-    wrapNavRoutes = () => {		
+    wrapNavRoutes = () => {
+        var navLinks = document.querySelectorAll("nav ul li a");
+        navLinks.forEach(function(link) {
+            link.addEventListener("click", function(event) {
+                event.preventDefault(); // Impedisce il comportamento predefinito del link
+
+                var percorsoContenuto = this.getAttribute("href");
+                console.info("Navigation item '" + this.textContent + "' has been clicked.");
+            
+                //👉️SpaHelper.loadUrl(percorsoContenuto);
+                this.loadUrl(percorsoContenuto);
+            
+                this.wrapContentRoutes();
+            });
+        });
+    };
+    /*wrapNavRoutes = () => {		
         $("nav ul li a").click(function(event) {
             event.preventDefault(); // Impedisce il comportamento predefinito del link
 
@@ -67,7 +83,7 @@ class SpaHelper {
             this.wrapContentRoutes();
         });
     };
-  
+   */
     /*📎DOCUMENTATION
     * Author:       ㊙️anonimo㊙️
     * Description:  Manages all the links composing all contents in the document  
@@ -90,7 +106,7 @@ class SpaHelper {
                     event.preventDefault(); // Impedisce il comportamento predefinito del link
                     urlContent = this.loadLocalUrl(Application.contentContainerDomName, Application.getStartPath() + myContentPath);
                 }
-	    });
+            });
         }
     };
 /*	    
