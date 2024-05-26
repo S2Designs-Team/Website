@@ -164,6 +164,7 @@ class SpaHelper {
     * Returns:      The content loaded from the remote url
     */
     loadRemoteUrl = async (targetDomName, url) => {
+	/*
         var file;
         var fileContent ="";
 	var remoteContent = "";
@@ -183,9 +184,12 @@ class SpaHelper {
                 // var docArticle = doc.querySelector('article').innerHTML;
                 console.debug(doc);
                 remoteContent =  myHtml;
-
-/*
-		    
+	*/
+        var file;
+        var fileContent ="";
+	var remoteContent = "";
+        try {
+            if (!String.isNullOrEmpty(targetDomName)) {	    
                 remoteContent = $.get(url, function(data) {
                     $(targetDomName).html(data);
                 })
@@ -202,7 +206,6 @@ class SpaHelper {
                 });
                 //$(targetDomName).html(remoteContent);
                 //return remoteContent;
-*/
             }
         } catch (e) {
             console.error(e.message + " <BR>" + e.stack);
