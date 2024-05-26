@@ -137,16 +137,16 @@ class SpaHelper {
 		
         var urlContent = "";
 		
-        if (!Application.isLocallyHosted(window.location.href)) {
+        if (!AppContext.isLocallyHosted(window.location.href)) {
 			
             if (url.indexOf("http://") === 0 || url.indexOf("https://") === 0){
                 // We are going to load from an absolute url
                 console.debug("We are going to load from an absolute url " + url);
-                urlContent = await this.loadRemoteUrl(Application.contentContainerDomName, url);
+                urlContent = await this.loadRemoteUrl(AppContext.props["contentContainerDomName"], url);
             } else {
                 // We are going to load from a relative url
                 console.debug("We are going to load from an relative url transforming it into " + window.location.href + url);
-                urlContent = await this.loadRemoteUrl(Application.contentContainerDomName, window.location.href + url);					
+                urlContent = await this.loadRemoteUrl(AppContext.props["contentContainerDomName"], window.location.href + url);					
             }
         } else {
             urlContent = await this.loadLocalUrl(Application.contentContainerDomName, Application.getStartPath() + url);	
