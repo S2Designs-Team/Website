@@ -1,5 +1,6 @@
 import { BaseComponent } from './Core/BaseComponent.js';  // Import BaseComponent class from BaseComponent.js
 import { System }        from './Core/System.js';         // Import System class from System.js
+import { StringHelper }  from './Core/StringHelper.js';   // Import StringHelper class from SpaHelper.js
 import { HttpClient }    from './Core/HttpClient.js';     // Import HttpClient class from HttpClientk.js
 import { AppContext }    from './Core/AppContext.js';     // Import AppContext instance from AppContext.js
 import { SpaHelper }     from './Core/SpaHelper.js';      // Import SpaHelper instance from SpaHelper.js
@@ -18,6 +19,7 @@ function loadCoreServices() {
     window.AppContext    = AppContext;
     window.HtaConsole    = HtaConsole;
     window.SpaHelper     = SpaHelper;
+    window.String        = StringHelper;
 }
 function loadMainScript() {
     // Get the base URL of the current page
