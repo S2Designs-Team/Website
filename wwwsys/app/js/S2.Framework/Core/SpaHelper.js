@@ -168,6 +168,17 @@ class SpaHelper {
         var fileContent="";
         try {
             if (!String.isNullOrEmpty(targetDomName)) {
+
+                const httpClient = new HttpClient(url);
+                try {
+                    const data = await httpClient.get();
+                    console.log('GET request data:', data);
+                } catch (error) {
+                    console.error('Error during GET request:', error);
+                }
+
+/*
+		    
                 remoteContent = $.get(url, function(data) {
                     $(targetDomName).html(data);
                 })
@@ -184,6 +195,7 @@ class SpaHelper {
                 });
                 //$(targetDomName).html(remoteContent);
                 //return remoteContent;
+*/
             }
         } catch (e) {
             console.error(e.message + " <BR>" + e.stack);
