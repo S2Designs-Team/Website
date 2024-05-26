@@ -171,8 +171,8 @@ class SpaHelper {
 
                 const httpClient = new HttpClient(url);
                 try {
-                    const data = await httpClient.get();
-                    console.log('GET request data:', data);
+                    var myHtml = httpClient.loadHtmlPage(url);
+		    console.dataView ( myHtml ) ;
                 } catch (error) {
                     console.error('Error during GET request:', error);
                 }
