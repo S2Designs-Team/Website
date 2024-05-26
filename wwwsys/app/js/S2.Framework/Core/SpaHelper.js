@@ -167,7 +167,7 @@ class SpaHelper {
         var file;
         var fileContent="";
         try {
-            if (!StringHelper.isEmpty(targetDomName)) {
+            if (!String.isNullOrEmpty(targetDomName)) {
                 remoteContent = $.get(url, function(data) {
                     $(targetDomName).html(data);
                 })
@@ -206,7 +206,7 @@ class SpaHelper {
         var file;
         var fileContent = "";
         try {
-            if (!StringHelper.isEmpty(targetDomName)) {
+            if (!String.isNullOrEmpty(targetDomName)) {
                 var fso = new ActiveXObject("Scripting.FileSystemObject");
 				
                 if (fso.FileExists(filePath)) {
