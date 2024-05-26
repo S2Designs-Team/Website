@@ -1,6 +1,7 @@
+import { $ }             from './Core/JQuery.Module.js';  // Import $ from JQuery.Module.js
+import { StringHelper }  from './Core/StringHelper.js';   // Import StringHelper class from SpaHelper.js
 import { BaseComponent } from './Core/BaseComponent.js';  // Import BaseComponent class from BaseComponent.js
 import { System }        from './Core/System.js';         // Import System class from System.js
-import { StringHelper }  from './Core/StringHelper.js';   // Import StringHelper class from SpaHelper.js
 import { HttpClient }    from './Core/HttpClient.js';     // Import HttpClient class from HttpClientk.js
 import { AppContext }    from './Core/AppContext.js';     // Import AppContext instance from AppContext.js
 import { SpaHelper }     from './Core/SpaHelper.js';      // Import SpaHelper instance from SpaHelper.js
@@ -13,6 +14,7 @@ function startApplication() {
     loadMainScript();
 }
 function loadCoreServices() {
+    window.$             = $;
     window.String        = StringHelper;    
     window.BaseComponent = BaseComponent;
     window.System        = System;
@@ -41,4 +43,4 @@ if (document.readyState === 'complete' || (document.readyState !== 'loading' && 
 /*
 * Exports BaseComponent, System, HttpClient, AppContext, HtaConsole to be accessible globally
 */
-export { BaseComponent, System, HttpClient, AppContext, HtaConsole, SpaHelper, StringHelper as String };
+export { BaseComponent, System, HttpClient, AppContext, HtaConsole, SpaHelper, StringHelper as String, $ };
