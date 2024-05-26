@@ -12,13 +12,12 @@ function startApplication() {
     loadMainScript();
 }
 function loadCoreServices() {
-    const _SpaHelper     = SpaHelper;
     window.BaseComponent = BaseComponent;
     window.System        = System;
     window.HttpClient    = HttpClient;
     window.AppContext    = AppContext;
     window.HtaConsole    = HtaConsole;
-    window.SpaHelper     = new _SpaHelper();
+    window.SpaHelper     = new SpaHelper();
 }
 function loadMainScript() {
     // Get the base URL of the current page
