@@ -92,7 +92,7 @@ class SpaHelper {
     * MethodName:   wrapContentRoutes
     */
     wrapContentRoutes = () =>{	
-	var myFoundLinks = document.getElementById("content").getElementsByTag("a");
+	var myFoundLinks = document.getElementById("content").getElementsByTagName("a");
         for (var i = 0; i < myFoundLinks.length; i++) {
             myFoundLinks[i].addEventListener("click", function(event) {
                 var myContentPath = this.getAttribute("href");
