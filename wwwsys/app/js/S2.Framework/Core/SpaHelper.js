@@ -299,5 +299,8 @@ const clamp = (value, min = 0, max = 100 ) => { return Math.min(Math.max(value, 
 * Return:       {Number}
 */   
 const adjust = (value, fromMin, fromMax, toMin, toMax) => { return round(toMin + (toMax - toMin) * (value - fromMin) / (fromMax - fromMin)); };
+// Export the singleton instance
+const spaHelperInstance = new SpaHelper();
+Object.freeze(spaHelperInstance);
 
-export { SpaHelper, round, clamp, adjust }
+export { spaHelperInstance as SpaHelperInstance, round, clamp, adjust }
