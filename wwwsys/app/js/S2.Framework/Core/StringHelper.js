@@ -23,7 +23,18 @@
 * Version:     0.0.001
 */
 export class StringHelper {
-
+    
+    /*📎DOCUMENTATION
+    * Author:      ㊙️anonimo㊙️
+    * Description: The class constructor.
+    * Last modify: 2024-05-26
+    */   
+    constructor (){
+        if (StringHelper.instance) {
+            return StringHelper.instance;
+        }
+        StringHelper.instance = this;
+    }   
     /*📎DOCUMENTATION
     * Author:       ㊙️anonimo㊙️
     * Description:  Checks if the string passed is null or empty.
@@ -40,3 +51,9 @@ export class StringHelper {
         }
     };
 }
+
+// Export the singleton instance
+const stringInstance = new StringHelper();
+Object.freeze(stringInstance);
+
+export { stringInstance as StringHelper };
