@@ -165,7 +165,8 @@ class SpaHelper {
     */
     loadRemoteUrl = async (targetDomName, url) => {
         var file;
-        var fileContent="";
+        var fileContent ="";
+	var remoteContent = "";
         try {
             if (!String.isNullOrEmpty(targetDomName)) {
 
