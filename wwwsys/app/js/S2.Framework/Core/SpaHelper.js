@@ -79,10 +79,9 @@ class SpaHelper {
             var percorsoContenuto = $(this).attr("href");
             console.info("Navigation item '" + $(this).text() + "'has been clicked.");
 			
-            //👉️SpaHelper.loadUrl(percorsoContenuto);
-            this.loadUrl(percorsoContenuto);
+            SpaHelper.loadUrl(percorsoContenuto);
 			
-            this.wrapContentRoutes();
+            SpaHelper.wrapContentRoutes();
         });
     };
 
@@ -119,10 +118,10 @@ class SpaHelper {
 			
             if (myContentPath.indexOf("http://") === 0 || myContentPath.indexOf("https://") === 0){
                 console.debug("Loading the web hosted page')]");
-                //urlContent = this.loadRemoteUrl(Application.contentContainerDomName, percorsoContenuto);
+                //urlContent = SpaHelper.loadRemoteUrl(AppContext.props["contentContainerDomName"], percorsoContenuto);
             } else {
                 event.preventDefault(); // Impedisce il comportamento predefinito del link
-                urlContent = this.loadLocalUrl(Application.contentContainerDomName, Application.getStartPath() + myContentPath);	
+                urlContent = SpaHelper.loadLocalUrl(AppContext.props["contentContainerDomName"], Application.getStartPath() + myContentPath);	
             }
         });
     };
