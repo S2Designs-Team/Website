@@ -7,17 +7,6 @@ import { AppContext }    from './Core/AppContext.js';     // Import AppContext i
 import { SpaHelper }     from './Core/SpaHelper.js';      // Import SpaHelper instance from SpaHelper.js
 import { HtaConsole }    from './DevTools/HtaConsole.js'; // Import HtaConsole instance from HtaConsole.js
 
-function loadCoreServices() {
-    window.$             = $;
-    window.String        = StringHelper;    
-    window.BaseComponent = BaseComponent;
-    window.System        = System;
-    window.HttpClient    = HttpClient;
-    window.AppContext    = AppContext;
-    window.HtaConsole    = HtaConsole;
-    window.SpaHelper     = SpaHelper;
-}
-
 function loadjQuery() {
     return new Promise((resolve, reject) => {
         const script = document.createElement('script');
@@ -30,6 +19,18 @@ function loadjQuery() {
         document.head.appendChild(script);
     });
 }
+
+function loadCoreServices() {
+    window.String        = StringHelper;    
+    window.BaseComponent = BaseComponent;
+    window.System        = System;
+    window.HttpClient    = HttpClient;
+    window.AppContext    = AppContext;
+    window.HtaConsole    = HtaConsole;
+    window.SpaHelper     = SpaHelper;
+}
+
+
 
 function loadMainScript() {
     // Get the base URL of the current page
@@ -65,4 +66,4 @@ if (document.readyState === 'complete' || (document.readyState !== 'loading' && 
 /*
 * Exports BaseComponent, System, HttpClient, AppContext, HtaConsole to be accessible globally
 */
-export { BaseComponent, System, HttpClient, AppContext, HtaConsole, SpaHelper, StringHelper as String, $ };
+export { BaseComponent, System, HttpClient, AppContext, HtaConsole, SpaHelper, StringHelper as String };
