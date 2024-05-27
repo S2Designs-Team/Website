@@ -15,8 +15,8 @@ class HtaConsole extends BaseComponent {
                 <SPAN ID='console-titleBar-btnClear'>&#10680;</SPAN>
                 <SPAN ID='console-titleBar-btnOpacity'>&#9680;</SPAN>
                 <SPAN ID='console-titleBar-btnReload'>&#10227;</SPAN>
-                <SPAN ID='console-titleBar-btnClose'    STYLE='float: right; margin-right: 8px; color: grey;'>&#10006;</SPAN>
-                <SPAN ID='console-titleBar-btnMinimize' STYLE='float: right; margin-top:1px;margin-right: 10px; color: grey;'>&#9660;</SPAN>
+                <SPAN ID='console-titleBar-btnClose'>&#10006;</SPAN>
+                <SPAN ID='console-titleBar-btnMinimize'>&#9660;</SPAN>
             </DIV>
             <DIV ID='console-history-panel' STYLE='background: rgba(19,19,19,1);'>
                 <DIV ID='panel-console'></DIV>
@@ -56,11 +56,11 @@ class HtaConsole extends BaseComponent {
                 font-family:   Arial;
             }
             #console-titleBar-caption {
-               padding-left:       5px;
-               font-weight:        700; 
-               color:              #555;	    
-               border-right-style: solid;
-               padding-inline-end: 0.2em;
+                padding-left:       5px;
+                font-weight:        700; 
+                color:              #555;	    
+                border-right-style: solid;
+                padding-inline-end: 0.2em;
             }
             #console-titleBar-btnClear,
             #console-titleBar-btnOpacity,
@@ -69,6 +69,17 @@ class HtaConsole extends BaseComponent {
             #console-titleBar-btnMinimize{
                 cursor:        pointer;
             }
+            #console-titleBar-btnClose {
+                float:        right; 
+		margin-right: 8px; 
+                color:        grey;
+            }
+            #console-titleBar-btnMinimize {
+                float:        right; 
+                margin-top:   1px;
+                margin-right: 10px; 
+                color:        grey;
+	    }
             #panel-console {
                 display:       block;
                 overflow:      auto;
