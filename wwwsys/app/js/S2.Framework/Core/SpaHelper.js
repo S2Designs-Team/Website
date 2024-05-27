@@ -1,4 +1,4 @@
-/*
+er/*
 # Created by S2DesignsTeam © 2035 (Phobetor1999 AKA ㊙️anonimo㊙️).
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -116,7 +116,7 @@ class SpaHelper {
         } else {
             urlContent = await this.loadLocalUrl(AppContext.props["contentContainerDomName"], AppContext.getStartPath() + url);	
         }
-        if (!String.isNullOrEmpty(urlContent)) { this.executeScripts(urlContent); }
+        if (!StringHelper.isNullOrEmpty(urlContent)) { this.executeScripts(urlContent); }
     };
   
     /*📎DOCUMENTATION
@@ -133,7 +133,7 @@ class SpaHelper {
         var fileContent ="";
         var remoteContent = "";
         try {
-            if (!String.isNullOrEmpty(targetDomName)) {	    
+            if (!StringHelper.isNullOrEmpty(targetDomName)) {	    
                 remoteContent = $.get(url, function(data) {
                     $(targetDomName).html(data);
                 })
@@ -172,7 +172,7 @@ class SpaHelper {
         var file;
         var fileContent = "";
         try {
-            if (!String.isNullOrEmpty(targetDomName)) {
+            if (!StringHelper.isNullOrEmpty(targetDomName)) {
                 var fso = new ActiveXObject("Scripting.FileSystemObject");
 				
                 if (fso.FileExists(filePath)) {
