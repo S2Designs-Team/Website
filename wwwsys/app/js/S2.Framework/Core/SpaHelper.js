@@ -139,7 +139,7 @@ class SpaHelper {
                 })
                 .done(function(data) {
                     $(targetDomName).html(data);
-                    //console.debug(data);
+                    console.dataView(data);
                     return data;
                 })
                 .fail(function(jqXHR, textStatus, errorThrown) {
