@@ -54,6 +54,7 @@ class SpaHelper {
     * Last modify:  2024-05-25
     * MethodName:   wrapNavRoutes
     */
+/*	
     wrapNavRoutes = () => {
         var navLinks = document.querySelectorAll("nav ul li a");
         navLinks.forEach(function(link) {
@@ -70,7 +71,8 @@ class SpaHelper {
             });
         });
     };
-    /*wrapNavRoutes = () => {		
+*/
+    wrapNavRoutes = () => {		
         $("nav ul li a").click(function(event) {
             event.preventDefault(); // Impedisce il comportamento predefinito del link
 
@@ -83,7 +85,7 @@ class SpaHelper {
             this.wrapContentRoutes();
         });
     };
-   */
+
     /*📎DOCUMENTATION
     * Author:       ㊙️anonimo㊙️
     * Description:  Manages all the links composing all contents in the document  
