@@ -79,9 +79,9 @@ class SpaHelper {
             var percorsoContenuto = $(this).attr("href");
             console.info("Navigation item '" + $(this).text() + "'has been clicked.");
 			
-            SpaHelper.loadUrl(percorsoContenuto);
+            SpaHelper.instance.loadUrl(percorsoContenuto);
 			
-            SpaHelper.wrapContentRoutes();
+            SpaHelper.instance.wrapContentRoutes();
         });
     };
 
