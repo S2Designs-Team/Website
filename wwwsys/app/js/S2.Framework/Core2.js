@@ -20,7 +20,7 @@ function loadjQuery() {
 }
 
 function loadCoreServices() {
-    window.String        = StringHelper;    
+    window.StringHelper  = StringHelper;    
     window.BaseComponent = BaseComponent;
     window.System        = System;
     window.HttpClient    = HttpClient;
@@ -65,4 +65,4 @@ if (document.readyState === 'complete' || (document.readyState !== 'loading' && 
 /*
 * Exports BaseComponent, System, HttpClient, AppContext, HtaConsole to be accessible globally
 */
-export { BaseComponent, System, HttpClient, AppContext, HtaConsole, SpaHelper, StringHelper as String };
+export { BaseComponent, System, HttpClient, AppContext, HtaConsole, SpaHelper, StringHelper };
