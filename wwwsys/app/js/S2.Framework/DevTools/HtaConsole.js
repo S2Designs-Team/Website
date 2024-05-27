@@ -143,7 +143,45 @@ class HtaConsole extends BaseComponent {
             log:   (arg) => this.log(`<SPAN STYLE='padding-left: 2px;'>${arg}</SPAN>`),
             debug: (arg) => this.log(`<SPAN STYLE='color: white'>🛠️</SPAN> <SPAN STYLE='color: white'>${arg}</SPAN>`),
             warn:  (arg) => this.log(`<SPAN STYLE='color: orange'>⚠️</SPAN> <SPAN>${arg}</SPAN>`),
-            error: (arg) => this.log(`<SPAN STYLE='color: red'>☢️</SPAN> <SPAN STYLE='color: red'>${arg}</SPAN>`)
+            error: (arg) => this.log(`<SPAN STYLE='color: red'>☢️</SPAN> <SPAN STYLE='color: red'>${arg}</SPAN>`),
+            dataView: (arg) => {
+                if (arg) {
+                    var formattedHTML = arg.replace(/&/g, "&amp;")
+                                        .replace(/</g, "&lt;")
+                                        .replace(/>/g, "&gt;")
+                                        .replace(/"/g, "&quot;")
+                                        .replace(/'/g, "&#39;");
+
+                    // Replaces all 'crlf' (caret return + line forward) chars with '<br>'
+                    formattedHTML = formattedHTML.replace(/[\r\n]+/g, "<br>");
+					
+                    formattedHTML = formattedHTML.replace(/\t/g, "    ");
+					
+                    // Replaces all 'tab' chars with 4 blank spaces
+                    var preStyle = "word-wrap: normal; " + 
+                                   "background-color: rgba(13, 13, 13, 1); " + 
+                                   "-webkit-hyphens: none; " + 
+                                   "hyphens: none; " + 
+                                   "line-height: 1.5; " +
+                                   "tab-size: 4; " + 
+                                   "text-align: left; " + 
+                                   "white-space: pre; " + 
+                                   "word-break: normal; " + 
+                                   "word-spacing: normal; " + 
+                                   "padding-left: 30px;";
+
+                    // Avvolgi il testo formattato con un tag <pre>
+                    formattedHTML = "<pre style='" + preStyle + "'>" + formattedHTML + "</pre>";
+					
+                    var divStyle = "color: #90EE90; " + 
+                                   "text-align: left; " + 
+                                   "background-color: rgba(13, 13, 13, 1); " + 
+                                   "border-radius: 0.375rem;" +
+                                   "overflow: auto;" + 
+                                   "margin-left: -1px;";			
+                    htaConsole.log("<div style='" + divStyle + "'>" + formattedHTML + "</div>");
+                }
+            }
         };
     }
 
