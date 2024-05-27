@@ -7,12 +7,6 @@ import { AppContext }    from './Core/AppContext.js';     // Import AppContext i
 import { SpaHelper }     from './Core/SpaHelper.js';      // Import SpaHelper instance from SpaHelper.js
 import { HtaConsole }    from './DevTools/HtaConsole.js'; // Import HtaConsole instance from HtaConsole.js
 
-// Function to be executed after the page has fully loaded
-// =======================================================
-function startApplication() {
-    loadCoreServices();
-    loadMainScript();
-}
 function loadCoreServices() {
     window.$             = $;
     window.String        = StringHelper;    
@@ -23,6 +17,20 @@ function loadCoreServices() {
     window.HtaConsole    = HtaConsole;
     window.SpaHelper     = SpaHelper;
 }
+
+function loadjQuery() {
+    return new Promise((resolve, reject) => {
+        const script = document.createElement('script');
+        script.src = 'https://code.jquery.com/jquery-3.6.0.min.js';
+        script.onload = () => {
+            window.$ = window.jQuery; // Assicurati che $ e jQuery siano disponibili globalmente
+            resolve();
+        };
+        script.onerror = () => reject(new Error('jQuery load error'));
+        document.head.appendChild(script);
+    });
+}
+
 function loadMainScript() {
     // Get the base URL of the current page
     const baseUrl = AppContext.getBaseUrl();
@@ -31,6 +39,20 @@ function loadMainScript() {
     script.type   = 'module';
     script.src    = `${baseUrl}program.js`;
     document.body.appendChild(script);
+}
+
+// Function to be executed after the page has fully loaded
+// =======================================================
+function startApplication() {
+    loadjQuery()
+        .then(() => {
+            loadCoreServices();
+            loadMainScript();
+        })
+        .catch((error) => {
+            console.error("Error occurred during jQuery loading: ", error);
+        }
+    );
 }
 
 // Check if the document has fully loaded
