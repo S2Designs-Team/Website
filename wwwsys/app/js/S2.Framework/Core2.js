@@ -1,4 +1,3 @@
-import { $ }             from './Core/JQuery.Module.js';  // Import $ from JQuery.Module.js
 import { StringHelper }  from './Core/StringHelper.js';   // Import StringHelper class from SpaHelper.js
 import { BaseComponent } from './Core/BaseComponent.js';  // Import BaseComponent class from BaseComponent.js
 import { System }        from './Core/System.js';         // Import System class from System.js
