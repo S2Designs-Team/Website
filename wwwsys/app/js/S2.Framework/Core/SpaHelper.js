@@ -151,7 +151,7 @@ class SpaHelper {
         } else {
             urlContent = await this.loadLocalUrl(Application.contentContainerDomName, Application.getStartPath() + url);	
         }
-        if (!StringHelper.isEmpty(urlContent)) { this.executeScripts(urlContent); }
+        if (!String.isNullOrEmpty(urlContent)) { this.executeScripts(urlContent); }
     };
   
     /*📎DOCUMENTATION
@@ -164,10 +164,10 @@ class SpaHelper {
     * Returns:      The content loaded from the remote url
     */
     loadRemoteUrl = async (targetDomName, url) => {
-	/*
+/*
         var file;
         var fileContent ="";
-	var remoteContent = "";
+        var remoteContent = "";
         try {
             if (!String.isNullOrEmpty(targetDomName)) {
 
@@ -175,26 +175,26 @@ class SpaHelper {
                 let myHtml = httpClient.loadHtmlPage(url);
                 // Initialize the DOM parser
                 var parser = new DOMParser();
-		
+
                 // Parse the text
                 var doc = parser.parseFromString(myHtml, "text/html");
-		
+
                 // You can now even select part of that html as you would in the regular DOM 
                 // Example:
                 // var docArticle = doc.querySelector('article').innerHTML;
                 console.debug(doc);
                 remoteContent =  myHtml;
-	*/
+*/
         var file;
         var fileContent ="";
-	var remoteContent = "";
+        var remoteContent = "";
         try {
             if (!String.isNullOrEmpty(targetDomName)) {	    
                 remoteContent = $.get(url, function(data) {
                     $(targetDomName).html(data);
                 })
                 .done(function(data) {
-                    $(Application.contentContainerDomName).html(data);
+                    $(targetDomName).html(data);
                     console.dataView(data);
                     return data;
                 })
@@ -212,7 +212,7 @@ class SpaHelper {
             remoteContent = null;
         } finally {
             return remoteContent;
-        }			
+        }
     };
   
     /*📎DOCUMENTATION
