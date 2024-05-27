@@ -179,7 +179,7 @@ class HtaConsole extends BaseComponent {
                                    "border-radius: 0.375rem;" +
                                    "overflow: auto;" + 
                                    "margin-left: -1px;";			
-                    htaConsole.log("<div style='" + divStyle + "'>" + formattedHTML + "</div>");
+                    this.log("<div style='" + divStyle + "'>" + formattedHTML + "</div>");
                 }
             }
         };
