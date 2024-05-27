@@ -54,24 +54,6 @@ class SpaHelper {
     * Last modify:  2024-05-25
     * MethodName:   wrapNavRoutes
     */
-/*	
-    wrapNavRoutes = () => {
-        var navLinks = document.querySelectorAll("nav ul li a");
-        navLinks.forEach(function(link) {
-            link.addEventListener("click", function(event) {
-                event.preventDefault(); // Impedisce il comportamento predefinito del link
-
-                var percorsoContenuto = this.getAttribute("href");
-                console.info("Navigation item '" + this.textContent + "' has been clicked.");
-            
-                //👉️SpaHelper.loadUrl(percorsoContenuto);
-                this.loadUrl(percorsoContenuto);
-            
-                this.wrapContentRoutes();
-            });
-        });
-    };
-*/
     wrapNavRoutes = () => {		
         $("nav ul li a").click(function(event) {
             event.preventDefault(); // Impedisce il comportamento predefinito del link
@@ -92,25 +74,7 @@ class SpaHelper {
     * Last modify:  2024-05-25
     * MethodName:   wrapContentRoutes
     */
-    wrapContentRoutes = () =>{	
-	var myFoundLinks = document.getElementById("content").getElementsByTagName("a");
-        for (var i = 0; i < myFoundLinks.length; i++) {
-            myFoundLinks[i].addEventListener("click", function(event) {
-                var myContentPath = this.getAttribute("href");
-                console.info("Content link '" + this.textContent + "' has been clicked.");
-                console.info("Link url = '" + myContentPath + "'.");
-
-                if (myContentPath.indexOf("http://") === 0 || myContentPath.indexOf("https://") === 0) {
-                    console.debug("Loading the web hosted page");
-                    // urlContent = this.loadRemoteUrl(Application.contentContainerDomName, myContentPath);
-                } else {
-                    event.preventDefault(); // Impedisce il comportamento predefinito del link
-                    urlContent = this.loadLocalUrl(Application.contentContainerDomName, Application.getStartPath() + myContentPath);
-                }
-            });
-        }
-    };
-/*	    
+    wrapContentRoutes = () =>{	 
         $(".content a").click(function(event) {
             var myContentPath = $(this).attr("href");
             console.info("Content link '" + $(this).text() + "'has been clicked.");
@@ -121,11 +85,11 @@ class SpaHelper {
                 //urlContent = SpaHelper.loadRemoteUrl(AppContext.props["contentContainerDomName"], percorsoContenuto);
             } else {
                 event.preventDefault(); // Impedisce il comportamento predefinito del link
-                urlContent = SpaHelper.loadLocalUrl(AppContext.props["contentContainerDomName"], Application.getStartPath() + myContentPath);	
+                urlContent = SpaHelper.instance.loadLocalUrl(AppContext.props["contentContainerDomName"], AppContext.getStartPath() + myContentPath);	
             }
         });
     };
-*/  
+  
     /*📎DOCUMENTATION
     * Author:       ㊙️anonimo㊙️
     * Description: 
@@ -150,7 +114,7 @@ class SpaHelper {
                 urlContent = await this.loadRemoteUrl(AppContext.props["contentContainerDomName"], window.location.href + url);					
             }
         } else {
-            urlContent = await this.loadLocalUrl(Application.contentContainerDomName, Application.getStartPath() + url);	
+            urlContent = await this.loadLocalUrl(AppContext.props["contentContainerDomName"], AppContext.getStartPath() + url);	
         }
         if (!String.isNullOrEmpty(urlContent)) { this.executeScripts(urlContent); }
     };
@@ -165,27 +129,6 @@ class SpaHelper {
     * Returns:      The content loaded from the remote url
     */
     loadRemoteUrl = async (targetDomName, url) => {
-/*
-        var file;
-        var fileContent ="";
-        var remoteContent = "";
-        try {
-            if (!String.isNullOrEmpty(targetDomName)) {
-
-                const httpClient = new HttpClient(url);
-                let myHtml = httpClient.loadHtmlPage(url);
-                // Initialize the DOM parser
-                var parser = new DOMParser();
-
-                // Parse the text
-                var doc = parser.parseFromString(myHtml, "text/html");
-
-                // You can now even select part of that html as you would in the regular DOM 
-                // Example:
-                // var docArticle = doc.querySelector('article').innerHTML;
-                console.debug(doc);
-                remoteContent =  myHtml;
-*/
         var file;
         var fileContent ="";
         var remoteContent = "";
@@ -282,8 +225,8 @@ class SpaHelper {
         scripts = $(htmlContent).find('script');
         scripts.each(function() {
             var src = $(this).attr('src');
-            if (url.indexOf("file:///") === 0 || Application.isLocallyHosted(url)) {
-                scriptContent = this.loadLocalUrl("", Application.getStartPath() + url);	
+            if (url.indexOf("file:///") === 0 || AppContext.isLocallyHosted(url)) {
+                scriptContent = this.loadLocalUrl("", AppContext.getStartPath() + url);	
                 console.log("Codice javascript locale, esterno all'html, da eseguire: " + "<BR>" + 
                             scriptContent);
             } else {
