@@ -210,7 +210,6 @@ class SpaHelper {
     * Returns:      The content loaded from the remote url
     */
     executeScripts = (htmlContent) => {
-        debugger;
         var scriptSrcList = [];
         var scriptContent = ""; 
         var scripts       = $(htmlContent).find('script'); // Seleziona tutti gli script nel contenuto
