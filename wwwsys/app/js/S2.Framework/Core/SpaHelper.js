@@ -1,4 +1,4 @@
-er/*
+/*
 # Created by S2DesignsTeam © 2035 (Phobetor1999 AKA ㊙️anonimo㊙️).
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
