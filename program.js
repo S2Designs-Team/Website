@@ -10,7 +10,7 @@ const config = { apiUrl: 'https://api.example.com', timeout: 5000 };
 
 AppContext.setProperty("landingPageUrl"          , "wwwsys/pages/index.html");
 AppContext.setProperty("name"                    , "My application");
-AppContext.setProperty("contentContainerDomName" , "content");
+AppContext.setProperty("contentContainerDomName" , "#content");
 AppContext.setProperty("isLocalContent"          , "true");
 AppContext.setProperty(config);
 
