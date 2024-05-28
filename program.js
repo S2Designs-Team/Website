@@ -1,7 +1,7 @@
 // import { HtaConsole } from './wwwsys/app/js/S2.Framework/DevTools/HtaConsole.js'; // Import HtaConsole instance from HtaConsole.js
 // Import of needed graphic components
 import { NavBar } from './wwwsys/app/js/S2.Framework/Components/NavBar.js';
-import { ChannelLink } from './wwwsys/app/js/S2.Framework/Components/channelLink.js';
+import { ChannelLink } from './wwwsys/app/js/S2.Framework/Components/ChannelLink.js';
 
 // Inizializzazione della console
 HtaConsole.render();
