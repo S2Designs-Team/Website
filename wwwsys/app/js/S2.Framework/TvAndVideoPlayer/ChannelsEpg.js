@@ -157,7 +157,6 @@ class ChannelsEpg {
                 catch(err         => { console.log(err); } );  //👉️"Something went wrong"
             console.log(" - RAKUTEN EPG: invio eseguito correttamente.");
         } catch(error) { }
-        */	    
     }
 	
     applyChannelsEPG = () => {
