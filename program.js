@@ -72,5 +72,5 @@ console.info("Redirecting to the landing page....");
 SpaHelper.loadUrl(AppContext.props["landingPageUrl"]);
 
 // Istanze dei componenti grafici
-const navBar = new NavBar();
+NavBar.render();
 //component1.render("content");
