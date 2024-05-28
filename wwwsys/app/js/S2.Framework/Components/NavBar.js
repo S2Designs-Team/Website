@@ -31,7 +31,8 @@ class NavBar extends BaseComponent {
                 </NAV>
             </HEADER>
         `;
-
+        this.navLinks = [];
+        
         this.cssStyles = ``;
         this.isDebugEnvEnabled = true;
         this.navLinks.push("elemento di navigazione n 1");
