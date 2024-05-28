@@ -39,6 +39,7 @@ class NavBar extends BaseComponent {
         this.navLinks.push("elemento di navigazione n 2");
         this.navLinks.push("elemento di navigazione n 3");
         NavBar.instance = this;
+        Object.freeze(NavBar.instance);
     }
 
     initialize() {
@@ -70,7 +71,7 @@ class NavBar extends BaseComponent {
 }
 
 // Export the singleton instance
-const navBarInstance = new NavBar();
-Object.freeze(navBarInstance);
+//const navBarInstance = new NavBar();
+//Object.freeze(navBarInstance);
 
-export { navBarInstance as NavBar };
+export { NavBar };
