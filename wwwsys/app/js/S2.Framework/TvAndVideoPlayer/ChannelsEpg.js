@@ -134,8 +134,7 @@ class ChannelsEpg {
         } catch(error) { }
 
 
-        console.log(Math.round(new Date().valueOf() / 1000));
-        /*
+        console.log(epoch);
         this.EPG_URL_RAKUTEN    = "https://gizmo.rakuten.tv/v3/live_channels?" +
                                   "classification_id=36&" +
                                   "device_identifier=web&" +
@@ -143,13 +142,14 @@ class ChannelsEpg {
                                   "device_stream_hdr_type=NONE&" +
                                   "device_stream_video_quality=FHD&" +
                                   "epg_duration_minutes=240&" +
-                                  "epg_ends_at=2024-05-29T23%3A00%3A00.000Z&" +
-                                  "epg_ends_at_timestamp="+ epoch +"1715295600000&" +
-                                  "epg_starts_at=2024-05-28T19%3A00%3A00.000Z&" +
-                                  "epg_starts_at_timestamp=1715281200000&" +
+                                  //"epg_ends_at=2024-05-29T23%3A00%3A00.000Z&" +
+                                  //"epg_ends_at_timestamp="+ epoch + "&" +
+                                  //"epg_starts_at=2024-05-28T19%3A00%3A00.000Z&" +
+                                  //"epg_starts_at_timestamp="+ epoch + "&" +
                                   "locale=it&" +
                                   "market_code=it&" +
                                   "per_page=120";
+        console.log(this.EPG_URL_RAKUTEN);
         try {			
             fetch(this.EPG_URL_RAKUTEN).
                 then(response     => response.json()).
