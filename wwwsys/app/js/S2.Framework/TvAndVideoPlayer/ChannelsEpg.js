@@ -134,8 +134,7 @@ class ChannelsEpg {
         } catch(error) { }
 
 
-        const epoch = Math.round(new Date().valueOf() / 1000)
-        console.log(epoch)
+        console.log(Math.round(new Date().valueOf() / 1000));
         /*
         this.EPG_URL_RAKUTEN    = "https://gizmo.rakuten.tv/v3/live_channels?" +
                                   "classification_id=36&" +
