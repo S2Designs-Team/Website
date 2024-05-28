@@ -22,35 +22,36 @@
 <SCRIPT SRC  = "https://vjs.zencdn.net/8.10.0/video.min.js"></SCRIPT>
 
 <SCRIPT>
-	$("#description").html(
-		"<SECTION CLASS='background rai_treHd_bg'>" +
-		"</SECTION>" + 
-		"<ARTICLE>"  +
-		"    <H2>"   +
-		"    </H2>"  +
-		"    <P>"    +
-		"    </P>"   +
-		"</ARTICLE>"
-	);
-	$("#description ARTICLE H2").html(channelsEpg.infos()["Rai"].on_air[2].currentItem.name);
-	$("#description ARTICLE P").html(channelsEpg.infos()["Rai"].on_air[2].currentItem.description);
-	console.log(selectedChannelName + " La descrizione della trasmissione è stata aggiornata.");
-	var epoch = getTomorrowDateTimeAsEpoch();	
+    $("#description").html(
+        "<SECTION CLASS='background rai_treHd_bg'>" +
+        "</SECTION>" + 
+        "<ARTICLE>"  +
+        "    <H2>"   +
+        "    </H2>"  +
+        "    <P>"    +
+        "    </P>"   +
+       "</ARTICLE>"
+    );
+    $("#description ARTICLE H2").html(channelsEpg.EpgData['Rai'].on_air[2].currentItem.name);
+    $("#description ARTICLE P").html(channelsEpg.EpgData['Rai'].on_air[2].currentItem.description);
+    
+    console.log(selectedChannelName + " La descrizione della trasmissione è stata aggiornata.");
+    var epoch = getTomorrowDateTimeAsEpoch();	
 </SCRIPT>
 
-<VIDEO     ID               = "VideoPlayer"
-	   CLASS            = "video-js"
-	   PLAYSINLINE      = "" 
-	   CROSSORIGIN      = "anonymous"
-	   AUTOPLAY         = "true"
-	   CONTROLS
-	   CONTROLS PRELOAD = "none" 
-	   POSTER           = "wwwsys/app/res/img/S2_Team_Logo_WebTv.png"
-	   DATA-SETUP       = "{}">
-	<SOURCE SRC         = "https://streamcdnm7-8e7439fdb1694c8da3a0fd63e4dda518.msvdn.net/rai3nodvr/hls/rai3nodvr_2400/chunklist.m3u8?baseuri=%2Frai3nodvr%2Fhls%2F&tstart=0&tend=1715265231&tk2=e15949bfb84ad06db93dad6f9dec244065efe67776647045cb2463d8851e29dd"
-		TYPE        = "application/x-mpegURL">
-	<P CLASS="vjs-no-js">
-		Per poter vedere questo video stream occorre abilitare JavaScript, è comunque opportuno considerare un upgrade del
-		web browser che supporti <A HREF="https://videojs.com/html5-video-support/" TARGET="_blank"> HTML5 video</A>
-	</P>
+<VIDEO  ID               = "VideoPlayer"
+        CLASS            = "video-js"
+        PLAYSINLINE      = "" 
+        CROSSORIGIN      = "anonymous"
+        AUTOPLAY         = "true"
+        CONTROLS
+        CONTROLS PRELOAD = "none" 
+        POSTER           = "wwwsys/app/res/img/S2_Team_Logo_WebTv.png"
+        DATA-SETUP       = "{}">
+    <SOURCE SRC          = "https://streamcdnm7-8e7439fdb1694c8da3a0fd63e4dda518.msvdn.net/rai3nodvr/hls/rai3nodvr_2400/chunklist.m3u8?baseuri=%2Frai3nodvr%2Fhls%2F&tstart=0&tend=1715265231&tk2=e15949bfb84ad06db93dad6f9dec244065efe67776647045cb2463d8851e29dd"
+            TYPE         = "application/x-mpegURL">
+    <P CLASS="vjs-no-js">
+        Per poter vedere questo video stream occorre abilitare JavaScript, è comunque opportuno considerare un upgrade del
+        web browser che supporti <A HREF="https://videojs.com/html5-video-support/" TARGET="_blank"> HTML5 video</A>
+    </P>
 </VIDEO>
