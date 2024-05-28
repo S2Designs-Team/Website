@@ -20,11 +20,11 @@ class ChannelsEpg {
 	#EPG_URL_RAKUTEN;
 	#EPG_URL_VIACOM;
 	#PollingId;
-	const _httpRequest = new HttpClient();
-	
+
 	constructor(){
 		console.debug("[+][ChannelsEpg::init][EPG rollup initialization] ...");
 		try {
+			this._httpRequest       = new HttpClient();
 			this.EpgData            = ["Rai", "Mediaset", "Rakuten", "Viacom"];
 			this.EPG_URL_RAI        = "https://www.raiplay.it/palinsesto/onAir.json";
 			this.EPG_URL_MEDIASET   = "https://static3.mediasetplay.mediaset.it/apigw/nownext/nownext.json";
