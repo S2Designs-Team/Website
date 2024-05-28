@@ -118,8 +118,8 @@ class ChannelsEpg {
         try {
             fetch(this.EPG_URL_RAI).
                 then(response     => response.json()).
-                then(jsonizedData => this.EpgData["Rai"] = jsonizedData; ).
-                catch(err         => console.log(err); );  //👉️"Something went wrong"
+                then(jsonizedData => { this.EpgData["Rai"] = jsonizedData; } ).
+                catch(err         => { console.log(err); } );  //👉️"Something went wrong"
             console.log(" - RAI EPG: invio eseguito correttamente.");
         } catch(error) {
         /*
@@ -128,12 +128,12 @@ class ChannelsEpg {
         }
 
 	    
-        this.EPG_URL_MEDIASET   = "https://static3.mediasetplay.mediaset.it/apigw/nownext/nownext.json";	
+        this.EPG_URL_MEDIASET   = "https://static3.mediasetplay.mediaset.it/apigw/nownext/nownext.json";
         try {			
             fetch(this.EPG_URL_MEDIASET).
                 then(response     => response.json()).
-                then(jsonizedData => this.EpgData["Rakuten"] = jsonizedData;).
-		            catch(err         => console.log(err); );  //👉️"Something went wrong"
+                then(jsonizedData => { this.EpgData["Rakuten"] = jsonizedData;}).
+                catch(err         => { console.log(err); } );  //👉️"Something went wrong"
             console.log(" - MEDIASET EPG: invio eseguito correttamente.");
         } catch(error) {
         /*		
@@ -160,8 +160,8 @@ class ChannelsEpg {
         try {			
             fetch(this.EPG_URL_RAKUTEN).
                 then(response     => response.json()).
-                then(jsonizedData => this.EpgData["Mediaset"] = jsonizedData;).
-                catch(err         => console.log(err); );  //👉️"Something went wrong"
+                then(jsonizedData => { this.EpgData["Mediaset"] = jsonizedData; } ).
+                catch(err         => { console.log(err); } );  //👉️"Something went wrong"
             console.log(" - RAKUTEN EPG: invio eseguito correttamente.");
         } catch(error) {
         /*		
