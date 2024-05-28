@@ -121,11 +121,7 @@ class ChannelsEpg {
                 then(jsonizedData => { this.EpgData["Rai"] = jsonizedData; } ).
                 catch(err         => { console.log(err); } );  //👉️"Something went wrong"
             console.log(" - RAI EPG: invio eseguito correttamente.");
-        } catch(error) {
-        /*
-            console.log('Errors occurred executing the GET EPG DATA request to: ' + url, error);
-        */		
-        }
+        } catch(error) { }
 
 	    
         this.EPG_URL_MEDIASET   = "https://static3.mediasetplay.mediaset.it/apigw/nownext/nownext.json";
@@ -135,12 +131,9 @@ class ChannelsEpg {
                 then(jsonizedData => { this.EpgData["Rakuten"] = jsonizedData;}).
                 catch(err         => { console.log(err); } );  //👉️"Something went wrong"
             console.log(" - MEDIASET EPG: invio eseguito correttamente.");
-        } catch(error) {
-        /*		
-            console.log('Errors occurred executing the GET EPG DATA request to: ' + url, error);
-        */
-        }
+        } catch(error) { }
 
+        /*
         const epoch = Math.round(new Date().valueOf() / 1000)
         console.log(epoch)
         this.EPG_URL_RAKUTEN    = "https://gizmo.rakuten.tv/v3/live_channels?" +
@@ -163,11 +156,8 @@ class ChannelsEpg {
                 then(jsonizedData => { this.EpgData["Mediaset"] = jsonizedData; } ).
                 catch(err         => { console.log(err); } );  //👉️"Something went wrong"
             console.log(" - RAKUTEN EPG: invio eseguito correttamente.");
-        } catch(error) {
-        /*		
-            console.log('Errors occurred executing the GET EPG DATA request to: ' + url, error);
-        */
-        }	    
+        } catch(error) { }
+        */	    
     }
 	
     applyChannelsEPG = () => {

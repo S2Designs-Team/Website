@@ -1,5 +1,10 @@
 <SCRIPT SRC = "wwwsys/app/js/S2.Framework/TvAndVideoPlayer/TvChannelsLinks.js"></SCRIPT>
 <SCRIPT SRC = "wwwsys/app/js/S2.Framework/TvAndVideoPlayer/ChannelsEpg.js"></SCRIPT>
+<SCRIPT>
+	const channelEpgs = new ChannelsEpg();
+	channelEpgs.startPolling();
+	channelEpgs.applyChannelsEPG();
+</SCRIPT>
 
 <TITLE>Web TV</TITLE>
 
