@@ -265,13 +265,13 @@ class ChannelsEpg {
 	}
 	
 	startPolling = () =>{		
-		this.#PollingId = window.setInterval(async()=>{
+		this.PollingId = window.setInterval(async()=>{
 			await this.update();
 			this.applyChannelsEPG();
 		}, 15000);
 	};
 		
 	removePolling = () =>{
-		window.clearInterval(this.#PollingId);
+		window.clearInterval(this.PollingId);
 	};
 }
