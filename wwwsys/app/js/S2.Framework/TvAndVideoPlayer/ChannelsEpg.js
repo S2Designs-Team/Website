@@ -128,7 +128,7 @@ class ChannelsEpg {
         try {			
             fetch(this.EPG_URL_MEDIASET).
                 then(response     => response.json()).
-                then(jsonizedData => { this.EpgData["Rakuten"] = jsonizedData;}).
+                then(jsonizedData => { this.EpgData["Mediaset"] = jsonizedData;}).
                 catch(err         => { console.log(err); } );  //👉️"Something went wrong"
             console.log(" - MEDIASET EPG: invio eseguito correttamente.");
         } catch(error) { }
@@ -153,7 +153,7 @@ class ChannelsEpg {
         try {			
             fetch(this.EPG_URL_RAKUTEN).
                 then(response     => response.json()).
-                then(jsonizedData => { this.EpgData["Mediaset"] = jsonizedData; } ).
+                then(jsonizedData => { this.EpgData["Rakuten"] = jsonizedData; } ).
                 catch(err         => { console.log(err); } );  //👉️"Something went wrong"
             console.log(" - RAKUTEN EPG: invio eseguito correttamente.");
         } catch(error) { }
