@@ -20,7 +20,7 @@ class ChannelsEpg {
 	#EPG_URL_RAKUTEN;
 	#EPG_URL_VIACOM;
 	#PollingId;
-	const _httpRequest = new HttpRequest();
+	const _httpRequest = new HttpClient();
 	
 	constructor(){
 		console.debug("[+][ChannelsEpg::init][EPG rollup initialization] ...");
