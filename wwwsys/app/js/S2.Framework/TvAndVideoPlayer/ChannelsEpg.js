@@ -79,7 +79,7 @@ class ChannelsEpg {
 				});
 			console.log(" - RAI EPG: invio eseguito correttamente.");
    			*/
-		} catch (error) { }
+                } catch (error) { }
 		
 		// MEDIASET EPG ===========================================================================
 		try {	
@@ -125,7 +125,7 @@ class ChannelsEpg {
         /*
             console.log('Errors occurred executing the GET EPG DATA request to: ' + url, error);
         */		
-	}
+        }
 
 	    
         this.EPG_URL_MEDIASET   = "https://static3.mediasetplay.mediaset.it/apigw/nownext/nownext.json";	
@@ -133,13 +133,13 @@ class ChannelsEpg {
             fetch(this.EPG_URL_MEDIASET).
                 then(response     => response.json()).
                 then(jsonizedData => this.EpgData["Rakuten"] = jsonizedData;).
-		catch(err         => console.log(err); );  //👉️"Something went wrong"
+		            catch(err         => console.log(err); );  //👉️"Something went wrong"
             console.log(" - MEDIASET EPG: invio eseguito correttamente.");
         } catch(error) {
-	/*		
+        /*		
             console.log('Errors occurred executing the GET EPG DATA request to: ' + url, error);
-   	*/
-	}
+        */
+        }
 
         const epoch = Math.round(new Date().valueOf() / 1000)
         console.log(epoch)
@@ -161,17 +161,17 @@ class ChannelsEpg {
             fetch(this.EPG_URL_RAKUTEN).
                 then(response     => response.json()).
                 then(jsonizedData => this.EpgData["Mediaset"] = jsonizedData;).
-		catch(err         => console.log(err); );  //👉️"Something went wrong"
+                catch(err         => console.log(err); );  //👉️"Something went wrong"
             console.log(" - RAKUTEN EPG: invio eseguito correttamente.");
         } catch(error) {
-	/*		
+        /*		
             console.log('Errors occurred executing the GET EPG DATA request to: ' + url, error);
-   	*/
-	}	    
+        */
+        }	    
     }
 	
     applyChannelsEPG = () => {
-	debugger;
+        debugger;
         $("[id='Rai 1']").
             find('#title').
                 html(this.EpgData["Rai"].on_air[0].currentItem.name);
