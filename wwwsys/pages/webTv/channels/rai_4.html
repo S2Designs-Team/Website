@@ -22,36 +22,37 @@
 <SCRIPT SRC  = "https://vjs.zencdn.net/8.10.0/video.min.js"></SCRIPT>
 	
 <SCRIPT>
-	$("#description").html(
-		"<SECTION CLASS='background rai_quattroHd_bg'>" +
-		"</SECTION>" + 
-		"<ARTICLE>"  +
-		"    <H2>"   +
-		"    </H2>"  +
-		"    <P>"    +
-		"    </P>"   +
-		"</ARTICLE>"
-	);
-	$("#description ARTICLE H2").html(channelsEpg.infos()["Rai"].on_air[3].currentItem.name);
-	$("#description ARTICLE P").html(channelsEpg.infos()["Rai"].on_air[3].currentItem.description);
-	console.log(selectedChannelName + " La descrizione della trasmissione è stata aggiornata.");
-	var epoch = getTomorrowDateTimeAsEpoch();	
+    $("#description").html(
+        "<SECTION CLASS='background rai_quattroHd_bg'>" +
+        "</SECTION>" + 
+        "<ARTICLE>"  +
+        "    <H2>"   +
+        "    </H2>"  +
+        "    <P>"    +
+        "    </P>"   +
+        "</ARTICLE>"
+    );
+    $("#description ARTICLE H2").html(channelsEpg.EpgData['Rai'].on_air[3].currentItem.name);
+    $("#description ARTICLE P").html(channelsEpg.EpgData['Rai'].on_air[3].currentItem.description);
+    
+    console.log(selectedChannelName + " La descrizione della trasmissione è stata aggiornata.");
+    var epoch = getTomorrowDateTimeAsEpoch();	
 </SCRIPT>
 
-<VIDEO     ID               = "VideoPlayer"
-	   CLASS            = "video-js"
-	   PLAYSINLINE      = "" 
-	   CROSSORIGIN      = "anonymous"
-	   AUTOPLAY         = "true"
-	   CONTROLS
-	   CONTROLS PRELOAD = "none" 
-	   POSTER           = "wwwsys/app/res/img/S2_Team_Logo_WebTv.png"
-	   DATA-SETUP       = "{}">
-    	<SOURCE SRC         = "https://raiquattro1-live.akamaized.net/hls/live/598315/raiquattro1/raiquattro1/rai4_2400/exp=1715203391~acl=%2fhls%2flive%2f598315%2fraiquattro1%2f*!%2fhls%2flive%2f598315-b%2fraiquattro1%2f*!%2f*.key~data=hdntl~hmac=9cd378f0226df869fe7b9ccfff37392da795e47c662040f772c44ef0f8ebe8ca/chunklist.m3u8?aka_me_session_id=AAAAAAAAAAA%2f7TtmAAAAALxd+2ALHwb35TgfXbsavXANrmELJ7K2eF1IHAtPNaOYTTpWPl6S5JqW%2f%2fR3ZMVy31sPnncjiIAU&aka_media_format_type=hls"
-		TYPE        = "application/x-mpegURL">
-	<P CLASS="vjs-no-js">
-		Per poter vedere questo video stream occorre abilitare JavaScript, è comunque opportuno considerare un upgrade del
-		web browser che supporti <A HREF="https://videojs.com/html5-video-support/" TARGET="_blank"> HTML5 video</A>
-	</P>
+<VIDEO  ID               = "VideoPlayer"
+        CLASS            = "video-js"
+        PLAYSINLINE      = "" 
+        CROSSORIGIN      = "anonymous"
+        AUTOPLAY         = "true"
+        CONTROLS
+        CONTROLS PRELOAD = "none" 
+        POSTER           = "wwwsys/app/res/img/S2_Team_Logo_WebTv.png"
+        DATA-SETUP       = "{}">
+    <SOURCE SRC          = "https://raiquattro1-live.akamaized.net/hls/live/598315/raiquattro1/raiquattro1/rai4_2400/exp=1715203391~acl=%2fhls%2flive%2f598315%2fraiquattro1%2f*!%2fhls%2flive%2f598315-b%2fraiquattro1%2f*!%2f*.key~data=hdntl~hmac=9cd378f0226df869fe7b9ccfff37392da795e47c662040f772c44ef0f8ebe8ca/chunklist.m3u8?aka_me_session_id=AAAAAAAAAAA%2f7TtmAAAAALxd+2ALHwb35TgfXbsavXANrmELJ7K2eF1IHAtPNaOYTTpWPl6S5JqW%2f%2fR3ZMVy31sPnncjiIAU&aka_media_format_type=hls"
+            TYPE         = "application/x-mpegURL">
+    <P CLASS="vjs-no-js">
+        Per poter vedere questo video stream occorre abilitare JavaScript, è comunque opportuno considerare un upgrade del
+        web browser che supporti <A HREF="https://videojs.com/html5-video-support/" TARGET="_blank"> HTML5 video</A>
+    </P>
 </VIDEO>
 
