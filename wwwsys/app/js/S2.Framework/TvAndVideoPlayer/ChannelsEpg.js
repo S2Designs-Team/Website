@@ -99,7 +99,7 @@ class ChannelsEpg {
     	update = async() =>{
 		console.log("Caricamento della Guida Elettronica di Programmazione (EPG)...");
 		try {
-			fetch(this.#EPG_URL_RAI).
+			fetch(this.EPG_URL_RAI).
 				then(response => response.json()).
 				then(jsonizedData => {
 						this.EpgData["Rai"] = jsonizedData;
@@ -120,7 +120,7 @@ class ChannelsEpg {
 		*/
 		
 		try {			
-			fetch(this.#EPG_URL_MEDIASET).
+			fetch(this.EPG_URL_MEDIASET).
 				then(response => response.json()).
 				then(jsonizedData => {
 						this.EpgData["Mediaset"] = jsonizedData;
