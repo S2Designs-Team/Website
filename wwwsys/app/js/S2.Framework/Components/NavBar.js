@@ -45,7 +45,7 @@ class NavBar extends BaseComponent {
     initialize() {
         this.navLinks.foeEach((element) => {
             console.log(element);
-        }
+        });
     }
 
     addEventListeners(container) { }
