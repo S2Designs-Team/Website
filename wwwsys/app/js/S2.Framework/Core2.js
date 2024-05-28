@@ -29,8 +29,6 @@ function loadCoreServices() {
     window.SpaHelper     = SpaHelper;
 }
 
-
-
 function loadMainScript() {
     // Get the base URL of the current page
     const baseUrl = AppContext.getBaseUrl();
@@ -41,8 +39,9 @@ function loadMainScript() {
     document.body.appendChild(script);
 }
 
-// Function to be executed after the page has fully loaded
-// =======================================================
+// ===========================================================
+// = Function to be executed after the page has fully loaded = 
+// ===========================================================
 function startApplication() {
     loadjQuery()
         .then(() => {
