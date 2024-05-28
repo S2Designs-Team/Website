@@ -39,7 +39,6 @@ class NavBar extends BaseComponent {
         this.navLinks.push("elemento di navigazione n 2");
         this.navLinks.push("elemento di navigazione n 3");
         NavBar.instance = this;
-        Object.freeze(NavBar.instance);
     }
 
     initialize() {
