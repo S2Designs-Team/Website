@@ -14,13 +14,13 @@
 # limitations under the License.
 #
 */
-export class channelLink extends BaseComponent {
+export class ChannelLink extends BaseComponent {
     
     constructor(properties = {}, cssFileUrl = null) {
         super(properties, cssFileUrl); // Calls the Base Class constructor
 
-        if (HtaConsole.instance) {
-            return HtaConsole.instance;
+        if (ChannelLink.instance) {
+            return ChannelLink.instance;
         } 
         this.htmlSegment = `
 		    <LI ID="Rai 1">
@@ -30,6 +30,7 @@ export class channelLink extends BaseComponent {
 			    </A>
 		    </LI>
             `;
+	ChannelLink.instance = this;
     }
 
     initialize() {
