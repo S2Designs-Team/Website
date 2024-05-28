@@ -22,35 +22,35 @@
 <SCRIPT SRC  = "https://vjs.zencdn.net/8.10.0/video.min.js"></SCRIPT>
 
 <SCRIPT>
-	$("#description").html(
-		"<SECTION CLASS='background cartoonito_bg'>" +
-		"</SECTION>" + 
-		"<ARTICLE>"  +
-		"    <H2>"   +
-		"    </H2>"  +
-		"    <P>"    +
-		"    </P>"   +
-		"</ARTICLE>"
-	);
-	$("#description ARTICLE H2").html(channelsEpg.EpgData['Mediaset'].response.listings.LA.currentListing.mediasetlisting$epgTitle);
-	$("#description ARTICLE P").html(channelsEpg.EpgData['Mediaset'].response.listings.LA.currentListing.mediasetlisting$shortDescription + "</BR>" +
-					 channelsEpg.EpgData['Mediaset'].response.listings.LA.currentListing.description);
-	console.log(selectedChannelName + " La descrizione della trasmissione è stata aggiornata.");
+    $("#description").html(
+        "<SECTION CLASS='background cartoonito_bg'>" +
+        "</SECTION>" + 
+        "<ARTICLE>"  +
+        "    <H2>"   +
+        "    </H2>"  +
+        "    <P>"    +
+        "    </P>"   +
+        "</ARTICLE>"
+    );
+    $("#description ARTICLE H2").html(channelsEpg.EpgData['Mediaset'].response.listings.LA.currentListing.mediasetlisting$epgTitle);
+    $("#description ARTICLE P").html(channelsEpg.EpgData['Mediaset'].response.listings.LA.currentListing.mediasetlisting$shortDescription + "</BR>" +
+                                     channelsEpg.EpgData['Mediaset'].response.listings.LA.currentListing.description);
+    console.log(selectedChannelName + " La descrizione della trasmissione è stata aggiornata.");
 </SCRIPT>
 
-<VIDEO 	   ID               = "VideoPlayer" 
-	   CLASS            = "video-js"
-	   PLAYSINLINE      = "" 
-	   CROSSORIGIN      = "anonymous" 
-	   AUTOPLAY         = "true"
-	   CONTROLS
-	   CONTROLS PRELOAD = "none" 
-	   POSTER           = "wwwsys/app/res/img/S2_Team_Logo_WebTv.png"
-	   DATA-SETUP       = "{}">
-	<SOURCE SRC         = "https://live02-seg.msf.cdn.mediaset.net/live/ch-la/la-clr.isml/index.m3u8";
-		TYPE        = "application/x-mpegURL">	   
-	<P CLASS="vjs-no-js">
-		Per poter vedere questo video stream occorre abilitare JavaScript, è comunque opportuno considerare un upgrade del
-		web browser che supporti <A HREF="https://videojs.com/html5-video-support/" TARGET="_blank"> HTML5 video</A>
-	</P>
+<VIDEO  ID               = "VideoPlayer" 
+        CLASS            = "video-js"
+        PLAYSINLINE      = "" 
+        CROSSORIGIN      = "anonymous" 
+        AUTOPLAY         = "true"
+        CONTROLS
+        CONTROLS PRELOAD = "none" 
+        POSTER           = "wwwsys/app/res/img/S2_Team_Logo_WebTv.png"
+        DATA-SETUP       = "{}">
+    <SOURCE SRC          = "https://live02-seg.msf.cdn.mediaset.net/live/ch-la/la-clr.isml/index.m3u8";
+            TYPE         = "application/x-mpegURL">	   
+    <P CLASS="vjs-no-js">
+        Per poter vedere questo video stream occorre abilitare JavaScript, è comunque opportuno considerare un upgrade del
+        web browser che supporti <A HREF="https://videojs.com/html5-video-support/" TARGET="_blank"> HTML5 video</A>
+    </P>
 </VIDEO>
