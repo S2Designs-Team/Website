@@ -14,8 +14,6 @@
 # limitations under the License.
 #
 */
-
-
 export class channelLink extends BaseComponent {
     
     constructor(properties = {}, cssFileUrl = null) {
@@ -31,7 +29,7 @@ export class channelLink extends BaseComponent {
 				    <DIV CLASS="truncate"  ID="title">Rai Uno</DIV>
 			    </A>
 		    </LI>
-            `;   
+            `;
     }
 
     initialize() {
@@ -48,14 +46,14 @@ export class channelLink extends BaseComponent {
         channels[9]  = { type: "tv",    url: "webTv/channels/mediaset_italia_2.html",            iconStyleClass: "italia2-icon",         channelTitle: "Mediaset - Italia 2" };
         channels[10] = { type: "tv",    url: "webTv/channels/mediaset_focus.html",               iconStyleClass: "focus-icon",           channelTitle: "Mediaset - Focus" };
         channels[11] = { type: "tv",    url: "webTv/channels/mediaset_extra.html",               iconStyleClass: "extra-icon",           channelTitle: "Mediaset - Extra" };
-        channels[12] = { type: "tv",    url: "webTv/channels/rai_4.html",                        iconStyleClass: "rai4-icon",            channelTitle: "Rai Quattro" };                         // NOT WORKING
+        channels[12] = { type: "tv",    url: "webTv/channels/rai_4.html",                        iconStyleClass: "rai4-icon",            channelTitle: "Rai Quattro" };                        // NOT WORKING
         channels[13] = { type: "tv",    url: "webTv/channels/mediaset_la_5.html",                iconStyleClass: "la5-icon",             channelTitle: "Mediaset - La 5" };
         channels[14] = { type: "tv",    url: "webTv/channels/mediaset_20.html",                  iconStyleClass: "_20-icon",             channelTitle: "Mediaset - 20" };
         channels[15] = { type: "tv",    url: "webTv/channels/mediaset_27.html",                  iconStyleClass: "_27-icon",             channelTitle: "Mediaset - 27" };
         channels[16] = { type: "tv",    url: "webTv/channels/mediaset_iris.html",                iconStyleClass: "iris-icon",            channelTitle: "Mediaset - Iris" };
         channels[17] = { type: "tv",    url: "webTv/channels/mediaset_top_crime.html",           iconStyleClass: "topCrime-icon",        channelTitle: "Mediaset - Top Crime" };
         channels[18] = { type: "tv",    url: "webTv/channels/mediaset_cine_34.html",             iconStyleClass: "cine34-icon",          channelTitle: "Mediaset - Cine 34" };
-        channels[19] = { type: "tv",    url: "webTv/channels/paramount_vh1.html",                iconStyleClass: "paramount-icon",       channelTitle: "Paramount VH1" };	                    // NOT WORKING
+        channels[19] = { type: "tv",    url: "webTv/channels/paramount_vh1.html",                iconStyleClass: "paramount-icon",       channelTitle: "Paramount VH1" };                      // NOT WORKING
         channels[20] = { type: "tv",    url: "webTv/channels/mediaset_boing.html",               iconStyleClass: "boing-icon",           channelTitle: "Mediaset - Boing" };
         channels[21] = { type: "tv",    url: "webTv/channels/mediaset_cartoonito.html",          iconStyleClass: "cartoonito-icon",      channelTitle: "Mediaset - Cartonito" };
         channels[22] = { type: "tv",    url: "webTv/channels/mediaset_tgcom_24.html",            iconStyleClass: "tgCom24-icon",         channelTitle: "Mediaset - TGCom 24" };
@@ -64,8 +62,8 @@ export class channelLink extends BaseComponent {
         channels[24] = { type: "radio", url: "webTv/channels/mediaset_radio_virgin_tv.html",     iconStyleClass: "virginRadio-icon",     channelTitle: "Mediaset - VirginRadio TV" };
         channels[25] = { type: "radio", url: "webTv/channels/mediaset_radio_montecarlo_tv.html", iconStyleClass: "radioMonteCarlo-icon", channelTitle: "Mediaset - Radio Montecarlo TV" };	
         channels[26] = { type: "tv",    url: "webTv/channels/samsung_fail_army.html",            iconStyleClass: "failArmy-icon",        channelTitle: "Samsung - Fail Army" };	
-        channels[27] = { type: "tv",    url: "webTv/channels/samsung_fuel_tv.html",              iconStyleClass: "sofyTv-icon",          channelTitle: "Samsung - Fuel Tv" };	                // NOT WORKING
-        channels[28] = { type: "tv",    url: "webTv/channels/samsung_teletubbies.html",          iconStyleClass: "teleTubbies-icon",     channelTitle: "Rakuten TV - Teletubbies" };	        // NOT WORKING
+        channels[27] = { type: "tv",    url: "webTv/channels/samsung_fuel_tv.html",              iconStyleClass: "sofyTv-icon",          channelTitle: "Samsung - Fuel Tv" };                  // NOT WORKING
+        channels[28] = { type: "tv",    url: "webTv/channels/samsung_teletubbies.html",          iconStyleClass: "teleTubbies-icon",     channelTitle: "Rakuten TV - Teletubbies" };           // NOT WORKING
         channels[29] = { type: "tv",    url: "webTv/channels/rakuten_tv_azione.html",            iconStyleClass: "azione-icon",          channelTitle: "Rakuten TV - Azione" };
         channels[30] = { type: "tv",    url: "webTv/channels/rakuten_tv_cinema_italiano.html",   iconStyleClass: "cinemaItaliano-icon",  channelTitle: "Rakuten TV - Cinema Italiano" };
         channels[31] = { type: "tv",    url: "webTv/channels/rakuten_tv_commedia.html",          iconStyleClass: "commedia-icon",        channelTitle: "Rakuten TV - Commedia" };
@@ -78,5 +76,44 @@ export class channelLink extends BaseComponent {
         channels[38] = { type: "tv",    url: "webTv/channels/rakuten_tv_sciFi.html",             iconStyleClass: "sciFi-icon",           channelTitle: "Rakuten TV - Sci-Fi" };
         channels[39] = { type: "tv",    url: "webTv/channels/rakuten_tv_fantascienza.html",      iconStyleClass: "fantascienza-icon",    channelTitle: "Rakuten TV - Fantascienza" };
         console.log('Component1 initialized');
+    }
+	
+    addEventListeners(container) {
+        // Adds an 'On clickEvent' to all hyperlinks inside '.channelList' element
+        // then anonymous function will be called
+        $(".channelLink").click(function () {
+            console.clear();
+            var url     = $(this).attr('href');
+            $('.channelList li').removeClass('selected');
+            $(this).parent().addClass('selected');
+	
+            /*👉️ [SNI] ONLY FOR DEBUG MODE UNCOMMENT THE FOLLOWING CODE:
+            //debugger;
+            //console.log($(this).href);
+            //link.protocol + "//" + link.host + link.pathname
+            //const myUrl = new URL(url);
+            //const parts = ['protocol', 'hostname', 'pathname', 'port', 'hash'];
+            //parts.forEach(key => console.log(key, myUrl[key]));
+            */
+            $(strDestinationVideoScreenDom).load(url, async function(responseTxt, statusTxt, jqXHR){
+                if (statusTxt == "success"){
+                    console.log();
+                    var ParsedHtmlPage = $(responseTxt);
+                    /*👉️ [SNI] ONLY FOR DEBUG MODE UNCOMMENT THE FOLLOWING CODE:
+                    //debugger;
+                    //console.log(url + " content loaded successfully!\n"+
+                    //            "[Loaded Html]:\n" + 
+                    //            "==============================================================================\n"+
+                    //            responseTxt);
+                    */
+                }
+                if(statusTxt == "error"){
+                    alert("Error: " + jqXHR.status + " " + jqXHR.statusText);
+                }
+            });
+            selectedChannelName = $(this).parent().attr('id');
+            console.log("Selected channel: '" + selectedChannelName + "'");
+            return false;
+        });
     }
 }
