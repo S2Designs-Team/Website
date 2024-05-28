@@ -25,9 +25,9 @@ class ChannelsEpg {
 	constructor(){
 		console.debug("[+][ChannelsEpg::init][EPG rollup initialization] ...");
 		try {
-			this.#EpgData            = ["Rai", "Mediaset", "Rakuten", "Viacom"];
-			this.#EPG_URL_RAI        = "https://www.raiplay.it/palinsesto/onAir.json";
-			this.#EPG_URL_MEDIASET   = "https://static3.mediasetplay.mediaset.it/apigw/nownext/nownext.json";
+			this.EpgData            = ["Rai", "Mediaset", "Rakuten", "Viacom"];
+			this.EPG_URL_RAI        = "https://www.raiplay.it/palinsesto/onAir.json";
+			this.EPG_URL_MEDIASET   = "https://static3.mediasetplay.mediaset.it/apigw/nownext/nownext.json";
 			//this.#EPG_URL_RAKUTEN    = "https://gizmo.rakuten.tv/v3/live_channels?classification_id=36&device_identifier=web&device_stream_audio_quality=2.0&device_stream_hdr_type=NONE&device_stream_video_quality=FHD&epg_duration_minutes=240&epg_ends_at=2024-05-09T23%3A00%3A00.000Z&epg_ends_at_timestamp=1715295600000&epg_starts_at=2024-05-09T19%3A00%3A00.000Z&epg_starts_at_timestamp=1715281200000&locale=it&market_code=it&per_page=120";
 			await this.update();
 			this.startPolling();
@@ -43,7 +43,7 @@ class ChannelsEpg {
 		// RAI EPG ================================================================================
 		try {
 			// Esempio di utilizzo di una richiesta GET con dati di filtro
-			_httpRequest.Url = this.#EPG_URL_RAI;
+			_httpRequest.Url = this.EPG_URL_RAI;
 			_httpRequest.RequestOptions = {
    				method: 'GET',
     				headers: {
@@ -70,7 +70,7 @@ class ChannelsEpg {
 		
 		// MEDIASET EPG ===========================================================================
 		try {	
-			_httpRequest.Url = this.#EPG_URL_MEDIASET;
+			_httpRequest.Url = this.EPG_URL_MEDIASET;
 			_httpRequest.RequestOptions = {
    				method: 'GET',
     				headers: {
@@ -102,7 +102,7 @@ class ChannelsEpg {
 			fetch(this.#EPG_URL_RAI).
 				then(response => response.json()).
 				then(jsonizedData => {
-						this.#EpgData["Rai"] = jsonizedData;
+						this.EpgData["Rai"] = jsonizedData;
 					}).
 				catch(err => {
 					//👉️"Something went wrong"
@@ -123,7 +123,7 @@ class ChannelsEpg {
 			fetch(this.#EPG_URL_MEDIASET).
 				then(response => response.json()).
 				then(jsonizedData => {
-						this.#EpgData["Mediaset"] = jsonizedData;
+						this.EpgData["Mediaset"] = jsonizedData;
 					}).
 				catch(err => {
 					//👉️"Something went wrong"
