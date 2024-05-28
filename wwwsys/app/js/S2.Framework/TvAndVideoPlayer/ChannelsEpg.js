@@ -224,7 +224,7 @@ class ChannelsEpg {
             find('#title').
                 html(this.EpgData["Mediaset"].response.listings.EW.currentListing.mediasetlisting$epgTitle + "<BR />" + 
                      this.EpgData["Mediaset"].response.listings.EW.currentListing.mediasetlisting$shortDescription);
-	$("[id='Mediaset - Radio MonteCarlo']").
+        $("[id='Mediaset - Radio MonteCarlo']").
             find('#title').
                 html(this.EpgData["Mediaset"].response.listings.BB.currentListing.mediasetlisting$epgTitle + "<BR />" + 
                      this.EpgData["Mediaset"].response.listings.BB.currentListing.mediasetlisting$shortDescription);
