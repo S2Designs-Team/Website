@@ -110,47 +110,68 @@ class ChannelsEpg {
     }
     
     update = async() =>{
-		console.log("Caricamento della Guida Elettronica di Programmazione (EPG)...");
-		try {
-			fetch(this.EPG_URL_RAI).
-				then(response => response.json()).
-				then(jsonizedData => {
-						this.EpgData["Rai"] = jsonizedData;
-					}).
-				catch(err => {
-					//👉️"Something went wrong"
-					console.log(err);
-				});
-			console.log(" - RAI EPG: invio eseguito correttamente.");
-		} catch(error) { }
-		/*
-		} catch (error) {
-			console.log('Errors occurred executing the GET EPG DATA request to: ' + url, error);
-			return null;
-		}
-		*/
-		
-		try {			
-			fetch(this.EPG_URL_MEDIASET).
-				then(response => response.json()).
-				then(jsonizedData => {
-						this.EpgData["Mediaset"] = jsonizedData;
-					}).
-				catch(err => {
-					//👉️"Something went wrong"
-					console.log(err);
-				});
-			console.log(" - MEDIASET EPG: invio eseguito correttamente.");
-		} catch(error) { }
-		/*
-		} catch (error) {
-			console.log('Errors occurred executing the GET EPG DATA request to: ' + url, error);
-			return null;
-		}
-		*/
+        console.log("Caricamento della Guida Elettronica di Programmazione (EPG)...");
+	    
+        const epoch = Math.round(new Date().valueOf() / 1000);
+	    
+        this.EPG_URL_RAI        = "https://www.raiplay.it/palinsesto/onAir.json";
+        try {
+            fetch(this.EPG_URL_RAI).
+                then(response     => response.json()).
+                then(jsonizedData => this.EpgData["Rai"] = jsonizedData; ).
+                catch(err         => console.log(err); );  //👉️"Something went wrong"
+            console.log(" - RAI EPG: invio eseguito correttamente.");
+        } catch(error) {
+        /*
+            console.log('Errors occurred executing the GET EPG DATA request to: ' + url, error);
+        */		
+	}
+
+	    
+        this.EPG_URL_MEDIASET   = "https://static3.mediasetplay.mediaset.it/apigw/nownext/nownext.json";	
+        try {			
+            fetch(this.EPG_URL_MEDIASET).
+                then(response     => response.json()).
+                then(jsonizedData => this.EpgData["Rakuten"] = jsonizedData;).
+		catch(err         => console.log(err); );  //👉️"Something went wrong"
+            console.log(" - MEDIASET EPG: invio eseguito correttamente.");
+        } catch(error) {
+	/*		
+            console.log('Errors occurred executing the GET EPG DATA request to: ' + url, error);
+   	*/
+	}
+
+        const epoch = Math.round(new Date().valueOf() / 1000)
+        console.log(epoch)
+        this.EPG_URL_RAKUTEN    = "https://gizmo.rakuten.tv/v3/live_channels?" +
+                                  "classification_id=36&" +
+                                  "device_identifier=web&" +
+                                  "device_stream_audio_quality=2.0&" +
+                                  "device_stream_hdr_type=NONE&" +
+                                  "device_stream_video_quality=FHD&" +
+                                  "epg_duration_minutes=240&" +
+                                  "epg_ends_at=2024-05-29T23%3A00%3A00.000Z&" +
+                                  "epg_ends_at_timestamp="+ epoch +"1715295600000&" +
+                                  "epg_starts_at=2024-05-28T19%3A00%3A00.000Z&" +
+                                  "epg_starts_at_timestamp=1715281200000&" +
+                                  "locale=it&" +
+                                  "market_code=it&" +
+                                  "per_page=120";
+        try {			
+            fetch(this.EPG_URL_RAKUTEN).
+                then(response     => response.json()).
+                then(jsonizedData => this.EpgData["Mediaset"] = jsonizedData;).
+		catch(err         => console.log(err); );  //👉️"Something went wrong"
+            console.log(" - RAKUTEN EPG: invio eseguito correttamente.");
+        } catch(error) {
+	/*		
+            console.log('Errors occurred executing the GET EPG DATA request to: ' + url, error);
+   	*/
+	}	    
     }
 	
     applyChannelsEPG = () => {
+	debugger;
         $("[id='Rai 1']").
             find('#title').
                 html(this.EpgData["Rai"].on_air[0].currentItem.name);
