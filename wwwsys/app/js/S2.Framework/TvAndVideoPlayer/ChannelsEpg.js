@@ -148,7 +148,7 @@ class ChannelsEpg {
                                   //"epg_starts_at_timestamp="+ epoch + "&" +
                                   "locale=it&" +
                                   "market_code=it&" +
-                                  "per_page=120";
+                                  "per_page=120%27%20from%20origin%20%27https://phobetor1999.github.io";
         console.log(this.EPG_URL_RAKUTEN);
         try {			
             fetch(this.EPG_URL_RAKUTEN).
