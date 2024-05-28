@@ -32,9 +32,9 @@
 		"    </P>"   +
 		"</ARTICLE>"
 	);
-	$("#description ARTICLE H2").html(channelsEpg.infos()["Mediaset"].response.listings.KQ.currentListing.mediasetlisting$epgTitle);
-	$("#description ARTICLE P").html(channelsEpg.infos()["Mediaset"].response.listings.KQ.currentListing.mediasetlisting$shortDescription + "</BR>" +
-					 channelsEpg.infos()["Mediaset"].response.listings.KQ.currentListing.description);
+	$("#description ARTICLE H2").html(channelsEpg.EpgData['Mediaset'].response.listings.KQ.currentListing.mediasetlisting$epgTitle);
+	$("#description ARTICLE P").html(channelsEpg.EpgData['Mediaset'].response.listings.KQ.currentListing.mediasetlisting$shortDescription + "</BR>" +
+					 channelsEpg.EpgData['Mediaset'].response.listings.KQ.currentListing.description);
 	console.log(selectedChannelName + " La descrizione della trasmissione è stata aggiornata.");
 </SCRIPT>
 
