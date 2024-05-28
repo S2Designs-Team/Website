@@ -1,5 +1,6 @@
 // import { HtaConsole } from './wwwsys/app/js/S2.Framework/DevTools/HtaConsole.js'; // Import HtaConsole instance from HtaConsole.js
 // Import of needed graphic components
+import { NavBar } from './wwwsys/app/js/S2.Framework/Components/NavBar.js';
 import { Component1 } from './wwwsys/app/js/S2.Framework/Components/channelLink.js';
 
 // Inizializzazione della console
@@ -71,5 +72,5 @@ console.info("Redirecting to the landing page....");
 SpaHelper.loadUrl(AppContext.props["landingPageUrl"]);
 
 // Istanze dei componenti grafici
-//const component1 = new Component1();
+const NavBar = new NavBar();
 //component1.render("content");
