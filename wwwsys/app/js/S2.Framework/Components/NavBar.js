@@ -43,8 +43,8 @@ class NavBar extends BaseComponent {
     }
 
     initialize() {
-        for (let i=0; i < this.navLinks.length; i++) {
-            console.log(this.navLinks[i]);
+        this.navLinks.foeEach((element) => {
+            console.log(element);
         }
     }
 
