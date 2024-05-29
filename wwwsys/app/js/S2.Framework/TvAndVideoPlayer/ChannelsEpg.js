@@ -103,36 +103,14 @@ class ChannelsEpg {
         try {			
             fetch(this.EPG_URL_MEDIASET).
                 then(response     => response.json()).
-                then(jsonizedData => { this.EpgData["Mediaset"] = jsonizedData;}).
+                then(jsonizedData => { this.EpgData["Mediaset"] = jsonizedData; }).
                 catch(err         => { console.log(err); } );  //👉️"Something went wrong"
         } catch(error) { }
+
         console.log(epoch);
-                                  
         this.EPG_URL_RAKUTEN    = "https://gizmo.rakuten.tv/v3/live_channels/top-free-it-rakuten-tv?classification_id=36&device_identifier=web&device_stream_audio_quality=2.0&device_stream_hdr_type=NONE&device_stream_video_quality=FHD&disable_dash_legacy_packages=false&locale=it&market_code=it&support_closed_captions=true"
         try {			
-            fetch(this.EPG_URL_RAKUTEN, { 
-                //headers: {
-                //        "Access-Control-Allow-Origin": "*",
-                //        accept:               'application/json, text/plain, */*',
-                //        "Accept-Encoding":    'gzip, deflate, br, zstd',
-                //        "accept-language":    'it-IT,it;q=0.9,en-US;q=0.8,en;q=0.7',
-                //        "cache-control":      'no-cache',
-                //        "pragma":               'no-cache',
-                //        "priority":             'u=1, i',
-                //        "sec-ch-ua":          '"Google Chrome";v="125", "Chromium";v="125", "Not.A/Brand";v="24"',
-                //        "sec-ch-ua-mobile":   '?0',
-                //        "sec-ch-ua-platform": '"Windows"',
-                //        "sec-fetch-dest":     'empty',
-                //        "sec-fetch-mode":     'cors',
-                //        "sec-fetch-site":     'same-site'
-                //    },
-                    referrer:       'https://www.rakuten.tv/',
-                    referrerPolicy: 'strict-origin-when-cross-origin',
-                    body:           null,
-                    method:         'GET',
-                    mode:           'cors',
-                    credentials:    'omit'
-                }).
+            fetch(this.EPG_URL_RAKUTEN).
                 then(response     => response.json()).
                 then(jsonizedData => { this.EpgData["Rakuten"] = jsonizedData; } ).
                 catch(err         => { console.log(err); } );  //👉️"Something went wrong"
