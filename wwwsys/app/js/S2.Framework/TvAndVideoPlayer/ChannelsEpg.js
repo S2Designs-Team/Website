@@ -133,27 +133,27 @@ class ChannelsEpg {
             console.log(" - MEDIASET EPG: invio eseguito correttamente.");
         } catch(error) { }
 
-        fetch("https://gizmo.rakuten.tv/v3/live_channels?classification_id=36&device_identifier=web&device_stream_audio_quality=2.0&device_stream_hdr_type=NONE&device_stream_video_quality=FHD&epg_duration_minutes=240&epg_ends_at=2024-05-29T04%3A00%3A00.000Z&epg_ends_at_timestamp=1716955200000&epg_starts_at=2024-05-29T00%3A00%3A00.000Z&epg_starts_at_timestamp=1716940800000&locale=it&market_code=it&page=2&per_page=25", {
-            "headers": {
-              "accept": "application/json, text/plain, */*",
-              "accept-language": "it-IT,it;q=0.9,en-US;q=0.8,en;q=0.7",
-              "cache-control": "no-cache",
-              "pragma": "no-cache",
-              "priority": "u=1, i",
-              "sec-ch-ua": "\"Google Chrome\";v=\"125\", \"Chromium\";v=\"125\", \"Not.A/Brand\";v=\"24\"",
-              "sec-ch-ua-mobile": "?0",
-              "sec-ch-ua-platform": "\"Windows\"",
-              "sec-fetch-dest": "empty",
-              "sec-fetch-mode": "cors",
-              "sec-fetch-site": "same-site"
-            },
-            "referrer": "https://www.rakuten.tv/",
-            "referrerPolicy": "strict-origin-when-cross-origin",
-            "body": null,
-            "method": "GET",
-            "mode": "cors",
-            "credentials": "omit"
-          });
+        //fetch("https://gizmo.rakuten.tv/v3/live_channels?classification_id=36&device_identifier=web&device_stream_audio_quality=2.0&device_stream_hdr_type=NONE&device_stream_video_quality=FHD&epg_duration_minutes=240&epg_ends_at=2024-05-29T04%3A00%3A00.000Z&epg_ends_at_timestamp=1716955200000&epg_starts_at=2024-05-29T00%3A00%3A00.000Z&epg_starts_at_timestamp=1716940800000&locale=it&market_code=it&page=2&per_page=25", {
+        //    "headers": {
+        //      "accept": "application/json, text/plain, */*",
+        //      "accept-language": "it-IT,it;q=0.9,en-US;q=0.8,en;q=0.7",
+        //      "cache-control": "no-cache",
+        //      "pragma": "no-cache",
+        //      "priority": "u=1, i",
+        //      "sec-ch-ua": "\"Google Chrome\";v=\"125\", \"Chromium\";v=\"125\", \"Not.A/Brand\";v=\"24\"",
+        //      "sec-ch-ua-mobile": "?0",
+        //      "sec-ch-ua-platform": "\"Windows\"",
+        //      "sec-fetch-dest": "empty",
+        //      "sec-fetch-mode": "cors",
+        //      "sec-fetch-site": "same-site"
+        //    },
+        //    "referrer": "https://www.rakuten.tv/",
+        //    "referrerPolicy": "strict-origin-when-cross-origin",
+        //    "body": null,
+        //    "method": "GET",
+        //    "mode": "cors",
+        //    "credentials": "omit"
+        //  });
         console.log(epoch);
         this.EPG_URL_RAKUTEN    = "https://gizmo.rakuten.tv/v3/live_channels?" +
                                   "classification_id=36&" +
@@ -172,11 +172,25 @@ class ChannelsEpg {
         console.log(this.EPG_URL_RAKUTEN);
         try {			
             fetch(this.EPG_URL_RAKUTEN, { 
-                    method:         'GET',
-                    mode:           'no-cors',
-                    credentials:    'omit',
+                headers: {
+                        accept:               'application/json, text/plain, */*',
+                        "accept-language":    'it-IT,it;q=0.9,en-US;q=0.8,en;q=0.7',
+                        "cache-control":      'no-cache',
+                        pragma:               'no-cache',
+                        priority:             'u=1, i',
+                        "sec-ch-ua":          '"Google Chrome";v="125", "Chromium";v="125", "Not.A/Brand";v="24"',
+                        "sec-ch-ua-mobile":   '?0',
+                        "sec-ch-ua-platform": '"Windows"',
+                        "sec-fetch-dest":     'empty',
+                        "sec-fetch-mode":     'cors',
+                        "sec-fetch-site":     'same-site'
+                    },
                     referrer:       'https://www.rakuten.tv/',
                     referrerPolicy: 'strict-origin-when-cross-origin',
+                    body:           null,
+                    method:         'GET',
+                    mode:           'cors',
+                    credentials:    'omit'
                 }).
                 then(response     => response.json()).
                 then(jsonizedData => { this.EpgData["Rakuten"] = jsonizedData; } ).
