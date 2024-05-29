@@ -200,7 +200,7 @@ class ChannelsEpg {
     }
 	
     applyChannelsEPG = () => {
-        debugger;
+        
         $("[id='Rai 1']").
             find('#title').
                 html(this.EpgData["Rai"].on_air[0].currentItem.name);
