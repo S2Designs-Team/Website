@@ -196,7 +196,7 @@ class ChannelsEpg {
                     referrer:       'https://www.rakuten.tv/',
                     referrerPolicy: 'strict-origin-when-cross-origin',
                     body:           null,
-                    method:         'POST',
+                    method:         'GET',
                     mode:           'cors',
                     credentials:    'omit'
                 }).
