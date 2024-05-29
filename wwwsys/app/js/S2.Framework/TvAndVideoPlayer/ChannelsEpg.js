@@ -236,7 +236,7 @@ class ChannelsEpg {
         $("[id='Mediaset - Top Crime']").
             find('#title').
                 html(this.EpgData["Mediaset"].response.listings.LT.currentListing.mediasetlisting$epgTitle);
-        $("[id='Mediaset - Cine34']").
+        $("[id='Mediaset - Cine 34']").
             find('#title').
                 html(this.EpgData["Mediaset"].response.listings.B6.currentListing.mediasetlisting$epgTitle);
         $("[id='Mediaset - Boing']").
