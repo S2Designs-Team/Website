@@ -171,26 +171,28 @@ class ChannelsEpg {
         "locale=it&" +
         "market_code=it&" +
         "per_page=120";
-        */
-        this.EPG_URL_RAKUTEN    = "https://gizmo.rakuten.tv/v3/live_channels?classification_id=36&device_identifier=web&device_stream_audio_quality=2.0&device_stream_hdr_type=NONE&device_stream_video_quality=FHD&epg_duration_minutes=240&epg_ends_at=2024-05-29T15%3A00%3A00.000Z&epg_ends_at_timestamp=1716994800000&epg_starts_at=2024-05-29T11%3A00%3A00.000Z&epg_starts_at_timestamp=1716980400000&locale=it&market_code=it&page=4&per_page=25"
+        */      
+                                  
+        this.EPG_URL_RAKUTEN    = "https://gizmo.rakuten.tv/v3/live_channels/top-free-it-rakuten-tv?classification_id=36&device_identifier=web&device_stream_audio_quality=2.0&device_stream_hdr_type=NONE&device_stream_video_quality=FHD&disable_dash_legacy_packages=false&locale=it&market_code=it&support_closed_captions=true"
+        // "https://gizmo.rakuten.tv/v3/live_channels?classification_id=36&device_identifier=web&device_stream_audio_quality=2.0&device_stream_hdr_type=NONE&device_stream_video_quality=FHD&epg_duration_minutes=240&epg_ends_at=2024-05-29T15%3A00%3A00.000Z&epg_ends_at_timestamp=1716994800000&epg_starts_at=2024-05-29T11%3A00%3A00.000Z&epg_starts_at_timestamp=1716980400000&locale=it&market_code=it&page=4&per_page=25"
         console.log(this.EPG_URL_RAKUTEN);
         try {			
             fetch(this.EPG_URL_RAKUTEN, { 
-                headers: {
-                        "Access-Control-Allow-Origin": "*",
-                        accept:               'application/json, text/plain, */*',
-                        "Accept-Encoding":    'gzip, deflate, br, zstd',
-                        "accept-language":    'it-IT,it;q=0.9,en-US;q=0.8,en;q=0.7',
-                        "cache-control":      'no-cache',
-                        "pragma":               'no-cache',
-                        "priority":             'u=1, i',
-                        "sec-ch-ua":          '"Google Chrome";v="125", "Chromium";v="125", "Not.A/Brand";v="24"',
-                        "sec-ch-ua-mobile":   '?0',
-                        "sec-ch-ua-platform": '"Windows"',
-                        "sec-fetch-dest":     'empty',
-                        "sec-fetch-mode":     'cors',
-                        "sec-fetch-site":     'same-site'
-                    },
+                //headers: {
+                //        "Access-Control-Allow-Origin": "*",
+                //        accept:               'application/json, text/plain, */*',
+                //        "Accept-Encoding":    'gzip, deflate, br, zstd',
+                //        "accept-language":    'it-IT,it;q=0.9,en-US;q=0.8,en;q=0.7',
+                //        "cache-control":      'no-cache',
+                //        "pragma":               'no-cache',
+                //        "priority":             'u=1, i',
+                //        "sec-ch-ua":          '"Google Chrome";v="125", "Chromium";v="125", "Not.A/Brand";v="24"',
+                //        "sec-ch-ua-mobile":   '?0',
+                //        "sec-ch-ua-platform": '"Windows"',
+                //        "sec-fetch-dest":     'empty',
+                //        "sec-fetch-mode":     'cors',
+                //        "sec-fetch-site":     'same-site'
+                //    },
                     referrer:       'https://www.rakuten.tv/',
                     referrerPolicy: 'strict-origin-when-cross-origin',
                     body:           null,
