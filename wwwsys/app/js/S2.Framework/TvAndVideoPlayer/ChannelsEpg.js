@@ -120,7 +120,7 @@ class ChannelsEpg {
                 then(response     => response.json()).
                 then(jsonizedData => { this.EpgData["Rai"] = jsonizedData; } ).
                 catch(err         => { console.log(err); } );  //👉️"Something went wrong"
-            console.log(" - RAI EPG: invio eseguito correttamente.");
+            //console.log(" - RAI EPG: invio eseguito correttamente.");
         } catch(error) { }
 
 	    
@@ -130,7 +130,7 @@ class ChannelsEpg {
                 then(response     => response.json()).
                 then(jsonizedData => { this.EpgData["Mediaset"] = jsonizedData;}).
                 catch(err         => { console.log(err); } );  //👉️"Something went wrong"
-            console.log(" - MEDIASET EPG: invio eseguito correttamente.");
+            //console.log(" - MEDIASET EPG: invio eseguito correttamente.");
         } catch(error) { }
 
         //fetch("https://gizmo.rakuten.tv/v3/live_channels?classification_id=36&device_identifier=web&device_stream_audio_quality=2.0&device_stream_hdr_type=NONE&device_stream_video_quality=FHD&epg_duration_minutes=240&epg_ends_at=2024-05-29T04%3A00%3A00.000Z&epg_ends_at_timestamp=1716955200000&epg_starts_at=2024-05-29T00%3A00%3A00.000Z&epg_starts_at_timestamp=1716940800000&locale=it&market_code=it&page=2&per_page=25", {
@@ -195,7 +195,7 @@ class ChannelsEpg {
                 then(response     => response.json()).
                 then(jsonizedData => { this.EpgData["Rakuten"] = jsonizedData; } ).
                 catch(err         => { console.log(err); } );  //👉️"Something went wrong"
-            console.log(" - RAKUTEN EPG: invio eseguito correttamente.");
+            //console.log(" - RAKUTEN EPG: invio eseguito correttamente.");
         } catch(error) { }
     }
 	
