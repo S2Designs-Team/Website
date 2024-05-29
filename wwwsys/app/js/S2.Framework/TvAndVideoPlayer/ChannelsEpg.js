@@ -174,10 +174,11 @@ class ChannelsEpg {
             fetch(this.EPG_URL_RAKUTEN, { 
                 headers: {
                         accept:               'application/json, text/plain, */*',
+                        "Accept-Encoding":    'gzip, deflate, br, zstd',
                         "accept-language":    'it-IT,it;q=0.9,en-US;q=0.8,en;q=0.7',
                         "cache-control":      'no-cache',
-                        pragma:               'no-cache',
-                        priority:             'u=1, i',
+                        "pragma":               'no-cache',
+                        "priority":             'u=1, i',
                         "sec-ch-ua":          '"Google Chrome";v="125", "Chromium";v="125", "Not.A/Brand";v="24"',
                         "sec-ch-ua-mobile":   '?0',
                         "sec-ch-ua-platform": '"Windows"',
@@ -188,7 +189,7 @@ class ChannelsEpg {
                     referrer:       'https://www.rakuten.tv/',
                     referrerPolicy: 'strict-origin-when-cross-origin',
                     body:           null,
-                    method:         'GET',
+                    method:         'POST',
                     mode:           'cors',
                     credentials:    'omit'
                 }).
