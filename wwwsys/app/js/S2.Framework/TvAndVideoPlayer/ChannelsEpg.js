@@ -143,7 +143,8 @@ class ChannelsEpg {
                 market_code:                  'it',
                 support_closed_captions:      true
             });
-            const url = `https://gizmo.rakuten.tv/v3/live_channels/?${params.toString()}`;
+            this.EPG_URL_RAKUTEN = `https://gizmo.rakuten.tv/v3/live_channels/?${params.toString()}`;
+            
             fetch(this.EPG_URL_RAKUTEN).
                 then(response     => response.json()).
                 then(jsonizedData => { this.EpgData["Rakuten"] = jsonizedData; } ).
