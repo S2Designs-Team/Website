@@ -287,6 +287,11 @@
 	box-shadow          : inset 0px 0px 1px 1px hsl(0deg 0% 100% / 32%);
 	background-size     : 100% 100% !important;
 }
+.cineWestern_bg{
+	background          : url("https://phobetor1999.github.io/Website/wwwsys/app/res/img/tvChannelsBackgrounds/Rakuten_tv_cineWestern_bg.png") no-repeat no-repeat !important;
+	box-shadow          : inset 0px 0px 1px 1px hsl(0deg 0% 100% / 32%);
+	background-size     : 100% 100% !important;
+}
 .fantascienza_bg{
 	background          : url("https://phobetor1999.github.io/Website/wwwsys/app/res/img/tvChannelsBackgrounds/Rakuten_tv_fantascienza_bg.png") no-repeat no-repeat !important;
 	box-shadow          : inset 0px 0px 1px 1px hsl(0deg 0% 100% / 32%);
