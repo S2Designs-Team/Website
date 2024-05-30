@@ -109,7 +109,41 @@ class ChannelsEpg {
 
         console.log(epoch);
         this.EPG_URL_RAKUTEN    = "https://gizmo.rakuten.tv/v3/live_channels/top-free-it-rakuten-tv?classification_id=36&device_identifier=web&device_stream_audio_quality=2.0&device_stream_hdr_type=NONE&device_stream_video_quality=FHD&disable_dash_legacy_packages=false&locale=it&market_code=it&support_closed_captions=true"
-        try {			
+        /*
+            https://gizmo.rakuten.tv/v3/live_channels?
+                classification_id=35&
+                device_identifier=web&
+                device_stream_audio_quality=2.0&
+                device_stream_hdr_type=NONE&
+                device_stream_video_quality=FHD&
+                epg_duration_minutes=240&
+                epg_ends_at=2023-02-11T17%3A00%3A00.000Z&
+                epg_ends_at_timestamp=1676134800000&
+                epg_starts_at=2023-02-11T13%3A00%3A00.000Z&
+                epg_starts_at_timestamp=1676120400000&
+                locale=it&
+                market_code=it&
+                offset=70&
+                per_page=80
+        */
+        try {
+            const params = new URLSearchParams({
+                classification_id:            36,
+                device_identifier:            'web',
+                device_stream_audio_quality:  '2.0',
+                device_stream_hdr_type:       'NONE',
+                device_stream_video_quality:  'FHD',
+                disable_dash_legacy_packages: false,
+                epg_duration_minutes:         240,
+                epg_starts_at:                '2023-02-11T13:00:00.000Z',
+                epg_starts_at_timestamp:      1676120400000,
+                epg_ends_at:                  '2023-02-11T17:00:00.000Z',
+                epg_ends_at_timestamp:        1676134800000,                
+                locale:                       'it',
+                market_code:                  'it',
+                support_closed_captions:      true
+            });
+            const url = `https://gizmo.rakuten.tv/v3/live_channels/?${params.toString()}`;
             fetch(this.EPG_URL_RAKUTEN).
                 then(response     => response.json()).
                 then(jsonizedData => { this.EpgData["Rakuten"] = jsonizedData; } ).
