@@ -87,8 +87,10 @@ class ChannelsEpg {
     
     update = async() =>{
         console.log("Caricamento della Guida Elettronica di Programmazione (EPG)...");
-	    
-        const epoch = Math.round(new Date().valueOf() / 1000);
+	    const currentDateTime = Date.now()
+        const currentDateTimeIsoString = currentDateTime.toISOString();
+        //const epoch = Math.round(new Date().valueOf() / 1000);
+        const epoch = Math.round(currentDateTime.getTime()/1000.0);
 	    
         this.EPG_URL_RAI        = "https://www.raiplay.it/palinsesto/onAir.json";
         try {
