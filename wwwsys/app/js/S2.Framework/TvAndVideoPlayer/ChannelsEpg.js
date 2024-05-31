@@ -278,7 +278,7 @@ class ChannelsEpg {
     currentDateTimeToIsoFormat = () => {
 
         function pad(n) { return n < 10 ? '0' + n : n };
-        var currentDatetime = Date.now();
+        var currentDatetime = new Date();
         var result = currentDatetime.getFullYear() + 
             '-' + pad(currentDatetime.getMonth() + 1) + 
             '-' + pad(currentDatetime.getDate()) + 
