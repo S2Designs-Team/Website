@@ -145,13 +145,13 @@ class ChannelsEpg {
             });
             this.EPG_URL_RAKUTEN = `https://gizmo.rakuten.tv/v3/live_channels?${params.toString()}`;
             
-            fetch(this.EPG_URL_RAKUTEN).
-                then(response     => response.json(), {
+            fetch(this.EPG_URL_RAKUTEN, {
                     method: "get",
                     headers: new Headers({ 
                         "Content-Type": "application/json"
                     })
                 }).
+                then(response     => response.json()).
                 then(jsonizedData => { this.EpgData["Rakuten"] = jsonizedData; } ).
                 catch(err         => { console.log(err); } );  //👉️"Something went wrong"
         } catch(error) { }
