@@ -88,7 +88,6 @@ class ChannelsEpg {
     update = async() =>{
         console.log("Caricamento della Guida Elettronica di Programmazione (EPG)...");
         const currentIsoDateTime = this.currentDateTimeToIsoFormat();
-        //const epoch = Math.round(new Date().valueOf() / 1000);
         const epoch = Math.round(new Date().getTime()/1000.0);
 	    
         this.EPG_URL_RAI        = "https://www.raiplay.it/palinsesto/onAir.json";
@@ -276,7 +275,6 @@ class ChannelsEpg {
     }
 	
     currentDateTimeToIsoFormat = () => {
-
         function pad(n) { return n < 10 ? '0' + n : n };
         var currentDatetime = new Date();
         var result = currentDatetime.getFullYear() + 
@@ -289,6 +287,7 @@ class ChannelsEpg {
             'Z';
         return result;
     }
+    
     startPolling = () =>{		
         this.PollingId = window.setInterval(async()=>{
             await this.update();
