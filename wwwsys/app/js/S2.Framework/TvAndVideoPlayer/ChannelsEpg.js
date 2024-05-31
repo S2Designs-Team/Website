@@ -14,11 +14,6 @@
 # limitations under the License.
 */
 class ChannelsEpg {
-    #EpgData;
-    #EPG_URL_RAI;
-    #EPG_URL_MEDIASET;
-    #EPG_URL_RAKUTEN;
-    #EPG_URL_VIACOM;
     #PollingId;
 
     constructor(){
