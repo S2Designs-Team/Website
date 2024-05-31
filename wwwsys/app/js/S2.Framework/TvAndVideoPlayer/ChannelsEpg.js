@@ -42,7 +42,8 @@ class ChannelsEpg {
                                            "locale=it&" +
                                            "market_code=it&" +
                                            "per_page=120";
-            this.update();
+            await this.update();
+            this.applyChannelsEPG();
             this.startPolling();
         } catch (error){
             console.error(" {0}" + error.message);
