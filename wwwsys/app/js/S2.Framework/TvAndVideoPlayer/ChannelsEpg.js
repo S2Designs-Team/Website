@@ -15,7 +15,10 @@
 */
 class ChannelsEpg {
     #PollingId;
-
+    EPG_URL_RAI;
+    EPG_URL_MEDIASET;
+    EPG_URL_RAKUTEN;
+    
     constructor(){
         console.debug("[+][ChannelsEpg::init][EPG rollup initialization] ...");
         try {
