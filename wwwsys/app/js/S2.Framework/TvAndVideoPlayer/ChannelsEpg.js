@@ -42,7 +42,7 @@ class ChannelsEpg {
                                            "locale=it&" +
                                            "market_code=it&" +
                                            "per_page=120";
-            await this.update();
+            this.update();
             this.applyChannelsEPG();
             this.startPolling();
         } catch (error){
@@ -339,3 +339,9 @@ class ChannelsEpg {
         window.clearInterval(this.PollingId);
     };
 }
+
+// Export the singleton instance
+const channelsEpgInstance = new ChannelsEpg();
+Object.freeze(channelsEpgInstance);
+
+export { channelsEpgInstance as channelEpgs };
