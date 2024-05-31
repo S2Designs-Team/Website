@@ -13,7 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 */
-class ChannelsEpg {
+export class ChannelsEpg {
     #PollingId;
     EPG_URL_RAI;
     EPG_URL_MEDIASET;
@@ -319,8 +319,7 @@ class ChannelsEpg {
     };
 }
 
+window.channelsEpg  = new ChannelsEpg();
 // Export the singleton instance
-const channelsEpgInstance = new ChannelsEpg();
-Object.freeze(channelsEpgInstance);
 
-export { channelsEpgInstance as channelsEpg };
+export { ChannelsEpg };
