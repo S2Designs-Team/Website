@@ -278,14 +278,14 @@ class ChannelsEpg {
     currentDateTimeToIsoFormat = () => {
 
         function pad(n) { return n < 10 ? '0' + n : n };
-
-        var result = Date.getFullYear() + 
-            '-' + pad(Date.getMonth() + 1) + 
-            '-' + pad(Date.getDate()) + 
-            'T' + pad(Date.getHours()) + 
-            ':' + pad(Date.getMinutes()) +
-            ':' + pad(Date.getSeconds()) +
-            '.' + String((Date.getMilliseconds() / 1000).toFixed(3)).slice(2, 5) +
+        var currentDatetime = Date.now();
+        var result = currentDatetime.getFullYear() + 
+            '-' + pad(currentDatetime.getMonth() + 1) + 
+            '-' + pad(currentDatetime.getDate()) + 
+            'T' + pad(currentDatetime.getHours()) + 
+            ':' + pad(currentDatetime.getMinutes()) +
+            ':' + pad(currentDatetime.getSeconds()) +
+            '.' + String((currentDatetime.getMilliseconds() / 1000).toFixed(3)).slice(2, 5) +
             'Z';
         return result;
     }
