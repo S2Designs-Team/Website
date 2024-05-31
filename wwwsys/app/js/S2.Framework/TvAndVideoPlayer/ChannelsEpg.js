@@ -276,22 +276,17 @@ class ChannelsEpg {
     }
 	
     currentDateTimeToIsoFormat = () => {
-        function pad(number) {
-            var r = String(number);
-            if (r.length === 1) {
-              r = '0' + r;
-            }
-            return r;
-          }
-      
-        var result = Date.getUTCFullYear() +
-              '-' + pad(Date.getUTCMonth() + 1) +
-              '-' + pad(Date.getUTCDate()) +
-              'T' + pad(Date.getUTCHours()) +
-              ':' + pad(Date.getUTCMinutes()) +
-              ':' + pad(Date.getUTCSeconds()) +
-              '.' + String((Date.getUTCMilliseconds() / 1000).toFixed(3)).slice(2, 5) +
-              'Z';
+
+        function pad(n) { return n < 10 ? '0' + n : n };
+
+        var result = Date.getFullYear() + 
+            '-' + pad(Date.getMonth() + 1) + 
+            '-' + pad(Date.getDate()) + 
+            'T' + pad(Date.getHours()) + 
+            ':' + pad(Date.getMinutes()) +
+            ':' + pad(Date.getSeconds()) +
+            '.' + String((Date.getMilliseconds() / 1000).toFixed(3)).slice(2, 5) +
+            'Z';
         return result;
     }
     startPolling = () =>{		
