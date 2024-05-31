@@ -87,9 +87,15 @@ class ChannelsEpg {
     
     update = async() =>{
         console.log("Caricamento della Guida Elettronica di Programmazione (EPG)...");
+        
+        const hoursToAdd         = 4;
+        const currentDateTime    = new Date();
         const currentIsoDateTime = this.currentDateTimeToIsoFormat();
-        const epoch = Math.round(new Date().getTime()/1000.0);
-	    
+        const shiftedIsoDateTime = this.shiftedDateTimeToIsoFormat(currentDateTime, hoursToAdd);
+
+        const currentEpoch  = Math.round(currentDateTime.getTime()/1000.0);
+	    const shiftedtEpoch = Math.round(shiftedIsoDateTime.getTime()/1000.0);
+
         this.EPG_URL_RAI        = "https://www.raiplay.it/palinsesto/onAir.json";
         try {
             fetch(this.EPG_URL_RAI).
@@ -107,7 +113,8 @@ class ChannelsEpg {
                 catch(err         => { console.log(err); } );  //👉️"Something went wrong"
         } catch(error) { }
 
-        console.log(epoch);
+        console.log(`Current ISO date: ${currentIsoDateTime} = epoc ${currentEpoch}`);
+        console.log(`Shifted ISO date: ${shiftedIsoDateTime} = epoc ${shiftedtEpoch}`);
         this.EPG_URL_RAKUTEN    = "https://gizmo.rakuten.tv/v3/live_channels/top-free-it-rakuten-tv?classification_id=36&device_identifier=web&device_stream_audio_quality=2.0&device_stream_hdr_type=NONE&device_stream_video_quality=FHD&disable_dash_legacy_packages=false&locale=it&market_code=it&support_closed_captions=true"
         /*
             https://gizmo.rakuten.tv/v3/live_channels?
@@ -136,9 +143,9 @@ class ChannelsEpg {
                 disable_dash_legacy_packages: false,
                 epg_duration_minutes:         240,
                 epg_starts_at:                `${currentIsoDateTime}`,
-                epg_starts_at_timestamp:      epoch,
-                epg_ends_at:                  '2023-02-11T17:00:00.000Z',
-                epg_ends_at_timestamp:        1676134800000,                
+                epg_starts_at_timestamp:      currentEpoch,
+                epg_ends_at:                  `${shiftedIsoDateTime}`,
+                epg_ends_at_timestamp:        shiftedtEpoch,                
                 locale:                       'it',
                 market_code:                  'it',
                 support_closed_captions:      true
@@ -278,18 +285,45 @@ class ChannelsEpg {
                      this.#EpgData["Rakuten"].response.listings.EW.currentListing.mediasetlisting$shortDescription);
         */
     }
-	
-    currentDateTimeToIsoFormat = () => {
+
+    shiftedDateTimeToIsoFormat = (date, hoursToAdd = 0) => {
         function pad(n) { return n < 10 ? '0' + n : n };
-        var currentDatetime = new Date();
-        var result = currentDatetime.getFullYear() + 
-            '-' + pad(currentDatetime.getMonth() + 1) + 
-            '-' + pad(currentDatetime.getDate()) + 
-            'T' + pad(currentDatetime.getHours()) + 
-            ':' + pad(currentDatetime.getMinutes()) +
-            ':' + pad(currentDatetime.getSeconds()) +
-            '.' + String((currentDatetime.getMilliseconds() / 1000).toFixed(3)).slice(2, 5) +
+        if (hoursToAdd){
+            const myHoursToAddInMillies = hoursToAdd * 60 * 60 * 1000;
+            date.setTime(date.getTime() + myHoursToAddInMillies);
+        }
+
+        var result = date.getFullYear() + 
+            '-' + pad(date.getMonth() + 1) + 
+            '-' + pad(date.getDate()) + 
+            'T' + pad(date.getHours()) + 
+            ':' + pad(date.getMinutes()) +
+            ':' + pad(date.getSeconds()) +
+            '.' + String((date.getMilliseconds() / 1000).toFixed(3)).slice(2, 5) +
             'Z';
+
+        return result;
+    }
+
+    currentDateTimeToIsoFormat = (hoursToAdd = 0) => {
+        function pad(n) { return n < 10 ? '0' + n : n };
+
+        var myCurrentDatetime = new Date();
+
+        if (hoursToAdd || ){
+            const myHoursToAddInMillies = hoursToAdd * 60 * 60 * 1000;
+            myCurrentDatetime.setTime(myCurrentDatetime.getTime() + myHoursToAddInMillies);
+        }
+
+        var result = myCurrentDatetime.getFullYear() + 
+            '-' + pad(myCurrentDatetime.getMonth() + 1) + 
+            '-' + pad(myCurrentDatetime.getDate()) + 
+            'T' + pad(myCurrentDatetime.getHours()) + 
+            ':' + pad(myCurrentDatetime.getMinutes()) +
+            ':' + pad(myCurrentDatetime.getSeconds()) +
+            '.' + String((myCurrentDatetime.getMilliseconds() / 1000).toFixed(3)).slice(2, 5) +
+            'Z';
+
         return result;
     }
 
