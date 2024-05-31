@@ -18,12 +18,16 @@ class ChannelsEpg {
     EPG_URL_RAI;
     EPG_URL_MEDIASET;
     EPG_URL_RAKUTEN;
-    
+
     constructor(){
         console.debug("[+][ChannelsEpg::init][EPG rollup initialization] ...");
         try {
+            if (ChannelsEpg.instance) {
+                return ChannelsEpg.instance;
+            } 
             this._httpRequest       = new HttpClient();
             this.EpgData            = ["Rai", "Mediaset", "Rakuten", "Viacom"];
+            /*
             this.EPG_URL_RAI        = "https://www.raiplay.it/palinsesto/onAir.json";
             this.EPG_URL_MEDIASET   = "https://static3.mediasetplay.mediaset.it/apigw/nownext/nownext.json";
             this.EPG_URL_RAKUTEN    = "https://gizmo.rakuten.tv/v3/live_channels?" +
@@ -40,12 +44,14 @@ class ChannelsEpg {
                                            "locale=it&" +
                                            "market_code=it&" +
                                            "per_page=120";
+            */
             this.update();
             this.startPolling();
         } catch (error){
             console.error(" {0}" + error.message);
         }
         console.debug("[-][ChannelsEpg::init]");
+        ChannelsEpg.instance = this;
     }
 	
     update2 = async() =>{
@@ -96,20 +102,20 @@ class ChannelsEpg {
         const currentEpoch       = Math.round(currentDateTime.getTime()/1000.0);
 	    const shiftedtEpoch      = Math.round(shiftedDateTime.getTime()/1000.0);
 
-        this.EPG_URL_RAI        = "https://www.raiplay.it/palinsesto/onAir.json";
+        ChannelsEpg.instance.EPG_URL_RAI        = "https://www.raiplay.it/palinsesto/onAir.json";
         try {
             fetch(this.EPG_URL_RAI).
                 then(response     => response.json()).
-                then(jsonizedData => { this.EpgData["Rai"] = jsonizedData; } ).
+                then(jsonizedData => { ChannelsEpg.instance.EpgData["Rai"] = jsonizedData; } ).
                 catch(err         => { console.log(err); } );  //👉️"Something went wrong"
         } catch(error) { }
 
 	    
-        this.EPG_URL_MEDIASET   = "https://static3.mediasetplay.mediaset.it/apigw/nownext/nownext.json";
+        ChannelsEpg.instance.EPG_URL_MEDIASET   = "https://static3.mediasetplay.mediaset.it/apigw/nownext/nownext.json";
         try {			
             fetch(this.EPG_URL_MEDIASET).
                 then(response     => response.json()).
-                then(jsonizedData => { this.EpgData["Mediaset"] = jsonizedData; }).
+                then(jsonizedData => { ChannelsEpg.instance.EpgData["Mediaset"] = jsonizedData; }).
                 catch(err         => { console.log(err); } );  //👉️"Something went wrong"
         } catch(error) { }
         debugger;
@@ -150,16 +156,16 @@ class ChannelsEpg {
                 market_code:                  'it',
                 support_closed_captions:      true
             });
-            this.EPG_URL_RAKUTEN = `https://gizmo.rakuten.tv/v3/live_channels?${params.toString()}`;
+            ChannelsEpg.instance.EPG_URL_RAKUTEN = `https://gizmo.rakuten.tv/v3/live_channels?${params.toString()}`;
             
-            fetch(this.EPG_URL_RAKUTEN, {
+            fetch(ChannelsEpg.instance.EPG_URL_RAKUTEN, {
                     method: "get",
                     headers: new Headers({ 
                         "Content-Type": "application/json"
                     })
                 }).
                 then(response     => response.json()).
-                then(jsonizedData => { this.EpgData["Rakuten"] = jsonizedData; } ).
+                then(jsonizedData => { ChannelsEpg.instance.EpgData["Rakuten"] = jsonizedData; } ).
                 catch(err         => { console.log(err); } );  //👉️"Something went wrong"
         } catch(error) { }
     }
@@ -168,81 +174,81 @@ class ChannelsEpg {
         
         $("[id='Rai 1']").
             find('#title').
-                html(this.EpgData["Rai"].on_air[0].currentItem.name);
+                html(ChannelsEpg.instance.EpgData["Rai"].on_air[0].currentItem.name);
         $("[id='Rai 2']").
             find('#title').
-                html(this.EpgData["Rai"].on_air[1].currentItem.name);
+                html(ChannelsEpg.instance.EpgData["Rai"].on_air[1].currentItem.name);
         $("[id='Rai 3']").
             find('#title').
-                html(this.EpgData["Rai"].on_air[2].currentItem.name);
+                html(ChannelsEpg.instance.EpgData["Rai"].on_air[2].currentItem.name);
         $("[id='Rai 4']").
             find('#title').
-                html(this.EpgData["Rai"].on_air[3].currentItem.name);
+                html(ChannelsEpg.instance.EpgData["Rai"].on_air[3].currentItem.name);
         //========================================================================================================================
         $("[id='Mediaset - Rete 4']").
             find('#title').
-                html(this.EpgData["Mediaset"].response.listings.R4.currentListing.mediasetlisting$epgTitle);
+                html(ChannelsEpg.instance.EpgData["Mediaset"].response.listings.R4.currentListing.mediasetlisting$epgTitle);
         $("[id='Mediaset - Canale 5']").
             find('#title').
-                html(this.EpgData["Mediaset"].response.listings.C5.currentListing.mediasetlisting$epgTitle);
+                html(ChannelsEpg.instance.EpgData["Mediaset"].response.listings.C5.currentListing.mediasetlisting$epgTitle);
         $("[id='Mediaset - Italia 1']").
             find('#title').
-                html(this.EpgData["Mediaset"].response.listings.I1.currentListing.mediasetlisting$epgTitle);
+                html(ChannelsEpg.instance.EpgData["Mediaset"].response.listings.I1.currentListing.mediasetlisting$epgTitle);
         $("[id='Mediaset - Italia 2']").
             find('#title').
-                html(this.EpgData["Mediaset"].response.listings.I2.currentListing.mediasetlisting$epgTitle);
+                html(ChannelsEpg.instance.EpgData["Mediaset"].response.listings.I2.currentListing.mediasetlisting$epgTitle);
         $("[id='Mediaset - Italia America']").
             find('#title').
-                html(this.EpgData["Mediaset"].response.listings.MW.currentListing.mediasetlisting$epgTitle);	
+                html(ChannelsEpg.instance.EpgData["Mediaset"].response.listings.MW.currentListing.mediasetlisting$epgTitle);	
         $("[id='Mediaset - Focus']").
             find('#title').
-                html(this.EpgData["Mediaset"].response.listings.FU.currentListing.mediasetlisting$epgTitle);
+                html(ChannelsEpg.instance.EpgData["Mediaset"].response.listings.FU.currentListing.mediasetlisting$epgTitle);
         $("[id='Mediaset - Extra']").
             find('#title').
-                html(this.EpgData["Mediaset"].response.listings.KQ.currentListing.mediasetlisting$epgTitle);
+                html(ChannelsEpg.instance.EpgData["Mediaset"].response.listings.KQ.currentListing.mediasetlisting$epgTitle);
         $("[id='Mediaset - La5']").
             find('#title').
-                html(this.EpgData["Mediaset"].response.listings.KA.currentListing.mediasetlisting$epgTitle);
+                html(ChannelsEpg.instance.EpgData["Mediaset"].response.listings.KA.currentListing.mediasetlisting$epgTitle);
         $("[id='Mediaset - 20']").
             find('#title').
-                html(this.EpgData["Mediaset"].response.listings.LB.currentListing.mediasetlisting$epgTitle);
+                html(ChannelsEpg.instance.EpgData["Mediaset"].response.listings.LB.currentListing.mediasetlisting$epgTitle);
         $("[id='Mediaset - 27']").
             find('#title').
-                html(this.EpgData["Mediaset"].response.listings.TS.currentListing.mediasetlisting$epgTitle);
+                html(ChannelsEpg.instance.EpgData["Mediaset"].response.listings.TS.currentListing.mediasetlisting$epgTitle);
         $("[id='Mediaset - Iris']").
             find('#title').
-                html(this.EpgData["Mediaset"].response.listings.KI.currentListing.mediasetlisting$epgTitle);
+                html(ChannelsEpg.instance.EpgData["Mediaset"].response.listings.KI.currentListing.mediasetlisting$epgTitle);
         $("[id='Mediaset - Top Crime']").
             find('#title').
-                html(this.EpgData["Mediaset"].response.listings.LT.currentListing.mediasetlisting$epgTitle);
+                html(ChannelsEpg.instance.EpgData["Mediaset"].response.listings.LT.currentListing.mediasetlisting$epgTitle);
         $("[id='Mediaset - Cine 34']").
             find('#title').
-                html(this.EpgData["Mediaset"].response.listings.B6.currentListing.mediasetlisting$epgTitle);
+                html(ChannelsEpg.instance.EpgData["Mediaset"].response.listings.B6.currentListing.mediasetlisting$epgTitle);
         $("[id='Mediaset - Boing']").
             find('#title').
-                html(this.EpgData["Mediaset"].response.listings.KB.currentListing.mediasetlisting$epgTitle);
+                html(ChannelsEpg.instance.EpgData["Mediaset"].response.listings.KB.currentListing.mediasetlisting$epgTitle);
         $("[id='Mediaset - Cartoonito']").
             find('#title').
-                html(this.EpgData["Mediaset"].response.listings.LA.currentListing.mediasetlisting$epgTitle);
+                html(ChannelsEpg.instance.EpgData["Mediaset"].response.listings.LA.currentListing.mediasetlisting$epgTitle);
         $("[id='Mediaset - TG.COM 24']").
             find('#title').
-                html(this.EpgData["Mediaset"].response.listings.KF.currentListing.mediasetlisting$epgTitle);
+                html(ChannelsEpg.instance.EpgData["Mediaset"].response.listings.KF.currentListing.mediasetlisting$epgTitle);
         $("[id='Mediaset - Radio 101']").
             find('#title').
-                html(this.EpgData["Mediaset"].response.listings.ER.currentListing.mediasetlisting$epgTitle + "<BR />" + 
-                     this.EpgData["Mediaset"].response.listings.ER.currentListing.mediasetlisting$shortDescription);
+                html(ChannelsEpg.instance.EpgData["Mediaset"].response.listings.ER.currentListing.mediasetlisting$epgTitle + "<BR />" + 
+                    ChannelsEpg.instance.EpgData["Mediaset"].response.listings.ER.currentListing.mediasetlisting$shortDescription);
         $("[id='Mediaset - Radio 105']").
             find('#title').
-                html(this.EpgData["Mediaset"].response.listings.EC.currentListing.mediasetlisting$epgTitle + "<BR />" + 
-                     this.EpgData["Mediaset"].response.listings.EC.currentListing.mediasetlisting$shortDescription);
+                html(ChannelsEpg.instance.EpgData["Mediaset"].response.listings.EC.currentListing.mediasetlisting$epgTitle + "<BR />" + 
+                     ChannelsEpg.instance.EpgData["Mediaset"].response.listings.EC.currentListing.mediasetlisting$shortDescription);
         $("[id='Mediaset - Virgin Radio']").
             find('#title').
-                html(this.EpgData["Mediaset"].response.listings.EW.currentListing.mediasetlisting$epgTitle + "<BR />" + 
-                     this.EpgData["Mediaset"].response.listings.EW.currentListing.mediasetlisting$shortDescription);
+                html(ChannelsEpg.instance.EpgData["Mediaset"].response.listings.EW.currentListing.mediasetlisting$epgTitle + "<BR />" + 
+                     ChannelsEpg.instance.EpgData["Mediaset"].response.listings.EW.currentListing.mediasetlisting$shortDescription);
         $("[id='Mediaset - Radio MonteCarlo']").
             find('#title').
-                html(this.EpgData["Mediaset"].response.listings.BB.currentListing.mediasetlisting$epgTitle + "<BR />" + 
-                     this.EpgData["Mediaset"].response.listings.BB.currentListing.mediasetlisting$shortDescription);
+                html(ChannelsEpg.instance.EpgData["Mediaset"].response.listings.BB.currentListing.mediasetlisting$epgTitle + "<BR />" + 
+                     ChannelsEpg.instance.EpgData["Mediaset"].response.listings.BB.currentListing.mediasetlisting$shortDescription);
         //========================================================================================================================  
         /*
 	$("[id='Rakuten Tv - Azione']").
@@ -317,4 +323,4 @@ class ChannelsEpg {
 const channelsEpgInstance = new ChannelsEpg();
 Object.freeze(channelsEpgInstance);
 
-export { channelsEpgInstance as channelEpgs };
+export { channelsEpgInstance as channelsEpg };
