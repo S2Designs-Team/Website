@@ -15,7 +15,7 @@
 */ -->
 <!DOCTYPE html>
 
-<TITLE>Rakuten TV - Dark Matter</TITLE>
+<TITLE>Iunior Tv</TITLE>
 
 <!-- Video.js last version -->
 <LINK   HREF = "https://vjs.zencdn.net/8.10.0/video-js.min.css" REL="stylesheet">
@@ -23,7 +23,7 @@
 	
 <SCRIPT>
     $("#description").html(
-        "<SECTION CLASS='background darkMatter_bg'>" +
+        "<SECTION CLASS='background iuniorTv_bg'>" +
         "</SECTION>" + 
         "<ARTICLE>"  +
         "    <H2>"   +
@@ -32,9 +32,8 @@
         "    </P>"   +
         "</ARTICLE>"
     );
-    $("#description ARTICLE H2").html("Rakuten Tv - Dark Matter");
-	$("#description ARTICLE P").html(channelsEpg.EpgData["Rakuten"].response.data[0]+ "</BR>" +
-	                                 channelsEpg.EpgData['Rakuten'].response.data[0]);
+    $("#description ARTICLE H2").html("Iunior Tv");
+	$("#description ARTICLE P").html('Nessuna descrizione di trasmissione disponibile.' );
 
 	console.log(selectedChannelName + " La descrizione della trasmissione è stata aggiornata.");	
 </SCRIPT>
@@ -55,5 +54,3 @@
         web browser che supporti <A HREF="https://videojs.com/html5-video-support/" TARGET="_blank"> HTML5 video</A>
     </P>
 </VIDEO>
-
-<!-- EPG: "https://gizmo.rakuten.tv/v3/live_channels?classification_id=35&device_identifier=web&device_stream_audio_quality=2.0&device_stream_hdr_type=NONE&device_stream_video_quality=FHD&epg_duration_minutes=240&epg_ends_at=2023-02-11T17%3A00%3A00.000Z&epg_ends_at_timestamp=1676134800000&epg_starts_at=2023-02-11T13%3A00%3A00.000Z&epg_starts_at_timestamp=1676120400000&locale=it&market_code=it&offset=70&per_page=80"-->
