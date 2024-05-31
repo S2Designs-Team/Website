@@ -33,9 +33,10 @@
         "</ARTICLE>"
     );
     $("#description ARTICLE H2").html("Rakuten Tv - Cinema Italiano");
-    $("#description ARTICLE P").html("Nessuna descrizione trasmissione disponibile.</BR>" +
-									 "");
-    console.log(selectedChannelName + " La descrizione della trasmissione è stata aggiornata.");	
+	$("#description ARTICLE P").html(channelsEpg.EpgData["Rakuten"].response.data[0]+ "</BR>" +
+	                                 channelsEpg.EpgData['Rakuten'].response.data[0]);
+
+	console.log(selectedChannelName + " La descrizione della trasmissione è stata aggiornata.");	
 </SCRIPT>
 
 <VIDEO  ID               = "VideoPlayer" 
@@ -48,7 +49,7 @@
         POSTER           = "wwwsys/app/res/img/S2_Team_Logo_WebTv.png"
         DATA-SETUP       = "{}">
     <SOURCE SRC          = "https://6e7b0ca5587e4580a2922d0853ee0498.mediatailor.us-east-1.amazonaws.com/v1/manifest/44f73ba4d03e9607dcd9bebdcb8494d86964f1d8/RakutenTV-it_CinemaSegreto/e77ed892-aca5-4be8-b80e-fb4c90566237/2.m3u8"
-           TYPE          = "application/x-mpegURL">
+            TYPE         = "application/x-mpegURL">
     <P CLASS="vjs-no-js">
         Per poter vedere questo video stream occorre abilitare JavaScript, è comunque opportuno considerare un upgrade del
         web browser che supporti <A HREF="https://videojs.com/html5-video-support/" TARGET="_blank"> HTML5 video</A>

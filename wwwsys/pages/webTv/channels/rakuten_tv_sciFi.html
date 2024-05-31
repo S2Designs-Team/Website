@@ -33,26 +33,27 @@
 		"</ARTICLE>"
 	);
 	$("#description ARTICLE H2").html("Rakuten Tv - Sci Fi");
-	$("#description ARTICLE P").html("Nessuna descrizione trasmissione disponibile.</BR>");
+	$("#description ARTICLE P").html(channelsEpg.EpgData["Rakuten"].response.data[0]+ "</BR>" +
+	                                 channelsEpg.EpgData['Rakuten'].response.data[0]);
+
 	console.log(selectedChannelName + " La descrizione della trasmissione è stata aggiornata.");	
 </SCRIPT>
 
-<VIDEO ID               = "VideoPlayer" 
-	   CLASS            = "video-js"
-	   PLAYSINLINE      = "" 
-	   CROSSORIGIN      = "anonymous" 
-	   AUTOPLAY         = "true"
-	   CONTROLS
-	   CONTROLS PRELOAD = "none" 
-	   POSTER           = "wwwsys/app/res/img/S2_Team_Logo_WebTv.png"
-	   DATA-SETUP       = "{}">
-	<SOURCE SRC         = "https://d39g1vxj2ef6in.cloudfront.net/v1/manifest/3fec3e5cac39a52b2132f9c66c83dae043dc17d4/prod-rakuten-stitched/8ca93ab5-0964-4497-8664-f1bb07846b55/5.m3u8"
-		TYPE        	= "application/x-mpegURL">
+<VIDEO  ID               = "VideoPlayer" 
+	    CLASS            = "video-js"
+	    PLAYSINLINE      = "" 
+	    CROSSORIGIN      = "anonymous" 
+	    AUTOPLAY         = "true"
+	    CONTROLS
+	    CONTROLS PRELOAD = "none" 
+	    POSTER           = "wwwsys/app/res/img/S2_Team_Logo_WebTv.png"
+	    DATA-SETUP       = "{}">
+	<SOURCE SRC          = "https://d39g1vxj2ef6in.cloudfront.net/v1/manifest/3fec3e5cac39a52b2132f9c66c83dae043dc17d4/prod-rakuten-stitched/8ca93ab5-0964-4497-8664-f1bb07846b55/5.m3u8"
+		    TYPE         = "application/x-mpegURL">
 	<P CLASS="vjs-no-js">
 		Per poter vedere questo video stream occorre abilitare JavaScript, è comunque opportuno considerare un upgrade del
 		web browser che supporti <A HREF="https://videojs.com/html5-video-support/" TARGET="_blank"> HTML5 video</A>
 	</P>
 </VIDEO>
 
-<!--EPG: "https://gizmo.rakuten.tv/v3/live_channels?classification_id=35&device_identifier=web&device_stream_audio_quality=2.0&device_stream_hdr_type=NONE&device_stream_video_quality=FHD&epg_duration_minutes=240&epg_ends_at=2023-02-11T17%3A00%3A00.000Z&epg_ends_at_timestamp=1676134800000&epg_starts_at=2023-02-11T13%3A00%3A00.000Z&epg_starts_at_timestamp=1676120400000&locale=it&market_code=it&offset=70&per_page=80"-->
-
+<!-- EPG: "https://gizmo.rakuten.tv/v3/live_channels?classification_id=35&device_identifier=web&device_stream_audio_quality=2.0&device_stream_hdr_type=NONE&device_stream_video_quality=FHD&epg_duration_minutes=240&epg_ends_at=2023-02-11T17%3A00%3A00.000Z&epg_ends_at_timestamp=1676134800000&epg_starts_at=2023-02-11T13%3A00%3A00.000Z&epg_starts_at_timestamp=1676120400000&locale=it&market_code=it&offset=70&per_page=80"-->
