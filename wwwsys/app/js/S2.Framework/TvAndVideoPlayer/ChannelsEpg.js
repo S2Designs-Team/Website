@@ -289,7 +289,8 @@ class ChannelsEpg {
 
     shiftedDateTimeToIsoFormat = (date, hoursToAdd = 0) => {
         function pad(n) { return n < 10 ? '0' + n : n };
-        if (hoursToAdd){
+        
+        if (hoursToAdd && hoursToAdd > 0){
             const myHoursToAddInMillies = hoursToAdd * 60 * 60 * 1000;
             date.setTime(date.getTime() + myHoursToAddInMillies);
         }
@@ -311,7 +312,7 @@ class ChannelsEpg {
 
         var myCurrentDatetime = new Date();
 
-        if (hoursToAdd || ){
+        if (hoursToAdd && hoursToAdd > 0){
             const myHoursToAddInMillies = hoursToAdd * 60 * 60 * 1000;
             myCurrentDatetime.setTime(myCurrentDatetime.getTime() + myHoursToAddInMillies);
         }
