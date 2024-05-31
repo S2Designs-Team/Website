@@ -91,11 +91,13 @@ class ChannelsEpg {
         
         const hoursToAdd         = 4;
         const currentDateTime    = new Date();
-        const currentIsoDateTime = this.currentDateTimeToIsoFormat();
-        const shiftedIsoDateTime = this.shiftedDateTimeToIsoFormat(currentDateTime, hoursToAdd);
+        const shiftedDateTime    = new Date(currentDateTime.getTime() + hoursToAdd * 60 * 60 * 1000);
 
-        const currentEpoch  = Math.round(currentDateTime.getTime()/1000.0);
-	    const shiftedtEpoch = Math.round(shiftedIsoDateTime.getTime()/1000.0);
+        const currentIsoDateTime = this.dateTimeToIsoFormat(currentDateTime);
+        const shiftedIsoDateTime = this.dateTimeToIsoFormat(shiftedDateTime);
+
+        const currentEpoch       = Math.round(currentDateTime.getTime()/1000.0);
+	    const shiftedtEpoch      = Math.round(shiftedIsoDateTime.getTime()/1000.0);
 
         this.EPG_URL_RAI        = "https://www.raiplay.it/palinsesto/onAir.json";
         try {
@@ -287,14 +289,9 @@ class ChannelsEpg {
         */
     }
 
-    shiftedDateTimeToIsoFormat = (date, hoursToAdd = 0) => {
+    dateTimeToIsoFormat = (date) => {
         function pad(n) { return n < 10 ? '0' + n : n };
         
-        if (hoursToAdd && hoursToAdd > 0){
-            const myHoursToAddInMillies = hoursToAdd * 60 * 60 * 1000;
-            date.setTime(date.getTime() + myHoursToAddInMillies);
-        }
-
         var result = date.getFullYear() + 
             '-' + pad(date.getMonth() + 1) + 
             '-' + pad(date.getDate()) + 
@@ -303,29 +300,7 @@ class ChannelsEpg {
             ':' + pad(date.getSeconds()) +
             '.' + String((date.getMilliseconds() / 1000).toFixed(3)).slice(2, 5) +
             'Z';
-
-        return result;
-    }
-
-    currentDateTimeToIsoFormat = (hoursToAdd = 0) => {
-        function pad(n) { return n < 10 ? '0' + n : n };
-
-        var myCurrentDatetime = new Date();
-
-        if (hoursToAdd && hoursToAdd > 0){
-            const myHoursToAddInMillies = hoursToAdd * 60 * 60 * 1000;
-            myCurrentDatetime.setTime(myCurrentDatetime.getTime() + myHoursToAddInMillies);
-        }
-
-        var result = myCurrentDatetime.getFullYear() + 
-            '-' + pad(myCurrentDatetime.getMonth() + 1) + 
-            '-' + pad(myCurrentDatetime.getDate()) + 
-            'T' + pad(myCurrentDatetime.getHours()) + 
-            ':' + pad(myCurrentDatetime.getMinutes()) +
-            ':' + pad(myCurrentDatetime.getSeconds()) +
-            '.' + String((myCurrentDatetime.getMilliseconds() / 1000).toFixed(3)).slice(2, 5) +
-            'Z';
-
+    
         return result;
     }
 
