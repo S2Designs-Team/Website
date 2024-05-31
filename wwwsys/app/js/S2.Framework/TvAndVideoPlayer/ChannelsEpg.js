@@ -28,24 +28,6 @@ export class ChannelsEpg {
             } 
             this._httpRequest       = new HttpClient();
             this.EpgData            = ["Rai", "Mediaset", "Rakuten", "Viacom"];
-            /*
-            this.EPG_URL_RAI        = "https://www.raiplay.it/palinsesto/onAir.json";
-            this.EPG_URL_MEDIASET   = "https://static3.mediasetplay.mediaset.it/apigw/nownext/nownext.json";
-            this.EPG_URL_RAKUTEN    = "https://gizmo.rakuten.tv/v3/live_channels?" +
-                                           "classification_id=36&" +
-                                           "device_identifier=web&" +
-                                           "device_stream_audio_quality=2.0&" +
-                                           "device_stream_hdr_type=NONE&" +
-                                           "device_stream_video_quality=FHD&" +
-                                           "epg_duration_minutes=240&" +
-                                           "epg_ends_at=2024-05-29T23%3A00%3A00.000Z&" +
-                                           "epg_ends_at_timestamp=1715295600000&" +
-                                           "epg_starts_at=2024-05-28T19%3A00%3A00.000Z&" +
-                                           "epg_starts_at_timestamp=1715281200000&" +
-                                           "locale=it&" +
-                                           "market_code=it&" +
-                                           "per_page=120";
-            */
             this.update();
             this.startPolling();
         } catch (error){
@@ -139,7 +121,7 @@ export class ChannelsEpg {
                 market_code=it&
                 offset=70&
                 per_page=80
-        */
+        
         try {
             const params = new URLSearchParams({
                 classification_id:            36,
@@ -168,7 +150,7 @@ export class ChannelsEpg {
                 then(response     => response.json()).
                 then(jsonizedData => { this.EpgData["Rakuten"] = jsonizedData; } ).
                 catch(err         => { console.log(err); } );  //👉️"Something went wrong"
-        } catch(error) { }
+        } catch(error) { }*/
     }
 	
     applyChannelsEPG = () => {

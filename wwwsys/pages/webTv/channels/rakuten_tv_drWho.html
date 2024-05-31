@@ -1,0 +1,59 @@
+<!-- /*
+# Copyright 2035 S2DesignsTeam (Salvatore Nillo).
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+*/ -->
+<!DOCTYPE html>
+
+<TITLE>Rakuten TV - Doctor Who</TITLE>
+
+<!-- Video.js last version -->
+<LINK   HREF = "https://vjs.zencdn.net/8.10.0/video-js.min.css" REL="stylesheet">
+<SCRIPT SRC  = "https://vjs.zencdn.net/8.10.0/video.min.js"></SCRIPT>
+	
+<SCRIPT>
+    $("#description").html(
+        "<SECTION CLASS='background drWho_bg'>" +
+        "</SECTION>" + 
+        "<ARTICLE>"  +
+        "    <H2>"   +
+        "    </H2>"  +
+        "    <P>"    +
+        "    </P>"   +
+        "</ARTICLE>"
+    );
+    $("#description ARTICLE H2").html("Rakuten Tv - Doctor Who");
+	$("#description ARTICLE P").html(channelsEpg.EpgData["Rakuten"].response.data[0]+ "</BR>" +
+	                                 channelsEpg.EpgData['Rakuten'].response.data[0]);
+
+	console.log(selectedChannelName + " La descrizione della trasmissione è stata aggiornata.");	
+</SCRIPT>
+
+<VIDEO  ID               = "VideoPlayer" 
+        CLASS            = "video-js"
+        PLAYSINLINE      = "" 
+        CROSSORIGIN      = "anonymous" 
+        AUTOPLAY         = "true"
+        CONTROLS
+        CONTROLS PRELOAD = "none" 
+        POSTER           = "wwwsys/app/res/img/S2_Team_Logo_WebTv.png"
+        DATA-SETUP       = "{}">
+    <SOURCE SRC          = "https://9176f3e149474dbfa51853e72e273576.mediatailor.us-east-1.amazonaws.com/v1/master/04fd913bb278d8775298c26fdca9d9841f37601f/RakutenTV-it_DoctorWho/playlist.m3u8"
+            TYPE         = "application/x-mpegURL">
+    <P CLASS="vjs-no-js">
+        Per poter vedere questo video stream occorre abilitare JavaScript, è comunque opportuno considerare un upgrade del
+        web browser che supporti <A HREF="https://videojs.com/html5-video-support/" TARGET="_blank"> HTML5 video</A>
+    </P>
+</VIDEO>
+
+<!-- EPG: "https://gizmo.rakuten.tv/v3/live_channels?classification_id=35&device_identifier=web&device_stream_audio_quality=2.0&device_stream_hdr_type=NONE&device_stream_video_quality=FHD&epg_duration_minutes=240&epg_ends_at=2023-02-11T17%3A00%3A00.000Z&epg_ends_at_timestamp=1676134800000&epg_starts_at=2023-02-11T13%3A00%3A00.000Z&epg_starts_at_timestamp=1676120400000&locale=it&market_code=it&offset=70&per_page=80"-->
