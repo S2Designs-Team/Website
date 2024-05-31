@@ -321,6 +321,3 @@ export class ChannelsEpg {
 }
 
 window.channelsEpg  = new ChannelsEpg();
-// Export the singleton instance
-
-export { ChannelsEpg };
