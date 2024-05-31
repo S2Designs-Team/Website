@@ -97,7 +97,7 @@ class ChannelsEpg {
         const shiftedIsoDateTime = this.dateTimeToIsoFormat(shiftedDateTime);
 
         const currentEpoch       = Math.round(currentDateTime.getTime()/1000.0);
-	    const shiftedtEpoch      = Math.round(shiftedIsoDateTime.getTime()/1000.0);
+	    const shiftedtEpoch      = Math.round(shiftedDateTime.getTime()/1000.0);
 
         this.EPG_URL_RAI        = "https://www.raiplay.it/palinsesto/onAir.json";
         try {
