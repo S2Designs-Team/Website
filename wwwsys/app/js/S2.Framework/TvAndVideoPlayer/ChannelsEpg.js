@@ -87,10 +87,9 @@ class ChannelsEpg {
     
     update = async() =>{
         console.log("Caricamento della Guida Elettronica di Programmazione (EPG)...");
-	    const currentDateTime = Date.now()
-        const currentDateTimeIsoString = currentDateTime.toISOString();
+        const currentIsoDateTime = this.currentDateTimeToIsoFormat();
         //const epoch = Math.round(new Date().valueOf() / 1000);
-        const epoch = Math.round(currentDateTime.getTime()/1000.0);
+        const epoch = Math.round(Date.now().getTime()/1000.0);
 	    
         this.EPG_URL_RAI        = "https://www.raiplay.it/palinsesto/onAir.json";
         try {
@@ -137,8 +136,8 @@ class ChannelsEpg {
                 device_stream_video_quality:  'FHD',
                 disable_dash_legacy_packages: false,
                 epg_duration_minutes:         240,
-                epg_starts_at:                '2023-02-11T13:00:00.000Z',
-                epg_starts_at_timestamp:      1676120400000,
+                epg_starts_at:                `${currentIsoDateTime}`,
+                epg_starts_at_timestamp:      epoch,
                 epg_ends_at:                  '2023-02-11T17:00:00.000Z',
                 epg_ends_at_timestamp:        1676134800000,                
                 locale:                       'it',
@@ -276,6 +275,25 @@ class ChannelsEpg {
         */
     }
 	
+    currentDateTimeToIsoFormat = () => {
+        function pad(number) {
+            var r = String(number);
+            if (r.length === 1) {
+              r = '0' + r;
+            }
+            return r;
+          }
+      
+        var result = Date.getUTCFullYear() +
+              '-' + pad(Date.getUTCMonth() + 1) +
+              '-' + pad(Date.getUTCDate()) +
+              'T' + pad(Date.getUTCHours()) +
+              ':' + pad(Date.getUTCMinutes()) +
+              ':' + pad(Date.getUTCSeconds()) +
+              '.' + String((Date.getUTCMilliseconds() / 1000).toFixed(3)).slice(2, 5) +
+              'Z';
+        return result;
+    }
     startPolling = () =>{		
         this.PollingId = window.setInterval(async()=>{
             await this.update();
