@@ -25,102 +25,8 @@
 .testTv{
 	background-image    : url("/forSite/res/[100x100] testTV.png")  !important;
 }
-.tv8{
-	background-image    : url("/forSite//res//[100x100] tv8.png")!important;
-	background-size     : 60px 60px;
-}
-.realTime{
-	background-image    : url("/forSite//res//[100x100] realTime.png")!important;
-}
-.paramountNetwork{
-	background-image    : url("/forSite//res//[100x100] paramount_network.png")!important;
-    background-size     : 60px 60px;
-}
-.paramountSpike{
-	background-image    : url("/forSite//res//[100x100] paramount_spike.png")!important;
-    background-size     : 60px 60px;
-}
-.paramountVh1{
-	background-image    : url("/forSite//res//[100x100] paramount_vh1.png")!important;
-    background-size     : 60px 60px;
-}
-.nove{
-	background-image    : url("/forSite//res//[100x100] nove.png")!important;
-    background-size     : 60px 60px;
-}
-.dmax{
-	background-image    : url("/forSite//res//[100x100] dmax.png")!important;
-    background-size     : 60px 60px;
-}
-.rai1{
-	background-image    : url("/forSite//res//[100x100] rai1.png")!important;
-	background-position : 0px;
-}
-.rai2{
-	background-image    : url("/forSite//res//[100x100] rai2.png")!important;
-	background-position : 0px;
-}
-.rai3{
-	background-image    : url("/forSite//res//[100x100] rai3.png")!important;
-	background-position : 0px;
-}
-.rai4{
-	background-image    : url("/forSite//res//[100x100] rai4.png")!important;
-	background-position : 0px;
-}
 .italia_america{
 	background-image    : url("/forSite//res//[100x100] italiaAmerica.png")!important;
-}
-.extra{
-	background-image    : url("/forSite//res//[100x100] extra.png")!important;
-}
-.la5{
-	background-image    : url("/forSite//res//[100x100] la5.png")!important;
-}
-._20{
-	background-image    : url("/forSite//res//[100x100] 20.png")!important;
-}
-._27{
-	background-image    : url("/forSite//res//[100x100] 27.png")!important;
-}
-.iris{
-	background-image    : url("/forSite//res//[100x100] iris.png")!important;
-}
-.topCrime{
-	background-image    : url("/forSite//res//[100x100] topCrime.png")!important;
-}
-.cine34{
-	background-image    : url("/forSite//res//[100x100] cine34.png")!important;
-}
-.boing{
-	background-image    : url("/forSite//res//[100x100] boing.png")!important;
-}
-.cartoonito{
-	background-image    : url("/forSite//res//[100x100] cartoonito.png")!important;
-}
-.tgcom24{
-	background-image    : url("/forSite//res//[100x100] tgcom_24.png")!important;
-}
-.radio101{
-	background-image    : url("/forSite//res//[100x100] radio101_tv.png")!important;
-}
-.radio105{
-	background-image    : url("/forSite//res//[100x100] radio105_tv.png")!important;
-}
-.virginRadio{
-	background-image    : url("/forSite//res//[100x100] radioVirgin_tv.png")!important;
-}
-.radioMonteCarlo{
-	background-image    : url("/forSite//res//[100x100] radioMonteCarlo_tv.png")!important;
-	background-size     : clamp(2.5em, -1rem + 5vw, 5em) clamp(2.5em, -1rem + 5vw, 5em);
-}
-.failarmy{
-	background-image    : url("/forSite//res//[100x100] failarmy.png")!important;
-	background-size     : clamp(2.5em, -1rem + 5vw, 5em) clamp(2.5em, -1rem + 5vw, 5em);
-}
-.fueltv{
-	background-image    : url("/forSite//res//[100x100] fuel_tv.png")!important;
-	background-size     : clamp(2.5em, -2rem + 3vw, 3.5em) clamp(2.5em, -2rem + 3vw, 3.5em) !important;
 }
 */
 .rai_unoHd_bg{
@@ -324,6 +230,11 @@
 }
 .dMax_bg{
 	background          : url("https://phobetor1999.github.io/Website/wwwsys/app/res/img/tvChannelsBackgrounds/Discovery+_dMax_bg.png") no-repeat no-repeat !important;
+	box-shadow          : inset 0px 0px 1px 1px hsl(0deg 0% 100% / 32%);
+	background-size     : 100% 100% !important;
+}
+.nove_bg{
+	background          : url("https://phobetor1999.github.io/Website/wwwsys/app/res/img/tvChannelsBackgrounds/Discovery+_nove_bg.png") no-repeat no-repeat !important;
 	box-shadow          : inset 0px 0px 1px 1px hsl(0deg 0% 100% / 32%);
 	background-size     : 100% 100% !important;
 }
