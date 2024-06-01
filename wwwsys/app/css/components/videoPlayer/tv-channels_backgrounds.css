@@ -317,3 +317,8 @@
 	box-shadow          : inset 0px 0px 1px 1px hsl(0deg 0% 100% / 32%);
 	background-size     : 100% 100% !important;
 }
+.realTime_bg{
+	background          : url("https://phobetor1999.github.io/Website/wwwsys/app/res/img/tvChannelsBackgrounds/Discovery+_realTime_bg.png") no-repeat no-repeat !important;
+	box-shadow          : inset 0px 0px 1px 1px hsl(0deg 0% 100% / 32%);
+	background-size     : 100% 100% !important;
+}

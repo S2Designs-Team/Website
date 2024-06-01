@@ -18,7 +18,8 @@
 	background-size     : 60px 60px;
 }
 .realTime{
-	background-image    : url("https://phobetor1999.github.io/Website/wwwsys/app/res/img/tvChannelsLogos/[100x100] realTime.png")!important;
+	background-image    : url("https://phobetor1999.github.io/Website/wwwsys/app/res/img/tvChannelsLogos/[100x100] discovery+_realTime.png")!important;
+	background-size     : clamp(2.5em, -2rem + 3vw, 3.5em) clamp(2.5em, -2rem + 3vw, 3.5em) !important;
 }
 .paramountNetwork{
 	background-image    : url("https://phobetor1999.github.io/Website/wwwsys/app/res/img/tvChannelsLogos/[100x100] paramount_network.png")!important;
