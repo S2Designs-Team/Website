@@ -201,7 +201,7 @@ export class ChannelsEpg {
 
             fetch(this.EPG_URL_MEDIASET).
                 then(response     => response.json()).
-                then(jsonizedData => { this.EpgData['Mediaset'] = jsonizedData; }).
+                then(jsonizedData => { this.EpgData['Discover+'] = jsonizedData; }).
                 catch(err         => { console.log(err); } );  //👉️"Something went wrong"
         } catch(error) { }
     }
