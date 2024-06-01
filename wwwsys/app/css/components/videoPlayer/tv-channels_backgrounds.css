@@ -68,28 +68,8 @@
 	box-shadow          : inset 0px 0px 1px 1px hsl(0deg 0% 100% / 32%);
 	background-size     : 100% 100% !important;
 }
-.italia2_bg{
-	background          : url("https://phobetor1999.github.io/Website/wwwsys/app/res/img/tvChannelsBackgrounds/Mediaset_italia2_bg.png") no-repeat no-repeat !important;
-	box-shadow          : inset 0px 0px 1px 1px hsl(0deg 0% 100% / 32%);
-	background-size     : 100% 100% !important;
-}
-.focus_bg{
-	background          : url("https://phobetor1999.github.io/Website/wwwsys/app/res/img/tvChannelsBackgrounds/Mediaset_focus_bg.png") no-repeat no-repeat !important;
-	box-shadow          : inset 0px 0px 1px 1px hsl(0deg 0% 100% / 32%);
-	background-size     : 100% 100% !important;
-}
-.extra_bg{
-	background          : url("https://phobetor1999.github.io/Website/wwwsys/app/res/img/tvChannelsBackgrounds/Mediaset_extra_bg.png") no-repeat no-repeat !important;
-	box-shadow          : inset 0px 0px 1px 1px hsl(0deg 0% 100% / 32%);
-	background-size     : 100% 100% !important;
-}
-.rai_quattroHd_bg{
-	background          : url("https://phobetor1999.github.io/Website/wwwsys/app/res/img/tvChannelsBackgrounds/Rai_quattroHd_bg.png") no-repeat no-repeat !important;
-	box-shadow          : inset 0px 0px 1px 1px hsl(0deg 0% 100% / 32%);
-	background-size     : 100% 100% !important;
-}
-.la5_bg{
-	background          : url("https://phobetor1999.github.io/Website/wwwsys/app/res/img/tvChannelsBackgrounds/Mediaset_la5_bg.png") no-repeat no-repeat !important;
+.nove_bg{
+	background          : url("https://phobetor1999.github.io/Website/wwwsys/app/res/img/tvChannelsBackgrounds/Discovery+_nove_bg.png") no-repeat no-repeat !important;
 	box-shadow          : inset 0px 0px 1px 1px hsl(0deg 0% 100% / 32%);
 	background-size     : 100% 100% !important;
 }
@@ -98,8 +78,8 @@
 	box-shadow          : inset 0px 0px 1px 1px hsl(0deg 0% 100% / 32%);
 	background-size     : 100% 100% !important;
 }
-._27_bg{
-	background          : url("https://phobetor1999.github.io/Website/wwwsys/app/res/img/tvChannelsBackgrounds/Mediaset_27_bg.png") no-repeat no-repeat !important;
+.rai_quattroHd_bg{
+	background          : url("https://phobetor1999.github.io/Website/wwwsys/app/res/img/tvChannelsBackgrounds/Rai_quattroHd_bg.png") no-repeat no-repeat !important;
 	box-shadow          : inset 0px 0px 1px 1px hsl(0deg 0% 100% / 32%);
 	background-size     : 100% 100% !important;
 }
@@ -108,13 +88,33 @@
 	box-shadow          : inset 0px 0px 1px 1px hsl(0deg 0% 100% / 32%);
 	background-size     : 100% 100% !important;
 }
-.topCrime_bg{
-	background          : url("https://phobetor1999.github.io/Website/wwwsys/app/res/img/tvChannelsBackgrounds/Mediaset_topCrime_bg.png") no-repeat no-repeat !important;
+._27_bg{
+	background          : url("https://phobetor1999.github.io/Website/wwwsys/app/res/img/tvChannelsBackgrounds/Mediaset_27_bg.png") no-repeat no-repeat !important;
+	box-shadow          : inset 0px 0px 1px 1px hsl(0deg 0% 100% / 32%);
+	background-size     : 100% 100% !important;
+}
+.la5_bg{
+	background          : url("https://phobetor1999.github.io/Website/wwwsys/app/res/img/tvChannelsBackgrounds/Mediaset_la5_bg.png") no-repeat no-repeat !important;
+	box-shadow          : inset 0px 0px 1px 1px hsl(0deg 0% 100% / 32%);
+	background-size     : 100% 100% !important;
+}
+.realTime_bg{
+	background          : url("https://phobetor1999.github.io/Website/wwwsys/app/res/img/tvChannelsBackgrounds/Discovery+_realTime_bg.png") no-repeat no-repeat !important;
 	box-shadow          : inset 0px 0px 1px 1px hsl(0deg 0% 100% / 32%);
 	background-size     : 100% 100% !important;
 }
 .cine34_bg{
 	background          : url("https://phobetor1999.github.io/Website/wwwsys/app/res/img/tvChannelsBackgrounds/Mediaset_cine34_bg.png") no-repeat no-repeat !important;
+	box-shadow          : inset 0px 0px 1px 1px hsl(0deg 0% 100% / 32%);
+	background-size     : 100% 100% !important;
+}
+.focus_bg{
+	background          : url("https://phobetor1999.github.io/Website/wwwsys/app/res/img/tvChannelsBackgrounds/Mediaset_focus_bg.png") no-repeat no-repeat !important;
+	box-shadow          : inset 0px 0px 1px 1px hsl(0deg 0% 100% / 32%);
+	background-size     : 100% 100% !important;
+}
+.topCrime_bg{
+	background          : url("https://phobetor1999.github.io/Website/wwwsys/app/res/img/tvChannelsBackgrounds/Mediaset_topCrime_bg.png") no-repeat no-repeat !important;
 	box-shadow          : inset 0px 0px 1px 1px hsl(0deg 0% 100% / 32%);
 	background-size     : 100% 100% !important;
 }
@@ -128,11 +128,39 @@
 	box-shadow          : inset 0px 0px 1px 1px hsl(0deg 0% 100% / 32%);
 	background-size     : 100% 100% !important;
 }
+.italia2_bg{
+	background          : url("https://phobetor1999.github.io/Website/wwwsys/app/res/img/tvChannelsBackgrounds/Mediaset_italia2_bg.png") no-repeat no-repeat !important;
+	box-shadow          : inset 0px 0px 1px 1px hsl(0deg 0% 100% / 32%);
+	background-size     : 100% 100% !important;
+}
 .tgcom24_bg{
 	background          : url("https://phobetor1999.github.io/Website/wwwsys/app/res/img/tvChannelsBackgrounds/Mediaset_tgCom24_bg.png") no-repeat no-repeat !important;
 	box-shadow          : inset 0px 0px 1px 1px hsl(0deg 0% 100% / 32%);
 	background-size     : 100% 100% !important;
 }
+.dMax_bg{
+	background          : url("https://phobetor1999.github.io/Website/wwwsys/app/res/img/tvChannelsBackgrounds/Discovery+_dMax_bg.png") no-repeat no-repeat !important;
+	box-shadow          : inset 0px 0px 1px 1px hsl(0deg 0% 100% / 32%);
+	background-size     : 100% 100% !important;
+}
+.extra_bg{
+	background          : url("https://phobetor1999.github.io/Website/wwwsys/app/res/img/tvChannelsBackgrounds/Mediaset_extra_bg.png") no-repeat no-repeat !important;
+	box-shadow          : inset 0px 0px 1px 1px hsl(0deg 0% 100% / 32%);
+	background-size     : 100% 100% !important;
+}
+.iuniorTv_bg{
+	background          : url("https://phobetor1999.github.io/Website/wwwsys/app/res/img/tvChannelsBackgrounds/iuniorTv_bg.png") no-repeat no-repeat !important;
+	box-shadow          : inset 0px 0px 1px 1px hsl(0deg 0% 100% / 32%);
+	background-size     : 100% 100% !important;
+}
+.warnerTv_bg{
+	background          : url("https://phobetor1999.github.io/Website/wwwsys/app/res/img/tvChannelsBackgrounds/Discovery+_warnerTv_bg.png") no-repeat no-repeat !important;
+	box-shadow          : inset 0px 0px 1px 1px hsl(0deg 0% 100% / 32%);
+	background-size     : 100% 100% !important;
+}
+
+
+
 .radio101_bg{
 	background          : url("https://phobetor1999.github.io/Website/wwwsys/app/res/img/tvChannelsBackgrounds/Mediaset_radio101_bg.png") no-repeat no-repeat !important;
 	box-shadow          : inset 0px 0px 1px 1px hsl(0deg 0% 100% / 32%);
@@ -215,26 +243,6 @@
 }
 .drWho_bg{
 	background          : url("https://phobetor1999.github.io/Website/wwwsys/app/res/img/tvChannelsBackgrounds/Rakuten_tv_drWho_bg.png") no-repeat no-repeat !important;
-	box-shadow          : inset 0px 0px 1px 1px hsl(0deg 0% 100% / 32%);
-	background-size     : 100% 100% !important;
-}
-.iuniorTv_bg{
-	background          : url("https://phobetor1999.github.io/Website/wwwsys/app/res/img/tvChannelsBackgrounds/iuniorTv_bg.png") no-repeat no-repeat !important;
-	box-shadow          : inset 0px 0px 1px 1px hsl(0deg 0% 100% / 32%);
-	background-size     : 100% 100% !important;
-}
-.realTime_bg{
-	background          : url("https://phobetor1999.github.io/Website/wwwsys/app/res/img/tvChannelsBackgrounds/Discovery+_realTime_bg.png") no-repeat no-repeat !important;
-	box-shadow          : inset 0px 0px 1px 1px hsl(0deg 0% 100% / 32%);
-	background-size     : 100% 100% !important;
-}
-.dMax_bg{
-	background          : url("https://phobetor1999.github.io/Website/wwwsys/app/res/img/tvChannelsBackgrounds/Discovery+_dMax_bg.png") no-repeat no-repeat !important;
-	box-shadow          : inset 0px 0px 1px 1px hsl(0deg 0% 100% / 32%);
-	background-size     : 100% 100% !important;
-}
-.nove_bg{
-	background          : url("https://phobetor1999.github.io/Website/wwwsys/app/res/img/tvChannelsBackgrounds/Discovery+_nove_bg.png") no-repeat no-repeat !important;
 	box-shadow          : inset 0px 0px 1px 1px hsl(0deg 0% 100% / 32%);
 	background-size     : 100% 100% !important;
 }
