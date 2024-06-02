@@ -208,6 +208,8 @@ export class ChannelsEpg {
 	
     applyChannelsEPG = () => {
         
+        //========================================================================================================================
+        // RAI EPG ===============================================================================================================
         $('[id="Rai 1"]').
             find('#title').
                 html(this.EpgData['Rai'].on_air[0].currentItem.name);
@@ -221,6 +223,7 @@ export class ChannelsEpg {
             find('#title').
                 html(this.EpgData['Rai'].on_air[3].currentItem.name);
         //========================================================================================================================
+        // MEDIASET EPG ==========================================================================================================
         $('[id="Mediaset - Rete 4"]').
             find('#title').
                 html(this.EpgData['Mediaset'].response.listings.R4.currentListing.mediasetlisting$epgTitle);
@@ -285,7 +288,8 @@ export class ChannelsEpg {
             find('#title').
                 html(this.EpgData['Mediaset'].response.listings.BB.currentListing.mediasetlisting$epgTitle + '<BR />' + 
                      this.EpgData['Mediaset'].response.listings.BB.currentListing.mediasetlisting$shortDescription);
-        //========================================================================================================================  
+        //========================================================================================================================
+        // RAKUTEN TV EPG ========================================================================================================
         /*
         $("[id='Rakuten Tv - Azione']").
             find('#title').
