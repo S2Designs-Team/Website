@@ -133,7 +133,10 @@
 	background-image    : url("https://phobetor1999.github.io/Website/wwwsys/app/res/img/tvChannelsLogos/[100x100] discovery+_warnerTv.png")!important;
 	background-size     : clamp(2.5em, -2rem + 3vw, 3.5em) clamp(2.5em, -2rem + 3vw, 3.5em) !important;
 }
-
+.giallo{
+	background-image    : url("https://phobetor1999.github.io/Website/wwwsys/app/res/img/tvChannelsLogos/[100x100] discovery+_giallo.png")!important;
+	background-size     : clamp(2.5em, -2rem + 3vw, 3.5em) clamp(2.5em, -2rem + 3vw, 3.5em) !important;
+}
 
 
 .italia_america{
