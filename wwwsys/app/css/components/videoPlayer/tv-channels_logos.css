@@ -91,7 +91,7 @@
 }
 .foodNetwork{
 	background-image    : url("https://phobetor1999.github.io/Website/wwwsys/app/res/img/tvChannelsLogos/[100x100] discovery+_foodNetwork.png")!important;
-	/*background-size     : clamp(2.5em, -2rem + 3vw, 3.5em) clamp(2.5em, -2rem + 3vw, 3.5em) !important;*/
+	background-size     : clamp(2.5em, -2rem + 3vw, 3.5em) clamp(2.5em, -2rem + 3vw, 3.5em) !important;
 }
 .focus{
 	background-image    : url("https://phobetor1999.github.io/Website/wwwsys/app/res/img/tvChannelsLogos/[100x100] focus.png")!important;
