@@ -21,7 +21,7 @@
 <LINK   HREF = "https://vjs.zencdn.net/7.10.2/video-js.min.css" REL="stylesheet">
 <SCRIPT SRC  = "https://cdn.dashjs.org/latest/dash.all.min.js"></SCRIPT>
 		
-<VIDEO     ID               = "videoPlayer" 
+<VIDEO ID               = "videoPlayer" 
 	   CLASS            = "video-js"
 	   DATA-DASHJS-PLAYER>
 	<P CLASS="vjs-no-js">
@@ -45,8 +45,9 @@
 	$("#description ARTICLE P").html("Nessuna descrizione trasmissione disponibile.</BR>");
 	console.log(selectedChannelName + " La descrizione della trasmissione è stata aggiornata.");
 	
-        var url    = "https://prod-kami.wuaki.tv/v1/delivery/dash/avod/7d074626-19c1-46ae-a743-f0e5745d9369.mpd";
-        var player = dashjs.MediaPlayer().create();
-        player.initialize(document.querySelector("#videoPlayer"), url, true);		
+	var url    = "https://d15umi5iaezxgx.cloudfront.net/LA7/DRM/DASH/Live.mpd";
+	// "https://prod-kami.wuaki.tv/v1/delivery/dash/avod/7d074626-19c1-46ae-a743-f0e5745d9369.mpd";
+	var player = dashjs.MediaPlayer().create();
+	player.initialize(document.querySelector("#videoPlayer"), url, true);		
 </SCRIPT>
 	
