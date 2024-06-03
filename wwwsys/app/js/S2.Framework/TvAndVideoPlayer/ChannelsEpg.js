@@ -18,6 +18,7 @@ export class ChannelsEpg {
     EpgData;
     EPG_URL_RAI;
     EPG_URL_MEDIASET;
+    EPG_URL_CAIRO;
     EPG_URL_RAKUTEN;
     EPG_URL_DISCOVERY_PLUS;
 
@@ -28,7 +29,7 @@ export class ChannelsEpg {
                 return ChannelsEpg.instance;
             } 
             this._httpRequest       = new HttpClient();
-            this.EpgData            = ["Rai", "Mediaset", "Rakuten", "Discover+"];
+            this.EpgData            = ["Rai", "Mediaset", "Cairo", "Rakuten", "Discover+"];
             this.update();
             this.startPolling();
         } catch (error){
@@ -133,6 +134,16 @@ export class ChannelsEpg {
             fetch(this.EPG_URL_MEDIASET).
                 then(response     => response.json()).
                 then(jsonizedData => { this.EpgData['Mediaset'] = jsonizedData; }).
+                catch(err         => { console.log(err); } );  //👉️"Something went wrong"
+        } catch(error) { }
+
+        //========================================================================================================================
+	    // CAIRO EPG =============================================================================================================
+        this.EPG_URL_CAIRO   = 'https://static.iltrovatore.it/StreamingStatus/STREAMING.json';
+        try {			
+            fetch(this.EPG_URL_CAIRO).
+                then(response     => response.json()).
+                then(jsonizedData => { this.EpgData['Cairo'] = jsonizedData; }).
                 catch(err         => { console.log(err); } );  //👉️"Something went wrong"
         } catch(error) { }
 
@@ -288,6 +299,13 @@ export class ChannelsEpg {
             find('#title').
                 html(this.EpgData['Mediaset'].response.listings.BB.currentListing.mediasetlisting$epgTitle + '<BR />' + 
                      this.EpgData['Mediaset'].response.listings.BB.currentListing.mediasetlisting$shortDescription);
+
+        //========================================================================================================================
+        // CAIRO TV EPG ========================================================================================================
+        $('[id="la7"]').
+            find('#title').
+                html(this.EpgData['Cairo'] + '<BR />' + 
+                     this.EpgData['Cairo']);
         //========================================================================================================================
         // RAKUTEN TV EPG ========================================================================================================
         /*
