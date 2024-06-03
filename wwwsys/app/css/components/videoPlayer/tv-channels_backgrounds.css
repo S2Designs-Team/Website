@@ -2,37 +2,13 @@
 /* = TV CHANNELS LOGOS ==============================================================*/
 /* ==================================================================================*/
 .background{
-    /* [css issue] =================================================================== 
-	position: absolute;
-    top: 0%;
-    left: 0em;
-    right: 1em;
-    bottom: 0%;
-	*/
-    /* [SNI]
-	margin: auto;
-	*/
-    max-width: 320px;
-    /* [css issue] ===================================================================
-	justify-content: left;
-	*/
-	box-shadow: inset 0px 0px 1px 1px hsl(0deg 0% 100% / 32%);
-    /* [SNI]
-    padding: 1em 1em 0em 1em;
-	background-image: radial-gradient(circle at 50% 0,transparent,rgba(0,0,0,0.8));
-	*/
-    background-color: #252a2e;
-    border-radius: 4px;
-    overflow-y: auto;
+    max-width           : 320px;
+	box-shadow          : inset 0px 0px 1px 1px hsl(0deg 0% 100% / 32%);
+    background-color    : #252a2e;
+    border-radius       : 4px;
+    overflow-y          : auto;
 }
-/*
-.testTv{
-	background-image    : url("/forSite/res/[100x100] testTV.png")  !important;
-}
-.italia_america{
-	background-image    : url("/forSite//res//[100x100] italiaAmerica.png")!important;
-}
-*/
+
 .rai_unoHd_bg{
 	background          : url("https://phobetor1999.github.io/Website/wwwsys/app/res/img/tvChannelsBackgrounds/Rai_unoHd_bg.png") no-repeat no-repeat !important;
 	box-shadow          : inset 0px 0px 1px 1px hsl(0deg 0% 100% / 32%);
