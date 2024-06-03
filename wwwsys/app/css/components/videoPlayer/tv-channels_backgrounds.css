@@ -2,16 +2,20 @@
 /* = TV CHANNELS LOGOS ==============================================================*/
 /* ==================================================================================*/
 .background{
-    position: absolute;
+    /* [css issue] =================================================================== 
+	position: absolute;
     top: 0%;
     left: 0em;
     right: 1em;
     bottom: 0%;
+	*/
     /* [SNI]
 	margin: auto;
 	*/
     max-width: 320px;
-    justify-content: left;
+    /* [css issue] ===================================================================
+	justify-content: left;
+	*/
 	box-shadow: inset 0px 0px 1px 1px hsl(0deg 0% 100% / 32%);
     /* [SNI]
     padding: 1em 1em 0em 1em;
