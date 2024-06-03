@@ -12,11 +12,11 @@
     /* 
 	[SNI] padding             : 1em 1em 0em 1em; 
 	*/
-    justify-content     : left;
-    box-shadow          : inset 0px 0px 1px 1px hsl(0deg 0% 100% / 32%);
-    background-image    : radial-gradient(circle at 50% 0,transparent,rgba(0,0,0,0.8));
-    background-color    : #252a2e;
-    border-radius       : 4px;
+    justify-content       : left;
+    box-shadow            : inset 0px 0px 1px 1px hsl(0deg 0% 100% / 32%);
+    background-image      : radial-gradient(circle at 50% 0,transparent,rgba(0,0,0,0.8));
+    background-color      : #252a2e;
+    border-radius         : 4px;
     /* [css issue] ===================================================================
     overflow-y          : auto;
     */
@@ -26,8 +26,12 @@
     /*position:             relative;
     left:                 6.15%;
     width:                81%;*/
-    height:               100%;
+    height               :100%;
+    /* [css issue] ===================================================================
     min-width:            635px;
+    */
+    /* [css issue] ===================================================================*/
+    overflow             : auto;
     max-width:            1024px;
     color:                currentColor;
     background:           transparent;
