@@ -32,6 +32,8 @@
     */
     /* [css issue] ===================================================================*/
     overflow             : auto;
+    /* [css issue] ===================================================================*/
+    min-width            : auto;
     max-width:            1024px;
     color:                currentColor;
     background:           transparent;
