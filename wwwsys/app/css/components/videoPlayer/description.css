@@ -1,11 +1,13 @@
 #description {
-    position            : absolute;
-    top                 : 80%;
-    left                : 1em;
-    right               : 1em;
-    bottom              : 0%;
-    margin              : auto;
-    max-width           : 1500px;
+    position              : absolute;
+    top                   : 80%;
+    left                  : 1em;
+    right                 : 1em;
+    bottom                : 0%;
+    margin                : auto;
+    max-width             : 1500px;
+    display               : grid;
+    grid-template-columns : 23% 78%;
 
     /* 
 	[SNI] padding             : 1em 1em 0em 1em; 
@@ -19,9 +21,9 @@
 }
 
 #description > article {
-    position:             relative;
+    /*position:             relative;
     left:                 6.15%;
-    width:                81%;
+    width:                81%;*/
     height:               100%;
     min-width:            635px;
     max-width:            1024px;
