@@ -31,8 +31,6 @@ function loadCoreServices() {
 }
 
 function loadMainScript() {
-    AppContext.addService(new HttpClient());
-
     // Get the base URL of the current page
     const baseUrl = AppContext.getBaseUrl();
     // Load program.js after page load
