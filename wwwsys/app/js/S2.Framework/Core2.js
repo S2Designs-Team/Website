@@ -6,7 +6,6 @@ import { AppContext }    from './Core/AppContext.js';     // Import AppContext i
 import { SpaHelper }     from './Core/SpaHelper.js';      // Import SpaHelper instance from SpaHelper.js
 import {           }     from './Core/Routing.js';        // Import SpaHelper instance from SpaHelper.js
 import { HtaConsole }    from './DevTools/HtaConsole.js'; // Import HtaConsole instance from HtaConsole.js
-import { HtaConsole }    from './DevTools/HtaConsole.js'; // Import HtaConsole instance from HtaConsole.js
 
 function loadjQuery() {
     return new Promise((resolve, reject) => {
