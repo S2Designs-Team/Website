@@ -32,7 +32,6 @@ function loadCoreServices() {
 
 function loadMainScript() {
     AppContext.addService(new HttpClient());
-    AppContext.addService(new SpaHelper());
 
     // Get the base URL of the current page
     const baseUrl = AppContext.getBaseUrl();
