@@ -4,6 +4,8 @@ import { System }        from './Core/System.js';         // Import System class
 import { HttpClient }    from './Core/HttpClient.js';     // Import HttpClient class from HttpClientk.js
 import { AppContext }    from './Core/AppContext.js';     // Import AppContext instance from AppContext.js
 import { SpaHelper }     from './Core/SpaHelper.js';      // Import SpaHelper instance from SpaHelper.js
+import {           }     from './Core/Routing.js';        // Import SpaHelper instance from SpaHelper.js
+import { HtaConsole }    from './DevTools/HtaConsole.js'; // Import HtaConsole instance from HtaConsole.js
 import { HtaConsole }    from './DevTools/HtaConsole.js'; // Import HtaConsole instance from HtaConsole.js
 
 function loadjQuery() {
@@ -30,6 +32,9 @@ function loadCoreServices() {
 }
 
 function loadMainScript() {
+    AppContext.addService(new HttpClient());
+    AppContext.addService(new SpaHelper());
+
     // Get the base URL of the current page
     const baseUrl = AppContext.getBaseUrl();
     // Load program.js after page load

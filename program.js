@@ -2,18 +2,15 @@
 // Import of needed graphic components
 //import { NavBar } from './wwwsys/app/js/S2.Framework/Components/NavBar.js';
 import { ChannelLink } from './wwwsys/app/js/S2.Framework/Components/ChannelLink.js';
+import { AppContext, HttpClient, SpaHelper } from './wwwsys/app/js/S2.Framework/Core2.js';
 
 // Inizializzazione della console
 HtaConsole.render();
-
-// Sets a proprerty using an object 
-const config = { apiUrl: 'https://api.example.com', timeout: 5000 };
 
 AppContext.setProperty("landingPageUrl"          , "wwwsys/pages/index.html");
 AppContext.setProperty("name"                    , "My application");
 AppContext.setProperty("contentContainerDomName" , "#content");
 AppContext.setProperty("isLocalContent"          , "true");
-AppContext.setProperty(config);
 
 /* 🛠️ DEBUG PURPOSE ONLY
 console.log("applicationName  = " + oHta.applicationName + "<br>" + 
