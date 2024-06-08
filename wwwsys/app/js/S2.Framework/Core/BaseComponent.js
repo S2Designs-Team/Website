@@ -31,6 +31,11 @@ export class BaseComponent {
     *              [optional] cssFileUrl => the css style url of the component
     */   
     constructor(properties = {}, cssFileUrl = null) {
+
+        if (this.constructor === BaseComponent) {
+            throw new Error("BaseComponent is an abstract class and cannot be instantiated directly.");
+        }
+        
         this.className                 = this.constructor.name;
         this.props                     = [];
         this.parentId                  = ""; // Dichiarazione della variabile di classe
@@ -127,7 +132,7 @@ export class BaseComponent {
             link.rel     = 'stylesheet';
             link.href    = url;
             link.onload  = () => resolve();
-            link.onerror = () => reject('Could not load CSS file: ${url}');
+            link.onerror = () => reject(`Could not load CSS file: ${url}`);
             document.head.appendChild(link);
         });
     }
@@ -146,7 +151,7 @@ export class BaseComponent {
             script.setAttribute('data-component', this.constructor.name);
             script.src     = url;
             script.onload  = () => resolve();
-            script.onerror = () => reject('Could not load script: ${url}');
+            script.onerror = () => reject(`Could not load script: ${url}`);
             document.body.appendChild(script);
         });
     }
