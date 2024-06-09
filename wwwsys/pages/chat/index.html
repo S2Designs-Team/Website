@@ -1,0 +1,158 @@
+<!-- 
+<SCRIPT src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></SCRIPT> 
+<SCRIPT src="https://cdn.jsdelivr.net/npm/tokenizers"></SCRIPT>  
+<SCRIPT src="https://cdn.jsdelivr.net/npm/nlp-compromise"></SCRIPT>
+<SCRIPT src="main.js"></SCRIPT>
+-->
+
+<STYLE>
+    body {
+      font-family: sans-serif;
+    }
+    .chat-container {
+      width: 400px;
+      margin: 20px auto;
+      border-radius: 10px;
+      background-color: #fff;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    .chat-header {
+      display: flex;
+      align-items: center;
+      padding: 15px;
+      border-bottom: 1px solid #eee;
+    }
+    .profile-pic {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-right: 10px;
+    }
+    .profile-pic img {
+      width: 100%;
+      height: 100%;
+    }
+    .chat-info {
+      flex: 1;
+    }
+    .chat-info h3 {
+      margin: 0;
+    }
+    .chat-info p {
+      font-size: 12px;
+      color: #888;
+    }
+    .chat-messages {
+      padding: 15px;
+      height: 300px;
+      overflow-y: scroll;
+    }
+    .chat-message {
+      display: flex;
+      margin-bottom: 10px;
+    }
+    .chat-message.user {
+      justify-content: flex-end;
+    }
+    .chat-message.bot {
+      justify-content: flex-start;
+    }
+    .message-bubble {
+      padding: 10px;
+      border-radius: 10px;
+      max-width: 70%;
+      background-color: #eee;
+    }
+    .message-bubble.user {
+      background-color: #90caf9;
+    }
+    .chat-input {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      border-top: 1px solid #eee;
+    }
+    #message-input {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid #eee;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+    #send-button {
+      padding: 10px;
+      background-color: #4caf50;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+</STYLE>
+
+<TITLE>LLM Chat</TITLE>
+
+<SECTION CLASS="videoPlayerContainer">
+    <DIV class="chat-container">
+        <DIV class="chat-header">
+            <DIV class="profile-pic">
+                <IMG src="avatar.png" alt="Profile Picture">
+            </DIV>
+            <DIV class="chat-info">
+                <H3>AI Chatbot</H3>
+                <P>Online</P>
+            </DIV>
+        </DIV>
+        <DIV class="chat-messages">
+    </DIV>
+    <DIV class="chat-input">
+        <INPUT type="text" id="message-input" placeholder="Type your message...">
+        <BUTTON id="send-button">Send</BUTTON>
+        </DIV>
+    </DIV>
+</SECTION>
+<SCRIPT>
+    // Selezione degli elementi HTML
+    const messageInput = document.getElementById('message-input');
+    const sendButton   = document.getElementById('send-button');
+    const chatMessages = document.querySelector('.chat-messages');
+
+    // Funzione per gestire l'invio di messaggi
+    function sendMessage() {
+        const message = messageInput.value;
+        if (message.trim() !== "") {
+        // Aggiungi il messaggio dell'utente alla chat
+        addMessage("user", message);
+
+        // Genera la risposta del bot
+        /*
+        generateResponse(message).then(response => {
+            // Aggiungi la risposta del bot alla chat
+            addMessage("bot", response);
+        });
+        }
+        */
+        messageInput.value = "";
+    }
+
+    // Funzione per aggiungere un messaggio alla chat
+    function addMessage(type, message) {
+        const messageElement = document.createElement("div");
+        messageElement.classList.add("chat-message");
+        messageElement.classList.add(type);
+
+        const messageBubble = document.createElement("div");
+        messageBubble.classList.add("message-bubble");
+        messageBubble.classList.add(type);
+        messageBubble.textContent = message;
+
+        messageElement.appendChild(messageBubble);
+        chatMessages.appendChild(messageElement);
+
+        // Scorrere in basso per visualizzare il nuovo messaggio
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    // Inizia l'ascolto per l'evento click sul pulsante "Invia"
+    sendButton.addEventListener("click", sendMessage);
+</SCRIPT>
