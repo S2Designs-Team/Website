@@ -111,6 +111,7 @@
         </DIV>
     </DIV>
 </SECTION>
+
 <SCRIPT>
     // Selezione degli elementi HTML
     const messageInput = document.getElementById('message-input');
@@ -121,17 +122,17 @@
     function sendMessage() {
         const message = messageInput.value;
         if (message.trim() !== "") {
-        // Aggiungi il messaggio dell'utente alla chat
-        addMessage("user", message);
+            // Aggiungi il messaggio dell'utente alla chat
+            addMessage("user", message);
 
-        // Genera la risposta del bot
-        /*
-        generateResponse(message).then(response => {
-            // Aggiungi la risposta del bot alla chat
-            addMessage("bot", response);
-        });
-        }
+            // Genera la risposta del bot
+            /*
+            generateResponse(message).then(response => {
+                // Aggiungi la risposta del bot alla chat
+                addMessage("bot", response);
+            });    
         */
+       }
         messageInput.value = "";
     }
 
