@@ -30,10 +30,6 @@ document.addEventListener('mousemove', (event) => {
     const distanceX = event.clientX - previousX;
     const distanceY = event.clientY - previousY;
 
-    // Calcola l'angolo di inclinazione in gradi (separatamente per X e Y)
-    const angleY = Math.atan2(distanceY, distanceX) * (180 / Math.PI); 
-    const angleX = Math.atan2(distanceY, distanceX) * (180 / Math.PI); 
-
     // Calcola l'angolo di inclinazione in base alla distanza e alla velocità
     const angleY = Math.min(70, Math.max(-70, (event.clientX - chatContainer.offsetLeft) / 30 * (distanceX / 10)));
     const angleX = Math.min(70, Math.max(-70, (event.clientY - chatContainer.offsetTop) / 30 * (distanceY / 10)));
