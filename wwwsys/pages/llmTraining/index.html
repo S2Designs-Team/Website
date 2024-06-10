@@ -6,7 +6,6 @@
 <script type="module" src="main.js"></script>
 -->
 
-<TITLE>LLM Training</TITLE>
 <STYLE>
     body {
       font-family: sans-serif;
@@ -66,51 +65,52 @@
     }
 </STYLE>
 
-<H1>LLM Training</H1>
+<TITLE>LLM Training</TITLE>
 
-  <div id="progress-bar">
-    <div id="progress-bar-fill"></div>
-  </div>
+<SECTION CLASS="videoPlayerContainer">  
+    <DIV id="progress-bar">
+        <DIV id="progress-bar-fill"></DIV>
+    </DIV>
 
-  <div id="training-status">
-    Training in corso...
-  </div>
+    <DIV id="training-status">
+        Training in corso...
+    </DIV>
 
-  <div id="training-results">
-    Risultati:
-    <ul id="topic-list">
-      </ul>
-  </div>
+    <DIV id="training-results">
+        Risultati:
+        <UL id="topic-list"></UL>
+    </DIV>
 
-  <div class="training-settings">
-    <label for="vocabulary-size">Dimensione del vocabolario:</label>
-    <input type="number" id="vocabulary-size" value="10000">
+    <DIV class="training-settings">
+        <LABEL for="vocabulary-size">Dimensione del vocabolario:</LABEL>
+        <INPUT type="number" id="vocabulary-size" value="10000">
 
-    <label for="embedding-dim">Dimensione dell'embedding:</label>
-    <input type="number" id="embedding-dim" value="128">
+        <LABEL for="embedding-dim">Dimensione dell'embedding:</LABEL>
+        <INPUT type="number" id="embedding-dim" value="128">
 
-    <label for="max-length">Lunghezza massima della sequenza:</label>
-    <input type="number" id="max-length" value="500">
+        <LABEL for="max-length">Lunghezza massima della sequenza:</LABEL>
+        <INPUT type="number" id="max-length" value="500">
 
-    <label for="epochs">Numero di epoche:</label>
-    <input type="number" id="epochs" value="10">
+        <LABEL for="epochs">Numero di epoche:</LABEL>
+        <INPUT type="number" id="epochs" value="10">
 
-    <label for="batch-size">Dimensione del batch:</label>
-    <input type="number" id="batch-size" value="32">
+        <LABEL for="batch-size">Dimensione del batch:</LABEL>
+        <INPUT type="number" id="batch-size" value="32">
 
-    <button id="train-button">Avvia Training</button>
-    <button id="load-model">Carica Modello</button>
-    <button id="stop-training">Interrompi Training</button>
-    <button id="quantize-model">Quantizza Modello</button>
-    <button id="prune-model">Prune Modello</button>
-    <button id="compress-model">Comprimi Modello</button>
+        <BUTTON id="train-button">Avvia Training</BUTTON>
+        <BUTTON id="load-model">Carica Modello</BUTTON>
+        <BUTTON id="stop-training">Interrompi Training</BUTTON>
+        <BUTTON id="quantize-model">Quantizza Modello</BUTTON>
+        <BUTTON id="prune-model">Prune Modello</BUTTON>
+        <BUTTON id="compress-model">Comprimi Modello</BUTTON>
 
-    <div id="training-loss">
-      <canvas id="training-history-chart"></canvas>
-    </div>
-  </div>
+        <DIV id="training-loss">
+            <CANVAS id="training-history-chart"></CANVAS>
+        </DIV>
+    </DIV>
+</SECTION>
 
-  <script>
+<SCRIPT>
     // Selezione degli elementi HTML
     var progressBarFill      = document.getElementById('progress-bar-fill');
     var trainingStatus       = document.getElementById('training-status');
@@ -396,4 +396,4 @@
 
     // Comprimi il modello quando il pulsante "Comprimi Modello" viene cliccato
     compressModelButton.addEventListener("click", compressModel);
-  </script>
+</SCRIPT>
