@@ -17,7 +17,7 @@
     background-color: #9f0000; /* Rimuovi l'opacità dallo stile */
     box-shadow:  none; /* Rimuovi l'ombra dallo stile */
     position: absolute; /* Aggiungi position: absolute per consentire lo spostamento */
-    transition: transform 0.5s ease, opacity 0.5s ease, box-shadow 0.5s ease; /* Aggiungi la transizione per l'animazione */
+    transition: transform 0.5s cubic-bezier(1, -0.46, 1, 0.68), opacity 0.1s ease, box-shadow 0.1s cubic-bezier(1, -0.38, 0, 1); /* Aggiungi la transizione per l'animazione */
   }
   .chat-header {
     display: flex;
