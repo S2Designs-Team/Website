@@ -132,7 +132,7 @@
     var compressModelButton  = document.getElementById('compress-model');
 
     // Variabile per memorizzare l'intervallo di training
-    let trainingInterval = null;
+    var trainingInterval = null;
 
     // Funzione per aggiornare la barra di progresso
     function updateProgressBar(progress) {
@@ -377,7 +377,7 @@
     }
 
     // Inizia l'ascolto per l'evento click sul pulsante "Invia"
-    sendButton.addEventListener("click", sendMessage);
+    // sendButton.addEventListener("click", sendMessage);
 
     // Avvia il training quando il pulsante "Avvia Training" viene cliccato
     trainButton.addEventListener("click", startTraining);
