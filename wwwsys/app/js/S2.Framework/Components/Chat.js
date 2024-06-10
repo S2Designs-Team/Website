@@ -10,11 +10,18 @@ let isDragging = false;
 let offsetX = 0;
 let offsetY = 0;
 
+let previousX = 0;
+let previousY = 0;
+
 // Funzione per gestire l'inizio del trascinamento
 chatHeader.addEventListener('mousedown', (event) => {
   isDragging = true;
   offsetX = event.clientX - chatContainer.offsetLeft;
   offsetY = event.clientY - chatContainer.offsetTop;
+
+  // Inizializza le coordinate precedenti
+  previousX = event.clientX;
+  previousY = event.clientY;
 });
 
 // Funzione per gestire il movimento durante il trascinamento
@@ -25,10 +32,20 @@ document.addEventListener('mousemove', (event) => {
     chatContainer.style.left = newX + 'px';
     chatContainer.style.top = newY + 'px';
 
-    // Applica l'effetto 3D di inclinazione (modificato)
-    const angleX = (event.clientY - chatContainer.offsetTop) / 30; // Riduce l'inclinazione
-    const angleY = (event.clientX - chatContainer.offsetLeft) / 30; // Riduce l'inclinazione
-    chatContainer.style.transform = `perspective(600px) rotateX(${angleX}deg) rotateY(${angleY}deg)`; // Regola la prospettiva
+    // Calcola la distanza percorsa dal mouse
+    const distanceX = Math.abs(event.clientX - previousX);
+    const distanceY = Math.abs(event.clientY - previousY);
+
+    // Calcola l'angolo di inclinazione in base alla distanza e alla velocità
+    const angleX = (event.clientY - chatContainer.offsetTop) / 30 * (distanceY / 10); 
+    const angleY = (event.clientX - chatContainer.offsetLeft) / 30 * (distanceX / 10); 
+
+    // Applica l'effetto 3D di inclinazione
+    chatContainer.style.transform = `perspective(600px) rotateX(${angleX}deg) rotateY(${angleY}deg)`;
+
+    // Aggiorna le coordinate precedenti
+    previousX = event.clientX;
+    previousY = event.clientY;
   }
 });
 
@@ -37,7 +54,7 @@ document.addEventListener('mouseup', () => {
   isDragging = false;
 
   // Ritorna la finestra alla posizione originale con animazione
-  chatContainer.style.transform = 'perspective(600px) rotateX(0deg) rotateY(0deg)'; // Regola la prospettiva
+  chatContainer.style.transform = 'perspective(600px) rotateX(0deg) rotateY(0deg)';
 });
 
 // Funzione per gestire l'invio di messaggi
