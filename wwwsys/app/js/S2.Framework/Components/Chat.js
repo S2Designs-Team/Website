@@ -30,9 +30,9 @@ document.addEventListener('mousemove', (event) => {
     const distanceX = event.clientX - previousX;
     const distanceY = event.clientY - previousY;
 
-    // Calcola l'angolo di inclinazione in base alla distanza e alla velocità
-    const angleY = Math.min(70, Math.max(-70, (event.clientX - chatContainer.offsetLeft) / 30 * (distanceX / 10)));
-    const angleX = Math.min(70, Math.max(-70, (event.clientY - chatContainer.offsetTop) / 30 * (distanceY / 10)));
+    // Calcola l'angolo di inclinazione in base alla distanza e alla velocità (modificato)
+    const angleY = Math.min(70, Math.max(-70, (event.clientX - chatContainer.offsetLeft) / 20 * (distanceX / 10)));
+    const angleX = Math.min(70, Math.max(-70, (event.clientY - chatContainer.offsetTop) / 20 * (distanceY / 10)));
 
     // Applica l'effetto 3D di inclinazione in direzione opposta (separatamente per X e Y)
     chatContainer.style.transform = `perspective(600px) rotateX(${angleX}deg) rotateY(${angleY}deg)`; 
