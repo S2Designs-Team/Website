@@ -6,176 +6,196 @@
 -->
 
 <STYLE>
-    body {
-      font-family: sans-serif;
-    }
-    .chat-container {
-        width: 100%;
-        max-width: 400px;
-        margin: auto auto;
-        border-radius: 10px;
-        background-color: #9f00008f;
-        box-shadow:  15px 8px 35px rgba(0, 0, 0, 1.0);
-        position: absolute; /* Aggiungi position: absolute per consentire lo spostamento */
-        transition: transform 0.5s ease; /* Aggiungi la transizione per l'animazione */
-    }
-    .chat-header {
-        display: flex;
-        align-items: center;
-        padding: 15px;
-        border-bottom: 1px solid #eee;
-        cursor: move; /* Cambia il cursore a "mano" */
-    }
-    /* ... resto dello stile ... */
-    .chat-messages {
-      padding: 15px;
-      height: 300px;
-      overflow-y: scroll;
-      background-color: #273e50ad;
-    }
-    .chat-message {
-        display: flex;
-        margin-bottom: 10px;
-    }
-    .chat-message.user {
-        justify-content: flex-end;
-    }
-    .chat-message.bot {
-        justify-content: flex-start;
-    }
-    .message-bubble {
-        padding: 10px;
-        border-radius: 10px;
-        max-width: 70%;
-        background-color: #eee;
-    }
-    .message-bubble.user {
-        background-color: #273e50ad
-    }
-    .chat-input {
-        display: flex;
-        align-items: center;
-        padding: 10px;
-        border-top: 1px solid #eee;
-    }
-    #message-input {
-        flex: 1;
-        padding: 10px;
-        border: 1px solid #eee;
-        border-radius: 5px;
-        margin-right: 10px;
-    }
-    #send-button {
-        padding: 10px;
-        background-color: #4caf50;
-        color: #fff;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-    }
+  body {
+    font-family: sans-serif;
+  }
+  .chat-container {
+    width: 100%;
+    max-width: 400px;
+    margin: auto auto;
+    border-radius: 10px;
+    background-color: #9f00008f;
+    box-shadow:  15px 8px 35px rgba(0, 0, 0, 1.0);
+    position: absolute; /* Aggiungi position: absolute per consentire lo spostamento */
+    transition: transform 0.5s ease; /* Aggiungi la transizione per l'animazione */
+  }
+  .chat-header {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    cursor: move; /* Cambia il cursore a "mano" */
+  }
+  .profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 10px;
+  }
+  .profile-pic img {
+    width: 100%;
+    height: 100%;
+  }
+  .chat-info {
+    flex: 1;
+  }
+  .chat-info h3 {
+    margin: 0;
+  }
+  .chat-info p {
+    font-size: 12px;
+    color: #888;
+  }
+  .chat-messages {
+    padding: 15px;
+    height: 300px;
+    overflow-y: scroll;
+    background-color: #273e50ad;
+  }
+  .chat-message {
+    display: flex;
+    margin-bottom: 10px;
+  }
+  .chat-message.user {
+    justify-content: flex-end;
+  }
+  .chat-message.bot {
+    justify-content: flex-start;
+  }
+  .message-bubble {
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 70%;
+    background-color: #eee;
+  }
+  .message-bubble.user {
+    background-color: #273e50ad
+  }
+  .chat-input {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-top: 1px solid #eee;
+  }
+  #message-input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    margin-right: 10px;
+  }
+  #send-button {
+    padding: 10px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
 </STYLE>
 
 <TITLE>LLM Chat</TITLE>
 
 <SECTION CLASS="videoPlayerContainer">
-    <DIV class="chat-container">
-        <DIV class="chat-header">
-            <DIV class="profile-pic">
-                <IMG src="./wwwsys/app/res/img/avatar.png" alt="Profile Picture">
-            </DIV>
-            <DIV class="chat-info">
-                <H3>AI Chatbot</H3>
-                <P>Online</P>
-            </DIV>
-        </DIV>
-        <DIV class="chat-messages">
-    </DIV>
-    <DIV class="chat-input">
-        <INPUT type="text" id="message-input" placeholder="Type your message...">
-        <BUTTON id="send-button">Send</BUTTON>
-        </DIV>
-    </DIV>
+  <DIV class="chat-container">
+      <DIV class="chat-header">
+          <DIV class="profile-pic">
+              <IMG src="./wwwsys/app/res/img/avatar.png" alt="Profile Picture">
+          </DIV>
+          <DIV class="chat-info">
+              <H3>AI Chatbot</H3>
+              <P>Online</P>
+          </DIV>
+      </DIV>
+      <DIV class="chat-messages">
+  </DIV>
+  <DIV class="chat-input">
+      <INPUT type="text" id="message-input" placeholder="Type your message...">
+      <BUTTON id="send-button">Send</BUTTON>
+      </DIV>
+  </DIV>
 </SECTION>
 
 <SCRIPT>
-    // Selezione degli elementi HTML
-    const chatContainer = document.querySelector('.chat-container');
-    const chatHeader = document.querySelector('.chat-header');
-    const messageInput = document.getElementById('message-input');
-    const sendButton = document.getElementById('send-button');
-    const chatMessages = document.querySelector('.chat-messages');
+  // Selezione degli elementi HTML
+  const chatContainer = document.querySelector('.chat-container');
+  const chatHeader = document.querySelector('.chat-header');
+  const messageInput = document.getElementById('message-input');
+  const sendButton = document.getElementById('send-button');
+  const chatMessages = document.querySelector('.chat-messages');
 
-    // Variabili per gestire lo spostamento
-    let isDragging = false;
-    let offsetX = 0;
-    let offsetY = 0;
+  // Variabili per gestire lo spostamento
+  let isDragging = false;
+  let offsetX = 0;
+  let offsetY = 0;
 
-    // Funzione per gestire l'inizio del trascinamento
-    chatHeader.addEventListener('mousedown', (event) => {
-        isDragging = true;
-        offsetX = event.clientX - chatContainer.offsetLeft;
-        offsetY = event.clientY - chatContainer.offsetTop;
-    });
+  // Funzione per gestire l'inizio del trascinamento
+  chatHeader.addEventListener('mousedown', (event) => {
+      isDragging = true;
+      offsetX = event.clientX - chatContainer.offsetLeft;
+      offsetY = event.clientY - chatContainer.offsetTop;
+  });
 
-    // Funzione per gestire il movimento durante il trascinamento
-    document.addEventListener('mousemove', (event) => {
-        if (isDragging) {
-            const newX = event.clientX - offsetX;
-            const newY = event.clientY - offsetY;
-            chatContainer.style.left = newX + 'px';
-            chatContainer.style.top = newY + 'px';
+  // Funzione per gestire il movimento durante il trascinamento
+  document.addEventListener('mousemove', (event) => {
+      if (isDragging) {
+          const newX = event.clientX - offsetX;
+          const newY = event.clientY - offsetY;
+          chatContainer.style.left = newX + 'px';
+          chatContainer.style.top = newY + 'px';
 
-            // Applica l'effetto 3D di inclinazione
-            const angleX = (event.clientY - chatContainer.offsetTop) / 10;
-            const angleY = (event.clientX - chatContainer.offsetLeft) / 10;
-            chatContainer.style.transform = `perspective(500px) rotateX(${angleX}deg) rotateY(${angleY}deg)`;
-        }
-    });
+          // Applica l'effetto 3D di inclinazione
+          const angleX = (event.clientY - chatContainer.offsetTop) / 10;
+          const angleY = (event.clientX - chatContainer.offsetLeft) / 10;
+          chatContainer.style.transform = `perspective(500px) rotateX(${angleX}deg) rotateY(${angleY}deg)`;
+      }
+  });
 
-    // Funzione per gestire la fine del trascinamento
-    document.addEventListener('mouseup', () => {
-        isDragging = false;
+  // Funzione per gestire la fine del trascinamento
+  document.addEventListener('mouseup', () => {
+      isDragging = false;
 
-        // Ritorna la finestra alla posizione originale con animazione
-        chatContainer.style.transform = 'perspective(500px) rotateX(0deg) rotateY(0deg)';
-    });
+      // Ritorna la finestra alla posizione originale con animazione
+      chatContainer.style.transform = 'perspective(500px) rotateX(0deg) rotateY(0deg)';
+  });
 
-    // Funzione per gestire l'invio di messaggi
-    function sendMessage() {
-        const message = messageInput.value;
-        if (message.trim() !== "") {
-            // Aggiungi il messaggio dell'utente alla chat
-            addMessage("user", message);
+  // Funzione per gestire l'invio di messaggi
+  function sendMessage() {
+      const message = messageInput.value;
+      if (message.trim() !== "") {
+          // Aggiungi il messaggio dell'utente alla chat
+          addMessage("user", message);
 
-            // Genera la risposta del bot
-            /*
-            generateResponse(message).then(response => {
-                // Aggiungi la risposta del bot alla chat
-                addMessage("bot", response);
-            });    
-        */
-        }
-        messageInput.value = "";
-    }
+          // Genera la risposta del bot
+          /*
+          generateResponse(message).then(response => {
+              // Aggiungi la risposta del bot alla chat
+              addMessage("bot", response);
+          });    
+      */
+     }
+      messageInput.value = "";
+  }
 
-    // Funzione per aggiungere un messaggio alla chat
-    function addMessage(type, message) {
-        const messageElement = document.createElement("div");
-        messageElement.classList.add("chat-message");
-        messageElement.classList.add(type);
+  // Funzione per aggiungere un messaggio alla chat
+  function addMessage(type, message) {
+      const messageElement = document.createElement("div");
+      messageElement.classList.add("chat-message");
+      messageElement.classList.add(type);
 
-        const messageBubble = document.createElement("div");
-        messageBubble.classList.add("message-bubble");
-        messageBubble.classList.add(type);
-        messageBubble.textContent = message;
+      const messageBubble = document.createElement("div");
+      messageBubble.classList.add("message-bubble");
+      messageBubble.classList.add(type);
+      messageBubble.textContent = message;
 
-        messageElement.appendChild(messageBubble);
-        chatMessages.appendChild(messageElement);
+      messageElement.appendChild(messageBubble);
+      chatMessages.appendChild(messageElement);
 
-        // Scorrere in basso per visualizzare il nuovo messaggio
-        chatMessages.scrollTop = chatMessages.scrollHeight;
-    }
+      // Scorrere in basso per visualizzare il nuovo messaggio
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+  }
 
-    // Inizia l'ascolto per l'evento click sul pulsante "Invia"
-    sendButton.addEventListener("click", sendMessage);
+  // Inizia l'ascolto per l'evento click sul pulsante "Invia"
+  sendButton.addEventListener("click", sendMessage);
 </SCRIPT>
