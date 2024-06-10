@@ -30,13 +30,18 @@ document.addEventListener('mousemove', (event) => {
     const distanceX = event.clientX - previousX;
     const distanceY = event.clientY - previousY;
 
-    // Calcola l'angolo di inclinazione in gradi
-    const angle = Math.atan2(distanceY, distanceX) * (180 / Math.PI); 
+    // Calcola l'angolo di inclinazione in gradi (separatamente per X e Y)
+    const angleY = Math.atan2(distanceY, distanceX) * (180 / Math.PI); 
+    const angleX = Math.atan2(distanceY, distanceX) * (180 / Math.PI); 
 
-    // Applica l'effetto 3D di inclinazione in direzione opposta
-    chatContainer.style.transform = `perspective(600px) rotateY(${angle}deg)`; 
+    // Calcola l'angolo di inclinazione in base alla distanza e alla velocità
+    const angleY = Math.min(70, Math.max(-70, (event.clientX - chatContainer.offsetLeft) / 30 * (distanceX / 10)));
+    const angleX = Math.min(70, Math.max(-70, (event.clientY - chatContainer.offsetTop) / 30 * (distanceY / 10)));
 
-    // Sposta la chat in base alla posizione del mouse (modificato)
+    // Applica l'effetto 3D di inclinazione in direzione opposta (separatamente per X e Y)
+    chatContainer.style.transform = `perspective(600px) rotateX(${angleX}deg) rotateY(${angleY}deg)`; 
+
+    // Sposta la chat in base alla posizione del mouse
     const newX = event.clientX - offsetX;
     const newY = event.clientY - offsetY;
     chatContainer.style.left = newX + 'px';
@@ -53,7 +58,7 @@ document.addEventListener('mouseup', () => {
   isDragging = false;
 
   // Ritorna la finestra alla posizione originale con animazione
-  chatContainer.style.transform = 'perspective(600px) rotateY(0deg)';
+  chatContainer.style.transform = 'perspective(600px) rotateX(0deg) rotateY(0deg)';
 });
 
 // Funzione per gestire l'invio di messaggi
