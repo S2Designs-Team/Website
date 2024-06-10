@@ -1,0 +1,399 @@
+<!--
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script> 
+<script src="https://cdn.jsdelivr.net/npm/tokenizers"></script>  
+<script src="https://cdn.jsdelivr.net/npm/nlp-compromise"></script>  
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>  
+<script type="module" src="main.js"></script>
+-->
+
+<TITLE>LLM Training</TITLE>
+<STYLE>
+    body {
+      font-family: sans-serif;
+    }
+    #progress-bar {
+      width: 100%;
+      height: 20px;
+      background-color: #ccc;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+    #progress-bar-fill {
+      height: 100%;
+      background-color: #4CAF50;
+      border-radius: 5px;
+      width: 0%; /* inizialmente vuoto */
+      transition: width 0.5s ease;
+    }
+    #training-status {
+      margin-bottom: 10px;
+    }
+    #training-results {
+      margin-bottom: 10px;
+    }
+    .training-settings {
+      margin-bottom: 20px;
+    }
+    .training-settings label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    .training-settings input[type="number"] {
+      width: 100px;
+      padding: 5px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+    .training-settings button {
+      padding: 8px 15px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    .training-settings button:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+    #training-history-chart {
+      width: 600px;
+      height: 400px;
+    }
+    #training-loss {
+      margin-bottom: 20px;
+    }
+</STYLE>
+
+<H1>LLM Training</H1>
+
+  <div id="progress-bar">
+    <div id="progress-bar-fill"></div>
+  </div>
+
+  <div id="training-status">
+    Training in corso...
+  </div>
+
+  <div id="training-results">
+    Risultati:
+    <ul id="topic-list">
+      </ul>
+  </div>
+
+  <div class="training-settings">
+    <label for="vocabulary-size">Dimensione del vocabolario:</label>
+    <input type="number" id="vocabulary-size" value="10000">
+
+    <label for="embedding-dim">Dimensione dell'embedding:</label>
+    <input type="number" id="embedding-dim" value="128">
+
+    <label for="max-length">Lunghezza massima della sequenza:</label>
+    <input type="number" id="max-length" value="500">
+
+    <label for="epochs">Numero di epoche:</label>
+    <input type="number" id="epochs" value="10">
+
+    <label for="batch-size">Dimensione del batch:</label>
+    <input type="number" id="batch-size" value="32">
+
+    <button id="train-button">Avvia Training</button>
+    <button id="load-model">Carica Modello</button>
+    <button id="stop-training">Interrompi Training</button>
+    <button id="quantize-model">Quantizza Modello</button>
+    <button id="prune-model">Prune Modello</button>
+    <button id="compress-model">Comprimi Modello</button>
+
+    <div id="training-loss">
+      <canvas id="training-history-chart"></canvas>
+    </div>
+  </div>
+
+  <script>
+    // Selezione degli elementi HTML
+    const progressBarFill = document.getElementById('progress-bar-fill');
+    const trainingStatus = document.getElementById('training-status');
+    const topicList = document.getElementById('topic-list');
+    const trainButton = document.getElementById('train-button');
+    const messageInput = document.getElementById('message-input');
+    const sendButton = document.getElementById('send-button');
+    const chatMessages = document.querySelector('.chat-messages');
+    const vocabularySizeInput = document.getElementById('vocabulary-size');
+    const embeddingDimInput = document.getElementById('embedding-dim');
+    const maxLengthInput = document.getElementById('max-length');
+    const epochsInput = document.getElementById('epochs');
+    const batchSizeInput = document.getElementById('batch-size');
+    const loadModelButton = document.getElementById('load-model');
+    const stopTrainingButton = document.getElementById('stop-training');
+    const trainingHistoryChart = document.getElementById('training-history-chart');
+    const quantizeModelButton = document.getElementById('quantize-model');
+    const pruneModelButton = document.getElementById('prune-model');
+    const compressModelButton = document.getElementById('compress-model');
+
+    // Variabile per memorizzare l'intervallo di training
+    let trainingInterval = null;
+
+    // Funzione per aggiornare la barra di progresso
+    function updateProgressBar(progress) {
+      progressBarFill.style.width = progress + '%';
+    }
+
+    // Funzione per aggiornare lo stato di training
+    function updateTrainingStatus(status) {
+      trainingStatus.textContent = status;
+    }
+
+    // Funzione per aggiungere un nuovo argomento alla lista
+    function addTopicToList(topic) {
+      const li = document.createElement('li');
+      li.textContent = topic;
+      topicList.appendChild(li);
+    }
+
+    // Funzione per gestire l'invio di messaggi
+    function sendMessage() {
+      const message = messageInput.value;
+      if (message.trim() !== "") {
+        // Aggiungi il messaggio dell'utente alla chat
+        addMessage("user", message);
+
+        // Genera la risposta del bot
+        generateResponse(message).then(response => {
+          // Aggiungi la risposta del bot alla chat
+          addMessage("bot", response);
+        });
+      }
+      messageInput.value = "";
+    }
+
+    // Funzione per aggiungere un messaggio alla chat
+    function addMessage(type, message) {
+      const messageElement = document.createElement("div");
+      messageElement.classList.add("chat-message");
+      messageElement.classList.add(type);
+
+      const messageBubble = document.createElement("div");
+      messageBubble.classList.add("message-bubble");
+      messageBubble.classList.add(type);
+      messageBubble.textContent = message;
+
+      messageElement.appendChild(messageBubble);
+      chatMessages.appendChild(messageElement);
+
+      // Scorrere in basso per visualizzare il nuovo messaggio
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    // Funzione per gestire l'avvio del training
+    async function startTraining() {
+      // Disabilita i pulsanti "Avvia Training", "Carica Modello" e "Quantizza Modello"
+      trainButton.disabled = true;
+      loadModelButton.disabled = true;
+      quantizeModelButton.disabled = true;
+      pruneModelButton.disabled = true; // Disabilita anche "Prune Modello"
+      compressModelButton.disabled = true; // Disabilita anche "Comprimi Modello"
+      updateTrainingStatus("Training in corso...");
+
+      // Ottieni i valori dei parametri dal form
+      const vocabularySize = parseInt(vocabularySizeInput.value, 10);
+      const embeddingDim = parseInt(embeddingDimInput.value, 10);
+      const maxLength = parseInt(maxLengthInput.value, 10);
+      const epochs = parseInt(epochsInput.value, 10);
+      const batchSize = parseInt(batchSizeInput.value, 10);
+
+      // Inizia il training del modello
+      await main(vocabularySize, embeddingDim, maxLength, epochs, batchSize);
+
+      // Aggiorna lo stato di training
+      updateTrainingStatus('Training completato!');
+
+      // Aggiungi esempi di argomenti alla lista
+      addTopicToList('Storia_d\'Italia');
+      addTopicToList('Roma');
+      addTopicToList('Firenze');
+      addTopicToList('Rinascimento');
+
+      // Riabilita i pulsanti "Avvia Training", "Carica Modello" e "Quantizza Modello"
+      trainButton.disabled = false;
+      loadModelButton.disabled = false;
+      quantizeModelButton.disabled = false;
+      pruneModelButton.disabled = false; // Riabilita anche "Prune Modello"
+      compressModelButton.disabled = false; // Riabilita anche "Comprimi Modello"
+    }
+
+    // Funzione per gestire il caricamento di un modello da localStorage
+    async function loadModel() {
+      // Disabilita il pulsante "Carica Modello"
+      loadModelButton.disabled = true;
+
+      // Carica il modello da localStorage
+      trainedModel = await loadModelFromLocalStorage();
+
+      // Riabilita il pulsante "Carica Modello"
+      loadModelButton.disabled = false;
+    }
+
+    // Funzione per gestire l'interruzione del training
+    function stopTraining() {
+      // Controlla se il training è in corso
+      if (trainingInterval) {
+        // Interrompe il training
+        clearInterval(trainingInterval);
+
+        // Aggiorna lo stato di training
+        updateTrainingStatus('Training interrotto!');
+
+        // Riabilita i pulsanti "Avvia Training", "Carica Modello" e "Quantizza Modello"
+        trainButton.disabled = false;
+        loadModelButton.disabled = false;
+        quantizeModelButton.disabled = false;
+        pruneModelButton.disabled = false;
+        compressModelButton.disabled = false; // Riabilita anche "Comprimi Modello"
+      }
+    }
+
+    // Funzione per visualizzare la cronologia del training
+    function displayTrainingHistory() {
+      // Assicurati che la cronologia del training sia disponibile
+      if (trainingHistory) {
+        // Estrae i dati di perdita dalla cronologia del training
+        const lossValues = trainingHistory.loss.map(loss => loss.toFixed(4));
+
+        // Crea un grafico con Chart.js (assumi che Chart.js sia incluso nella pagina)
+        const myChart = new Chart(trainingHistoryChart, {
+          type: 'line',
+          data: {
+            labels: Array.from({ length: lossValues.length }, (_, i) => `Epoch ${i + 1}`),
+            datasets: [{
+              label: 'Perdita',
+              data: lossValues,
+              borderColor: 'blue',
+              fill: false,
+            }]
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true,
+              }
+            }
+          }
+        });
+      }
+    }
+
+    // Funzione per caricare un modello addestrato da localStorage
+    async function loadModelFromLocalStorage() {
+      const modelJSON = localStorage.getItem('trainedModel');
+      if (modelJSON) {
+        // Carica il modello da localStorage
+        const model = await tf.loadLayersModel(JSON.parse(modelJSON));
+
+        // Carica la cronologia del training
+        trainingHistory = JSON.parse(localStorage.getItem('trainingHistory'));
+
+        // Aggiorna l'interfaccia utente
+        updateTrainingStatus('Modello caricato da localStorage!');
+        displayTrainingHistory();
+
+        return model;
+      } else {
+        // Restituisci null se non è presente un modello in localStorage
+        return null;
+      }
+    }
+
+    // Funzione per salvare il modello addestrato in localStorage
+    async function saveModelToLocalStorage(model) {
+      // Salva il modello addestrato in localStorage
+      localStorage.setItem('trainedModel', JSON.stringify(model.toJSON()));
+
+      // Salva la cronologia del training in localStorage
+      localStorage.setItem('trainingHistory', JSON.stringify(trainingHistory));
+
+      // Aggiorna l'interfaccia utente
+      updateTrainingStatus('Modello salvato in localStorage!');
+    }
+
+    // Funzione per gestire l'avvio della quantizzazione del modello
+    async function quantizeModel() {
+      // Disabilita i pulsanti "Avvia Training", "Carica Modello" e "Quantizza Modello"
+      trainButton.disabled = true;
+      loadModelButton.disabled = true;
+      quantizeModelButton.disabled = true;
+      updateTrainingStatus("Quantizzazione del modello in corso...");
+
+      // Quantizza il modello addestrato
+      const quantizedModel = await quantizeTrainedModel(trainedModel);
+
+      // Aggiorna lo stato di training
+      updateTrainingStatus('Quantizzazione del modello completata!');
+
+      // Riabilita i pulsanti "Avvia Training", "Carica Modello" e "Quantizza Modello"
+      trainButton.disabled = false;
+      loadModelButton.disabled = false;
+      quantizeModelButton.disabled = false;
+    }
+
+    // Funzione per gestire l'avvio del pruning del modello
+    async function pruneModel() {
+      // Disabilita i pulsanti "Avvia Training", "Carica Modello" e "Prune Modello"
+      trainButton.disabled = true;
+      loadModelButton.disabled = true;
+      pruneModelButton.disabled = true;
+      updateTrainingStatus("Pruning del modello in corso...");
+
+      // Esegui il pruning del modello addestrato
+      const prunedModel = await pruneTrainedModel(trainedModel);
+
+      // Aggiorna lo stato di training
+      updateTrainingStatus('Pruning del modello completato!');
+
+      // Riabilita i pulsanti "Avvia Training", "Carica Modello" e "Prune Modello"
+      trainButton.disabled = false;
+      loadModelButton.disabled = false;
+      pruneModelButton.disabled = false;
+    }
+
+    // Funzione per gestire la compressione del modello
+    async function compressModel() {
+      // Disabilita i pulsanti "Avvia Training", "Carica Modello" e "Comprimi Modello"
+      trainButton.disabled = true;
+      loadModelButton.disabled = true;
+      compressModelButton.disabled = true;
+      updateTrainingStatus("Compressione del modello in corso...");
+
+      // Comprimi il modello addestrato
+      const compressedModel = await compressTrainedModel(trainedModel);
+
+      // Aggiorna lo stato di training
+      updateTrainingStatus('Compressione del modello completata!');
+
+      // Riabilita i pulsanti "Avvia Training", "Carica Modello" e "Comprimi Modello"
+      trainButton.disabled = false;
+      loadModelButton.disabled = false;
+      compressModelButton.disabled = false;
+    }
+
+    // Inizia l'ascolto per l'evento click sul pulsante "Invia"
+    sendButton.addEventListener("click", sendMessage);
+
+    // Avvia il training quando il pulsante "Avvia Training" viene cliccato
+    trainButton.addEventListener("click", startTraining);
+
+    // Carica il modello quando il pulsante "Carica Modello" viene cliccato
+    loadModelButton.addEventListener("click", loadModel);
+
+    // Interrompe il training quando il pulsante "Interrompi Training" viene cliccato
+    stopTrainingButton.addEventListener("click", stopTraining);
+
+    // Quantizza il modello quando il pulsante "Quantizza Modello" viene cliccato
+    quantizeModelButton.addEventListener("click", quantizeModel);
+
+    // Esegui il pruning del modello quando il pulsante "Prune Modello" viene cliccato
+    pruneModelButton.addEventListener("click", pruneModel);
+
+    // Comprimi il modello quando il pulsante "Comprimi Modello" viene cliccato
+    compressModelButton.addEventListener("click", compressModel);
+  </script>
