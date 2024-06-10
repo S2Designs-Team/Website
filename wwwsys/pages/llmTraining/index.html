@@ -112,24 +112,24 @@
 
   <script>
     // Selezione degli elementi HTML
-    const progressBarFill = document.getElementById('progress-bar-fill');
-    const trainingStatus = document.getElementById('training-status');
-    const topicList = document.getElementById('topic-list');
-    const trainButton = document.getElementById('train-button');
-    const messageInput = document.getElementById('message-input');
-    const sendButton = document.getElementById('send-button');
-    const chatMessages = document.querySelector('.chat-messages');
-    const vocabularySizeInput = document.getElementById('vocabulary-size');
-    const embeddingDimInput = document.getElementById('embedding-dim');
-    const maxLengthInput = document.getElementById('max-length');
-    const epochsInput = document.getElementById('epochs');
-    const batchSizeInput = document.getElementById('batch-size');
-    const loadModelButton = document.getElementById('load-model');
-    const stopTrainingButton = document.getElementById('stop-training');
-    const trainingHistoryChart = document.getElementById('training-history-chart');
-    const quantizeModelButton = document.getElementById('quantize-model');
-    const pruneModelButton = document.getElementById('prune-model');
-    const compressModelButton = document.getElementById('compress-model');
+    var progressBarFill = document.getElementById('progress-bar-fill');
+    var trainingStatus = document.getElementById('training-status');
+    var topicList = document.getElementById('topic-list');
+    var trainButton = document.getElementById('train-button');
+    var messageInput = document.getElementById('message-input');
+    var sendButton = document.getElementById('send-button');
+    var chatMessages = document.querySelector('.chat-messages');
+    var vocabularySizeInput = document.getElementById('vocabulary-size');
+    var embeddingDimInput = document.getElementById('embedding-dim');
+    var maxLengthInput = document.getElementById('max-length');
+    var epochsInput = document.getElementById('epochs');
+    var batchSizeInput = document.getElementById('batch-size');
+    var loadModelButton = document.getElementById('load-model');
+    var stopTrainingButton = document.getElementById('stop-training');
+    var trainingHistoryChart = document.getElementById('training-history-chart');
+    var quantizeModelButton = document.getElementById('quantize-model');
+    var pruneModelButton = document.getElementById('prune-model');
+    var compressModelButton = document.getElementById('compress-model');
 
     // Variabile per memorizzare l'intervallo di training
     let trainingInterval = null;
