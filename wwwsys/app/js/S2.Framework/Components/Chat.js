@@ -21,6 +21,10 @@ chatHeader.addEventListener('mousedown', (event) => {
   // Inizializza le coordinate precedenti
   previousX = event.clientX;
   previousY = event.clientY;
+
+  // Applica l'ombra e l'opacità durante il drag
+  chatContainer.style.boxShadow = '15px 8px 35px rgba(0, 0, 0, 1.0)';
+  chatContainer.style.opacity = 0.6;
 });
 
 // Funzione per gestire il movimento durante il trascinamento
@@ -48,8 +52,8 @@ document.addEventListener('mousemove', (event) => {
 // Funzione per applicare l'inclinazione alla chat
 function applyTilt(distanceX, distanceY) {
   // Calcola l'angolo di inclinazione in base alla distanza e alla velocità 
-  const angleY = Math.min(70, Math.max(-70, (distanceX - chatContainer.offsetLeft) / 20 * (distanceX / 10)));
-  const angleX = Math.min(70, Math.max(-70, (distanceY - chatContainer.offsetTop) / 20 * (distanceY / 10)));
+  const angleY = Math.min(70, Math.max(-70, (distanceX / 20 * (distanceX / 10))));
+  const angleX = Math.min(70, Math.max(-70, (distanceY / 20 * (distanceY / 10))));
 
   // Applica l'effetto 3D di inclinazione in direzione opposta (separatamente per X e Y)
   chatContainer.style.transform = `perspective(600px) rotateX(${angleX}deg) rotateY(${angleY}deg)`; 
@@ -61,8 +65,12 @@ document.addEventListener('mouseup', () => {
 
   // Ritorna la finestra alla posizione originale con animazione
   chatContainer.style.transform = 'perspective(600px) rotateX(0deg) rotateY(0deg)';
-  chatContainer.style.opacity = 1; // Ripristina opacità
-  chatContainer.style.boxShadow = '15px 8px 35px rgba(0, 0, 0, 1.0)'; // Ripristina ombra
+
+  // Ripristina opacità e ombra con una transizione
+  setTimeout(() => {
+    chatContainer.style.opacity = 1;
+    chatContainer.style.boxShadow = 'none';
+  }, 500);
 });
 
 // Funzione per gestire l'invio di messaggi

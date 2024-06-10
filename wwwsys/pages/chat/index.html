@@ -14,10 +14,10 @@
     max-width: 400px;
     margin: auto auto;
     border-radius: 10px;
-    background-color: #9f00008f;
-    box-shadow:  15px 8px 35px rgba(0, 0, 0, 1.0);
+    background-color: #9f0000; /* Rimuovi l'opacità dallo stile */
+    box-shadow:  none; /* Rimuovi l'ombra dallo stile */
     position: absolute; /* Aggiungi position: absolute per consentire lo spostamento */
-    transition: transform 0.5s ease; /* Aggiungi la transizione per l'animazione */
+    transition: transform 0.5s ease, opacity 0.5s ease, box-shadow 0.5s ease; /* Aggiungi la transizione per l'animazione */
   }
   .chat-header {
     display: flex;
@@ -99,6 +99,7 @@
     cursor: pointer;
   }
 </STYLE>
+
 
 <TITLE>LLM Chat</TITLE>
 
