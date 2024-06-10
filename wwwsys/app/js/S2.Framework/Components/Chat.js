@@ -25,10 +25,10 @@ document.addEventListener('mousemove', (event) => {
     chatContainer.style.left = newX + 'px';
     chatContainer.style.top = newY + 'px';
 
-    // Applica l'effetto 3D di inclinazione
-    const angleX = (event.clientY - chatContainer.offsetTop) / 10;
-    const angleY = (event.clientX - chatContainer.offsetLeft) / 10;
-    chatContainer.style.transform = `perspective(500px) rotateX(${angleX}deg) rotateY(${angleY}deg)`;
+    // Applica l'effetto 3D di inclinazione (modificato)
+    const angleX = (event.clientY - chatContainer.offsetTop) / 30; // Riduce l'inclinazione
+    const angleY = (event.clientX - chatContainer.offsetLeft) / 30; // Riduce l'inclinazione
+    chatContainer.style.transform = `perspective(600px) rotateX(${angleX}deg) rotateY(${angleY}deg)`; // Regola la prospettiva
   }
 });
 
@@ -37,7 +37,7 @@ document.addEventListener('mouseup', () => {
   isDragging = false;
 
   // Ritorna la finestra alla posizione originale con animazione
-  chatContainer.style.transform = 'perspective(500px) rotateX(0deg) rotateY(0deg)';
+  chatContainer.style.transform = 'perspective(600px) rotateX(0deg) rotateY(0deg)'; // Regola la prospettiva
 });
 
 // Funzione per gestire l'invio di messaggi
