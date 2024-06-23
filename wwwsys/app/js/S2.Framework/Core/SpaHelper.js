@@ -85,7 +85,7 @@ class SpaHelper {
                 console.debug("Loading the web hosted page')]");
                 //urlContent = SpaHelper.loadRemoteUrl(AppContext.props["contentContainerDomName"], percorsoContenuto);
             } else {
-                event.preventDefault(); // Impedisce il comportamento predefinito del link
+                event.preventDefault(); // Stops the event propagation
                 urlContent = SpaHelper.instance.loadLocalUrl(AppContext.props["contentContainerDomName"], AppContext.getStartPath() + myContentPath);	
             }
         });
