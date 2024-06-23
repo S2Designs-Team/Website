@@ -27,8 +27,8 @@ export class ChannelLink extends BaseComponent {
     }
 
     initialize() {
-        initializeComponentData();
-        initializeGui();
+        this.initializeComponentData();
+        this.initializeGui();
         console.log('Component1 initialized');
     }
 
