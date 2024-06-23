@@ -34,7 +34,6 @@ export class ChannelLink extends BaseComponent {
     }
 
     initializeComponentData() {
-        
         this.channels[0]  = { on: false, type: "webTv", url: "TEST_dashJs_stream_mp4.html",       group: "S2",          iconStyleClass: "test-icon",       channelTitle: "S2 Test TV" }; 
         this.channels[1]  = { on: false, type: "tv",    url: "rai_1.html",                        group: "RAI",         iconStyleClass: "rai1",            channelTitle: "Rai Uno" }; 
         this.channels[2]  = { on: false, type: "tv",    url: "rai_2.html",                        group: "RAI",         iconStyleClass: "rai2",            channelTitle: "Rai Due" }; 

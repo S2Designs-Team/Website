@@ -69,8 +69,6 @@ SpaHelper.wrapAllRoutes();
 console.info("Redirecting to the landing page....");
 		
 SpaHelper.loadUrl(AppContext.props["landingPageUrl"]);
-const channelList = new ChannelLink();
-channelList.render();
 
 // Istanze dei componenti grafici
 //NavBar.render();
