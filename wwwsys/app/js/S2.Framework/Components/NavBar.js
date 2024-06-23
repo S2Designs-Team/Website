@@ -47,7 +47,46 @@ class NavBar extends BaseComponent {
         });
     }
 
-    addEventListeners(container) { }
+    addEventListeners(container) {
+        // Adds an 'On clickEvent' to all hyperlinks inside '.nav-menu' element
+        // then anonymous function will be called
+        $(".NavLink").click(function () {
+            console.clear();
+            var url     = $(this).attr('href');
+            $('.nav-menu li').removeClass('selected');
+            $(this).parent().addClass('selected');
+	
+            /*👉️ [SNI] ONLY FOR DEBUG MODE UNCOMMENT THE FOLLOWING CODE:
+            //debugger;
+            //console.log($(this).href);
+            //link.protocol + "//" + link.host + link.pathname
+            //const myUrl = new URL(url);
+            //const parts = ['protocol', 'hostname', 'pathname', 'port', 'hash'];
+            //parts.forEach(key => console.log(key, myUrl[key]));
+            */
+            $(strDestinationVideoScreenDom).load(url, async function(responseTxt, statusTxt, jqXHR){
+                if (statusTxt == "success"){
+                    console.log();
+                    var ParsedHtmlPage = $(responseTxt);
+                    /*👉️ [SNI] ONLY FOR DEBUG MODE UNCOMMENT THE FOLLOWING CODE:
+                    //debugger;
+                    //console.log(url + " content loaded successfully!\n"+
+                    //            "[Loaded Html]:\n" + 
+                    //            "==============================================================================\n"+
+                    //            responseTxt);
+                    */
+                }
+                if(statusTxt == "error"){
+                    alert("Error: " + jqXHR.status + " " + jqXHR.statusText);
+                }
+            });
+            selectedChannelName = $(this).parent().attr('id');
+            console.log("Selected channel: '" + selectedChannelName + "'");
+            return false;
+        });        
+
+    }
+
     /* 
     * ===========================================================
     * = EVENT HANDLERS ==========================================
@@ -55,18 +94,15 @@ class NavBar extends BaseComponent {
     */ 
     linkMouseClick = (evt) => {
         const myConsole = document.getElementById("HtaConsole");
-        if (myConsole.style.display === "block") {
-            myConsole.style.display = "none";
-        } else {
-            myConsole.style.display = "block";
-            this.resize();
-        }
         evt.preventDefault();
     }
-    linkMouseHover = (evt) => { }
+    linkMouseHover = (evt) => {
+        evt.preventDefault();
+    }
 
-    linkMouseLeave = (evt) => { }
-    
+    linkMouseLeave = (evt) => {
+        evt.preventDefault();
+    }
 }
 
 // Export the singleton instance

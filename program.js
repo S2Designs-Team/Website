@@ -65,7 +65,7 @@ console.info(AppContext.isLocallyHosted(window.location.href) ? "Web app running
 
 // Export the singleton instance
 const appHttpClient = new HttpClient();
-//SpaHelper.wrapAllRoutes();
+SpaHelper.wrapAllRoutes();
 console.info("Redirecting to the landing page....");
 		
 SpaHelper.loadUrl(AppContext.props["landingPageUrl"]);

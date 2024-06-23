@@ -21,6 +21,7 @@
 * Last modify:  2024-05-25
 * ClassName:    SpaHelper
 * Version:      0.0.001
+* Requireents:  AppContext.js
 */
 class SpaHelper {
     /*📎DOCUMENTATION
@@ -143,7 +144,7 @@ class SpaHelper {
                     return data;
                 })
                 .fail(function(jqXHR, textStatus, errorThrown) {
-                    var errorMessage = `Errore durante il caricamento della risorsa remota: ${url} <BR>
+                    var errorMessage = `Error(s) loading the remote resource: ${url} <BR>
                                        ${textStatus} <BR>`;
                     console.error(errorMessage);
                     throw "errorMessage";
@@ -188,7 +189,7 @@ class SpaHelper {
                     $(targetDomName).html(fileContent);
 					
                 } else {
-                    console.error("file " + filePath + " doesn't exist.");
+                    console.error("The file " + filePath + " doesn't exist.");
                 }
 
                 return fileContent;
