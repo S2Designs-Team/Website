@@ -11,6 +11,8 @@ AppContext.setProperty("landingPageUrl"          , "wwwsys/pages/index.html");
 AppContext.setProperty("name"                    , "My application");
 AppContext.setProperty("contentContainerDomName" , "#content");
 AppContext.setProperty("isLocalContent"          , "true");
+AppContext.setProperty("guiMessageQueue"         , "{sender: '', x: 0, y: 0, btn: 'none', evt: '', msg: ''}");
+
 
 /* 🛠️ DEBUG PURPOSE ONLY
 console.log("applicationName  = " + oHta.applicationName + "<br>" + 
@@ -63,7 +65,7 @@ console.info(AppContext.isLocallyHosted(window.location.href) ? "Web app running
 
 // Export the singleton instance
 const appHttpClient = new HttpClient();
-SpaHelper.wrapAllRoutes();
+//SpaHelper.wrapAllRoutes();
 console.info("Redirecting to the landing page....");
 		
 SpaHelper.loadUrl(AppContext.props["landingPageUrl"]);

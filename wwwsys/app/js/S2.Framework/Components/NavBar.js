@@ -35,9 +35,9 @@ class NavBar extends BaseComponent {
         
         this.cssStyles = ``;
         this.isDebugEnvEnabled = true;
-        this.navLinks.push("elemento di navigazione n 1");
-        this.navLinks.push("elemento di navigazione n 2");
-        this.navLinks.push("elemento di navigazione n 3");
+        this.navLinks.push("LLM Training");
+        this.navLinks.push("LLM Chat");
+        this.navLinks.push("WebTv");
         NavBar.instance = this;
     }
 
