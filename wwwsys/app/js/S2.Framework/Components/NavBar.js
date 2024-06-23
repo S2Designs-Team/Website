@@ -1,6 +1,8 @@
 import { BaseComponent } from '../Core/BaseComponent.js';  // Import BaseComponent class from BaseComponent.js
 
 class NavBar extends BaseComponent {
+
+
     constructor(properties = {}, cssFileUrl = null) {
         super(properties, cssFileUrl); // Chiamata al costruttore della classe base
 
@@ -48,6 +50,20 @@ class NavBar extends BaseComponent {
     }
 
     addEventListeners(container) {
+        chatHeader.addEventListener('mousedown', (event) => {
+            isDragging = true;
+            offsetX = event.clientX - chatContainer.offsetLeft;
+            offsetY = event.clientY - chatContainer.offsetTop;
+          
+            // Inizializza le coordinate precedenti
+            previousX = event.clientX;
+            previousY = event.clientY;
+          
+            // Applica l'ombra e l'opacità durante il drag
+            chatContainer.style.boxShadow = '15px 8px 35px rgba(0, 0, 0, 1.0)';
+            chatContainer.style.opacity = 0.6;
+          });
+
         // Adds an 'On clickEvent' to all hyperlinks inside '.nav-menu' element
         // then anonymous function will be called
         $(".NavLink").click(function () {
@@ -81,10 +97,9 @@ class NavBar extends BaseComponent {
                 }
             });
             selectedChannelName = $(this).parent().attr('id');
-            console.log("Selected channel: '" + selectedChannelName + "'");
+            console.log("Selected link: '" + selectedChannelName + "'");
             return false;
         });        
-
     }
 
     /* 
