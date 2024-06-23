@@ -114,7 +114,7 @@ export class ChannelLink extends BaseComponent {
     }
 
     initializeGui() {
-        this.htmlSegment = ``;
+        this.htmlSegment = `<UL CLASS="channelList">`;
         this.channels.forEach((element) => {
             if (element.on === true) {
                 this.htmlSegment += 
@@ -129,6 +129,7 @@ export class ChannelLink extends BaseComponent {
                 console.log(element);
             }
         });
+        this.htmlSegment += `</UL>`;
         console.log(this.htmlSegment);
     }
 	
