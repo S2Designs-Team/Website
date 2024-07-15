@@ -2,7 +2,6 @@ import { BaseComponent } from '../Core/BaseComponent.js';  // Import BaseCompone
 
 class NavBar extends BaseComponent {
 
-
     constructor(properties = {}, cssFileUrl = null) {
         super(properties, cssFileUrl); // Chiamata al costruttore della classe base
 
@@ -39,7 +38,7 @@ class NavBar extends BaseComponent {
         this.isDebugEnvEnabled = true;
         this.navLinks.push("LLM Training");
         this.navLinks.push("LLM Chat");
-        this.navLinks.push("WebTv");
+        this.navLinks.push("WebTvg");
         NavBar.instance = this;
     }
 
