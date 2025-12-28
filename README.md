@@ -1,4 +1,4 @@
-# WEBSITE PUPRPOSE
+# WEBSITE PUPRPOSE 2
 This is a website used to aggregate some online resources or services used to create dataset for further implementations of AI.
 Our final goal is to link the content in further projects dealing with AI.
 This website is also intended to serve tutorials and guides (not just resources) alongside various AI projects we are going to start up.
